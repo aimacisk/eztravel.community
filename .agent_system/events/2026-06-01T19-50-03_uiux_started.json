@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:50:03.762049+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[續派 — 接力] W2-UIUX-2 — Home page 內容繪製\n\n**狀況**:page 107:2 \"Home\" 已建但 children=0(worker 前次中途 timeout)。任務:在 107:2 內補建首頁 13 sections。\n\n[1] ToolSearch 載 use_figma + get_metadata\n[2] get_metadata(fileKey=\"6X",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

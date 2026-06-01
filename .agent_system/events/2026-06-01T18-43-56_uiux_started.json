@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:43:56.993351+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[重派 with deferred-tools fix] W2-UIUX-3 — Figma 機票分類頁\n\n第一步必跑:`ToolSearch(query=\"select:mcp__figma-remote-mcp__use_figma,mcp__figma-remote-mcp__generate_figma_design,mcp__figma-remote-mcp__get_metadata,",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

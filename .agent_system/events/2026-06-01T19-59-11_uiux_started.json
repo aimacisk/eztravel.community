@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:59:11.810504+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[restart 後續派] W2-UIUX-2 Home page 13 sections 在 107:2\n\n關鍵步驟:\n1. ToolSearch 載 use_figma+get_metadata\n2. setCurrentPageAsync(getNodeByIdAsync('107:2'))\n3. 在 page 內建 wrapper AutoLayout VERTICAL width=144",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

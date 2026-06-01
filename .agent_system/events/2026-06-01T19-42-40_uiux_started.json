@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:42:40.926262+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v6] W2-UIUX-3 — Figma 機票分類頁\n\n讀 data/機票/機票.json → 在 file 6XmYJOpiSXab2gtGlmWtks 新增 page \"Category - 機票\" → 依 sections (search_form / hot_routes / promo_card / footer) 真實繪製,desktop 1440 寬,Tokens 色票字型,In",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

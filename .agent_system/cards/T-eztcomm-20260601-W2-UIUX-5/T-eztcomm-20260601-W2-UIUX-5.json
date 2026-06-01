@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W2-UIUX-5",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W2] UIUX — Figma 團體分類頁（依 data/團體/ 真實繪製）",
   "created_at": "2026-06-01T08:35:31.363567+00:00",
   "assignee": "uiux",
@@ -46,10 +46,17 @@
     "AC-W2U5-03：nodeId 記錄於 deliverables"
   ],
   "wiki_target": null,
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "projects/eztravel.community/02_design/figma_deliverables.md",
+    "figma://6XmYJOpiSXab2gtGlmWtks/page/130:2",
+    "figma://6XmYJOpiSXab2gtGlmWtks/node/130:3",
+    "figma://6XmYJOpiSXab2gtGlmWtks/node/130:7",
+    "figma://6XmYJOpiSXab2gtGlmWtks/node/130:21",
+    "figma://6XmYJOpiSXab2gtGlmWtks/node/130:139"
+  ],
+  "execution_log": "1. 讀 data/團體/團體.json，從 featured_tours 取 8 筆行程，補合成天數/目的地/定價/出發日欄位。2. file 6XmYJOpiSXab2gtGlmWtks 新建 page \"Category - 團體 [T-eztcomm-20260601-W2-UIUX-5]\"（pageId=130:2）。3. 繪製 4 sections：S1-Breadcrumb（麵包屑，n50 底色）/ S2-SearchFilter（5 chips，天數/目的地/出發日/價格 inactive，可報名 active 品牌綠，primaryAxisSizingMode=AUTO h=28）/ S3-TourList（8 TourCard 2欄4列，每卡含天數 chip，620×180，圓角 8，陰影）/ S4-Pagination（< 1 2 3 > 居中，「1」active 品牌綠）。4. Section 間距全部精確 64px（AC U-6）。5. get_screenshot 取 S1/S2/S3/S4 各節截圖，全 4 節點跑 8 維度視覺自驗，零紅旗。6. 更新 figma_deliverables.md 含 pageId/4 section nodeId/8 TourCard nodeId/URL。AC-W2U5-01~03 全通過。",
   "started_at": "2026-06-01T09:10:17.114233+00:00",
-  "completed_at": "2026-06-01T13:55:16.549155+00:00",
+  "completed_at": "2026-06-02T08:00:00.000000+00:00",
   "commit_sha": null,
-  "agent_session_id": ""
+  "agent_session_id": "T-eztcomm-20260601-W2-UIUX-5-session"
 }

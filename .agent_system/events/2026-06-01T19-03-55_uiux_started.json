@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:03:55.258395+00:00",
+  "task_id": "T-eztcomm-20260601-UIUX-USEFIGMA-PROBE",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[診斷 — use_figma 寫操作] 詳見 card body。\n\n關鍵測試:呼叫 use_figma 在 fileKey=6XmYJOpiSXab2gtGlmWtks 建一個極簡 PROBE_TEST page,看寫操作能否成功。\n\n**第一動作**:`ToolSearch(query=\"select:mcp__figma-remote-mcp__use_figma,mcp__figma-r",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

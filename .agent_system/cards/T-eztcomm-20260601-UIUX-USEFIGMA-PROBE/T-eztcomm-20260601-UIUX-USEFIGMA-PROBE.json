@@ -1,0 +1,30 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-UIUX-USEFIGMA-PROBE",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[診斷] UIUX worker 能否呼叫 use_figma 寫操作",
+  "created_at": "2026-06-01T19:03:49.294404+00:00",
+  "assignee": "uiux",
+  "phase": "IMPLEMENTATION",
+  "priority": "P0",
+  "instruction": "[診斷探針 — use_figma 寫操作]\n\n測試 worker 能否真實呼叫 `mcp__figma-remote-mcp__use_figma` 寫 JS 進 Figma file。\n\n[必跑 4 步,每步必 ToolSearch 載 schema 再呼叫]\n\nStep 1 — 載入 deferred figma 工具 schema:\n```\nToolSearch(query=\"select:mcp__figma-remote-mcp__use_figma,mcp__figma-remote-mcp__get_metadata,mcp__figma-remote-mcp__whoami\")\n```\n\nStep 2 — 確認 OAuth:\n```\nmcp__figma-remote-mcp__whoami()\n```\n預期 handle=ai.macisk\n\nStep 3 — **關鍵測試**:呼叫 `mcp__figma-remote-mcp__use_figma` 在 fileKey=\"6XmYJOpiSXab2gtGlmWtks\" 建一個極簡 page:\n```\nuse_figma(fileKey=\"6XmYJOpiSXab2gtGlmWtks\", code=`\nconst newPage = figma.createPage();\nnewPage.name = \"PROBE_TEST_\" + Date.now();\nreturn { pageId: newPage.id, pageName: newPage.name };\n`)\n```\n\n把 use_figma 的真實回應原文貼進來(JSON 或錯誤訊息)。\n\nStep 4 — 驗證:\n```\nmcp__figma-remote-mcp__get_metadata(fileKey=\"6XmYJOpiSXab2gtGlmWtks\")\n```\n看 pages 列表有沒有出現新建的 PROBE_TEST_* page。\n\n[輸出檔案] projects/eztravel.community/05_tests/UIUX_use_figma_probe.md\n內容:\n- Step 1 ToolSearch 回傳(有沒成功載 use_figma schema)\n- Step 2 whoami 真實回應原文\n- Step 3 use_figma 真實回應原文(JSON or error message)\n- Step 4 get_metadata 真實回應原文(列出全部 pages)\n- 結論:use_figma 寫操作能/不能用?如不能,error 是什麼?\n\n[完工 marker]\n- 4 步全跑且檔案寫好 → `[TASK_DONE]`\n- 任一步失敗 → `[PROBE_FAIL reason=...具體錯誤訊息]` **禁標 DONE**\n\n[嚴禁 hallucinate]\n- use_figma 必須真正呼叫,看到真實回應再貼上\n- 不可猜測 / 不可假裝成功 / 不可省略",
+  "context_paths": [
+    "projects/eztravel.community/05_tests/"
+  ],
+  "depends_on": [],
+  "objective": "確認 UIUX worker 能否實際呼叫 use_figma 寫操作(write to Figma)。前面 W3-UIUX-1 跑 17 分鐘 0 進展,需確認 use_figma 是否實際可用。",
+  "goal_state": "05_tests/UIUX_use_figma_probe.md 含 4 步驟真實回應(read whoami + read get_metadata + write use_figma)。",
+  "verification": {},
+  "out_of_scope": [],
+  "escalation_on_block": [],
+  "parent_wish_id": null,
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T19:03:55.196513+00:00",
+  "completed_at": "2026-06-01T19:14:02.699099+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

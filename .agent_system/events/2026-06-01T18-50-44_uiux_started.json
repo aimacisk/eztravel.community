@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:50:44.384479+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-5",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v4] W2-UIUX-5 — Figma 團體分類頁\n\nSOP 同 W2-UIUX-2 但 data/團體/團體.json + page \"Category - 團體\"\n[完工] Step 7 確認 → [TASK_DONE] + nodeId\n\ncontext_paths(沙盒授權):\n  - projects/eztravel.community/02_design/\n  - projec",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

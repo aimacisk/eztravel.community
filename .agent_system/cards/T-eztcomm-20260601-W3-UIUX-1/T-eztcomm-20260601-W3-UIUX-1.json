@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W3-UIUX-1",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W3] UIUX — Figma Community Module page：5 atomic primitives",
   "created_at": "2026-06-01T08:49:13.593515+00:00",
   "assignee": "uiux",
@@ -52,10 +52,18 @@
     "AC-5：每個 primitive 均有 get_screenshot 截圖自驗，5 維度全通過"
   ],
   "wiki_target": "06_wiki/02_design_tokens.md",
-  "deliverables": [],
+  "deliverables": [
+    "Figma file 6XmYJOpiSXab2gtGlmWtks page 87:2 Community Module",
+    "StarRating ComponentSet 91:14 (5 variants rating=1~5)",
+    "RatingDistribution 92:2",
+    "ReviewCard 104:2 (with hasReply variant 95:2)",
+    "FilterBar 105:2",
+    "ReviewComposer 106:2"
+  ],
   "execution_log": "",
   "started_at": "2026-06-01T08:57:59.208720+00:00",
   "completed_at": "2026-06-01T09:16:52.481828+00:00",
-  "commit_sha": null,
-  "agent_session_id": ""
+  "commit_sha": "03ac618",
+  "agent_session_id": "",
+  "admin_audit_at": "2026-06-02T03:50:00+00:00"
 }

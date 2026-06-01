@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W4-PG-2",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "REWORK",
   "title": "[W4] PG — HomeController + CategoryController + Razor views",
   "created_at": "2026-06-01T08:52:34.682229+00:00",
   "assignee": "pg",
@@ -16,7 +16,13 @@
   ],
   "depends_on": [
     "T-eztcomm-20260601-W4-PG-1",
-    "T-eztcomm-20260601-W2-UIUX-2"
+    "T-eztcomm-20260601-W2-UIUX-2",
+    "T-eztcomm-20260601-W2-UIUX-3",
+    "T-eztcomm-20260601-W2-UIUX-4",
+    "T-eztcomm-20260601-W2-UIUX-5",
+    "T-eztcomm-20260601-W2-UIUX-6",
+    "T-eztcomm-20260601-W2-UIUX-7",
+    "T-eztcomm-20260601-W2-UIUX-8"
   ],
   "objective": "實作 HomeController + CategoryController（6 分類）+ 對應 Razor Views，從 data/ JSON 載入內容並依 W2 Figma 設計忠實還原，dotnet run 後首頁與分類頁可正常瀏覽",
   "goal_state": "`dotnet run` 後 `curl http://localhost:5000/` 返回 200 且 response body 含 'hero' 關鍵字，`curl http://localhost:5000/category/flights` 返回 200 且含分類產品 HTML，`curl http://localhost:5000/category/invalid` 返回 404",
@@ -59,5 +65,6 @@
   "started_at": "2026-06-01T09:15:34.420619+00:00",
   "completed_at": "2026-06-01T13:51:33.106098+00:00",
   "commit_sha": null,
-  "agent_session_id": ""
+  "agent_session_id": "",
+  "admin_note": "骨架已寫 (admin commit dc277fe),view 依 Figma 完工後重做"
 }

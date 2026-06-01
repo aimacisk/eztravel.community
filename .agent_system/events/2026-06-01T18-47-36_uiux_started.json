@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:47:36.734292+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[重派 v3] W3-UIUX-1 — Figma Community Module 5 atomic primitives\n\n**🚨 強制 SOP — 違反任一步必標 [PROBE_FAIL] 不可標 DONE**\n\n步驟 1 — 載入 figma skills(本地 skills/figma-* 已新增):\n```\nSkill(skill=\"figma-use\")\nSkill(skill=\"f",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

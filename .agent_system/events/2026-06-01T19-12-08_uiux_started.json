@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:12:08.699195+00:00",
+  "task_id": "T-eztcomm-20260601-UIUX-USEFIGMA-PROBE",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[診斷 — use_figma 寫操作]\n\n**第 1 步**:ToolSearch 載 deferred figma schemas:\n```\nToolSearch(query=\"select:mcp__figma-remote-mcp__use_figma,mcp__figma-remote-mcp__get_metadata,mcp__figma-remote-mcp__whoami\")\n`",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

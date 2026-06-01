@@ -1,0 +1,17 @@
+{
+  "ts": "2026-06-01T19:24:25+00:00",
+  "actor": "uiux",
+  "type": "completed",
+  "details": {
+    "deliverables": [
+      "projects/eztravel.community/02_design/figma_deliverables_W2-UIUX-9.md",
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/88:471 (ComponentSet Product Detail)",
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/88:3 (GroupTour)",
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/88:123 (FreeTour)",
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/88:243 (Hotel)",
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/88:355 (Ticket)"
+    ],
+    "summary": "Product Detail 主版 4 variant 完成，視覺自驗 4/4 PASS，figma_deliverables_W2-UIUX-9.md 已寫入"
+  },
+  "task_id": "T-eztcomm-20260601-W2-UIUX-9"
+}

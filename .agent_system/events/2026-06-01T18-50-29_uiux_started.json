@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:50:29.328495+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v4 — 重派 with figma skills 已安裝] W3-UIUX-1 — Figma Community Module 5 atomic primitives\n\n**🚨 必跑 SOP(每步不可跳過)**\n\nStep 1 — 載入 figma skills(本地 skills/figma-use + figma-generate-library 已於 18:48 安裝):\n```\nSk",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

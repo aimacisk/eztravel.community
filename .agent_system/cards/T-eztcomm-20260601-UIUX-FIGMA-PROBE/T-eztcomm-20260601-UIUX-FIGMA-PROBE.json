@@ -1,0 +1,36 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-UIUX-FIGMA-PROBE",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[診斷] UIUX worker 能否呼叫 figma-remote-mcp 實測",
+  "created_at": "2026-06-01T18:41:02.274580+00:00",
+  "assignee": "uiux",
+  "phase": "IMPLEMENTATION",
+  "priority": "P0",
+  "instruction": "[診斷任務 — 非業務]\n測試 worker subprocess 能否實際呼叫 figma-remote-mcp,根因 12 次 hallucinate。\n\n[必要動作 — 不可跳過]\n1. 呼叫 `mcp__figma-remote-mcp__whoami`(無參數)\n   - 真實情況之外的任何回應都標 PROBE_FAIL,**禁標 [TASK_DONE]**\n2. 呼叫 `mcp__figma-remote-mcp__get_metadata(fileKey=\"6XmYJOpiSXab2gtGlmWtks\")`\n3. 寫一份 probe 報告 `projects/eztravel.community/05_tests/UIUX_figma_probe.md`,內容:\n   - 進場時 tool list 是否含 `mcp__figma-remote-mcp__whoami` / `get_metadata`(若不在,標 TOOL_NOT_LOADED)\n   - whoami 真實回傳(複製貼上原始 JSON)\n   - get_metadata 真實回傳(複製貼上原始 JSON,至少前 20 行)\n   - 若呼叫失敗,記錄錯誤訊息原文\n\n[完工 marker]\n最終回應結尾須含 `[TASK_DONE]` **僅當** 上述 3 步全部真實執行且檔案已寫好。\n否則寫 `[PROBE_FAIL reason=...]` 不要標 DONE。\n\n[嚴禁]\n- 不可 hallucinate whoami / get_metadata 回應\n- 不可僅口頭描述「已呼叫」而沒實際 tool call\n- 若工具不在 tool list,直接寫 `TOOL_NOT_LOADED` 並列出當前 tool list 內所有 figma- 開頭的工具(若有)\n\n[紀律] 中文 + 全形",
+  "context_paths": [
+    "projects/eztravel.community/05_tests/",
+    "projects/eztravel.community/02_design/"
+  ],
+  "depends_on": [],
+  "objective": "確認 UIUX worker SDK subprocess 能否實際呼叫 figma-remote-mcp tools。根因分析:.mcp.json 載入 OK + permissions OK + enabledMcpjsonServers OK 但 worker 12 次 hallucinate 不呼叫工具。",
+  "goal_state": "05_tests/UIUX_figma_probe.md 含實際 whoami + get_metadata 回傳 JSON(或明確 TOOL_NOT_LOADED 標記)。",
+  "verification": {
+    "checks": [
+      "ls 05_tests/UIUX_figma_probe.md",
+      "內含 real whoami JSON OR TOOL_NOT_LOADED 註記"
+    ]
+  },
+  "out_of_scope": [],
+  "escalation_on_block": [],
+  "parent_wish_id": null,
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T18:41:11.128965+00:00",
+  "completed_at": "2026-06-01T18:42:37.015632+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

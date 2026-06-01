@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:49:56.311807+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-4",
+  "agent": "uiux",
+  "type": "progress",
+  "summary": "figma-remote-mcp schema 已在本 session 載入（前次 ToolSearch 已完成）。直接進場——同步讀取旅館資料與查詢 Figma 檔案結構。\n資料已取得。先確認 design tokens 色值，同步進行。\n已確認設計規格：\n\n- **design_tokens**：brand.primary `#11D073`、accent.orange `#FF8B00`、accent.yellow `#FAB617`\n- **旅館.json** 6 大區段：search_bar / promo_section / theme_section / featured_hot",
+  "ref": {
+    "worker_id": "uiux-1",
+    "response_chars": 480
+  }
+}

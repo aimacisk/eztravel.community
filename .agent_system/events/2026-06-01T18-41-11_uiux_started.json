@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:41:11.213964+00:00",
+  "task_id": "T-eztcomm-20260601-UIUX-FIGMA-PROBE",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[診斷探針] 詳見 card body。\n\n**這是診斷任務,不是業務工作**。請按步驟實測:\n\n步驟 1:在你的回應一開始,列出當前你能看到的 `mcp__figma-remote-mcp__*` 工具名稱清單(從你被授予的 tool list 找)。若沒看到任何,寫 \"TOOL_NOT_LOADED\"。\n\n步驟 2:呼叫 `mcp__figma-remote-mcp__whoami()`(無參",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

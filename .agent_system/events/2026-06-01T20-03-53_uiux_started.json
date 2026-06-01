@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:03:53.410999+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-7",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "W2-UIUX-7 Category-票券\n\n建新 page \"Category - 票券\"+讀 data/票券/票券.json+建 wrapper+拆多 use_figma+每 get_metadata 驗+補 deliverables。[TASK_DONE]+nodeId。skillNames=\"resource:figma-use\"\n\ncontext_paths(沙盒授權):\n  - pro",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

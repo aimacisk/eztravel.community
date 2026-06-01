@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:43:44.868225+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[重派 with deferred-tools fix] W3-UIUX-1 — Figma Community Module 5 atomic primitives\n\n**關鍵第一步**:figma-remote-mcp 是 deferred tools,呼叫前必須先載入 schema:\n```\nToolSearch(query=\"select:mcp__figma-remote-mcp__us",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:03:38.188956+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "W2-UIUX-2 Home 13 sections in page 107:2\n\n1. ToolSearch select:mcp__figma-remote-mcp__use_figma,mcp__figma-remote-mcp__get_metadata\n2. setCurrentPageAsync(getNodeByIdAsync('107:2')) 之後在 page 內建 wrappe",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

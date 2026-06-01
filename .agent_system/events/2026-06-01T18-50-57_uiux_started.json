@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:50:57.751802+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-9",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v4] W2-UIUX-9 — Figma Product Detail 主版 (4 variant)\n\nStep 1: `Skill(skill=\"figma-use\")` + `Skill(skill=\"figma-generate-library\")` (因要建 Components + Variants)\nStep 2: ToolSearch 載 figma schemas\nStep 3",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:03:44.858302+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-4",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "W2-UIUX-4 Category-旅館\n\nToolSearch+建新 page \"Category - 旅館\"→讀 data/旅館/旅館.json sections→建 wrapper→拆多 use_figma 建→每 get_metadata 驗→補 figma_deliverables.md。完工 [TASK_DONE]+nodeId。skillNames=\"resource:figma-",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

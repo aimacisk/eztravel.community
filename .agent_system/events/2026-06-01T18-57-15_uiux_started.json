@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:57:15.472828+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v5 — inline rules,不靠 Skill tool] W3-UIUX-1 — Figma Community Module 5 atomic primitives\n\n**SOP(必跑每步)**\n\nStep 1 — 載入 figma deferred tools schema:\nToolSearch(query=\"select:mcp__figma-remote-mcp__use_fi",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

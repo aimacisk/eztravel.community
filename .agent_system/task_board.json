@@ -252,6 +252,36 @@
       "created_at": "2026-06-01T09:03:28.929499+00:00",
       "commit_sha": "dc277fe",
       "admin_commit": true
+    },
+    {
+      "task_id": "T-eztcomm-20260601-UIUX-FIGMA-PROBE",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[診斷] UIUX worker 能否呼叫 figma-remote-mcp 實測",
+      "created_at": "2026-06-01T18:41:02.274580+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-UIUX-USEFIGMA-PROBE",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[診斷] UIUX worker 能否呼叫 use_figma 寫操作",
+      "created_at": "2026-06-01T19:03:49.294404+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-9",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma Product Detail 主版（4 類 variant 預留）",
+      "created_at": "2026-06-01T08:36:38.088465+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W3] UIUX — Figma Community Module page：5 atomic primitives",
+      "created_at": "2026-06-01T08:49:13.593515+00:00",
+      "commit_sha": "03ac618",
+      "admin_audit": "Figma 87:2 verified: StarRating 91:14 (5 variants) + RatingDistribution 92:2 + ReviewCard 104:2 + FilterBar 105:2 + ReviewComposer 106:2"
     }
   ],
   "REWORK": [
@@ -275,20 +305,6 @@
       "status": "DONE",
       "title": "[W2] UIUX — Figma 機票分類頁（依 data/機票/ 真實繪製）",
       "created_at": "2026-06-01T08:34:57.355159+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-9",
-      "prj_id": "eztravel.community",
-      "status": "DONE",
-      "title": "[W2] UIUX — Figma Product Detail 主版（4 類 variant 預留）",
-      "created_at": "2026-06-01T08:36:38.088465+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W3-UIUX-1",
-      "prj_id": "eztravel.community",
-      "status": "DONE",
-      "title": "[W3] UIUX — Figma Community Module page：5 atomic primitives",
-      "created_at": "2026-06-01T08:49:13.593515+00:00"
     },
     {
       "task_id": "T-eztcomm-20260601-W4-PG-4",

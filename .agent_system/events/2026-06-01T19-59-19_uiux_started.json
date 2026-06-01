@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:59:19.934644+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-9",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[restart 後續派] W2-UIUX-9 Product Detail 補 4 variants in page 88:2\n\n現狀 88:2 有 1 child。任務:setCurrentPageAsync(getNodeByIdAsync('88:2')) → 用 figma.createComponent 建 4 variants (GroupTour/FreeTour/Hotel/Ti",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

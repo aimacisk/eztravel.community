@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:43:24.876266+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v6] W3-UIUX-2 — Community Module instance 到 4 商品頁 variant\n\n**依賴**:W3-UIUX-1 (Community Module 5 primitives) + W2-UIUX-9 (Product Detail 4 variants) 必先 DONE。\n\nSOP:\n1. ToolSearch 載 figma schema\n2. get_",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

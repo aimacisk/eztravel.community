@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:42:36.984627+00:00",
+  "task_id": "T-eztcomm-20260601-UIUX-FIGMA-PROBE",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "進場確認：收到診斷任務 `T-eztcomm-20260601-UIUX-FIGMA-PROBE`。依 §8 卡片紀律，先改 IN_PROGRESS，再執行步驟。\n\n**步驟 1：Figma MCP 工具清單**\n\n從系統 deferred tools 清單確認可見以下 `mcp__figma-remote-mcp__*` 工具（共 18 個）：\n\n```\nmcp__figma-remote-mcp__add_code_connect_map\nmcp__figma-remote-mcp__create_new_file\nmcp__figma-remote-mcp__generate_diagr",
+  "ref": {
+    "worker_id": "uiux-2",
+    "response_chars": 2061
+  }
+}

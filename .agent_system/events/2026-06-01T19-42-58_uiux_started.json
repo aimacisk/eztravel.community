@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:42:58.747695+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-8",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v6] W2-UIUX-8 — Figma 景點分類頁\n\n讀 data/景點/景點.json → file 6XmYJOpiSXab2gtGlmWtks 新增 page \"Category - 景點\" → 真實繪 → get_metadata 驗 → 補 deliverables\n[完工] [TASK_DONE] + nodeId 清單\n[紀律] skillNames=\"resource:fig",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

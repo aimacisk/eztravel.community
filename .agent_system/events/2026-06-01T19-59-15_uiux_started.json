@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:59:15.625388+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[restart 後續派] W2-UIUX-3 Category-機票 page 100:2\n\n讀 data/機票/機票.json sections → setCurrentPageAsync(getNodeByIdAsync('100:2')) → 建 wrapper + 依 sections 拆 use_figma 分批建 → 每 section get_metadata 驗 → 補 figm",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

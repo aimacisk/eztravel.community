@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T18:50:38.847627+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v4] W2-UIUX-3 — Figma 機票分類頁\n\nSOP 同 W2-UIUX-2 但讀 data/機票/機票.json + 新增 page \"Category - 機票\"\n[完工] Step 7 確認 → [TASK_DONE] + nodeId。否則 [PROBE_FAIL]\n\ncontext_paths(沙盒授權):\n  - projects/eztravel.community/0",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

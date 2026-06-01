@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:18:05.010342+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v6 — 確認 use_figma 真實可寫] W3-UIUX-1 — Figma Community Module 5 atomic primitives\n\n**重要發現**:use_figma 寫操作真的會持久化,但驗證要用 `get_metadata(fileKey, nodeId=新 page id)`,不是 page list。\n\n**SOP**\n\nStep 1: `ToolSearc",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

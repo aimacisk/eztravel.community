@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:42:35.957909+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v6 — Figma 已清理] W2-UIUX-2 — Figma Home 頁繪製\n\n**Figma file 6XmYJOpiSXab2gtGlmWtks 已整理為 3 pages**(Tokens 0:1 / Community Module 87:2 / Product Detail 88:2)。\n\n**任務**:新增 page \"Home\" + 依 data/homepage/home",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

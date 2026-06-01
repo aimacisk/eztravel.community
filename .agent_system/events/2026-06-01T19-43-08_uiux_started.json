@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T19:43:08.074067+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-9",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v6] W2-UIUX-9 — Figma Product Detail 補完 4 variants\n\n**現狀**:page 88:2 Product Detail 已存在(1 child)。任務:在此 page 內補建 4 variants (GroupTour / FreeTour / Hotel / Ticket)。\n\nSOP:\n1. ToolSearch 載 schema\n2. get",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}
