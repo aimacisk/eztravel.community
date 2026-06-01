@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:28:25.307582+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-8",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v7] W2-UIUX-8 Category-景點 — 須先新增 page(舊 69:2 已被 admin 清理)\n\nRead data/景點/景點_screenshot.png + data/景點/景點.json → use_figma 建新 page \"Category - 景點\" → setCurrentPageAsync → 建 wrapper + 依真實 sections (searc",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

@@ -540,3 +540,56 @@
 | U-8 | figma_deliverables 完整索引 | ✅ 本節含 fileKey/pageId/主 frame + 4 sections + 8 航班卡 nodeId+URL |
 | U-9 | 完成 8 維度視覺自驗 | ✅ nodeId 100:3 跑 get_screenshot + 8 維度親眼視覺判斷通過 |
 
+---
+
+## Product Detail Page — T-eztcomm-20260601-W2-UIUX-9
+
+### Figma Page 資訊
+
+| 屬性 | 值 |
+|------|----|
+| **fileKey** | `6XmYJOpiSXab2gtGlmWtks` |
+| **pageId** | `88:2` |
+| **pageName** | Product Detail |
+| **Figma Page URL** | https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:2 |
+
+### ComponentSet 清冊
+
+| 屬性 | 值 |
+|------|----|
+| **元件集名稱** | Product Detail |
+| **nodeId** | `88:471` |
+| **類型** | COMPONENT_SET |
+| **尺寸** | 3000 × 3280 px（2×2 格線，X gap 120px，Y gap 80px）|
+| **Figma URL** | https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:471 |
+
+### 4 Variant 節點清冊
+
+| Variant | Property | nodeId | 尺寸 | Figma URL |
+|---------|----------|--------|------|-----------|
+| **GroupTour** | `Category=GroupTour` | `88:3` | 1440×1600 | https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:3 |
+| **FreeTour** | `Category=FreeTour` | `88:123` | 1440×1600 | https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:123 |
+| **Hotel** | `Category=Hotel` | `88:243` | 1440×1600 | https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:243 |
+| **Ticket** | `Category=Ticket` | `88:355` | 1440×1600 | https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:355 |
+
+### 各 Variant 共用區段結構（5 區段）
+
+| 區段 | y | 高度 | 內容摘要 |
+|------|---|------|----------|
+| **Hero** | 0 | 400px | 麵包屑、產品標題、★×5 評價、起價、立即預訂 + 詢問行程按鈕、產品主圖（漸層底色因 variant 而異）|
+| **MainContent** | 400 | 500px | 左欄（產品特色 + 細節說明表格）、右欄 BookingCard（日期/人數/預估費用/預訂）|
+| **Community_Area** | 900 | 380px | 旅客評價、RatingDistribution 5 bars、2×ReviewCard、FilterBar 5 chips |
+| **Recommendation** | 1280 | 220px | 你可能也喜歡 + 4×MiniCard（圖、目的地、品牌綠起價）|
+| **Footer** | 1500 | 100px | 深色背景、Copyright EZTravel 易遊網、客服電話 |
+
+### 視覺自驗結果（8 維度，get_screenshot 各 variant 均已跑）
+
+| Variant | nodeId | ①比例 | ②密度 | ③層級 | ④對齊 | ⑤樣式 | ⑥容器 | ⑦不重疊 | ⑧文字 | 判定 |
+|---------|--------|-------|-------|-------|-------|-------|-------|---------|-------|------|
+| GroupTour | `88:3` | ✅ | ✅ | ✅ | ✅ | ✅ 綠漸層 Hero | ✅ | ✅ | ✅ | **PASS** |
+| FreeTour | `88:123` | ✅ | ✅ | ✅ | ✅ | ✅ 藍漸層 Hero | ✅ | ✅ | ✅ | **PASS** |
+| Hotel | `88:243` | ✅ | ✅ | ✅ | ✅ | ✅ 紫漸層 Hero | ✅ | ✅ | ✅ | **PASS** |
+| Ticket | `88:355` | ✅ | ✅ | ✅ | ✅ | ✅ 橙漸層 Hero | ✅ | ✅ | ✅ | **PASS** |
+
+**全 4 variant 通過。無 [ISSUE] 項目。**
+

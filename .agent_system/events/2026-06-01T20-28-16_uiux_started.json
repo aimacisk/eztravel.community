@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:28:16.940420+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-6",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v7] W2-UIUX-6 Category-自由行 在 page 127:2\n\nRead data/自由行/自由行_screenshot.png + data/自由行/自由行.json → setCurrentPageAsync(getNodeByIdAsync('127:2')) → 建 wrapper + 依真實 sections 繪(嚴禁編造)→ 每 section get_metada",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

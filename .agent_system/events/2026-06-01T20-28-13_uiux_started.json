@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:28:13.327892+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-5",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v7] W2-UIUX-5 Category-團體 在 page 130:2\n\nRead data/團體/團體_screenshot.png + data/團體/團體.json → setCurrentPageAsync(getNodeByIdAsync('130:2')) → 建 wrapper + 依真實 sections 繪(嚴禁編造)→ 每 section get_metadata 驗 ",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

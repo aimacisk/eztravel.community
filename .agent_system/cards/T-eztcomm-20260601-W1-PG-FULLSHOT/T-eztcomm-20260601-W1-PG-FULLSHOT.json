@@ -1,0 +1,33 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W1-PG-FULLSHOT",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[前置補強] 重拍 eztravel 7 頁 full-page 長截圖",
+  "created_at": "2026-06-01T20:28:53.426814+00:00",
+  "assignee": "pg",
+  "phase": "CRAWL",
+  "priority": "P0",
+  "instruction": "用 Playwright MCP 重新爬 eztravel 7 頁,**強制 full-page (fullPage:true) 長截圖**(W1 既有 screenshot 不完整),覆蓋舊檔。\n\n[Step 1] ToolSearch 載 mcp__playwright__browser_navigate, mcp__playwright__browser_take_screenshot, mcp__playwright__browser_resize, mcp__playwright__browser_close\n\n[Step 2] 7 個 URL → 對應 data/{slug}/full_screenshot.png:\n- https://www.eztravel.com.tw/ → data/homepage/full_screenshot.png\n- https://flight.eztravel.com.tw/ → data/機票/full_screenshot.png\n- https://hotel.eztravel.com.tw/ → data/旅館/full_screenshot.png\n- https://vacation.eztravel.com.tw/ → data/團體/full_screenshot.png\n- https://packages.eztravel.com.tw/ → data/自由行/full_screenshot.png\n- https://activity.eztravel.com.tw/ → data/票券/full_screenshot.png\n- https://trip.eztravel.com.tw/ → data/景點/full_screenshot.png\n\n每頁:\n1. browser_resize 1440 × 900\n2. browser_navigate URL\n3. 等 page load (browser_wait_for 或 sleep)\n4. browser_take_screenshot 帶 fullPage:true(或 filename=data/{slug}/full_screenshot.png + full_page)\n5. 確認 file 寫入 + size > 500KB(長截圖才合格)\n\n[完工] 7 個 full_screenshot.png 全寫入 + size > 500KB → [TASK_DONE] + 7 個檔案路徑 + size\n失敗 → [PROBE_FAIL]\n\n[紀律] 用 Playwright MCP 真實爬 + fullPage:true",
+  "context_paths": [],
+  "depends_on": [],
+  "objective": "補強 W1 既有 screenshot 不完整問題,提供 UIUX 重繪需要的真實長截圖。",
+  "goal_state": "7 個 data/{slug}/full_screenshot.png 全為 full-page 長截圖 size > 500KB。",
+  "verification": {
+    "checks": [
+      "ls data/*/full_screenshot.png 7 個",
+      "每檔 size > 500KB"
+    ]
+  },
+  "out_of_scope": [],
+  "escalation_on_block": [],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T20:28:58.693315+00:00",
+  "completed_at": "2026-06-01T20:32:20.432849+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

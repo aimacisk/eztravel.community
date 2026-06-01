@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:32:20.388099+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-FULLSHOT",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "進場。先確認目錄結構，建立 data 子目錄，再執行截圖流程。\n目錄已就位。開始截圖流程 — 先 resize，再逐頁執行。\n\n**Step 1: Resize + Homepage**\nPlaywright sandbox 限制在 `agents/pg/` 內。先存至 workspace，再搬移至 project data 目錄。\n需先在 workspace 內建立子目錄結構，用 Write 建立佔位檔。\n了解沙盒限制：Playwright 只能寫 `agents/pg/` 範圍。策略改為：\n1. 截圖存至 `.playwright-mcp/` \n2. 用 `cat` + 重定向複製到 `p",
+  "ref": {
+    "worker_id": "pg-2",
+    "response_chars": 1591
+  }
+}

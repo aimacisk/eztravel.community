@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:28:58.792312+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-FULLSHOT",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[前置] 用 Playwright MCP 重拍 eztravel 7 頁 full-page 長截圖\n\n詳見 card body。\n\n關鍵:\n1. ToolSearch 載 mcp__playwright__browser_navigate, browser_take_screenshot, browser_resize, browser_close\n2. 7 個 eztravel URL 逐一",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:28:02.970583+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[v7 — 強制讀 screenshot 還原 eztravel 真實畫面] W2-UIUX-3 Category-機票 在 page 100:2\n\n**關鍵紀律(避免編造內容)**:\n1. **必先 Read `projects/eztravel.community/data/機票/機票_screenshot.png`** 看 eztravel 真實畫面(可用 figma:get_screens",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

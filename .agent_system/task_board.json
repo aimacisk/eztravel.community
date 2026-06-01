@@ -282,6 +282,22 @@
       "created_at": "2026-06-01T08:49:13.593515+00:00",
       "commit_sha": "03ac618",
       "admin_audit": "Figma 87:2 verified: StarRating 91:14 (5 variants) + RatingDistribution 92:2 + ReviewCard 104:2 + FilterBar 105:2 + ReviewComposer 106:2"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma Home 頁面（依 data/homepage/ 真實繪製）",
+      "created_at": "2026-06-01T08:34:39.777899+00:00",
+      "commit_sha": "dbc187a",
+      "admin_audit": "Home 107:2 verified: wrapper 134:2 + 13 sections + worker 建 5 sections + footer"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-FULLSHOT",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[前置補強] 重拍 eztravel 7 頁 full-page 長截圖",
+      "created_at": "2026-06-01T20:28:53.426814+00:00"
     }
   ],
   "REWORK": [
@@ -312,13 +328,6 @@
       "status": "DONE",
       "title": "[W4] PG — Community feature（ReviewController + AJAX + partial）",
       "created_at": "2026-06-01T08:53:31.431611+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-2",
-      "prj_id": "eztravel.community",
-      "status": "DONE",
-      "title": "[W2] UIUX — Figma Home 頁面（依 data/homepage/ 真實繪製）",
-      "created_at": "2026-06-01T08:34:39.777899+00:00"
     },
     {
       "task_id": "T-eztcomm-20260601-W2-UIUX-6",

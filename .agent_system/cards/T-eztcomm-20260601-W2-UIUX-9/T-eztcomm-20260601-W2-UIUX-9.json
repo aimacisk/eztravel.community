@@ -47,18 +47,19 @@
   ],
   "wiki_target": "06_wiki/02_design_tokens.md",
   "deliverables": [
-    "projects/eztravel.community/02_design/figma_deliverables_W2-UIUX-9.md",
-    "figma://6XmYJOpiSXab2gtGlmWtks/page/88:2",
-    "figma://6XmYJOpiSXab2gtGlmWtks/node/88:471",
-    "figma://6XmYJOpiSXab2gtGlmWtks/node/88:3",
-    "figma://6XmYJOpiSXab2gtGlmWtks/node/88:123",
-    "figma://6XmYJOpiSXab2gtGlmWtks/node/88:243",
-    "figma://6XmYJOpiSXab2gtGlmWtks/node/88:355"
+    "Figma file 6XmYJOpiSXab2gtGlmWtks page 88:2 Product Detail",
+    "ComponentSet 88:471 Product Detail (4 variants 2x2 grid)",
+    "Category=GroupTour 88:3 (1440x1600)",
+    "Category=FreeTour 88:123",
+    "Category=Hotel 88:243",
+    "Category=Ticket 88:355",
+    "02_design/figma_deliverables_W2-UIUX-9.md"
   ],
   "execution_log": "建立 Figma page 'Product Detail'（pageId 88:2）；以 combineAsVariants 組成 ComponentSet 'Product Detail'（nodeId 88:471，3000×3280px，2×2 格線）。4 variant 各 1440×1600px：GroupTour(88:3)/FreeTour(88:123)/Hotel(88:243)/Ticket(88:355)，每 variant 含 Hero（漸層 400px）/ MainContent（500px）/ Community_Area（380px）/ Recommendation（220px）/ Footer（100px）共 5 區段。AC-W2U9-01~04 全通過。8 維度視覺自驗 4/4 PASS（get_screenshot 各 variant 皆已驗證）。",
   "wiki_draft_path": "projects/eztravel.community/02_design/figma_deliverables_W2-UIUX-9.md",
   "started_at": "2026-06-01T09:10:00.000000+00:00",
   "completed_at": "2026-06-02T00:00:00.000000+00:00",
-  "commit_sha": null,
-  "agent_session_id": ""
+  "commit_sha": "dbc187a",
+  "agent_session_id": "",
+  "admin_audit_at": "2026-06-02T04:26:00+00:00"
 }
