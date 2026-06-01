@@ -1,0 +1,48 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W3-BA-1",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W3] BA — community_spec.md (留言/星等/權限/聚合/防濫用)",
+  "created_at": "2026-06-01T08:35:38.099915+00:00",
+  "assignee": "ba",
+  "phase": "REQUIREMENT",
+  "priority": "P1",
+  "instruction": "產出 community 留言+星等功能的完整需求規格,讓 W3-UIUX 與 W4-PG-4 有單一 source of truth。\n\n【必交付】projects/eztravel.community/01_requirements/community_spec.md\n\n【內容大綱】\n1. 功能總覽:Google Maps 評論風格 + eztravel 配色融合\n2. 評論欄位 (Review entity):\n   - 必填:rating (1-5 整數,smallint)、text (10-2000 字)、product_id、user_id\n   - 選填:photos (string[] 圖片 URL,最多 6 張)、parent_review_id (樓主回應 nested)\n   - 自動:id (Guid)、created_at、updated_at、helpful_count、is_deleted (soft delete)\n3. 權限矩陣 (RBAC):\n   - 訪客:可讀,不可寫\n   - 已登入使用者:可寫自己的、可改自己的 (24 小時內)、可刪自己的 (soft delete)、可按讚他人的\n   - 樓主 (Product 擁有者):可在自己商品下「樓主回應」(parent_review_id 串接)\n   - 管理員 (MVP 先不實作後台,Role=Admin 預留):可隱藏任何評論\n4. 星等聚合規則:\n   - 商品總平均 = AVG(rating) WHERE is_deleted=false GROUP BY product_id\n   - 5 條長條分布 (5-4-3-2-1 星各佔比) for RatingDistribution UI\n   - 總評論數 / 有照片的評論數\n   - 快取策略:每次有評論新增/修改/刪除立即重算 (MVP 用 trigger or service layer,不用 cron)\n5. 防濫用規則:\n   - rate limit: 同 user 對同 product 24 小時內最多 1 則評論 (修改不算新增)\n   - 字數下限 10 / 上限 2000\n   - 字數驗證 Server-side 強制\n   - 圖片上傳大小限制 5MB / 張,最多 6 張 / 評論 (MVP 圖檔存 wwwroot/uploads,不存 GCS)\n   - HTML/XSS 防護:storage 階段 strip HTML tags,只允許 plain text + 換行\n6. UX 互動規約:\n   - ReviewComposer 提交後 → API 回 201 + 即時插入畫面頂端\n   - 樓主回應 → nested 縮排顯示在原評論下\n   - 按讚 → optimistic update,失敗 rollback\n   - 篩選 (FilterBar) → URL query string (e.g. ?stars=5&hasPhoto=1&sort=newest),可分享/書籤\n7. API endpoint 草案 (供 W4-AT-1 採用):\n   - GET  /api/products/{id}/reviews?stars=&hasPhoto=&sort=&page=\n   - POST /api/products/{id}/reviews\n   - PATCH /api/reviews/{id}\n   - DELETE /api/reviews/{id}\n   - POST /api/reviews/{id}/like\n   - POST /api/reviews/{id}/reply (parent_review_id 自動設)\n\n【完工 marker】最終回應結尾含 [TASK_DONE]\n【模型】sonnet",
+  "context_paths": [
+    "projects/eztravel.community/",
+    "docs/superpowers/specs/2026-06-01-eztravel-community-rebuild-design.md",
+    "wishes/W-eztcomm-20260601-REBUILD.json"
+  ],
+  "depends_on": [],
+  "objective": "為 W3 社群留言+星等模組產出完整需求規格 (community_spec.md),作為 W3-UIUX 設計與 W4-PG-4 實作的單一 source of truth。",
+  "goal_state": "community_spec.md 含 7 段大綱完整內容,包含:評論欄位定義、權限矩陣、聚合規則、防濫用、UX 互動、API 草案。",
+  "verification": {
+    "checks": [
+      "ls projects/eztravel.community/01_requirements/community_spec.md 存在且 > 300 行",
+      "含 7 個主要章節 (功能 / 欄位 / 權限 / 聚合 / 防濫用 / UX / API)"
+    ],
+    "evidence_commands": [
+      "wc -l projects/eztravel.community/01_requirements/community_spec.md",
+      "grep -E '^## ' projects/eztravel.community/01_requirements/community_spec.md | wc -l"
+    ]
+  },
+  "out_of_scope": [
+    "UIUX 設計 (W3-UIUX-* 負責)",
+    ".NET 實作 (W4-PG-4 負責)",
+    "EF Core schema 詳細 (W4-AT-1 負責針對 data_model.md)",
+    "后台管理 UI (MVP 不做)"
+  ],
+  "escalation_on_block": [
+    "若某項規格未决→寫 best-guess 並註記『MVP 假設』不擋後續"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T08:35:46.491093+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

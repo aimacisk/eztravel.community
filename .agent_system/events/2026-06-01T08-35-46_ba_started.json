@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:35:46.566027+00:00",
+  "task_id": "T-eztcomm-20260601-W3-BA-1",
+  "agent": "ba",
+  "type": "started",
+  "summary": "[模型] sonnet\n\n[任務] T-eztcomm-20260601-W3-BA-1: [W3] BA community_spec.md (留言+星等+權限+聚合+防濫用)\n\n詳細內容已寫於 card body (cards/T-eztcomm-20260601-W3-BA-1/T-eztcomm-20260601-W3-BA-1.json)。\n\n【輸出】projects/eztravel.",
+  "ref": {
+    "worker_id": "ba-1",
+    "agent_session_id": ""
+  }
+}

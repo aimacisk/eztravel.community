@@ -1,0 +1,54 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-6",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — Figma 自由行分類頁（依 data/自由行/ 真實繪製）",
+  "created_at": "2026-06-01T08:35:43.797558+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal Figma 自由行分類頁 frame 完成，視覺自驗 pass，nodeId 已記錄`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-1] 使用 Tokens token\n[依賴: T-eztcomm-20260601-W1-PG-5] 讀 data/自由行/ JSON\n\n1. 讀 projects/eztravel.community/data/自由行/ JSON（欄位：行程名/天數/地點/定價/含早/圖片等）\n2. 建 frame \"Category-自由行\"，沿用分類頁統一 layout\n3. 繪製麵包屑/篩選欄/FITCard(自由行卡)/分頁\n4. 使用 W2-UIUX-1 tokens\n5. get_screenshot + 5 維度自驗\n\n**注意：** 自由行卡片需標示「含機+酒」等套裝組合標籤；W3-UIUX-2 Community 將 instance 到此類型 variant",
+  "context_paths": [
+    "projects/eztravel.community/data/自由行/",
+    "projects/eztravel.community/tokens.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-1",
+    "T-eztcomm-20260601-W1-PG-5"
+  ],
+  "objective": "在 Figma 繪製自由行分類頁面，忠實還原 data/自由行/ 真實資料結構與視覺風格",
+  "goal_state": "Figma 自由行分類頁 frame 完成，含麵包屑／篩選欄／自由行卡片列表，視覺自驗 5 維度 pass，nodeId 記錄於 deliverables",
+  "verification": {
+    "verifier": "UIUX 自驗",
+    "tools": [
+      "figma-remote-mcp get_screenshot"
+    ],
+    "evidence_checks": [
+      "get_screenshot 含 FITCard（天數/地點/價格/套裝標籤）、麵包屑",
+      "5 維度無紅旗"
+    ]
+  },
+  "out_of_scope": [
+    "其他分類頁設計",
+    "Product Detail",
+    "Community module",
+    "RWD"
+  ],
+  "escalation_on_block": [
+    "data/自由行/ 不存在 → [QUERY] admin",
+    "Figma OAuth 失效 → PENDING_FIGMA_OAUTH"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U6-01：自由行 frame 含麵包屑/篩選/FITCard/分頁",
+    "AC-W2U6-02：5 維度視覺自驗 pass",
+    "AC-W2U6-03：nodeId 記錄於 deliverables"
+  ],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

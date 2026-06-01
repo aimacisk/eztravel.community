@@ -1,0 +1,33 @@
+# build artifacts
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# logs
+*.log
+_logs/
+
+# node
+node_modules/
+
+# secrets
+appsettings.Development.local.json
+appsettings.Production.local.json
+*.pfx
+*.key
+*-secret.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# worktrees (created by dispatch)
+.worktrees/
+
+# data cache (W1 outputs are tracked but local cache not)
+data/_cache/
+
+# wwwroot uploads (W4 runtime)
+04_src/eztravel.Community/eztravel.Community.Web/wwwroot/uploads/

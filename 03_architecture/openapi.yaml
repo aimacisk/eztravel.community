@@ -1,0 +1,13 @@
+# OpenAPI 規格書 — 由 AT agent 撰寫
+# 任何 API 變更必須伴隨 migration 計畫
+openapi: 3.0.3
+info:
+  title: "{{ProjectName}} API"
+  version: "0.1.0"
+  description: |
+    由 GitOps Agent Factory 的 AT agent 維護。
+    所有 endpoint 對應 BA rules.json 的業務規則,並由 QA agent 依此撰寫整合測試。
+servers: []
+paths: {}
+components:
+  schemas: {}

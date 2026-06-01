@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:34:51.775884+00:00",
+  "task_id": "T-eztcomm-20260601-W1-BA-1",
+  "agent": "ba",
+  "type": "started",
+  "summary": "[模型] sonnet (memory admin_subagent_model_default,規格類定義非 opus 級規劃)\n\n[任務] T-eztcomm-20260601-W1-BA-1: [W1] BA 定義 data/ JSON schema + 圖檔命名規則 + anchor id 約定\n\n[許願卡] W-eztcomm-20260601-REBUILD\n[設計 spec] doc",
+  "ref": {
+    "worker_id": "ba-1",
+    "agent_session_id": ""
+  }
+}

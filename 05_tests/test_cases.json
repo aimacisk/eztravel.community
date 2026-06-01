@@ -1,0 +1,15 @@
+{
+  "$comment": "測試案例集 — 由 QA agent 依 BA AC 與 AT openapi.yaml 撰寫。涵蓋整合測試、邊界測試、安全掃描。",
+  "pid": "{{PID}}",
+  "version": "0.1.0",
+  "categories": {
+    "integration": [],
+    "boundary": [],
+    "security": [],
+    "regression": []
+  },
+  "coverageTarget": {
+    "line": 0.8,
+    "branch": 0.7
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — Figma 機票分類頁（依 data/機票/ 真實繪製）",
+  "created_at": "2026-06-01T08:34:57.355159+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal Figma 機票分類頁 frame 完成，含篩選欄／產品列表，視覺自驗 pass，nodeId 已記錄`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-1 完成後] 使用 Tokens page token\n[依賴: T-eztcomm-20260601-W1-PG-2 完成後] 讀 data/機票/ JSON 取得真實產品資料\n\n**工作步驟：**\n1. 讀 projects/eztravel.community/data/機票/ JSON，了解欄位結構（名稱/目的地/出發日/價格/圖片 etc.）\n2. 在 Figma 建「機票」page（或在 Home page 所在 file 新增 frame \"Category-機票\"）\n3. 繪製：\n   - 頁首麵包屑（首頁 > 機票）\n   - 篩選側欄（出發地/目的地/日期/價格區間）\n   - 主內容區：ProductCard 列表（至少 6 張，含圖/航空/路線/價格/出發日）\n   - 分頁控件\n4. 使用 W2-UIUX-1 tokens\n5. get_screenshot 截圖，5 維度自驗\n\n**平行視角：** W4-PG-2 會依此 frame 實作 Category controller，PG 需參考篩選欄欄位命名；W2-UIUX-4~8 同為分類頁，frame layout 需保持一致（只換資料/圖示）",
+  "context_paths": [
+    "projects/eztravel.community/data/機票/",
+    "projects/eztravel.community/tokens.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-1",
+    "T-eztcomm-20260601-W1-PG-2"
+  ],
+  "objective": "在 Figma 繪製機票分類頁面，忠實還原 data/機票/ 真實資料結構與 eztravel 視覺風格",
+  "goal_state": "Figma 機票分類頁 frame 完成，含頁首麵包屑／篩選側欄／產品卡片列表，內容來自 data/機票/ JSON，視覺自驗 5 維度 pass，nodeId 記錄於 deliverables",
+  "verification": {
+    "verifier": "UIUX 自驗 get_screenshot",
+    "tools": [
+      "figma-remote-mcp get_screenshot"
+    ],
+    "evidence_checks": [
+      "get_screenshot 截圖含篩選欄、至少 4 張 ProductCard、麵包屑",
+      "5 維度無紅旗"
+    ]
+  },
+  "out_of_scope": [
+    "其他分類頁（W2-UIUX-4~8）",
+    "Product Detail（W2-UIUX-9）",
+    "實際訂位功能",
+    "手機版 RWD"
+  ],
+  "escalation_on_block": [
+    "data/機票/ 不存在或為空 → [QUERY] admin 確認 W1-PG-2 完工",
+    "Figma OAuth 失效 → PENDING_FIGMA_OAUTH + chat admin"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U3-01：機票 frame 含麵包屑/篩選欄/產品列表/分頁，get_screenshot 可取圖",
+    "AC-W2U3-02：ProductCard 含圖/路線/價格欄位，與 data/機票/ JSON 欄位對齊",
+    "AC-W2U3-03：5 維度視覺自驗 pass",
+    "AC-W2U3-04：nodeId 記錄於 deliverables"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

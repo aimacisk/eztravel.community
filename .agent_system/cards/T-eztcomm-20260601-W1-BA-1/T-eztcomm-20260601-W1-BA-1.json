@@ -1,0 +1,49 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W1-BA-1",
+  "prj_id": "eztravel.community",
+  "status": "IN_PROGRESS",
+  "title": "[W1] BA — data/ JSON schema + 命名規則 + anchor id 約定",
+  "created_at": "2026-06-01T08:22:24.980264+00:00",
+  "assignee": "ba",
+  "phase": "REQUIREMENTS",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n[上游] 使用者需求：重建 eztravel.community，爬取真實首頁第一層連結數據\n\n**任務：** 撰寫 data/ 目錄 JSON schema 規範與爬蟲摘要\n\n【交付文件 1】`projects/eztravel.community/01_requirements/data_schema.md`\n- 7 個子資料夾名稱：homepage / 機票 / 旅館 / 團體 / 自由行 / 票券 / 景點\n- 每個 JSON 頂層結構：{ page, scraped_at, url, sections: [{id, type, title?, items:[]}] }\n- 圖檔命名：{category}_{type}_{index}.{ext}（例：homepage_banner_01.jpg）\n- anchor id 規則：snake_case，對應畫面區塊（例：hero_banner / category_nav / promo_section）\n- items 元素可選欄位：text, image_url, link_url, price, badge, description\n\n【交付文件 2】`projects/eztravel.community/01_requirements/crawler_brief.md`\n- 7 個目標 URL（先查 eztravel.com.tw 導覽確認實際路徑）\n- 每頁預期截圖數量（1 張全頁）\n- 注意事項：動態 JS 載入、lazy image、需等網路空閒再截圖\n\n[下游] PG 卡 W1-PG-1~7 依此 schema 輸出 JSON；UIUX 卡 W2 依此了解資料結構；AQ 卡 W1-AQ-1 依此驗收",
+  "context_paths": [
+    "projects/eztravel.community/01_requirements/",
+    "docs/superpowers/specs/2026-06-01-eztravel-community-rebuild-design.md"
+  ],
+  "depends_on": [],
+  "objective": "定義 eztravel 爬蟲結果的統一 JSON schema、圖檔命名規則、畫面區塊 anchor id 約定，讓 PG 爬蟲卡（W1-PG-1~7）有明確格式依據",
+  "goal_state": "projects/eztravel.community/01_requirements/data_schema.md 存在，包含 7 頁（homepage + 6 分類）JSON 結構定義、圖檔命名規範、anchor id 命名規則；01_requirements/crawler_brief.md 存在，包含 7 個目標 URL 及爬取注意事項",
+  "verification": {
+    "verifier": "BA 自驗 + AQ 覆驗（W1-AQ-1）",
+    "tools": [
+      "Read",
+      "Glob"
+    ],
+    "evidence_checks": [
+      "讀 01_requirements/data_schema.md 後輸出包含 sections/items 結構定義 + 圖檔命名範例",
+      "讀 01_requirements/crawler_brief.md 後輸出包含 7 個 URL + 預期輸出說明"
+    ]
+  },
+  "out_of_scope": [
+    "爬蟲實作（歸 PG 卡 W1-PG-1~7）",
+    "Figma 設計（歸 W2）",
+    "社群評論規格（歸 W3-BA-1）",
+    "data/ 目錄中的實際資料產出"
+  ],
+  "escalation_on_block": [
+    "eztravel 網站頁面結構無法判斷（如大量 SPA 無 HTML）→ chat admin + [QUERY] 請求視覺輔助截圖",
+    "URL 找不到（404 / 重定向）→ 先記錄疑問，繼續其他頁，完工前通知 admin"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": "06_wiki/01_data_schema.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T08:35:14.639443Z",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": "ba-session-20260601-T-eztcomm-W1-BA-1"
+}

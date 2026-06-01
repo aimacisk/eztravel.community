@@ -1,0 +1,55 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-4",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — Figma 旅館分類頁（依 data/旅館/ 真實繪製）",
+  "created_at": "2026-06-01T08:35:11.043014+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal Figma 旅館分類頁 frame 完成，含篩選欄／產品列表，視覺自驗 pass，nodeId 已記錄`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-1 完成後] 使用 Tokens page token\n[依賴: T-eztcomm-20260601-W1-PG-3 完成後] 讀 data/旅館/ JSON\n\n**工作步驟：**\n1. 讀 projects/eztravel.community/data/旅館/ JSON，了解欄位（旅館名/地點/星級/價格/圖片/評分 etc.）\n2. 在 Figma 建 frame \"Category-旅館\"（保持與機票頁相同 layout 骨架）\n3. 繪製：\n   - 麵包屑（首頁 > 旅館）\n   - 篩選側欄（目的地/入住日/退房日/星級/價格）\n   - HotelCard 列表（含旅館圖/名稱/地點/星級/每晚價格/評分）\n   - 分頁\n4. 使用 W2-UIUX-1 tokens\n5. get_screenshot 截圖，5 維度自驗\n\n**平行視角：** 與 W2-UIUX-3 (機票) frame layout 須一致，只換資料/篩選欄內容；W4-PG-2 依此實作 Category 頁面",
+  "context_paths": [
+    "projects/eztravel.community/data/旅館/",
+    "projects/eztravel.community/tokens.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-1",
+    "T-eztcomm-20260601-W1-PG-3"
+  ],
+  "objective": "在 Figma 繪製旅館分類頁面，忠實還原 data/旅館/ 真實資料結構與 eztravel 視覺風格",
+  "goal_state": "Figma 旅館分類頁 frame 完成，含麵包屑／篩選欄／旅館卡片列表，內容來自 data/旅館/ JSON，視覺自驗 5 維度 pass，nodeId 記錄於 deliverables",
+  "verification": {
+    "verifier": "UIUX 自驗 get_screenshot",
+    "tools": [
+      "figma-remote-mcp get_screenshot"
+    ],
+    "evidence_checks": [
+      "get_screenshot 截圖含旅館篩選欄（含星級選項）、HotelCard（含星級/評分）、麵包屑",
+      "5 維度無紅旗"
+    ]
+  },
+  "out_of_scope": [
+    "機票/其他分類頁設計",
+    "Product Detail",
+    "訂房 API 整合",
+    "手機版 RWD"
+  ],
+  "escalation_on_block": [
+    "data/旅館/ 不存在 → [QUERY] admin 確認 W1-PG-3 完工",
+    "Figma OAuth 失效 → PENDING_FIGMA_OAUTH + chat admin"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U4-01：旅館 frame 含麵包屑/篩選欄/HotelCard 列表/分頁",
+    "AC-W2U4-02：HotelCard 含旅館圖/名稱/星級/評分/價格，與 data/旅館/ JSON 欄位對齊",
+    "AC-W2U4-03：5 維度視覺自驗 pass",
+    "AC-W2U4-04：nodeId 記錄於 deliverables"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

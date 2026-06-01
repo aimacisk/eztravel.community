@@ -1,0 +1,53 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W1-PG-1",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W1] PG — Playwright 爬首頁 → data/homepage/",
+  "created_at": "2026-06-01T08:22:44.617759+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n[並行組: WAVE-1-PG] 與 W1-PG-2~7 同 Wave 可平行，但均依賴 W1-BA-1 DONE\n走 worktree: .worktrees/T-eztcomm-20260601-W1-PG-1 + feat/T-eztcomm-20260601-W1-PG-1\n\n[上游] 依 01_requirements/data_schema.md（W1-BA-1 產出）的 JSON schema + crawler_brief.md 的 URL + 圖檔命名規則\n\n**任務：** 用 Playwright 爬 eztravel.com.tw 首頁\n\n【爬取策略】\n1. 開啟 Playwright（Chromium，headless=false 或 headless=true 測試）\n2. 前往 crawler_brief.md 中的首頁 URL（預計 https://www.eztravel.com.tw/）\n3. 等待 `networkidle` 確保 lazy content 載入完畢\n4. 擷取 DOM 主要區塊（header nav / hero banner / 分類入口 / 促銷區塊 / footer），填入 homepage.json\n5. 全頁截圖 → homepage_screenshot.png\n6. 抓取所有 <img> src 存 images/ 目錄，命名依 data_schema.md 命名規則\n\n【注意】\n- UA 使用真實瀏覽器 UA，避免 bot 偵測\n- 遇 Cloudflare 擋 → 記錄錯誤，fallback: 手動截圖 + 部分抓取，升級 escalation\n- images/ 圖片同步下載（WebFetch 或 fetch）\n\n【輸出】\n- data/homepage/homepage.json\n- data/homepage/homepage_screenshot.png\n- data/homepage/images/*.jpg|png\n\n[下游] UIUX W2-UIUX-2 (Home page 設計) 依此資料繪製",
+  "context_paths": [
+    "projects/eztravel.community/01_requirements/data_schema.md",
+    "projects/eztravel.community/01_requirements/crawler_brief.md",
+    "projects/eztravel.community/data/homepage/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W1-BA-1"
+  ],
+  "objective": "使用 Playwright 真實瀏覽器爬取 eztravel.com.tw 首頁，輸出符合 data_schema.md 格式的 homepage.json + 全頁截圖 + 圖片素材",
+  "goal_state": "projects/eztravel.community/data/homepage/ 存在，包含 homepage.json（符合 data_schema.md schema）、homepage_screenshot.png（全頁截圖）、images/ 子目錄（含 banner 與 nav 圖片）",
+  "verification": {
+    "verifier": "PG 自驗 + AQ W1-AQ-1 覆驗",
+    "tools": [
+      "Glob",
+      "Read",
+      "Bash"
+    ],
+    "evidence_checks": [
+      "Glob data/homepage/*.json 輸出含 homepage.json",
+      "讀 data/homepage/homepage.json 後輸出包含 sections 陣列且至少 3 個 section",
+      "Glob data/homepage/images/ 輸出包含至少 3 個圖檔",
+      "Glob data/homepage/*.png 輸出含 homepage_screenshot.png"
+    ]
+  },
+  "out_of_scope": [
+    "其他分類頁（歸 W1-PG-2~7）",
+    "Figma 設計",
+    "data 以外的任何程式碼修改"
+  ],
+  "escalation_on_block": [
+    "Cloudflare/機器人防護無法繞過 → 回報 admin + [ESCALATION] + fallback 說明",
+    "homepage.json schema 不符 → chat ba 確認 schema 定義後再修正"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

@@ -1,0 +1,19 @@
+{
+  "$comment": "結構化 Bug 報告 — 由 QA agent 撰寫。每筆 bug 必含 Request/Response/StackTrace/復現步驟/嚴重度/根因猜測。QA 不修代碼,只回報 PM 仲裁。",
+  "pid": "{{PID}}",
+  "version": "0.1.0",
+  "bugs": [],
+  "bugSchemaExample": {
+    "bug_id": "BUG-YYYYMMDD-NNN",
+    "linkedTaskId": "T-YYYYMMDD-NNN",
+    "severity": "critical | high | medium | low",
+    "title": "簡述",
+    "request": {},
+    "response": {},
+    "stackTrace": "",
+    "reproSteps": [],
+    "rootCauseGuess": "spec | architecture | design | code",
+    "createdAt": "YYYY-MM-DD",
+    "createdBy": "qa"
+  }
+}

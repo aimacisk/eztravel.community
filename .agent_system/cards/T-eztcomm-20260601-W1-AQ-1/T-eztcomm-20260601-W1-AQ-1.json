@@ -1,0 +1,55 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W1-AQ-1",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W1] AQ — 對照截圖驗證 7 頁 JSON 涵蓋畫面所有可見內容",
+  "created_at": "2026-06-01T08:23:51.107069+00:00",
+  "assignee": "qa",
+  "phase": "QA",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n[依賴: W1-PG-1~7 全部 DONE] 需 7 頁 data/ 資料就緒\n\n[上游] 7 頁 screenshot + JSON（W1-PG-1~7 產出）+ data_schema.md（W1-BA-1 產出）\n\n**任務：** 對照截圖驗證 JSON 完整性\n\n【驗證方式 — 7 頁逐一】\n對每頁（homepage / 機票 / 旅館 / 團體 / 自由行 / 票券 / 景點）：\n1. 讀取截圖（mcp__playwright__browser_screenshot 或直接觀察 png 路徑）\n2. 讀取對應 JSON\n3. 比對：截圖中可見的文字/圖片/連結是否在 JSON sections 中有對應項目\n4. 記錄：PASS（>90% 涵蓋）/ FAIL（有明顯遺漏）+ 缺漏明細\n\n【輸出】`projects/eztravel.community/05_tests/W1_data_audit.md`\n格式：\n```md\n# W1 Data Audit\n## homepage — PASS/FAIL\n- 涵蓋率估算：XX%\n- 缺漏：（若有）\n## 機票 — ...\n```\n\n若任一頁 FAIL → 在 execution_log 標注，建議對應 PG 卡補充重爬\n\n[下游] W2 UIUX 設計依此確認 data/ 已就緒",
+  "context_paths": [
+    "projects/eztravel.community/data/",
+    "projects/eztravel.community/01_requirements/data_schema.md",
+    "projects/eztravel.community/05_tests/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W1-PG-1",
+    "T-eztcomm-20260601-W1-PG-2",
+    "T-eztcomm-20260601-W1-PG-3",
+    "T-eztcomm-20260601-W1-PG-4",
+    "T-eztcomm-20260601-W1-PG-5",
+    "T-eztcomm-20260601-W1-PG-6",
+    "T-eztcomm-20260601-W1-PG-7"
+  ],
+  "objective": "對照 7 頁截圖，驗證對應 JSON 是否完整涵蓋畫面所有可見內容，輸出 W1_data_audit.md 驗收報告",
+  "goal_state": "projects/eztravel.community/05_tests/W1_data_audit.md 存在，包含 7 頁逐一比對結果（PASS/FAIL）+ 缺漏項清單；全部 PASS 方可繼續 W2",
+  "verification": {
+    "verifier": "AQ 自驗",
+    "tools": [
+      "Read",
+      "Glob"
+    ],
+    "evidence_checks": [
+      "讀 05_tests/W1_data_audit.md 後輸出包含 7 個頁面的 PASS/FAIL 評估",
+      "W1_data_audit.md 中全部標 PASS（或明確列出 FAIL 項目供人工決策）"
+    ]
+  },
+  "out_of_scope": [
+    "data/ 內容的修改（只驗不改，改由對應 PG 卡 REWORK）",
+    "Figma 設計驗收（歸 W2-UIUX-11）"
+  ],
+  "escalation_on_block": [
+    "多頁 FAIL 比例過高（>3 頁）→ [ESCALATION] admin，暫停 W2 派工",
+    "截圖無法讀取或損毀 → chat admin [QUERY]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": "06_wiki/05_qa_report.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-PM-PLAN",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[PM] eztcomm rebuild W-eztcomm-20260601-REBUILD 5 Waves 補卡規劃",
+  "created_at": "2026-06-01T08:18:08.755316+00:00",
+  "assignee": "pm",
+  "phase": "PLANNING",
+  "priority": "P0",
+  "instruction": "展開 W-eztcomm-20260601-REBUILD 的 5 Waves 為具體 task cards,寫進 projects/eztravel.community/.agent_system/task_board.json + 各卡 cards/{task_id}/{task_id}.json,透過 relay MCP card_create (禁直接寫檔)。\n\n完整骨架已列於 launch 指令(36 張卡跨 W1~W5)。PM 補完每張卡填齊五要素 (objective/goal_state/verification/out_of_scope/escalation_on_block) + depends_on 串接 + assignee=dispatch@eztcomm。\n\n完工發 [PLAN batch=eztcomm-20260601 prj=eztravel.community short=eztcomm at={ts}] 到 admin。",
+  "context_paths": [
+    "wishes/W-eztcomm-20260601-REBUILD.json",
+    "docs/superpowers/specs/2026-06-01-eztravel-community-rebuild-design.md",
+    "projects/eztravel.community/",
+    "projects/global_registry.json",
+    "agents/CHARTER.md",
+    "agents/pm/agent.md"
+  ],
+  "depends_on": [],
+  "objective": "將許願卡 W-eztcomm-20260601-REBUILD 拆解為 ~36 張 task cards 並寫入 task_board.json,讓 dispatch continuous 可接力派工執行 W1~W5。",
+  "goal_state": "- W-eztcomm-20260601-REBUILD 狀態建議轉 ACTIVE (PM 在 [PLAN] 訊息中建議,admin 確認後實際翻牌)\n- task_board.json 內含 36 張 TODO 卡,跨 W1~W5\n- 每張卡 cards/{task_id}/{task_id}.json 包含五要素完整內容\n- depends_on 正確串接 (Wave 內子卡依賴 + Wave 間階段依賴)\n- 第一批可派工卡 (TODO + depends_on=DONE 或無依賴) 已明確列出",
+  "verification": {
+    "checks": [
+      "task_board.json TODO bucket count >= 36",
+      "cards/ 目錄含 36 個 {task_id}/{task_id}.json",
+      "每張卡 body 含 objective + goal_state + verification + out_of_scope + escalation_on_block 五欄非空",
+      "PM 發出 [PLAN ...] 訊息到 admin (透過 chat target='admin')",
+      "第一批可派工卡列表已附在 [PLAN] 訊息內"
+    ],
+    "evidence_commands": [
+      "python -c \"import json; d=json.load(open('projects/eztravel.community/.agent_system/task_board.json')); print(len(d.get('buckets',{}).get('TODO',[])))\"",
+      "ls projects/eztravel.community/.agent_system/cards | wc -l"
+    ]
+  },
+  "out_of_scope": [
+    "實際派工執行 (留給 dispatch continuous)",
+    "卡片內容的執行細節 (留給各 agent)",
+    "Wave 0 admin 已自行執行的清除動作",
+    "GitHub repo / GCP 實際建置 (PENDING_USER 卡)"
+  ],
+  "escalation_on_block": [
+    "card_create MCP 連續 3 次失敗 → 升級 admin (檢查 relay 健康 / FileLock)",
+    "wish_id 找不到 → 升級 admin 確認 wishes/ 目錄狀態",
+    "task_board.json 損壞 → 升級 admin (執行 BOM/CRLF 修復流程)"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T08:18:50.403619+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

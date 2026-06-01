@@ -1,0 +1,49 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W1-PG-3",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W1] PG — Playwright 爬旅館分類頁 → data/旅館/",
+  "created_at": "2026-06-01T08:23:01.990994+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n[並行組: WAVE-1-PG] 與 W1-PG-1/2/4~7 可平行\n走 worktree: .worktrees/T-eztcomm-20260601-W1-PG-3 + feat/T-eztcomm-20260601-W1-PG-3\n\n[上游] 依 01_requirements/data_schema.md\n\n**任務：** Playwright 爬旅館分類頁（URL 見 crawler_brief.md）\n- 擷取主要區塊（搜尋欄 / 精選旅館 / 地區篩選 / 促銷），填入 旅館.json\n- 全頁截圖 → 旅館_screenshot.png；圖片存 images/\n\n[下游] UIUX W2-UIUX-4 (旅館分類頁) 依此資料繪製",
+  "context_paths": [
+    "projects/eztravel.community/01_requirements/data_schema.md",
+    "projects/eztravel.community/01_requirements/crawler_brief.md",
+    "projects/eztravel.community/data/旅館/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W1-BA-1"
+  ],
+  "objective": "使用 Playwright 爬取 eztravel 旅館分類頁，輸出符合 schema 的 JSON + 截圖 + 圖片",
+  "goal_state": "projects/eztravel.community/data/旅館/ 存在，包含 旅館.json、旅館_screenshot.png、images/ 子目錄",
+  "verification": {
+    "verifier": "PG 自驗 + AQ W1-AQ-1",
+    "tools": [
+      "Glob",
+      "Read"
+    ],
+    "evidence_checks": [
+      "Glob data/旅館/ 含 旅館.json + 旅館_screenshot.png",
+      "讀 旅館.json 包含 sections 陣列"
+    ]
+  },
+  "out_of_scope": [
+    "其他分類頁",
+    "Figma 設計"
+  ],
+  "escalation_on_block": [
+    "Cloudflare 擋 → [ESCALATION]",
+    "Schema 不符 → chat ba"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

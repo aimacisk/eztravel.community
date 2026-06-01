@@ -1,0 +1,11 @@
+{
+  "$comment": "設計標記(Design Tokens)— 由 UIUX agent 制定。所有視覺值必須以 token 表達,禁止 PG 端 hard-code。",
+  "pid": "{{PID}}",
+  "version": "0.1.0",
+  "color": {},
+  "spacing": {},
+  "typography": {},
+  "radius": {},
+  "shadow": {},
+  "motion": {}
+}

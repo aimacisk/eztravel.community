@@ -1,0 +1,58 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — Figma Home 頁面（依 data/homepage/ 真實繪製）",
+  "created_at": "2026-06-01T08:34:39.777899+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal Figma Home page frame 完成，含 header/hero/分類入口/熱門產品/footer，視覺自驗 5 維度全 pass`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-1 完成後] 須讀 tokens.json 確認色票/字型\n[依賴: T-eztcomm-20260601-W1-PG-1 完成後] 須讀 data/homepage/ JSON 內容\n\n**工作步驟：**\n1. 讀 projects/eztravel.community/data/homepage/homepage.json（或 index.json）取得頁面結構與真實文案\n2. 讀 projects/eztravel.community/tokens.json 確認色票/字型/間距\n3. 在 Figma file 建 Home page，frame 1440×900（desktop 基準）\n4. 繪製：\n   - Header：logo + 主導覽（機票/旅館/團體/自由行/票券/景點）+ 登入按鈕\n   - Hero banner：大圖 + 搜尋入口（文字）\n   - 6 分類入口卡片（圖示+文字，2 行 × 3 列）\n   - 熱門產品列表（至少 4 張 ProductCard：圖/標題/價格）\n   - Footer：品牌名+分類連結+版權\n5. 所有元件使用 W2-UIUX-1 建立的 token\n6. 完成後用 get_screenshot 截圖，跑 5 維度自驗（對齊/字型/色彩/比例/內容真實性）\n\n**下游視角：** W4-PG-2 Home controller/view 將依此 frame 實作 Razor，frame nodeId 需記錄在 deliverables 供 PG 參考",
+  "context_paths": [
+    "projects/eztravel.community/data/homepage/",
+    "projects/eztravel.community/tokens.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-1",
+    "T-eztcomm-20260601-W1-PG-1"
+  ],
+  "objective": "在 Figma \"eztravel.community design\" file 中繪製 Home 頁面，忠實還原 data/homepage/ 真實資料與截圖風格",
+  "goal_state": "Figma Home page frame 完成，含 header／hero banner／6 分類入口卡片／熱門產品列表／footer，全部使用 Tokens page 定義的 token，內容對應 data/homepage/ JSON，截圖 5 維度視覺自驗通過",
+  "verification": {
+    "verifier": "UIUX 自驗 get_screenshot + 5 維度",
+    "tools": [
+      "figma-remote-mcp get_screenshot",
+      "figma-remote-mcp get_metadata"
+    ],
+    "evidence_checks": [
+      "get_screenshot(nodeId=Home frame) 回傳截圖，人工確認含 header/hero/6分類/產品列表/footer 5 個區塊",
+      "截圖與 data/homepage/ 截圖色系吻合（主色藍橘可辨）"
+    ]
+  },
+  "out_of_scope": [
+    "分類頁設計（W2-UIUX-3~8）",
+    "Product Detail（W2-UIUX-9）",
+    "Community module（W3）",
+    "手機版 RWD（MVP 先做桌機）",
+    "動態效果/hover 狀態"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 失效 → 標 PENDING_FIGMA_OAUTH 暫停，chat admin",
+    "data/homepage/ 不存在 → [QUERY] admin 確認 W1-PG-1 完工狀態",
+    "色票與截圖差異過大（色相差 > 30°）→ 記錄差異 chat admin 請求仲裁"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U2-01：Home frame 存在於 Figma，含 header/hero/6分類入口/熱門產品/footer 全部區塊",
+    "AC-W2U2-02：frame 內元件使用 Tokens page 定義的色票（無寫死顏色）",
+    "AC-W2U2-03：get_screenshot 截圖 5 維度自驗無紅旗（對齊/字型/色彩/比例/內容）",
+    "AC-W2U2-04：deliverables 記錄 Home frame nodeId"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

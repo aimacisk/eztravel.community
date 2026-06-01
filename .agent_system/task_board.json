@@ -1,0 +1,183 @@
+{
+  "$comment": "看板 — 平輩制下多方寫入:開卡(admin/PM)、進場改 IN_PROGRESS(該 agent)、完成填卡並改 DONE(該 agent)、整合後改 ARCHIVED(PM)。詳見 agents/CHARTER.md §8 卡片紀律。",
+  "pid": "{{PID}}",
+  "version": "2.0",
+  "lastTaskId": null,
+  "columns": {
+    "TODO": [],
+    "IN_PROGRESS": [],
+    "DONE": [],
+    "ARCHIVED": [],
+    "REWORK": []
+  },
+  "taskSchemaExample": {
+    "task_id": "T-YYYYMMDD-NNN",
+    "title": "簡述",
+    "assignee": "pm | ba | uiux | at | pg | qa",
+    "phase": "REQUIREMENTS | DESIGN | ARCHITECTURE | IMPLEMENTATION | QA | INTEGRATION",
+    "instruction": "<完整工作指令>",
+    "context_paths": [
+      "01_requirements/",
+      "03_architecture/openapi.yaml"
+    ],
+    "acceptanceCriteria": [
+      "AC-1",
+      "AC-2"
+    ],
+    "wikiTarget": "06_wiki/0X_xxx.md(若有 Wiki 草稿責任)",
+    "linkedTaskId": "(REWORK 場景指向原始 Task_ID)",
+    "createdAt": "YYYY-MM-DDTHH:mm:ss",
+    "createdBy": "admin | pm",
+    "status": "TODO",
+    "_agentEnterFields": "agent 進場時填寫(把 status 從 TODO 改為 IN_PROGRESS)",
+    "started_at": null,
+    "agent_session_id": null,
+    "_agentCompleteFields": "agent 完成時填寫(把 status 從 IN_PROGRESS 改為 DONE)",
+    "completed_at": null,
+    "deliverables": [],
+    "execution_log": "",
+    "wiki_draft_path": ".agent_system/cards/{task_id}/{agent}_draft.md",
+    "_pmIntegrateFields": "PM 整合時填寫(把 status 從 DONE 改為 ARCHIVED)",
+    "archived_at": null,
+    "wiki_integrated_files": [],
+    "commit_sha": null
+  },
+  "TODO": [
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-1",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] PG — Playwright 爬首頁 → data/homepage/",
+      "created_at": "2026-06-01T08:22:44.617759+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-2",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] PG — Playwright 爬機票分類頁 → data/機票/",
+      "created_at": "2026-06-01T08:22:54.068903+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-3",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] PG — Playwright 爬旅館分類頁 → data/旅館/",
+      "created_at": "2026-06-01T08:23:01.990994+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-4",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] PG — Playwright 爬團體分類頁 → data/團體/",
+      "created_at": "2026-06-01T08:23:11.939371+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-5",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] PG — Playwright 爬自由行分類頁 → data/自由行/",
+      "created_at": "2026-06-01T08:23:16.475950+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-6",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] PG — Playwright 爬票券分類頁 → data/票券/",
+      "created_at": "2026-06-01T08:23:24.134653+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-7",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] PG — Playwright 爬景點分類頁 → data/景點/",
+      "created_at": "2026-06-01T08:23:30.810471+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-AQ-1",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W1] AQ — 對照截圖驗證 7 頁 JSON 涵蓋畫面所有可見內容",
+      "created_at": "2026-06-01T08:23:51.107069+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-1",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — 建 Figma file \"eztravel.community design\" + Tokens page",
+      "created_at": "2026-06-01T08:34:16.662483+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma Home 頁面（依 data/homepage/ 真實繪製）",
+      "created_at": "2026-06-01T08:34:39.777899+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma 機票分類頁（依 data/機票/ 真實繪製）",
+      "created_at": "2026-06-01T08:34:57.355159+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-4",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma 旅館分類頁（依 data/旅館/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:11.043014+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-5",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma 團體分類頁（依 data/團體/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:31.363567+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-6",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma 自由行分類頁（依 data/自由行/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:43.797558+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-7",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma 票券分類頁（依 data/票券/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:54.557128+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-8",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma 景點分類頁（依 data/景點/ 真實繪製）",
+      "created_at": "2026-06-01T08:36:05.000030+00:00"
+    }
+  ],
+  "schema_version": "v0.53",
+  "IN_PROGRESS": [
+    {
+      "task_id": "T-eztcomm-20260601-PM-PLAN",
+      "prj_id": "eztravel.community",
+      "status": "IN_PROGRESS",
+      "title": "[PM] eztcomm rebuild W-eztcomm-20260601-REBUILD 5 Waves 補卡規劃",
+      "created_at": "2026-06-01T08:18:08.755316+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-BA-1",
+      "prj_id": "eztravel.community",
+      "status": "IN_PROGRESS",
+      "title": "[W1] BA — data/ JSON schema + 命名規則 + anchor id 約定",
+      "created_at": "2026-06-01T08:22:24.980264+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W3-BA-1",
+      "prj_id": "eztravel.community",
+      "status": "IN_PROGRESS",
+      "title": "[W3] BA — community_spec.md (留言/星等/權限/聚合/防濫用)",
+      "created_at": "2026-06-01T08:35:38.099915+00:00"
+    }
+  ]
+}

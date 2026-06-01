@@ -1,0 +1,8 @@
+{
+  "$comment": "業務規則與狀態機定義 — 由 BA agent 撰寫。包含 FSM、業務約束、合規條款。",
+  "pid": "{{PID}}",
+  "version": "0.1.0",
+  "stateMachines": {},
+  "businessRules": [],
+  "complianceConstraints": []
+}

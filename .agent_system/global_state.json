@@ -1,0 +1,18 @@
+{
+  "$comment": "全域狀態機 — 記錄當前專案階段與目前允許作業的 Agent 列表。僅 PM 可寫入。",
+  "pid": "{{PID}}",
+  "projectName": "{{ProjectName}}",
+  "createdAt": "{{createdAt}}",
+  "updatedAt": "{{createdAt}}",
+  "phase": "INIT",
+  "phaseHistory": [
+    {
+      "phase": "INIT",
+      "enteredAt": "{{createdAt}}",
+      "by": "pm"
+    }
+  ],
+  "allowedAgents": ["ba"],
+  "lockedAgents": [],
+  "notes": "可選階段:INIT → REQUIREMENTS → DESIGN → ARCHITECTURE → IMPLEMENTATION → QA → REVIEW → DONE → ARCHIVED"
+}

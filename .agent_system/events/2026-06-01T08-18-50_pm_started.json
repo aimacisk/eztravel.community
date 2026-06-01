@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:18:50.474208+00:00",
+  "task_id": "T-eztcomm-20260601-PM-PLAN",
+  "agent": "pm",
+  "type": "started",
+  "summary": "[模型] opus(規劃/開卡用 opus,memory feedback_card_writing_use_opus 強制)\n\n[許願卡] W-eztcomm-20260601-REBUILD (PENDING_CONFIRM)\n[設計 spec] docs/superpowers/specs/2026-06-01-eztravel-community-rebuild-design.md (26",
+  "ref": {
+    "worker_id": "pm-1",
+    "agent_session_id": ""
+  }
+}

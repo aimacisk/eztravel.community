@@ -1,0 +1,54 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-5",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — Figma 團體分類頁（依 data/團體/ 真實繪製）",
+  "created_at": "2026-06-01T08:35:31.363567+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal Figma 團體分類頁 frame 完成，含篩選欄／產品列表，視覺自驗 pass，nodeId 已記錄`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-1] 使用 Tokens token\n[依賴: T-eztcomm-20260601-W1-PG-4] 讀 data/團體/ JSON\n\n1. 讀 projects/eztravel.community/data/團體/ JSON（欄位：行程名/天數/目的地/出發日/定價/圖片等）\n2. 建 frame \"Category-團體\"（沿用分類頁統一 layout 骨架）\n3. 繪製麵包屑/篩選欄（天數/目的地/出發日/價格）/TourCard 列表/分頁\n4. 使用 W2-UIUX-1 tokens\n5. get_screenshot 截圖 + 5 維度自驗\n\n**注意：** 團體頁 TourCard 需包含「天數」欄位，與機票/旅館卡有所不同；W3-UIUX-2 Community Module 將 instance 到此類型商品頁 variant",
+  "context_paths": [
+    "projects/eztravel.community/data/團體/",
+    "projects/eztravel.community/tokens.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-1",
+    "T-eztcomm-20260601-W1-PG-4"
+  ],
+  "objective": "在 Figma 繪製團體旅遊分類頁面，忠實還原 data/團體/ 真實資料結構與視覺風格",
+  "goal_state": "Figma 團體分類頁 frame 完成，含麵包屑／篩選欄／團體卡片列表，視覺自驗 5 維度 pass，nodeId 記錄於 deliverables",
+  "verification": {
+    "verifier": "UIUX 自驗",
+    "tools": [
+      "figma-remote-mcp get_screenshot"
+    ],
+    "evidence_checks": [
+      "get_screenshot 含 TourCard（天數/目的地/價格）、篩選欄、麵包屑",
+      "5 維度自驗無紅旗"
+    ]
+  },
+  "out_of_scope": [
+    "其他分類頁設計",
+    "Product Detail",
+    "Community module",
+    "RWD"
+  ],
+  "escalation_on_block": [
+    "data/團體/ 不存在 → [QUERY] admin",
+    "Figma OAuth 失效 → PENDING_FIGMA_OAUTH"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U5-01：團體 frame 含麵包屑/篩選/TourCard(含天數)/分頁",
+    "AC-W2U5-02：5 維度視覺自驗 pass",
+    "AC-W2U5-03：nodeId 記錄於 deliverables"
+  ],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}
