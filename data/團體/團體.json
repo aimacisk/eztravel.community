@@ -1,0 +1,658 @@
+{
+  "page": "團體",
+  "scraped_at": "2026-06-01T08:53:55.000Z",
+  "url": "https://vacation.eztravel.com.tw/",
+  "sections": [
+    {
+      "id": "search_bar",
+      "type": "search_bar",
+      "title": null,
+      "items": [
+        {
+          "text": "輸入目的地/關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "目的地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發區間",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "只查可報名",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "只查已成團",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "不限報名狀態",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "輸入目的地/關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "目的地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發區間",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "只查可報名",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "只查已成團",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "不限報名狀態",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "輸入目的地/關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "目的地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發區間",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "輸入目的地/關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "目的地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "輸入目的地/關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "目的地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發區間",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發區間",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發區間",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hero_banner",
+      "type": "hero_banner",
+      "title": null,
+      "items": [
+        {
+          "text": "暑假跟團不跟漲",
+          "image_url": "images/group_banner_01.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/summer/holiday/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "盛夏北海道",
+          "image_url": "images/group_banner_02.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/hokkaido/flower/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "制霸泰國",
+          "image_url": "images/group_banner_03.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/thailand/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "極地追光者",
+          "image_url": "images/group_banner_04.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/aurora/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026盛夏",
+          "image_url": "images/group_banner_05.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/summervacation/?p=summervacation2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "華麗美洲",
+          "image_url": "images/group_banner_06.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/cigorgeous/america/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "跟團出遊．即食行樂",
+          "image_url": "images/group_banner_07.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/groupevent/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "釜山玩全攻略",
+          "image_url": "images/group_banner_08.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/busan/?p=busan4",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "華麗歐洲",
+          "image_url": "images/group_banner_09.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/cigorgeouseurope/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "跟團回饋遊禮",
+          "image_url": "images/group_banner_10.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/moneyfeedback/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "featured_tours",
+      "type": "featured_items",
+      "title": "精選行程推薦",
+      "items": [
+        {
+          "text": "客製旅遊",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/events/customized-tour/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "當地參團",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/global/local/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機 + 酒",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": null,
+          "image_url": "images/group_product_01.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/summer/holiday/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": null,
+          "image_url": "images/group_product_02.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/activity/hokkaido/flower/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "暑假跟團玩樂園",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/summer/holiday/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "長榮直飛米蘭",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/results/TPE/83?avbl=1&depDateFrom=20260521&depDateTo=20261231&tourTypes=PKG&rankBy=2&flight=BR",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "洞爺湖花火大會",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/keywords?q=%E6%B4%9E%E7%88%BA%E6%B9%96%E8%8A%B1%E7%81%AB&avbl=1&depDateFrom=20260428&depDateTo=20261031&type=4&cst=48&departure=TPE&rankBy=2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "潛進帛琉",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/results/TPE/64?&avbl=1&subtypes%5B%5D=FRN&flag=vdr",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "土耳其特惠團",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/results/TPE/368/1?avbl=1&depDateFrom=20260521&depDateTo=20261231&rankBy=2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "富良野薰衣草",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/keywords?q=%E8%96%B0%E8%A1%A3%E8%8D%89&avbl=1&depDateFrom=20260615&depDateTo=20260831&type=4&cst=48&departure=TPE",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "馬新樂園趣",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/keywords?q=%E6%A8%82%E5%9C%92&avbl=1&depDateFrom=20250919&depDateTo=20251231&type=4&cst=37&departure=TPE&flag=vdr",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "峇里島渡假",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/results/TPE/63?&avbl=1&flag=vdr",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "promo_section",
+      "type": "promo_section",
+      "title": "限時優惠行程",
+      "items": [
+        {
+          "text": "折扣碼管理",
+          "image_url": null,
+          "link_url": "https://member.eztravel.com.tw/member/discount/manage",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "category_nav",
+      "type": "category_nav",
+      "title": null,
+      "items": [
+        {
+          "text": "搜機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國際機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/?p=domestic",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機加酒",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "護照．簽證",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/visa",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高雄出發",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/kaohsiung/flight/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台中出發",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/taichung/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機場接送",
+          "image_url": null,
+          "link_url": "https://airport-transfer.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "金廈小三通",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/activity/MiniThree-LinkTransportation/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機票+高鐵",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/thsr/promo/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高雄計劃票",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/group/khhfitpackage/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "旅平險+不便險",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/activity/travel-insurance-oversea/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "免稅/購物折扣",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/activity/coupon/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "找住宿",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台灣訂房",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/?p=taiwan",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國外訂房",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/?p=oversea",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "訂房 + 高鐵",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/thsr/promo/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵假期",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/thsr/vacation/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "刊登房源",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/events/eztravel_host/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "訂機酒",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    }
+  ]
+}
