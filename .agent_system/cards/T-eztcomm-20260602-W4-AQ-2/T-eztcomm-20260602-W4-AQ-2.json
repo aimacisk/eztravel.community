@@ -62,6 +62,6 @@
   "started_at": "2026-06-02T07:00:00+00:00",
   "completed_at": "2026-06-02T07:50:00+00:00",
   "wiki_draft_path": ".agent_system/cards/T-eztcomm-20260602-W4-AQ-2/T-eztcomm-20260602-W4-AQ-2_qa_draft.md",
-  "commit_sha": null,
+  "commit_sha": "8dbaddb",
   "status": "DONE"
 }
