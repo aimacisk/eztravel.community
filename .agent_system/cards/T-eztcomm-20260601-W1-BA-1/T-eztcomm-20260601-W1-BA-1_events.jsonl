@@ -1,0 +1,2 @@
+{"event":"started","task_id":"T-eztcomm-20260601-W1-BA-1","agent":"ba","ts":"2026-06-01T08:35:14.639443Z","session_id":"ba-session-20260601-T-eztcomm-W1-BA-1"}
+{"event":"completed","task_id":"T-eztcomm-20260601-W1-BA-1","agent":"ba","ts":"2026-06-01T08:45:00.000Z","deliverables":["projects/eztravel.community/01_requirements/data_schema.md","projects/eztravel.community/01_requirements/crawler_brief.md"],"note":"BA 完成 JSON schema 規範與爬蟲摘要，自驗通過"}

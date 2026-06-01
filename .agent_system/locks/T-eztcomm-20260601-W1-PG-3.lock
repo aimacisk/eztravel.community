@@ -1,0 +1,1 @@
+{"task_id": "T-eztcomm-20260601-W1-PG-3", "agent": "pg", "worker_id": "pg-2", "pid": 207744, "acquired_at": "2026-06-01T08:41:58.295953+00:00", "ttl_seconds": 1800, "expires_at": "2026-06-01T09:11:58.295953+00:00", "msg_kind": "task", "msg_id": "m-2ea7913f6a3d"}

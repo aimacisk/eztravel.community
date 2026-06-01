@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:42:20.162735+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-1",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet\n\n[任務] T-eztcomm-20260601-W2-UIUX-1 — 建 Figma file \"eztravel.community design\" + Tokens page\n\n[紀律] 9 條 UIUX 紀律 (memory project_uiux_user_requirements_checklist) + 6 件套 + 真實風格學習 (memory proj",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

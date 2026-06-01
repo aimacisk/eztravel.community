@@ -1,0 +1,40 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W5-ADMIN-2",
+  "prj_id": "eztravel.community",
+  "status": "PENDING_USER_GH_AUTH",
+  "title": "[W5] ADMIN — PENDING_USER_GH_AUTH 首次 GitHub repo 建立",
+  "created_at": "2026-06-01T08:36:43.439287+00:00",
+  "assignee": "admin",
+  "phase": "DEPLOY",
+  "priority": "P2",
+  "instruction": "首次 GitHub repo 建立流程。需使用者授權 GitHub CLI (`gh auth login`)。\n\n【admin 動作清單 (等使用者授權後執行)】\n1. 確認 gh CLI 已安裝:winget install GitHub.cli (若未裝)\n2. 使用者跑 gh auth login (admin 不可代跑,須使用者授權)\n3. admin 跑:gh repo create micchang/eztravel.community --public --description \"EZTravel Community — 旅遊社群網站 (rebuild 2026-06-01)\"\n4. 在 projects/eztravel.community/ 設 remote:git remote add origin https://github.com/micchang/eztravel.community.git\n5. push initial commit:git push -u origin main\n6. 設定 GitHub Actions secrets (W5-ADMIN-1 完成後一併):GCP_PROJECT_ID / GCP_SA_KEY / CLOUD_SQL_CONNECTION_NAME / DB_PASSWORD\n\n【完工 marker】所有 6 步完成 + 雲端 repo URL 可訪問\n\n【觸發】\n此卡為 PENDING_USER_GH_AUTH 狀態,等使用者下訊息「我已授權 gh / 我已 gh auth login」後 admin 接力跑 1~6 步。",
+  "context_paths": [],
+  "depends_on": [],
+  "objective": "在使用者授權 GitHub CLI 後,建立 eztravel.community 雲端 repo 並推 initial commit,為 W5 CI/CD 提供 deploy target。",
+  "goal_state": "https://github.com/micchang/eztravel.community 雲端可訪問 + local main 已 push + Actions secrets 設定 placeholder。",
+  "verification": {
+    "checks": [
+      "gh auth status 返 logged in",
+      "gh repo view micchang/eztravel.community 返 repo 存在",
+      "cd projects/eztravel.community && git remote -v 返 origin URL",
+      "git ls-remote origin main 返 commit hash"
+    ]
+  },
+  "out_of_scope": [
+    "GitHub Actions secrets 的實際值 (要等 W5-ADMIN-1 GCP 建置完才有)",
+    "PR review settings",
+    "branch protection rules (MVP 不需)"
+  ],
+  "escalation_on_block": [
+    "使用者沒授權 gh login → 卡住 PENDING_USER_GH_AUTH 不動,不影響 W1~W4 本機推進"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

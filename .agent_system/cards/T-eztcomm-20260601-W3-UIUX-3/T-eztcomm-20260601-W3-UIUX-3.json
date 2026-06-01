@@ -1,0 +1,56 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-3",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W3] UIUX — W3 視覺自驗 + figma_deliverables 完整列出",
+  "created_at": "2026-06-01T08:50:01.455903+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n目標：對 W3 所有 Figma 產出（W3-UIUX-1 的 5 primitives + W3-UIUX-2 的 4 variant Community Section）進行完整視覺自驗，並產出完整 figma_deliverables 清單。\n\n【上游輸入】\n- W3-UIUX-1 deliverables：Community Module 頁面 5 primitives 的 nodeId 清單\n- W3-UIUX-2 deliverables：4 variant Community Section 的 nodeId 清單\n\n【執行步驟】\n1. 讀取 W3-UIUX-1 和 W3-UIUX-2 的 deliverables nodeId 清單\n2. 對每個 nodeId 跑 get_screenshot\n3. 5 維度視覺判斷（逐一記錄結果）：\n   - 文字不溢出 frame\n   - 無元件遮蔽（frame 不重疊）\n   - 排版無跑版（Auto layout 正常）\n   - 配色使用 token（無硬編碼色碼）\n   - 元件命名正確（Community / xxx）\n4. 記錄每個 frame 的截圖 URL + 5 維度判斷結果\n5. 產出 figma_deliverables 完整清單（fileKey / pageId / 每 frame：nodeId + url + component 名）\n\n【輸出格式（wiki_draft 必含）】\n```\n## W3 figma_deliverables\n\n### Community Module page\n- Community / StarRating: nodeId=xxx, url=xxx, 自驗=PASS\n- Community / RatingDistribution: nodeId=xxx, url=xxx, 自驗=PASS\n- Community / ReviewCard: nodeId=xxx, url=xxx, 自驗=PASS\n- Community / FilterBar: nodeId=xxx, url=xxx, 自驗=PASS\n- Community / ReviewComposer: nodeId=xxx, url=xxx, 自驗=PASS\n\n### ProductDetail variants (Community Section)\n- 團體旅遊 ProductDetail Community Section: nodeId=xxx, url=xxx, 自驗=PASS\n- 自由行 ProductDetail Community Section: nodeId=xxx, url=xxx, 自驗=PASS\n- 旅館 ProductDetail Community Section: nodeId=xxx, url=xxx, 自驗=PASS\n- 票券 ProductDetail Community Section: nodeId=xxx, url=xxx, 自驗=PASS\n\n所有 frame 5 維度自驗結果：PASS ✅\n```\n\n[依賴: W3-UIUX-2 完成後]",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-1/T-eztcomm-20260601-W3-UIUX-1.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-2/T-eztcomm-20260601-W3-UIUX-2.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W3-UIUX-2"
+  ],
+  "objective": "對 W3 全部 Figma 產出（5 primitives + 4 variant Community Section）逐一跑 get_screenshot 做 5 維度視覺自驗，產出 figma_deliverables 完整清單",
+  "goal_state": "wiki_draft 含完整 figma_deliverables 表格（fileKey / 每 nodeId / url / 自驗結果），所有 frame 5 維度自驗結果全為 PASS",
+  "verification": {
+    "verifier": "UIUX 自驗",
+    "tools": [
+      "mcp__figma-remote-mcp__get_screenshot",
+      "mcp__figma-remote-mcp__get_metadata"
+    ],
+    "evidence_checks": [
+      "跑每個 nodeId get_screenshot 後 wiki_draft 中記錄的 url 均非空字串",
+      "wiki_draft 含 'Community / StarRating', 'Community / RatingDistribution', 'Community / ReviewCard', 'Community / FilterBar', 'Community / ReviewComposer' 5 個 primitive 條目",
+      "wiki_draft 含 4 個 variant Community Section 條目",
+      "wiki_draft 最後一行含 '5 維度自驗結果：PASS'"
+    ]
+  },
+  "out_of_scope": [
+    "修改任何 Figma 元件（修改歸 W3-UIUX-1/2，本卡只驗收）",
+    "W1/W2 卡片的視覺自驗（已由各卡自驗）",
+    "程式碼實作（歸 W4 PG 卡）"
+  ],
+  "escalation_on_block": [
+    "get_screenshot 回傳錯誤或 nodeId 找不到 → 讀 W3-UIUX-1/2 deliverables 重新取得正確 nodeId",
+    "5 維度自驗發現任一 FAIL → 不標 DONE，先回補 W3-UIUX-1 或 W3-UIUX-2 修復，再重跑本卡",
+    "Figma OAuth 失效 → 標 PENDING_FIGMA_OAUTH + chat admin"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1：wiki_draft 含 9 個 frame（5 primitives + 4 variant section）的 nodeId + url + 自驗結果",
+    "AC-2：所有 frame 5 維度自驗全 PASS",
+    "AC-3：figma_deliverables 含 fileKey 欄位"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

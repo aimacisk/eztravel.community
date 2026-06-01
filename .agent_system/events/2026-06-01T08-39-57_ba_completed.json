@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:39:57.680854+00:00",
+  "task_id": "T-eztcomm-20260601-W3-BA-1",
+  "agent": "ba",
+  "type": "completed",
+  "summary": "進場確認，讀取卡片內容完畢。先更新卡片狀態為 `IN_PROGRESS`，再產出 `community_spec.md`。\n確認目錄結構後寫入規格文件：\n目錄已存在，直接寫入 `community_spec.md`：\n規格文件驗證通過：589 行，10 個章節（含 §0 導覽 + §8 AC + §9 下游交接）。現在填卡完成：\n---\n\n## 完工摘要\n\n**任務**：`T-eztcomm-20260601-W3-BA-1` — [W3] BA community_spec.md\n\n**交付物**：`projects/eztravel.community/01_requirements/co",
+  "ref": {
+    "worker_id": "ba-eztcomm-1",
+    "response_chars": 962
+  }
+}

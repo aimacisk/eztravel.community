@@ -47,7 +47,8 @@
   "wiki_target": null,
   "deliverables": [],
   "execution_log": "",
-  "started_at": null,
+  "started_at": "2026-06-01T08:41:50.677380+00:00",
   "completed_at": null,
-  "commit_sha": null
+  "commit_sha": null,
+  "agent_session_id": ""
 }

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:50:08.703978+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-2",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "收到。依 §8 卡片紀律，先讀合約再進場改卡。\n合約讀完。進場流程：先查 worktree 結構 + 載入 Playwright 工具。\n建立輸出目錄，同步瀏覽機票頁。\n瀏覽器被佔用，先關閉再重新啟動。\nPlaywright MCP 被他 session 佔用。依 §5 fallback：改用 Python playwright 直接執行。\nPython 3.12 可用。MCP Playwright 的 Chromium 已在本機，嘗試借用其瀏覽器路徑 + pip install playwright（不重裝瀏覽器）。\n有多個 Chromium 版本，直接指定 `chromium-1208` ",
+  "ref": {
+    "worker_id": "pg-3",
+    "response_chars": 11434
+  }
+}

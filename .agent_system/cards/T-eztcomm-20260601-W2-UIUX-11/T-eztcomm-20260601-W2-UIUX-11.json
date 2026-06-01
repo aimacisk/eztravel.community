@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-11",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — W2 全頁自驗（9 條 UIUX 紀律 + 每 nodeId screenshot + 5 維度）",
+  "created_at": "2026-06-01T08:37:33.518972+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal W2 全部 frame 通過 9 條 UIUX 紀律自驗，自驗報告輸出完成，無紅旗`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-2~9 全部完成後]\n\n**9 條 UIUX 紀律（每條逐項確認）：**\n1. 無高寬比異常 frame（高不得遠大於寬，須符合頁面比例）\n2. 無肥大/過寬元件\n3. 無寫死寬度（元件使用 auto-layout，非固定 px 寬）\n4. 無跑版（元件在 frame 內未溢出或對齊錯誤）\n5. 無遮蔽（overlapping elements 不互相遮蓋關鍵內容）\n6. 無 frame 重疊\n7. 無文字溢出\n8. deliverables 完整（每頁 nodeId 已記錄）\n9. 每頁 screenshot 已完成\n\n**自驗流程：**\n對每個 nodeId（Home, Category-機票~景點 6頁, ProductDetail 4 variant）：\n- 執行 get_screenshot\n- 對截圖進行 5 維度判斷（對齊/字型/色彩/比例/內容真實性）\n- 記錄每條 UIUX 紀律結果（pass/fail）\n- 輸出自驗報告 JSON 到卡資料夾\n\n發現問題立即修正後重截圖確認。",
+  "context_paths": [
+    "projects/eztravel.community/skills/styling/figma_template.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-2",
+    "T-eztcomm-20260601-W2-UIUX-3",
+    "T-eztcomm-20260601-W2-UIUX-4",
+    "T-eztcomm-20260601-W2-UIUX-5",
+    "T-eztcomm-20260601-W2-UIUX-6",
+    "T-eztcomm-20260601-W2-UIUX-7",
+    "T-eztcomm-20260601-W2-UIUX-8",
+    "T-eztcomm-20260601-W2-UIUX-9"
+  ],
+  "objective": "對 W2 所有已完成 Figma frame（Home + 6 分類頁 + ProductDetail 4 variant）跑完整 9 條 UIUX 紀律自驗，確認無設計問題",
+  "goal_state": "W2 全部 frame 通過 9 條 UIUX 紀律自驗及 5 維度視覺檢核，自驗報告輸出到 projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-11/，無紅旗",
+  "verification": {
+    "verifier": "UIUX 自驗 + admin 抽樣檢查",
+    "tools": [
+      "figma-remote-mcp get_screenshot",
+      "Read 自驗報告"
+    ],
+    "evidence_checks": [
+      "Read 自驗報告 JSON，全部 nodeId 結果為 'pass'，無任何 'fail'",
+      "get_screenshot 抽樣 2-3 個 frame 能成功回圖"
+    ]
+  },
+  "out_of_scope": [
+    "W3 Community module 自驗（由 W3-UIUX-3 負責）",
+    "程式驗證",
+    "RWD 手機版驗證"
+  ],
+  "escalation_on_block": [
+    "fail 項修復失敗超過 2 次 → chat admin 請求協助仲裁",
+    "get_screenshot 返回空白 → [QUERY] admin 檢查 Figma OAuth 狀態"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U11-01：自驗報告 JSON 存在，涵蓋全部 W2 nodeId",
+    "AC-W2U11-02：9 條 UIUX 紀律全 pass，無 fail 項",
+    "AC-W2U11-03：Home + 機票/旅館 截圖可育樣提供給 admin"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

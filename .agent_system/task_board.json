@@ -44,27 +44,6 @@
   },
   "TODO": [
     {
-      "task_id": "T-eztcomm-20260601-W1-PG-1",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "[W1] PG — Playwright 爬首頁 → data/homepage/",
-      "created_at": "2026-06-01T08:22:44.617759+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W1-PG-2",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "[W1] PG — Playwright 爬機票分類頁 → data/機票/",
-      "created_at": "2026-06-01T08:22:54.068903+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W1-PG-3",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "[W1] PG — Playwright 爬旅館分類頁 → data/旅館/",
-      "created_at": "2026-06-01T08:23:01.990994+00:00"
-    },
-    {
       "task_id": "T-eztcomm-20260601-W1-PG-4",
       "prj_id": "eztravel.community",
       "status": "TODO",
@@ -98,13 +77,6 @@
       "status": "TODO",
       "title": "[W1] AQ — 對照截圖驗證 7 頁 JSON 涵蓋畫面所有可見內容",
       "created_at": "2026-06-01T08:23:51.107069+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-1",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "[W2] UIUX — 建 Figma file \"eztravel.community design\" + Tokens page",
-      "created_at": "2026-06-01T08:34:16.662483+00:00"
     },
     {
       "task_id": "T-eztcomm-20260601-W2-UIUX-2",
@@ -154,6 +126,55 @@
       "status": "TODO",
       "title": "[W2] UIUX — Figma 景點分類頁（依 data/景點/ 真實繪製）",
       "created_at": "2026-06-01T08:36:05.000030+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-9",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — Figma Product Detail 主版（4 類 variant 預留）",
+      "created_at": "2026-06-01T08:36:38.088465+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-ADMIN-2",
+      "prj_id": "eztravel.community",
+      "status": "PENDING_USER_GH_AUTH",
+      "title": "[W5] ADMIN — PENDING_USER_GH_AUTH 首次 GitHub repo 建立",
+      "created_at": "2026-06-01T08:36:43.439287+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-10",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — 6 件套產出（README + sources.md + tokens.json + view_examples + motifs + figma_template）",
+      "created_at": "2026-06-01T08:37:05.852816+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-11",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W2] UIUX — W2 全頁自驗（9 條 UIUX 紀律 + 每 nodeId screenshot + 5 維度）",
+      "created_at": "2026-06-01T08:37:33.518972+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W3] UIUX — Figma Community Module page：5 atomic primitives",
+      "created_at": "2026-06-01T08:49:13.593515+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W3-UIUX-2",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W3] UIUX — instance Community Module 到 4 類商品頁 variant",
+      "created_at": "2026-06-01T08:49:38.642226+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W3-UIUX-3",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W3] UIUX — W3 視覺自驗 + figma_deliverables 完整列出",
+      "created_at": "2026-06-01T08:50:01.455903+00:00"
     }
   ],
   "schema_version": "v0.53",
@@ -166,18 +187,62 @@
       "created_at": "2026-06-01T08:18:08.755316+00:00"
     },
     {
-      "task_id": "T-eztcomm-20260601-W1-BA-1",
+      "task_id": "T-eztcomm-20260601-W1-PG-1",
       "prj_id": "eztravel.community",
       "status": "IN_PROGRESS",
+      "title": "[W1] PG — Playwright 爬首頁 → data/homepage/",
+      "created_at": "2026-06-01T08:22:44.617759+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-3",
+      "prj_id": "eztravel.community",
+      "status": "IN_PROGRESS",
+      "title": "[W1] PG — Playwright 爬旅館分類頁 → data/旅館/",
+      "created_at": "2026-06-01T08:23:01.990994+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-1",
+      "prj_id": "eztravel.community",
+      "status": "IN_PROGRESS",
+      "title": "[W2] UIUX — 建 Figma file \"eztravel.community design\" + Tokens page",
+      "created_at": "2026-06-01T08:34:16.662483+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W4-AT-2",
+      "prj_id": "eztravel.community",
+      "status": "IN_PROGRESS",
+      "title": "[W4] AT — 建立基底專案骨架 (sln + 4 csproj + DI + Serilog)",
+      "created_at": "2026-06-01T08:50:11.917934+00:00"
+    }
+  ],
+  "DONE": [
+    {
+      "task_id": "T-eztcomm-20260601-W3-BA-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W3] BA — community_spec.md (留言/星等/權限/聚合/防濫用)",
+      "created_at": "2026-06-01T08:35:38.099915+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-BA-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
       "title": "[W1] BA — data/ JSON schema + 命名規則 + anchor id 約定",
       "created_at": "2026-06-01T08:22:24.980264+00:00"
     },
     {
-      "task_id": "T-eztcomm-20260601-W3-BA-1",
+      "task_id": "T-eztcomm-20260601-W4-AT-1",
       "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W3] BA — community_spec.md (留言/星等/權限/聚合/防濫用)",
-      "created_at": "2026-06-01T08:35:38.099915+00:00"
+      "status": "DONE",
+      "title": "[W4] AT — solution_layout + data_model + auth 架構文件",
+      "created_at": "2026-06-01T08:42:59.272368+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-PG-2",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W1] PG — Playwright 爬機票分類頁 → data/機票/",
+      "created_at": "2026-06-01T08:22:54.068903+00:00"
     }
   ]
 }

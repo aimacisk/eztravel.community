@@ -1,0 +1,54 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-9",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — Figma Product Detail 主版（4 類 variant 預留）",
+  "created_at": "2026-06-01T08:36:38.088465+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal Figma ProductDetail frame 完成，含 4 類 variant + Community slot 預留，視覺自驗 pass，nodeId 已記錄`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-1] 使用 Tokens token\n\n**工作步驟：**\n1. 分析 data/ 各類目 JSON 的共同欄位（標題/圖片/簡介/價格）與專屬欄位（機票:航空/路線；旅館:地址/星級；團體:天數/行程；票券:有效期）\n2. 建 Figma frame \"ProductDetail\"（1440×900），設計：\n   - 共通區：麵包屑 + 大圖 + 標題 + 價格 + 預訂 CTA 按鈕\n   - 差異區：依類別顯示不同欄位（用 Figma variant/component 切換）\n   - 商品介紹 tab（內容/注意事項/旅行地圖）\n   - **Community Module slot**：頁面下方預留空白區塊，標記「Community Module（W3 instance）」\n3. 建立 4 個 variant：機票 / 旅館 / 團體+自由行 / 票券+景點\n4. 使用 W2-UIUX-1 tokens\n5. get_screenshot（每個 variant 各一張）+ 5 維度自驗\n\n**下游視角：**\n- W3-UIUX-2 依此 slot 位置 instance Community Module\n- W4-PG-3 依此 frame 實作 ProductDetail controller/Razor view\n- 4 類 variant nodeId 全部記錄於 deliverables",
+  "context_paths": [
+    "projects/eztravel.community/data/",
+    "projects/eztravel.community/tokens.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-1"
+  ],
+  "objective": "建立 Product Detail 通用頁面主版，以 Figma variant 預留機票／旅館／團體+自由行／票券+景點 4 類商品的不同展示欄位",
+  "goal_state": "Figma ProductDetail frame 含主版 layout + 4 類 variant（機票/旅館/團體+自由行/票券+景點），Community Module slot 預留，視覺自驗 pass，nodeId 記錄於 deliverables",
+  "verification": {
+    "verifier": "UIUX 自驗 get_screenshot 每 variant 各一張",
+    "tools": [
+      "figma-remote-mcp get_screenshot"
+    ],
+    "evidence_checks": [
+      "get_screenshot(variant=旅館) 含星級欄位；get_screenshot(variant=團體) 含天數欄位",
+      "Community slot 區塊在截圖下半段可輨識",
+      "4 variant nodeId 全部在 deliverables"
+    ]
+  },
+  "out_of_scope": [
+    "Community module 內容繪製（W3-UIUX-1）",
+    "實際訂位功能",
+    "RWD 手機版"
+  ],
+  "escalation_on_block": [
+    "variant 數量詢問（是否需拆成 4 個獨立 frame）→ chat admin 仒裁",
+    "Figma OAuth 失效 → PENDING_FIGMA_OAUTH"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U9-01：ProductDetail 主版 frame 存在，含共通區/差異區/Community slot",
+    "AC-W2U9-02：4 類 variant 建立，每 variant get_screenshot 可驗證",
+    "AC-W2U9-03：5 維度視覺自驗全 pass",
+    "AC-W2U9-04：4 類 variant nodeId 記錄於 deliverables"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

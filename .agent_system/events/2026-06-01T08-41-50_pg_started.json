@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:41:50.743795+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-1",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet (Playwright 爬蟲適合,memory admin_subagent_model_default)\n\n[任務] T-eztcomm-20260601-W1-PG-1 — 爬 eztravel 首頁\n\n[Worktree] d:/Projects/ai.factory/projects/eztravel.community/.worktrees/T-eztcomm-2",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

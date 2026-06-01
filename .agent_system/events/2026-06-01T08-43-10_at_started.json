@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:43:10.077363+00:00",
+  "task_id": "T-eztcomm-20260601-W4-AT-1",
+  "agent": "at",
+  "type": "started",
+  "summary": "[模型] sonnet (架構文件 sonnet 即可,memory admin_subagent_model_default)\n\n[任務] T-eztcomm-20260601-W4-AT-1 — 寫 3 份架構文件 (solution_layout.md / data_model.md / auth.md)\n\n詳見卡:projects/eztravel.community/.agent_sys",
+  "ref": {
+    "worker_id": "at-1",
+    "agent_session_id": ""
+  }
+}

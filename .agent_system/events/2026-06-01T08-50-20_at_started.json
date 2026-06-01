@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:50:20.356478+00:00",
+  "task_id": "T-eztcomm-20260601-W4-AT-2",
+  "agent": "at",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W4-AT-2 — 建 .NET 8 MVC 基底骨架\n\n詳見卡:projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W4-AT-2/T-eztcomm-20260601-W4-AT-2.json\n\n[依據] 03_architecture/so",
+  "ref": {
+    "worker_id": "at-1",
+    "agent_session_id": ""
+  }
+}

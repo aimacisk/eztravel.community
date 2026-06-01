@@ -1,0 +1,47 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-AT-2",
+  "prj_id": "eztravel.community",
+  "status": "IN_PROGRESS",
+  "title": "[W4] AT — 建立基底專案骨架 (sln + 4 csproj + DI + Serilog)",
+  "created_at": "2026-06-01T08:50:11.917934+00:00",
+  "assignee": "at",
+  "phase": "ARCHITECTURE",
+  "priority": "P1",
+  "instruction": "依 03_architecture/solution_layout.md 建立可運行的 .NET 8 MVC 基底骨架。**不含業務邏輯**,只要骨架 + 可 dotnet build + dotnet run 起服務 (預期返回 hello world 或空白首頁)。\n\n[Worktree] 直接在 main branch 上做 (此卡是基底,不分支)\n[輸出路徑] projects/eztravel.community/04_src/eztravel.Community/\n\n[步驟]\n1. cd projects/eztravel.community/04_src\n2. mkdir -p eztravel.Community && cd eztravel.Community\n3. dotnet new sln -n eztravel.Community\n4. dotnet new mvc -n eztravel.Community.Web -f net8.0\n5. dotnet new classlib -n eztravel.Community.Core -f net8.0\n6. dotnet new classlib -n eztravel.Community.Infrastructure -f net8.0\n7. dotnet new xunit -n eztravel.Community.Tests -f net8.0\n8. dotnet sln add **/*.csproj\n9. 設專案參考:\n   - Web → Core + Infrastructure\n   - Infrastructure → Core\n   - Tests → Web + Core + Infrastructure\n10. 安裝 nuget:\n    - Web: Serilog.AspNetCore + Serilog.Formatting.Compact\n    - Infrastructure: Microsoft.EntityFrameworkCore + Npgsql.EntityFrameworkCore.PostgreSQL + Microsoft.AspNetCore.Identity.EntityFrameworkCore + Microsoft.EntityFrameworkCore.Design\n    - Tests: Microsoft.AspNetCore.Mvc.Testing + Testcontainers + Testcontainers.PostgreSql + Moq + FluentAssertions\n11. Program.cs 配置 Serilog stdout JSON (對齊 memory project_dotnet_gcp_serilog_stdout):\n    ```csharp\n    Log.Logger = new LoggerConfiguration()\n        .WriteTo.Console(new Serilog.Formatting.Compact.RenderedCompactJsonFormatter())\n        .Enrich.FromLogContext()\n        .CreateLogger();\n    builder.Host.UseSerilog();\n    ```\n12. 加 /health endpoint (簡單回 OK)\n13. appsettings.json + appsettings.Development.json (PostgreSQL connection string placeholder)\n14. dotnet build 成功 + dotnet run 起得來 + curl /health 回 OK\n15. git add . && git -c user.email=admin@ai.factory commit -m \"[W4-AT-2] baseline .NET 8 MVC skeleton + Serilog + Identity scaffold\"\n\n[goal_state]\ndotnet build 0 error + dotnet run 啟動成功 + /health 200 + Identity + EF Core + Serilog 套件已裝\n\n[verification]\n- ls 04_src/eztravel.Community/eztravel.Community.{Web,Core,Infrastructure,Tests}.csproj 全存在\n- cd 04_src/eztravel.Community && dotnet build 退出碼 0\n- dotnet run & sleep 3 && curl localhost:5000/health 回 OK\n\n[out_of_scope]\n- 業務 controller/view (W4-PG-2/3/4 負責)\n- EF Core entity 與 migration (W4-PG-1 負責)\n- 完整測試 (W4-PG-6 負責)\n\n[escalation_on_block]\n- dotnet build fail → 修依賴版本後 commit;不擋\n- dotnet run port conflict → 換 port (5001) 不擋\n\n[完工] [TASK_DONE] + dotnet build 輸出 + dotnet run 啟動訊息 + commit_sha\n[紀律] 中文 + 全形標點 + 不寫 WHAT 註解",
+  "context_paths": [
+    "projects/eztravel.community/03_architecture/",
+    "projects/eztravel.community/04_src/",
+    "projects/eztravel.community/01_requirements/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-AT-1"
+  ],
+  "objective": "建立可運行的 .NET 8 MVC 基底骨架,讓 W4-PG-* 直接接續開發業務邏輯。",
+  "goal_state": "04_src/eztravel.Community/ 含 4 csproj + sln + Serilog + Identity scaffold + EF Core,dotnet build 0 error + dotnet run 起 /health 200。",
+  "verification": {
+    "checks": [
+      "4 csproj 存在",
+      "dotnet build 退出 0",
+      "dotnet run 起 /health 200"
+    ]
+  },
+  "out_of_scope": [
+    "業務 controller/view",
+    "EF Core entity (W4-PG-1)",
+    "完整測試 (W4-PG-6)"
+  ],
+  "escalation_on_block": [
+    "dotnet build fail 修依賴不擋",
+    "port conflict 換口"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T08:50:20.282356+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

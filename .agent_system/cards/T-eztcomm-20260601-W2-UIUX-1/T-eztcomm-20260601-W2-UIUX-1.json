@@ -2,54 +2,29 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W2-UIUX-1",
   "prj_id": "eztravel.community",
-  "status": "TODO",
-  "title": "[W2] UIUX — 建 Figma file \"eztravel.community design\" + Tokens page",
-  "created_at": "2026-06-01T08:34:16.662483+00:00",
+  "status": "IN_PROGRESS",
+  "title": "建 Figma file 'eztravel.community design' + Tokens page",
+  "created_at": "2026-06-01T08:00:00+00:00",
   "assignee": "uiux",
   "phase": "DESIGN",
-  "priority": "P1",
-  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal Figma file \"eztravel.community design\" 建立完成，Tokens page 含品牌色／typography／spacing 全定義，tokens.json 已輸出到 projects/eztravel.community/tokens.json`\n\n[依賴: T-eztcomm-20260601-W1-AQ-1 完成後] 須讀 data/homepage/ 截圖與 JSON 萃取品牌樣式\n\n**工作步驟：**\n1. 讀 projects/eztravel.community/data/homepage/ 中 W1-PG-1 產出的截圖與 JSON，萃取 eztravel 品牌色系、字型、間距\n2. 用 figma-remote-mcp 建立新 Figma file，命名 \"eztravel.community design\"\n3. 建 Tokens page，含：\n   - Color tokens：primary（藍橘主色）/ secondary / background / surface / text-primary / text-secondary / error / success / border 等語意色票\n   - Typography：Heading 1-4 / Body / Caption / Label 各自字級（px）/ 字重 / 行高\n   - Spacing：4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 px 基準間距系統\n4. 輸出 tokens.json 到 projects/eztravel.community/tokens.json（鍵值對格式）\n5. 記錄 Figma fileKey 到 deliverables\n\n**下游視角（W2-UIUX-2~11 都依賴此卡）：** tokens.json 格式須為 PG 可直接引用的 CSS variable 或 Tailwind config 格式。\n\n[並行組: W2] 此卡完成後 W2-UIUX-2~9 全解鎖",
+  "instruction": "建 Figma file eztravel.community design + Tokens page（色票/typography/spacing）；6 件套；9 條 UIUX 紀律；視覺自驗",
   "context_paths": [
-    "projects/eztravel.community/data/homepage/",
-    "wishes/W-eztcomm-20260601-REBUILD.json"
+    "projects/eztravel.community/01_requirements/",
+    "projects/eztravel.community/02_design/",
+    "docs/superpowers/specs/2026-06-01-eztravel-community-rebuild-design.md"
   ],
-  "depends_on": [
-    "T-eztcomm-20260601-W1-AQ-1"
+  "acceptanceCriteria": [
+    "Figma file 已建立，含 Tokens page 完整色票/typography/spacing 視覺化",
+    "6 件套全部落盤",
+    "每個 nodeId 跑 get_screenshot 5 維度視覺自驗通過",
+    "9 條 UIUX 紀律達標"
   ],
-  "objective": "建立 Figma 設計檔案基底，完成 Tokens page（色票／typography／spacing），作為 W2 所有頁面設計的統一基底",
-  "goal_state": "Figma file \"eztravel.community design\" 存在；Tokens page 含品牌色票／字型／間距全部定義；tokens.json 已輸出到 projects/eztravel.community/tokens.json；Figma fileKey 已記錄於 deliverables",
-  "verification": {
-    "verifier": "UIUX 自驗 + admin 確認",
-    "tools": [
-      "figma-remote-mcp get_metadata",
-      "Read tokens.json"
-    ],
-    "evidence_checks": [
-      "執行 get_metadata(fileKey) 後回應含 name='eztravel.community design' 且 pages 含 'Tokens'",
-      "Read projects/eztravel.community/tokens.json 後輸出含 primaryColor / fontSizeBase / spacing4 等鍵"
-    ]
-  },
-  "out_of_scope": [
-    "具體頁面設計（W2-UIUX-2~9 負責）",
-    "Community module（W3 負責）",
-    "任何程式實作",
-    "Figma component 建立（後續卡負責）"
-  ],
-  "escalation_on_block": [
-    "Figma OAuth 失效 → 標 PENDING_FIGMA_OAUTH 暫停，chat admin 等 OAuth 恢復",
-    "無法讀取 data/homepage/ → [QUERY] 給 admin 確認 W1-PG-1 是否已完工",
-    "tokens.json 寫入 projects/ 超出 context_paths → chat admin 申請擴大授權"
-  ],
-  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
-  "acceptance_criteria": [
-    "AC-W2U1-01：Figma file 'eztravel.community design' 存在，get_metadata 可取回",
-    "AC-W2U1-02：Tokens page 含 Color / Typography / Spacing 三大區塊，各含至少 6 個 token",
-    "AC-W2U1-03：projects/eztravel.community/tokens.json 存在且為合法 JSON，含 color / typography / spacing 三個頂層鍵"
-  ],
-  "wiki_target": "06_wiki/02_design_tokens.md",
-  "deliverables": [],
-  "execution_log": "",
-  "started_at": null,
+  "objective": "建立 eztravel.community 設計系統基礎：Figma file + Tokens page + 6 件套風格學習產出",
+  "goal_state": "Figma file 已建立，Tokens page 含完整色票卡/typography/spacing 視覺化，6 件套落盤於 02_design/",
+  "started_at": "2026-06-01T08:45:00+00:00",
+  "agent_session_id": "uiux-T-eztcomm-20260601-W2-UIUX-1",
   "completed_at": null,
-  "commit_sha": null
+  "deliverables": [],
+  "execution_log": "進場中：正在爬取 eztravel.com.tw 學習風格",
+  "wiki_draft_path": null
 }

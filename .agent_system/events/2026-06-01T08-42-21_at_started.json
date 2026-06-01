@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:42:21.509464+00:00",
+  "task_id": "T-eztcomm-20260601-PM-PLAN",
+  "agent": "at",
+  "type": "started",
+  "summary": "[誤派糾正] 此卡屬 PM 不屬 AT,忽略此訊息\n\n請依 §8 卡片紀律:進場改 IN_PROGRESS、完成填卡並改 DONE。",
+  "ref": {
+    "worker_id": "at-1",
+    "agent_session_id": ""
+  }
+}

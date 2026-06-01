@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:41:01.689696+00:00",
+  "task_id": "T-eztcomm-20260601-W1-BA-1",
+  "agent": "ba",
+  "type": "completed",
+  "summary": "卡片狀態改為 IN_PROGRESS，同時查詢 eztravel.com.tw 實際路徑。\nURL 確認完畢。進行卡片事件記錄與文件產出。\n現在撰寫兩份交付文件。\n兩份文件已產出。執行 BA 自驗。\n自驗通過。更新卡片完成狀態。\n---\n\n## 任務完成報告 — T-eztcomm-20260601-W1-BA-1\n\n**卡片狀態**：`TODO → IN_PROGRESS → DONE` ✅\n\n---\n\n### 交付物\n\n#### 1. `01_requirements/data_schema.md`\n\n定義所有 7 個資料夾的 JSON 規範，含：\n\n| 規範項目 | 內容 |\n|----",
+  "ref": {
+    "worker_id": "ba-1",
+    "response_chars": 1877
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-2",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W3] UIUX — instance Community Module 到 4 類商品頁 variant",
+  "created_at": "2026-06-01T08:49:38.642226+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n目標：將 W3-UIUX-1 完成的 5 個 Community Module atomic primitives，instance 到 W2-UIUX-9 ProductDetail 4 類 variant 頁面（團體旅遊 / 自由行 / 旅館 / 票券）。\n\n【上游輸入】\n- W3-UIUX-1：5 個 Community primitive Components 已建立於 Community Module 頁面\n- W2-UIUX-9：ProductDetail 主版（4 類 variant）已建立\n\n【每個 variant 頁面需添加的 Community 區塊】\n在 ProductDetail 各 variant frame 底部加入：\n1. 評分統計區：StarRating instance（顯示平均分） + RatingDistribution instance（星等分佈）\n2. 篩選區：FilterBar instance\n3. 評論清單：≥2 筆 ReviewCard instance（佔位用 placeholder 文字）\n4. 撰寫評論：ReviewComposer instance\n\n【排版規範】\n- Community 區塊置於商品詳情資訊下方，與上方內容有明確分隔線（≥24px gap）\n- instance 引用 W3-UIUX-1 Component，不得手動複製貼上（確保 Component link 存在）\n- 4 個 variant 排版一致（使用同一 Community 區塊 layout pattern）\n- 命名：各 variant frame 內 Community 區塊命名為「Community Section」\n\n【同波平行注意】\n- W3-UIUX-2 depends_on W3-UIUX-1，等 W3-UIUX-1 DONE 後開始\n\n[依賴: W3-UIUX-1 完成後]",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-1/T-eztcomm-20260601-W3-UIUX-1.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-9/T-eztcomm-20260601-W2-UIUX-9.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W3-UIUX-1",
+    "T-eztcomm-20260601-W2-UIUX-9"
+  ],
+  "objective": "將 W3 Community Module 5 個 atomic primitives instance 到 W2-UIUX-9 ProductDetail 的 4 類 variant（團體/自由行/旅館/票券）頁面底部",
+  "goal_state": "ProductDetail 4 類 variant frame 各自底部均包含 Community Section（StarRating + RatingDistribution + FilterBar + 2 ReviewCard + ReviewComposer），全部為 Component instance 而非手動複製，get_screenshot 確認 5 維度通過",
+  "verification": {
+    "verifier": "UIUX 自驗",
+    "tools": [
+      "mcp__figma-remote-mcp__get_design_context",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "跑 get_design_context 後輸出 ProductDetail variant nodes 含 'Community Section' layer",
+      "對 4 個 variant 各取 get_screenshot 後確認 Community 區塊可見且排版正確（無溢出/重疊）",
+      "跑 get_design_context 確認 Community Section 內 nodes 為 Component instance（有 componentId 指向 W3-UIUX-1 元件）"
+    ]
+  },
+  "out_of_scope": [
+    "修改 5 個 atomic primitive 本體（歸 W3-UIUX-1）",
+    "新增 variant 種類（只處理 4 類既有）",
+    "後端 API 或 AJAX（歸 PG 卡）",
+    "W1/W2 其他分類頁的 Community 整合（MVP 只做 ProductDetail）"
+  ],
+  "escalation_on_block": [
+    "找不到 W3-UIUX-1 Component 或 componentId 無法 instance → chat admin [QUERY]",
+    "ProductDetail variant frame 結構與 W2-UIUX-9 不符（frame 命名改了）→ 先讀 W2-UIUX-9 card deliverables，找到正確 nodeId 再繼續",
+    "5 維度視覺自驗失敗 → 修復後重新自驗，不帶瑕疵完工"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1：4 類 variant frame 各自底部有 Community Section layer",
+    "AC-2：Community Section 內元件均為 Component instance（非手動複製）",
+    "AC-3：排版一致、間距符合規範（≥24px gap）",
+    "AC-4：get_screenshot 4 個 variant 視覺確認通過"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

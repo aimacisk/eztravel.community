@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W1-BA-1",
   "prj_id": "eztravel.community",
-  "status": "IN_PROGRESS",
+  "status": "DONE",
   "title": "[W1] BA — data/ JSON schema + 命名規則 + anchor id 約定",
   "created_at": "2026-06-01T08:22:24.980264+00:00",
   "assignee": "ba",
@@ -40,10 +40,14 @@
   "parent_wish_id": "W-eztcomm-20260601-REBUILD",
   "acceptance_criteria": [],
   "wiki_target": "06_wiki/01_data_schema.md",
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "projects/eztravel.community/01_requirements/data_schema.md",
+    "projects/eztravel.community/01_requirements/crawler_brief.md"
+  ],
+  "execution_log": "1. 讀 design spec 確認 7 個分類資料夾名稱與業務目標。2. 實際訪問 eztravel.com.tw 確認 7 個目標 URL（homepage/機票/旅館/團體/自由行/票券/景點對應 6 個子網域）。3. 產出 data_schema.md：頂層 JSON 結構、11 個 section type 列舉、各頁 anchor id 清單、items 6 個選填欄位、圖檔命名規範（{category}_{type}_{index}.{ext}）、完整 JSON 範例、8 條 AC。4. 產出 crawler_brief.md：7 個目標 URL、截圖規格（1 張全頁 PNG）、Playwright 等待策略（networkidle + scroll + lazy-load）、速率控制規格、升級規則、6 條 AC。5. BA 自驗通過：sections/items 結構 + 圖檔命名範例確認存在；7 個 URL 確認存在。",
   "started_at": "2026-06-01T08:35:14.639443Z",
-  "completed_at": null,
+  "completed_at": "2026-06-01T08:41:01.715685+00:00",
   "commit_sha": null,
+  "wiki_draft_path": "projects/eztravel.community/06_wiki/01_data_schema.md",
   "agent_session_id": "ba-session-20260601-T-eztcomm-W1-BA-1"
 }

@@ -1,0 +1,50 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-AT-1",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "[W4] AT — solution_layout + data_model + auth 架構文件",
+  "created_at": "2026-06-01T08:42:59.272368+00:00",
+  "assignee": "at",
+  "phase": "ARCHITECTURE",
+  "priority": "P1",
+  "instruction": "產出 W4 .NET MVC 實作的架構設計文件,讓 W4-AT-2 (基底骨架) 與 W4-PG-* (實作) 有單一規格依據。\n\n【必交付 3 份文件】\n1. projects/eztravel.community/03_architecture/solution_layout.md\n   - .NET 8 LTS solution 結構\n   - 4 個 csproj:\n     - eztravel.Community.Web (ASP.NET Core MVC + Razor,主啟動專案)\n     - eztravel.Community.Core (Domain entities + Interfaces,純 POCO 無依賴)\n     - eztravel.Community.Infrastructure (EF Core + Npgsql + Identity + Repositories)\n     - eztravel.Community.Tests (xUnit + Moq + WebApplicationFactory + Testcontainers)\n   - DI 配置 (Web 引用 Core + Infrastructure;Infrastructure 引用 Core)\n   - 目錄結構 + 命名規範\n\n2. projects/eztravel.community/03_architecture/data_model.md\n   - EF Core entity 設計:ApplicationUser / Product / Review / ReviewLike\n   - 對應 community_spec.md 欄位完整轉 EF Core (含 [Required] / [MaxLength] / Index / FK)\n   - 種子資料策略 (從 data/*.json 載入)\n   - Migration 命名:Initial / AddIdentity / AddCommunity / SeedProducts\n   - PostgreSQL 連線字串設計 (Dev: localhost docker;Prod: Cloud SQL Unix socket /cloudsql/{INSTANCE_CONNECTION_NAME})\n\n3. projects/eztravel.community/03_architecture/auth.md\n   - ASP.NET Identity 配置 (email + password,MVP 關 email confirm)\n   - User claim 設計 (DisplayName + AvatarUrl 為 custom property)\n   - Cookie 設定 + login/logout/register 流程\n   - Razor _LoginPartial.cshtml 介面元素\n   - 為 W4-PG-4 Community feature 提供 [Authorize] 取得 current user 的標準寫法\n\n[goal_state]\n3 份文件齊全,內容對齊 community_spec.md (W3-BA-1) 與 data_schema.md (W1-BA-1)\n\n[verification]\n- ls projects/eztravel.community/03_architecture/{solution_layout.md,data_model.md,auth.md}\n- 每份檔案 >= 150 行\n- data_model.md 含 ApplicationUser/Product/Review/ReviewLike 4 entity 完整 schema\n\n[out_of_scope]\n- 實際 .NET 程式碼 (W4-AT-2 + W4-PG-* 負責)\n- GCP devops 規格 (W5-AT-1 負責)\n- Figma 設計 (W2 UIUX 負責)\n\n[escalation_on_block]\n- 若 community_spec.md 規格不明 → 對應註記 \"依 MVP 假設\",不擋\n\n[完工 marker] [TASK_DONE] + 3 份文件路徑 + commit_sha (admin 代提)\n[紀律] 中文 + 全形標點",
+  "context_paths": [
+    "projects/eztravel.community/01_requirements/",
+    "projects/eztravel.community/03_architecture/",
+    "docs/superpowers/specs/2026-06-01-eztravel-community-rebuild-design.md"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W3-BA-1"
+  ],
+  "objective": "為 W4 .NET MVC 實作提供完整架構設計,含 solution layout + EF Core data model + ASP.NET Identity 配置。",
+  "goal_state": "3 份架構文件齊全,W4-AT-2 與 W4-PG-* 可直接依此實作。",
+  "verification": {
+    "checks": [
+      "ls 03_architecture/{solution_layout.md,data_model.md,auth.md} 全存在",
+      "每份 >= 150 行",
+      "data_model.md 含 4 entity schema"
+    ]
+  },
+  "out_of_scope": [
+    "實際程式碼 (W4-AT-2 + W4-PG-* 負責)",
+    "GCP devops (W5-AT-1)",
+    "Figma 設計 (W2 UIUX)"
+  ],
+  "escalation_on_block": [
+    "community_spec 規格不明 → 註記 MVP 假設 不擋"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [
+    "projects/eztravel.community/03_architecture/solution_layout.md (594 行)",
+    "projects/eztravel.community/03_architecture/data_model.md (576 行)",
+    "projects/eztravel.community/03_architecture/auth.md (507 行)"
+  ],
+  "execution_log": "3 份架構文件齊全，合計 1677 行。solution_layout.md 含 4 csproj DAG / DI 規範 / 命名慣例；data_model.md 含 4 entity 完整 EF Core schema / Migration 命名 / 聚合快取設計；auth.md 含 Identity 配置 / Cookie 設定 / Policy-based 授權 / _LoginPartial / current user 標準寫法。",
+  "started_at": "2026-06-01T08:43:09.978970+00:00",
+  "completed_at": "2026-06-01T08:49:24.225368+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-10",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W2] UIUX — 6 件套產出（README + sources.md + tokens.json + view_examples + motifs + figma_template）",
+  "created_at": "2026-06-01T08:37:05.852816+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal 6 件套已輸出到 projects/eztravel.community/skills/styling/，各檔存在且充實`\n\n[依賴: T-eztcomm-20260601-W2-UIUX-1~9 全部完成後]\n\n**工作步驟：**\n1. 建立目錄 projects/eztravel.community/skills/styling/（若不存在）\n2. 輸出以下 6 件：\n   - **README.md**：eztravel 風格描述（3 維度：風格特徵/動線設計/選用動機）、Figma file URL、tokens 使用方式\n   - **sources.md**：設計參考來源（eztravel.com.tw URL、截圖日期、採色方法說明）\n   - **tokens.json**：來自 W2-UIUX-1 的完整 token（色票/字型/間距）\n   - **view_examples/**：每個頁面的 Figma frame nodeId + screenshot URL 索引（JSON 或 MD）\n   - **motifs/**：品牌視覺語言說明（卡片陰影/圓角/圖示風格 etc.）\n   - **figma_template.json**：Figma file key + 所有 nodeId 索引（供 PG、W3 快速定位）\n3. 確認所有 W2 頁面 nodeId 已正確記錄於 figma_template.json\n\n**下游視角：** W4-PG-2/3/4 依 figma_template.json 定位 nodeId 實作 Razor；W3-UIUX-1 依 README motifs 設計 Community module 視覺語言",
+  "context_paths": [
+    "projects/eztravel.community/tokens.json",
+    "projects/eztravel.community/skills/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W2-UIUX-1",
+    "T-eztcomm-20260601-W2-UIUX-2",
+    "T-eztcomm-20260601-W2-UIUX-3",
+    "T-eztcomm-20260601-W2-UIUX-4",
+    "T-eztcomm-20260601-W2-UIUX-5",
+    "T-eztcomm-20260601-W2-UIUX-6",
+    "T-eztcomm-20260601-W2-UIUX-7",
+    "T-eztcomm-20260601-W2-UIUX-8",
+    "T-eztcomm-20260601-W2-UIUX-9"
+  ],
+  "objective": "彙整 W2 所有設計成果，輸出 UIUX 風格學習 6 件套，供 PG 實作與 PM wiki 整合使用",
+  "goal_state": "projects/eztravel.community/skills/styling/ 下存在完整 6 件套（README.md + sources.md + tokens.json + view_examples/ + motifs/ + figma_template.json），各檔內容充實，PG 可直接讀取對接實作",
+  "verification": {
+    "verifier": "PM 驗收 + admin 確認",
+    "tools": [
+      "Glob",
+      "Read"
+    ],
+    "evidence_checks": [
+      "Glob 'projects/eztravel.community/skills/styling/**' 回傳6 個檔案對應 6 件套問項",
+      "Read figma_template.json 含每頁 nodeId 記錄"
+    ]
+  },
+  "out_of_scope": [
+    "Community module 設計（W3）",
+    "程式實作",
+    "Figma file 編輯"
+  ],
+  "escalation_on_block": [
+    "W2-UIUX-1~9 尚未全部 DONE → 先處理已 DONE 的部分，等其餘完工後补充",
+    "figma nodeId 無法取得 → chat admin 請求後側卡補填"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W2U10-01：skills/styling/ 存在 README.md/sources.md/tokens.json/figma_template.json 四個檔",
+    "AC-W2U10-02：figma_template.json 含全部 W2 頁面 nodeId，Home/6分類/ProductDetail 各至少一條",
+    "AC-W2U10-03：README.md 含 3 維度風格描述和 Figma URL"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}
