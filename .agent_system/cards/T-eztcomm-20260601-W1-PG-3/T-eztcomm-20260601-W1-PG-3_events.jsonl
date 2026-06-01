@@ -1,0 +1,1 @@
+{"ts": "2026-06-01T08:53:49+00:00", "actor": "pg", "type": "completed", "details": {"deliverables": ["data/旅館/旅館.json", "data/旅館/旅館_screenshot.png", "data/旅館/images/ (36 files)"], "summary": "Playwright 爬取 hotel.eztravel.com.tw，7 sections，22KB JSON，4936KB 截圖，36 張圖片（banner×15 + product×21），schema 驗證全通過，所有圖片 ≤2MB"}}

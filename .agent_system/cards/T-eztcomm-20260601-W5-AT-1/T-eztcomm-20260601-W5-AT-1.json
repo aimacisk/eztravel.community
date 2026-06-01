@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W5-AT-1",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W5] AT — devops.md（Dockerfile + CI/CD + Cloud Run + Cloud SQL 規格）",
+  "created_at": "2026-06-01T08:58:20.372456+00:00",
+  "assignee": "at",
+  "phase": "ARCHITECTURE",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n## 目標\n撰寫 03_architecture/devops.md，定義 eztravel.community 完整 DevOps 規格，供 W5-PG-1/2/3 直接實作。\n\n## 上游依賴\n- T-eztcomm-20260601-W4-AT-1：solution_layout + data_model + auth 架構文件\n\n## 已凍結決策（不得更改）\n- GCP project: eztravel-community-prod\n- Region: asia-east1\n- Cloud SQL: PostgreSQL 15, instance=eztcomm-db, tier=db-f1-micro, db_name=eztcomm\n- Cloud Run service: eztravel-community\n- GitHub repo: micchang/eztravel.community（public）\n- CI/CD 觸發條件：commit message 含 [release]\n- Port: 8080（Cloud Run 要求）\n\n## devops.md 必含章節\n\n### §1 Dockerfile 規格\n- Multi-stage build：stage 1=build (sdk:8.0)，stage 2=runtime (aspnet:8.0)\n- WORKDIR /app\n- Stage 1：COPY .sln + COPY csproj + dotnet restore + COPY . + dotnet publish -c Release -o /app/publish\n- Stage 2：COPY --from=build /app/publish ./；EXPOSE 8080；ENV ASPNETCORE_URLS=http://+:8080；ENTRYPOINT [\"dotnet\",\"EztravelCommunity.Web.dll\"]\n- 不含 HEALTHCHECK（由 Cloud Run 使用 /health endpoint 探測）\n\n### §2 .github/workflows/release.yml 規格\n觸發條件：\n```yaml\non:\n  push:\n    branches: [main]\n```\n配合 job condition：`if: contains(github.event.head_commit.message, '[release]')`\n\nSteps:\n1. Checkout\n2. Set up QEMU + Docker Buildx\n3. Authenticate to GCP（google-github-actions/auth@v2，secret: GOOGLE_CREDENTIALS）\n4. Set up gcloud（google-github-actions/setup-gcloud@v2）\n5. Configure docker for Artifact Registry（gcloud auth configure-docker asia-east1-docker.pkg.dev）\n6. Build & Push：docker buildx build --platform linux/amd64 -t asia-east1-docker.pkg.dev/eztravel-community-prod/eztcomm-repo/eztravel-community:${{ github.sha }} --push .\n7. Deploy to Cloud Run：gcloud run deploy eztravel-community --image=... --region=asia-east1 --platform=managed --allow-unauthenticated --set-secrets=...\n8. Run EF migrations：以 Cloud Run Job 執行 `dotnet ef database update --connection \"...Cloud SQL...\"` 或 startup migration\n\n### §3 Cloud Run 環境變數規格\n必要的 Secret Manager secrets（W5-ADMIN-1 建立）：\n- DB_CONNECTION_STRING：`Host=/cloudsql/eztravel-community-prod:asia-east1:eztcomm-db;Database=eztcomm;Username=eztcomm_user;Password=<secret>`\n- ASPNETCORE_ENVIRONMENT：Production\n- CORS_ALLOWED_ORIGINS：（選填）\n\nCloud Run 設定：\n- --add-cloudsql-instances=eztravel-community-prod:asia-east1:eztcomm-db\n- --service-account=eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com\n- --memory=512Mi --cpu=1 --min-instances=0 --max-instances=3\n\n### §4 Cloud SQL Unix Socket 連線規格（給 W5-PG-3）\nConnection string 格式（Npgsql Cloud SQL unix socket）：\n```\nHost=/cloudsql/eztravel-community-prod:asia-east1:eztcomm-db;Database=eztcomm;Username=eztcomm_user;Password=<from_secret>\n```\n本機開發用標準 TCP：`Host=localhost;Port=5432;Database=eztcomm;Username=eztcomm_user;Password=dev123`\n\n### §5 EF Migration 策略\n- Startup migration（Program.cs）：`using var scope = app.Services.CreateScope(); scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.Migrate();`\n- Production 啟動時自動套用（Cloud Run cold start 可接受 ~2s 延遲）\n\n## 產出\n- projects/eztravel.community/03_architecture/devops.md（≥ 5 章節，含上述全部規格）\n- wiki_draft: .agent_system/cards/T-eztcomm-20260601-W5-AT-1/T-eztcomm-20260601-W5-AT-1_at_draft.md\n\n## 完工 marker\n最終回應結尾附 [TASK_DONE]",
+  "context_paths": [
+    "projects/eztravel.community/03_architecture/",
+    "projects/eztravel.community/src/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-AT-1"
+  ],
+  "objective": "撰寫 03_architecture/devops.md，定義 Dockerfile 規格、CI/CD workflow 規格、Cloud Run 設定、Cloud SQL unix socket 連線規格，供 W5-PG-1/2/3 直接實作。",
+  "goal_state": "03_architecture/devops.md 存在且含 §1 Dockerfile / §2 CI/CD workflow / §3 Cloud Run 環境變數 / §4 Cloud SQL 連線格式 / §5 Migration 策略共 5 個章節，≥ 100 行。",
+  "verification": {
+    "verifier": "AT 自驗",
+    "tools": [
+      "cat",
+      "wc -l"
+    ],
+    "evidence_checks": [
+      "跑 cat 03_architecture/devops.md 後輸出含 'Dockerfile' 且含 'Cloud Run' 且含 'Cloud SQL'",
+      "跑 wc -l 03_architecture/devops.md 後輸出數字 >= 100",
+      "wiki_draft 存在並含 '§1' 到 '§5'"
+    ]
+  },
+  "out_of_scope": [
+    "Dockerfile 實際撰寫（歸 W5-PG-1）",
+    "release.yml 實際撰寫（歸 W5-PG-2）",
+    "appsettings.Production.json 實際撰寫（歸 W5-PG-3）",
+    "GCP 環境實際建置（歸 W5-ADMIN-1）"
+  ],
+  "escalation_on_block": [
+    "Cloud Run + Cloud SQL unix socket 規格不確定 → 參照 GCP 官方文件定案，將參照連結寫進規格文件",
+    "W4-AT-1 architecture.md 不存在 → 從 solution layout 公約自行推斷並記錄 execution_log",
+    "冲突决策需小建置變更 → chat admin + [QUERY]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W5AT1-01：03_architecture/devops.md 存在 ≥ 100 行",
+    "AC-W5AT1-02：含 Dockerfile multi-stage 規格（sdk:8.0 / aspnet:8.0 / EXPOSE 8080）",
+    "AC-W5AT1-03：含 CI/CD workflow 規格（[release] 觸發 / Artifact Registry / Cloud Run deploy）",
+    "AC-W5AT1-04：含 Cloud SQL unix socket 連線字串格式",
+    "AC-W5AT1-05：wiki_draft 存在並可導入 06_wiki"
+  ],
+  "wiki_target": "06_wiki/03_api_architecture.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:16:07.424824+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

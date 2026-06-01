@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:15:34.503489+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-2",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W4-PG-2 — Home + Category 6 controller/view 從 data/ JSON 載入\n\n[Worktree] .worktrees/T-eztcomm-20260601-W4-PG-2/ (已建)\n[Branch] feat/T-eztcomm-20260601-W4-PG-2\n\n[輸入] (",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

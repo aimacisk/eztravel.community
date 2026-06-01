@@ -1,0 +1,15 @@
+{
+  "ts": "2026-06-01T10:30:00.000000+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-1",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "W1-PG-1 首頁爬取完成：13 sections / 63 items / homepage.json + 截圖 + 14 images，三閘門全綠",
+  "ref": {
+    "delivered_files": [
+      ".worktrees/T-eztcomm-20260601-W1-PG-1/data/homepage/homepage.json",
+      ".worktrees/T-eztcomm-20260601-W1-PG-1/data/homepage/homepage_screenshot.png",
+      ".worktrees/T-eztcomm-20260601-W1-PG-1/data/homepage/images/ (14 files)"
+    ],
+    "task_board_status": "DONE"
+  }
+}

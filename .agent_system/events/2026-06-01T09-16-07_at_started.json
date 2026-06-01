@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:16:07.494417+00:00",
+  "task_id": "T-eztcomm-20260601-W5-AT-1",
+  "agent": "at",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W5-AT-1 — GCP devops 規格\n\n[輸入]\n- 03_architecture/data_model.md (W4-AT-1)\n- 03_architecture/auth.md (W4-AT-1)\n- 03_architecture/solution_layout.md (W4-AT-1)\n- 設計 spec",
+  "ref": {
+    "worker_id": "at-1",
+    "agent_session_id": ""
+  }
+}

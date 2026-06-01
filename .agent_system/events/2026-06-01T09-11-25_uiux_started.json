@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:11:25.790340+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W2-UIUX-2 — Figma 首頁繪製\n\n[依據]\n- Figma file 6XmYJOpiSXab2gtGlmWtks (W2-UIUX-1 DONE,Tokens 完整)\n- 02_design/figma_deliverables.md + tokens.json + motifs.md + sources.md",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

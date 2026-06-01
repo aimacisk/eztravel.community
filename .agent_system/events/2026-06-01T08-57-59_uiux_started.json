@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:57:59.282720+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-1",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W3-UIUX-1 — Figma Community Module 5 atomic primitives\n\n[依據]\n- community_spec.md (W3-BA-1 DONE) — 留言/星等/權限/聚合/防濫用 完整規格\n- W2-UIUX-1 已建 Figma file \"eztravel.community",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

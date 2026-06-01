@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W4-AT-2",
   "prj_id": "eztravel.community",
-  "status": "IN_PROGRESS",
+  "status": "DONE",
   "title": "[W4] AT — 建立基底專案骨架 (sln + 4 csproj + DI + Serilog)",
   "created_at": "2026-06-01T08:50:11.917934+00:00",
   "assignee": "at",
@@ -17,8 +17,8 @@
   "depends_on": [
     "T-eztcomm-20260601-W4-AT-1"
   ],
-  "objective": "建立可運行的 .NET 8 MVC 基底骨架,讓 W4-PG-* 直接接續開發業務邏輯。",
-  "goal_state": "04_src/eztravel.Community/ 含 4 csproj + sln + Serilog + Identity scaffold + EF Core,dotnet build 0 error + dotnet run 起 /health 200。",
+  "objective": "建立可運行的 .NET 8 MVC 基底骨架，讓 W4-PG-* 直接接續開發業務邏輯。",
+  "goal_state": "04_src/eztravel.Community/ 含 4 csproj + sln + Serilog + Identity scaffold + EF Core，dotnet build 0 error + dotnet run 起 /health 200。",
   "verification": {
     "checks": [
       "4 csproj 存在",
@@ -38,10 +38,28 @@
   "parent_wish_id": "W-eztcomm-20260601-REBUILD",
   "acceptance_criteria": [],
   "wiki_target": null,
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "04_src/eztravel.Community/eztravel.Community.sln",
+    "04_src/eztravel.Community/eztravel.Community.Core/",
+    "04_src/eztravel.Community/eztravel.Community.Infrastructure/",
+    "04_src/eztravel.Community/eztravel.Community.Web/",
+    "04_src/eztravel.Community/eztravel.Community.Tests/"
+  ],
+  "execution_log": "dotnet build → 0 Error / dotnet run → http://localhost:5150 / GET /health → HTTP 200 OK",
   "started_at": "2026-06-01T08:50:20.282356+00:00",
-  "completed_at": null,
-  "commit_sha": null,
-  "agent_session_id": ""
+  "completed_at": "2026-06-01T09:00:54.725966+00:00",
+  "commit_sha": "22a704a",
+  "agent_session_id": "",
+  "events": [
+    {
+      "ts": "2026-06-01T09:00:00.000000+00:00",
+      "actor": "at",
+      "type": "completed",
+      "details": {
+        "commit_sha": "22a704a",
+        "build_result": "0 Error",
+        "health_check": "HTTP 200"
+      }
+    }
+  ]
 }

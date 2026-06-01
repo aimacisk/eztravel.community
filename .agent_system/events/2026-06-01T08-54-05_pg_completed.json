@@ -1,0 +1,15 @@
+{
+  "ts": "2026-06-01T08:54:05+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-3",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "Playwright 爬取 hotel.eztravel.com.tw 完成：7 sections，22KB JSON，4936KB 截圖，36 張圖片，schema 驗證通過",
+  "ref": {
+    "delivered_files": [
+      "data/旅館/旅館.json",
+      "data/旅館/旅館_screenshot.png",
+      "data/旅館/images/ (36 files)"
+    ],
+    "task_board_status": "DONE"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-PG-4",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W4] PG — Community feature（ReviewController + AJAX + partial）",
+  "created_at": "2026-06-01T08:53:31.431611+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W4-PG-4 + branch feat/T-eztcomm-20260601-W4-PG-4\n\n目標：實作社群評論功能（ReviewController + AJAX 提交 + Partial View），填入 W4-PG-3 預留的 #community-section 占位。\n\n【上游輸入】\n- W4-PG-3：ProductDetailController + 含 #community-section 的 view\n- W3-BA-1 deliverables：community_spec.md（留言/星等/權限/聚合/防濫用規則）\n- W3-UIUX-2 deliverables：Community Module instance 到 4 variant 的 Figma 設計\n\n【ReviewController (Controllers/ReviewController.cs)】\n- GET /review/list?productId={id}&page={n}：JSON 回應 List<ReviewDto>（含分頁）\n- POST /review/create：AntiForgeryToken 驗證 + 登入 required，建立 Review 記錄，回 JSON {ok:true}\n- GET /review/stats?productId={id}：JSON 回應 {avg: 4.2, count: 123, distribution: {1:0, 2:5...}}\n\n【ReviewComposer AJAX】\n- Views/Shared/_ReviewComposer.cshtml（partial）\n  - HTML：星等選擇器 + textarea + 送出按鈕\n  - JS：fetch POST /review/create，成功後重新載入 review list partial\n- Views/Shared/_ReviewList.cshtml（partial）\n  - 顯示 ReviewCard + FilterBar\n  - 支援篩選（AJAX GET /review/list?sort=latest/highest/lowest）\n- _Layout.cshtml 在 community-section 初始 render 時載入 _ReviewList partial\n\n【防濫用（依 community_spec.md）】\n- 同一使用者對同一產品只能評論一次（DB unique index review.userId + review.productId）\n- 未登入點提交 → 302 redirect 到 /Account/Login\n- Rating 欄位 server side 驗證 1 ≤ rating ≤ 5\n\n【結構化 Log（Serilog）】\n每次 Review 建立寫 Log：\n```csharp\n_logger.LogInformation(\"ReviewCreated {@Review}\", new { review.Id, review.ProductId, review.UserId, review.Rating });\n```\n\n[依賴: W4-PG-3 + W3-BA-1 + W3-UIUX-2 完成後]",
+  "context_paths": [
+    "projects/eztravel.community/src/",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-BA-1/T-eztcomm-20260601-W3-BA-1.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-2/T-eztcomm-20260601-W3-UIUX-2.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-PG-3",
+    "T-eztcomm-20260601-W3-BA-1",
+    "T-eztcomm-20260601-W3-UIUX-2"
+  ],
+  "objective": "實作 ReviewController（list/create/stats）+ AJAX partial views，將社群評論功能填入 ProductDetail 的 #community-section，符合 community_spec.md 防濫用規則",
+  "goal_state": "`curl /review/stats?productId=1` 返回含 'avg' 欄位的 JSON；未登入 POST /review/create 返回 302 redirect；登入後 POST 返回 {ok:true}；ProductDetail 頁面 #community-section 可見評論列表",
+  "verification": {
+    "verifier": "PG 自驗",
+    "tools": [
+      "Bash",
+      "mcp__playwright__browser_navigate"
+    ],
+    "evidence_checks": [
+      "跑 `curl http://localhost:5000/review/stats?productId=1` 後輸出含 '\"avg\"'",
+      "未登入情況 `curl -X POST http://localhost:5000/review/create` 後 HTTP 302 redirect",
+      "跑 Playwright navigate /product/1/groups 後 take_screenshot 畫面含 community 區塊內容"
+    ]
+  },
+  "out_of_scope": [
+    "編輯/刪除評論（MVP 只做建立）",
+    "評論主持功能",
+    "電郵通知",
+    "RWD 行動端優化"
+  ],
+  "escalation_on_block": [
+    "DB 連線無法建立 Review 記錄（本地無 PostgreSQL）→ 標註 PENDING_DB 在 execution_log，實作 in-memory fallback 等 W5 後連 Cloud SQL",
+    "community_spec.md 規則與實作衝突 → chat admin [QUERY]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1：/review/stats?productId=1 返回 JSON 含 avg/count/distribution",
+    "AC-2：未登入 POST /review/create 返回 302",
+    "AC-3：ProductDetail 頁面 #community-section 可見評論區塊",
+    "AC-4：同一 user 重複評論同一產品返回錯誤（DB unique 鐵則）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:25:57.591677+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

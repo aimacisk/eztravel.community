@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-AQ-1",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W4] AQ — Playwright E2E TC-01~06 + AC 驗收報告",
+  "created_at": "2026-06-01T08:57:26.476478+00:00",
+  "assignee": "qa",
+  "phase": "QA",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n\n## 目標\n使用 Playwright 執行 E2E 測試 TC-01~TC-06，驗收 W4 全部 AC，產出 QA 驗收報告。\n\n## 上游依賴\n- T-eztcomm-20260601-W4-PG-4：Community feature 完整（留言/星等 AJAX）\n- T-eztcomm-20260601-W4-PG-6：單元/整合測試通過\n- 前置：`dotnet run` 本機服務需先啟動（http://localhost:5000）\n\n## Test Cases\n\n### TC-01：首頁可正常載入\n- 開啟 http://localhost:5000/\n- 預期：HTTP 200，body 含 eztravel 標題文字，分類導航列可見\n\n### TC-02：分類頁顯示商品列表\n- 開啟 /category/flights\n- 預期：HTTP 200，頁面含至少 1 筆商品卡片\n\n### TC-03：商品詳情頁顯示社群區塊\n- 開啟 /product/1/groups（或任一有效 productId）\n- 預期：HTTP 200，頁面含 id=\"community-section\"\n\n### TC-04：已登入使用者可送出留言\n- 先登入（POST /account/login，測試帳號）\n- 送出 POST /review/create（productId, rating, content）\n- 預期：HTTP 200/302，GET /review/list?productId=X 返回含新留言\n\n### TC-05：星等統計 API 可查詢\n- GET /review/stats?productId=1\n- 預期：HTTP 200，body 含 \"avg\" 或 \"average\"\n\n### TC-06：未登入無法送出留言\n- 未登入直接 POST /review/create\n- 預期：HTTP 302 跳轉 /account/login\n\n## 驗收矩陣（對照 wish AC）\n- AC-3（data/ JSON 涵蓋）→ 由 W1-AQ-1 驗\n- AC-5（本機可運作）→ TC-01~06 全 PASS = AC-5 達標\n\n## 產出\n- .agent_system/cards/T-eztcomm-20260601-W4-AQ-1/T-eztcomm-20260601-W4-AQ-1_qa_draft.md（QA 驗收報告）\n  - 含 TC-01~TC-06 逐條 PASS/FAIL 結果 + screenshot 路徑\n  - 含 W4 AC 對照摘要\n- wiki_draft 路徑同上\n\n## 完工 marker\n最終回應結尾附 [TASK_DONE]",
+  "context_paths": [
+    "projects/eztravel.community/src/EztravelCommunity.Web/",
+    "projects/eztravel.community/tests/",
+    "projects/eztravel.community/01_requirements/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-PG-4",
+    "T-eztcomm-20260601-W4-PG-6"
+  ],
+  "objective": "以 Playwright 執行 E2E 測試 TC-01~TC-06，驗證 W4 首頁/分類/商品/社群/登入功能全部可運作，產出 QA 驗收報告。",
+  "goal_state": "TC-01~TC-06 全部 PASS；wiki_draft 含每個 TC 的 PASS 判定與截圖路徑；W4 AC-5（本機可運作）達標。",
+  "verification": {
+    "verifier": "QA 自驗",
+    "tools": [
+      "playwright",
+      "curl"
+    ],
+    "evidence_checks": [
+      "跑 Playwright tests 後 stdout 含 '6 passed' 或各 TC 均含 'passed'",
+      "wiki_draft 含 'TC-01' 到 'TC-06' 且每條含 'PASS'",
+      "跑 curl http://localhost:5000/ 後輸出含 '</html>'"
+    ]
+  },
+  "out_of_scope": [
+    "效能壓力測試",
+    "跨瀏覽器測試（僅 Chromium）",
+    "行動版 RWD 測試",
+    "W5 GCP 雲端 smoke test（歸 W5-ADMIN-3）"
+  ],
+  "escalation_on_block": [
+    "dotnet run 無法啟動（DB 連線/port 衝突）→ 停手 chat admin + [BLOCKED] 等服務就緒",
+    "Playwright 安裝失敗 → 改用 curl 逐條驗收並說明原因 + chat admin [INFO]",
+    "TC-04 測試帳號不存在（Identity 未初始化 seed data）→ 先 POST /account/register 建帳號再測，若仍失敗 chat admin [QUERY]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W4AQ1-01：TC-01~TC-06 全部 PASS",
+    "AC-W4AQ1-02：wiki_draft 含每個 TC PASS/FAIL 判定與截圖路徑",
+    "AC-W4AQ1-03：W4 AC-5（本機可運作）在驗收報告中標記達標",
+    "AC-W4AQ1-04：TC-06（未登入跳轉）驗收通過，確認 Community 安全邊界"
+  ],
+  "wiki_target": "06_wiki/05_qa_report.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:10:17.211326+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-5",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W2-UIUX-5 — Figma 團體分類頁繪製\n\n[依據] Figma file 6XmYJOpiSXab2gtGlmWtks + 02_design/ + data/團體/{團體.json, images/, 團體_screenshot.png}\n\n[執行] 在 Figma 新增 page \"Category - 團體\"",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

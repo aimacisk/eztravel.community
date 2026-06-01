@@ -1,0 +1,58 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-PG-6",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W4] PG — Unit tests + Integration tests（xUnit + WebApplicationFactory）",
+  "created_at": "2026-06-01T08:57:01.767873+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W4-PG-6 + branch feat/T-eztcomm-20260601-W4-PG-6\n\n[WISH] W-eztcomm-20260601-REBUILD\n\n## 目標\n在 EztravelCommunity.Tests 撰寫 xUnit 單元測試（ReviewService / CategoryService）與 WebApplicationFactory 整合測試（主要路由），確保 W4 功能可驗測。\n\n## 上游依賴\n- T-eztcomm-20260601-W4-PG-4：Community feature（ReviewController 已存在）\n- T-eztcomm-20260601-W4-PG-5：/health endpoint 已就緒\n\n## 工作項目\n\n### 1. 套件安裝（EztravelCommunity.Tests.csproj）\n```\ndotnet add EztravelCommunity.Tests package Microsoft.AspNetCore.Mvc.Testing\ndotnet add EztravelCommunity.Tests package Microsoft.EntityFrameworkCore.InMemory\ndotnet add EztravelCommunity.Tests package FluentAssertions\n```\n\n### 2. 單元測試（Tests/Unit/ReviewServiceTests.cs）\n- AddReview_ValidInput_ReturnsCreatedReview()\n- AddReview_InvalidRating_ThrowsValidationException()（rating < 1 或 > 5）\n- GetStats_EmptyProduct_ReturnsZeroAvg()\n\n### 3. 單元測試（Tests/Unit/CategoryServiceTests.cs）\n- GetProductsByCategory_ValidCategory_ReturnsProducts()\n- GetProductsByCategory_InvalidCategory_ReturnsEmpty()\n\n### 4. 整合測試（Tests/Integration/WebIntegrationTests.cs）\n```csharp\npublic class WebIntegrationTests : IClassFixture<WebApplicationFactory<Program>>\n{\n    // GET / → 200\n    [Fact] public async Task HomePage_Returns200()\n    // GET /health → 200 含 \"healthy\"\n    [Fact] public async Task HealthEndpoint_Returns200()\n    // GET /category/flights → 200\n    [Fact] public async Task CategoryFlights_Returns200()\n    // GET /category/invalid → 404\n    [Fact] public async Task CategoryInvalid_Returns404()\n}\n```\n\n### 5. In-memory DB 設定（CustomWebApplicationFactory）\n```csharp\nservices.RemoveAll<DbContextOptions<AppDbContext>>();\nservices.AddDbContext<AppDbContext>(opt =>\n    opt.UseInMemoryDatabase(\"TestDb_\" + Guid.NewGuid()));\n```\n\n## 完工自驗\n1. `dotnet test` → 所有測試 PASS（≥ 8 tests）\n2. `dotnet test` → 輸出不含 \"FAILED\"\n3. `dotnet test --collect:\"XPlat Code Coverage\"` → 可執行\n\n## 產出\n- EztravelCommunity.Tests/Tests/Unit/ReviewServiceTests.cs\n- EztravelCommunity.Tests/Tests/Unit/CategoryServiceTests.cs\n- EztravelCommunity.Tests/Tests/Integration/WebIntegrationTests.cs\n- wiki_draft: .agent_system/cards/T-eztcomm-20260601-W4-PG-6/T-eztcomm-20260601-W4-PG-6_pg_draft.md\n\n## 完工 marker\n最終回應結尾附 [TASK_DONE]",
+  "context_paths": [
+    "projects/eztravel.community/src/",
+    "projects/eztravel.community/tests/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-PG-4",
+    "T-eztcomm-20260601-W4-PG-5"
+  ],
+  "objective": "撰寫 EztravelCommunity.Tests 的 xUnit 單元測試與 WebApplicationFactory 整合測試，驗證 W4 核心功能路徑。",
+  "goal_state": "dotnet test 執行後所有測試（≥ 8 個）PASS；輸出不含 FAILED；涵蓋 ReviewService 正向/邊界路徑與主要 HTTP 路由。",
+  "verification": {
+    "verifier": "PG 自驗 + QA 覆驗",
+    "tools": [
+      "dotnet test",
+      "dotnet build"
+    ],
+    "evidence_checks": [
+      "跑 dotnet test 後輸出含 'passed' 且數字 >= 8",
+      "跑 dotnet test 後輸出不含 'FAILED'",
+      "跑 dotnet build 後輸出含 '0 Error(s)'"
+    ]
+  },
+  "out_of_scope": [
+    "Playwright E2E 測試（歸 W4-AQ-1）",
+    "效能壓力測試",
+    "CI/CD 流程（歸 W5-PG-2）",
+    "Identity 完整登入流程整合測試（需真實 DB）"
+  ],
+  "escalation_on_block": [
+    "WebApplicationFactory 設定 in-memory DB 失敗 → 停手 chat admin + [QUERY] 等仲裁",
+    "ReviewService/CategoryService 介面不存在（W4-PG-4 未完工）→ 停手標 [BLOCKED] + 等 depends_on 完成",
+    "套件版本衝突 → 降版重試，失敗 3 次後 chat admin + [ERROR]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W4PG6-01：dotnet test 全 PASS，≥ 8 tests",
+    "AC-W4PG6-02：涵蓋 ReviewService AddReview 正向 + 邊界（無效 rating）路徑",
+    "AC-W4PG6-03：整合測試覆蓋 GET / / /health / /category/flights / /category/invalid",
+    "AC-W4PG6-04：wiki_draft 存在並含測試清單與 PASS 結果"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

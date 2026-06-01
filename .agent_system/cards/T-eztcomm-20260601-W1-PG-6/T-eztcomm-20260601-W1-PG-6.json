@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W1-PG-6",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W1] PG — Playwright 爬票券分類頁 → data/票券/",
   "created_at": "2026-06-01T08:23:24.134653+00:00",
   "assignee": "pg",
@@ -41,9 +41,20 @@
   "parent_wish_id": "W-eztcomm-20260601-REBUILD",
   "acceptance_criteria": [],
   "wiki_target": null,
-  "deliverables": [],
-  "execution_log": "",
-  "started_at": null,
-  "completed_at": null,
-  "commit_sha": null
+  "deliverables": [
+    "projects/eztravel.community/data/票券/票券.json",
+    "projects/eztravel.community/data/票券/票券_screenshot.png",
+    "projects/eztravel.community/data/票券/images/ticket_banner_01~15.{jpg,png}",
+    "projects/eztravel.community/data/票券/images/ticket_nav_icon_01~08.png",
+    "projects/eztravel.community/data/票券/images/ticket_product_01~03.jpg",
+    "projects/eztravel.community/data/票券/images/ticket_promo_01~06.{jpg,png}",
+    "projects/eztravel.community/data/票券/images/ticket_theme_01~05.{jpg,png}",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-6/scripts/crawl_ticket.py",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-6/scripts/inspect_activity.py"
+  ],
+  "execution_log": "1. 讀 data_schema.md + crawler_brief.md，確認票券頁 URL=https://activity.eztravel.com.tw/ 與 schema 規範。\n2. MCP Playwright 已佔用，改用 Python playwright 套件。\n3. DOM 探查：執行 inspect_activity.py，取得 Next.js CSS module class 名稱（Layout_wrapper__1DZ9m、TopWidgetBlock_article-wrapper__y3T_Z、ArticleLayout_article_layout__FBaNz、common_widget_wrapper__m8_2_、ActivityWidget_flagshipProduct__F7e_G 等）。\n4. 撰寫 crawl_ticket.py：7 個 section（search_bar/hero_banner/category_nav/hot_tickets/promo_section/theme_section/footer_links），選器對齊實際 class 名稱，輸出路徑 data/票券/。\n5. 執行 crawl_ticket.py：截圖 2093KB，JSON 20KB，37 張圖（banner×15 + nav_icon×8 + product×3 + promo×6 + theme×5），全部 ≤2MB。\n6. Schema 驗證 PASS：7 sections，所有 item 含 6 必填欄位，無空字串，local image_url 路徑正確。\ncommit_sha: PENDING_ADMIN_COMMIT",
+  "started_at": "2026-06-01T08:59:38.721783+00:00",
+  "completed_at": "2026-06-01T09:05:00.000000+00:00",
+  "commit_sha": "PENDING_ADMIN_COMMIT",
+  "agent_session_id": ""
 }

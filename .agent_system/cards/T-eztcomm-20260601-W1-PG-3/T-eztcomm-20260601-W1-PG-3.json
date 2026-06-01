@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W1-PG-3",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W1] PG — Playwright 爬旅館分類頁 → data/旅館/",
   "created_at": "2026-06-01T08:23:01.990994+00:00",
   "assignee": "pg",
@@ -41,10 +41,18 @@
   "parent_wish_id": "W-eztcomm-20260601-REBUILD",
   "acceptance_criteria": [],
   "wiki_target": null,
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "projects/eztravel.community/data/旅館/旅館.json",
+    "projects/eztravel.community/data/旅館/旅館_screenshot.png",
+    "projects/eztravel.community/data/旅館/images/hotel_banner_01~15.jpg",
+    "projects/eztravel.community/data/旅館/images/hotel_product_01~21.jpg",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-3/data/crawl_hotel_v2.py",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-3/data/inspect_hotel.py",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-3/data/inspect2_hotel.py"
+  ],
+  "execution_log": "1. 讀 data_schema.md + crawler_brief.md，確認旅館頁 URL 與 schema 規範。\n2. MCP Playwright 被佔用，改用 Python playwright 套件（pip install + install chromium）。\n3. DOM 探查：執行 inspect_hotel.py + inspect2_hotel.py，取得 Next.js CSS module class 名稱（Layout_wrapper__1DZ9m、HotProducts_hot_products__gEpWU 等）。\n4. 撰寫 crawl_hotel_v2.py：7 個 section，選器對齊實際 class 名稱，輸出路徑 data/旅館/。\n5. 執行 crawl_hotel_v2.py：截圖 4936KB，JSON 22KB，36 張圖（banner×15 + product×21），全部 ≤2MB。\n6. Schema 驗證：7 sections（search_bar/promo_section/theme_section/featured_items/destination_grid/product_list/footer_links），所有 item 含 6 必填欄位，20 個 local image_url 路徑正確。\n7. 清除 v1 錯誤路徑產出（data/data/旅館/）。\ncommit_sha: PENDING_ADMIN_COMMIT",
   "started_at": "2026-06-01T08:41:58.188981+00:00",
-  "completed_at": null,
-  "commit_sha": null,
+  "completed_at": "2026-06-01T09:00:00.000000+00:00",
+  "commit_sha": "PENDING_ADMIN_COMMIT",
   "agent_session_id": ""
 }

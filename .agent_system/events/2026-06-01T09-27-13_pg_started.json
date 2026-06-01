@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:27:13.254920+00:00",
+  "task_id": "T-eztcomm-20260601-W5-PG-3",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W5-PG-3 — appsettings.Production.json + Cloud SQL Unix socket + startup migrate\n\n[Worktree] .worktrees/T-eztcomm-20260601-W5-PG-3/ (已建)\n[Branch] feat/T-eztcomm-2026",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

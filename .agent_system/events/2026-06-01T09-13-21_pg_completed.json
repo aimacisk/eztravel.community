@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:13:21.912840+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-7",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "進場改 IN_PROGRESS，同時先 DOM 探查：\n輸出已儲存。讀取 DOM 結構 JSON：\nDOM 結構已掌握。景點頁架構：\n- search_bar：`Layout_searchEngineBlock__kAV_R`（國內旅遊搜尋）\n- hero_banner：第一個 `TopWidgetBlock_article-wrapper__y3T_Z`（OneBanner + 21 swiper）\n- category_nav：`HotProducts_hot_products__gEpWU`（當季最夯文字連結）\n- featured_items：第一個 `ArticleLayout_ar",
+  "ref": {
+    "worker_id": "pg-2",
+    "response_chars": 12843
+  }
+}

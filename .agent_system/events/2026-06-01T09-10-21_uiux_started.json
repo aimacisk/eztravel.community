@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:10:21.239218+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-6",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W2-UIUX-6 — Figma 自由行分類頁繪製\n\n[依據] Figma file 6XmYJOpiSXab2gtGlmWtks + 02_design/ + data/自由行/{自由行.json, images/, 自由行_screenshot.png}\n[執行] page \"Category - 自由行\",依 data",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

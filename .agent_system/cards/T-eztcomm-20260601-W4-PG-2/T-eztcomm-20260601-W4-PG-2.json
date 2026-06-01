@@ -1,0 +1,63 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-PG-2",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W4] PG — HomeController + CategoryController + Razor views",
+  "created_at": "2026-06-01T08:52:34.682229+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W4-PG-2 + branch feat/T-eztcomm-20260601-W4-PG-2\n\n目標：實作 HomeController + CategoryController + 對應 Razor Views，從 data/ JSON 載入內容，依 W2 Figma 設計忠實還原首頁與 6 分類頁。\n\n【上游輸入】\n- W4-PG-1：Entities + AppDbContext + Identity 骨架已完成\n- W2-UIUX-2 deliverables：Home 頁面 Figma nodeId + 設計規格\n- W2-UIUX-3~8 deliverables：6 分類頁 Figma nodeId + 設計規格\n- data/ JSON 檔案（homepage/、機票/、旅館/、團體/、自由行/、票券/、景點/）\n\n【HomeController (Controllers/HomeController.cs)】\n- Index()：讀 data/homepage/*.json，組 HomeViewModel，傳入 Views/Home/Index.cshtml\n- 靜態 JSON 讀取用 System.Text.Json（不經 DB，W4 骨架階段）\n\n【CategoryController (Controllers/CategoryController.cs)】\n- Index(string slug)：slug ∈ {flights, hotels, groups, tours, attractions, tickets}\n- 讀 data/{slug}/*.json，組 CategoryViewModel(IList<ProductCard>)\n- 傳入 Views/Category/Index.cshtml\n- 無效 slug → 404\n\n【Razor Views（依 Figma 設計實作）】\n- Views/Home/Index.cshtml：Hero banner + 6 分類入口 + 精選產品列（依 Figma 排版）\n- Views/Category/Index.cshtml：分類 header + product grid（card 含縮圖/標題/價格）\n- Views/Shared/_Layout.cshtml：頂部 nav（Logo + 6 分類連結 + 登入/登出）+ footer\n- 樣式：Bootstrap 5.x CDN 引入（不用自建 CSS，直接 class）\n\n【data/ JSON 讀取範例】\n```csharp\nvar json = await System.IO.File.ReadAllTextAsync(Path.Combine(_env.ContentRootPath, \"data/homepage/banner.json\"));\nvar banner = JsonSerializer.Deserialize<BannerViewModel>(json);\n```\n\n[依賴: W4-PG-1 + W2-UIUX-2 完成後]",
+  "context_paths": [
+    "projects/eztravel.community/src/",
+    "projects/eztravel.community/data/",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-2/T-eztcomm-20260601-W2-UIUX-2.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-PG-1",
+    "T-eztcomm-20260601-W2-UIUX-2"
+  ],
+  "objective": "實作 HomeController + CategoryController（6 分類）+ 對應 Razor Views，從 data/ JSON 載入內容並依 W2 Figma 設計忠實還原，dotnet run 後首頁與分類頁可正常瀏覽",
+  "goal_state": "`dotnet run` 後 `curl http://localhost:5000/` 返回 200 且 response body 含 'hero' 關鍵字，`curl http://localhost:5000/category/flights` 返回 200 且含分類產品 HTML，`curl http://localhost:5000/category/invalid` 返回 404",
+  "verification": {
+    "verifier": "PG 自驗",
+    "tools": [
+      "Bash",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot"
+    ],
+    "evidence_checks": [
+      "跑 `curl http://localhost:5000/` 後 HTTP 200 且 response 含 '</html>'",
+      "跑 `curl http://localhost:5000/category/flights` 後 HTTP 200",
+      "跑 `curl http://localhost:5000/category/invalid` 後 HTTP 404",
+      "跑 Playwright browser_navigate http://localhost:5000/ 後 take_screenshot 畫面含 nav 和 hero 區塊"
+    ]
+  },
+  "out_of_scope": [
+    "ProductDetail 頁面（歸 W4-PG-3）",
+    "Community 功能（歸 W4-PG-4）",
+    "DB 查詢（本卡只讀 data/ JSON）",
+    "登入/註冊 UI（驚方尚出，由 W4-PG-1 AccountController stub）",
+    "RWD 行動端小趕框優化"
+  ],
+  "escalation_on_block": [
+    "data/ 路徑找不到或 JSON parse 失敗 → 讀 W1-BA-1 deliverables 確認命名規則",
+    "Figma nodeId 找不到對應的 frame → chat admin [QUERY] 提供 W2 UIUX deliverables",
+    "dotnet run port 衝突 → 將 launchSettings.json 改門號"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1：/ 返回 200，body 含 nav + hero HTML",
+    "AC-2：/category/flights 返回 200，body 含 product card 列表",
+    "AC-3：/category/invalid 返回 404",
+    "AC-4：Browser screenshot 可看到首頁布局"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:15:34.420619+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-PG-3",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W4] PG — ProductDetailController + Razor view（4 類 variant）",
+  "created_at": "2026-06-01T08:52:59.890872+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W4-PG-3 + branch feat/T-eztcomm-20260601-W4-PG-3\n\n目標：實作 ProductDetailController + ProductDetail Razor view，依 W2-UIUX-9 Figma 4 類 variant（團體/自由行/旅館/票券）設計忠實還原，從 DB 或 data/ 載入產品資料。\n\n【上游輸入】\n- W4-PG-2：HomeController + CategoryController 已完成（路由/Layout 已建立）\n- W2-UIUX-9 deliverables：ProductDetail 主版 4 variant nodeId + Figma 設計規格\n\n【ProductDetailController (Controllers/ProductDetailController.cs)】\n- Details(int id, string category)：\n  - 讀 DB（Product 表）取 product by id\n  - 若找不到 → NotFound()\n  - ViewBag.Category = category（用於 view 決定 variant 版型）\n  - 傳入 Views/ProductDetail/Details.cshtml\n\n【Views/ProductDetail/Details.cshtml】\n- 依 category 決定 variant layout（使用 partial view 或 CSS class 切換）\n- 共用區塊：縮圖 carousel、標題、價格、描述、ProductImage gallery\n- Variant 差異：\n  - 團體旅遊：出發日期 + 人數 + 行程天數\n  - 自由行：自選行程說明\n  - 旅館：check-in/check-out 日期\n  - 票券：有效期限\n- Community Section 占位（空 div id=\"community-section\"，W4-PG-4 填入）\n\n【路由】\n- GET /product/{id}/{category} → ProductDetailController.Details\n- CategoryController.Index view card 連結到此路由\n\n[依賴: W4-PG-2 + W2-UIUX-9 完成後]",
+  "context_paths": [
+    "projects/eztravel.community/src/",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-9/T-eztcomm-20260601-W2-UIUX-9.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-PG-2",
+    "T-eztcomm-20260601-W2-UIUX-9"
+  ],
+  "objective": "實作 ProductDetailController 含 4 類 variant（團體/自由行/旅館/票券）的 Razor view，從 DB 讀產品資料並忠實還原 W2-UIUX-9 Figma 設計，含空的 community-section 占位",
+  "goal_state": "`dotnet run` 後 `curl http://localhost:5000/product/1/groups` 返回 200 且 response body 含 'community-section'；`curl http://localhost:5000/product/999/groups` 返回 404",
+  "verification": {
+    "verifier": "PG 自驗",
+    "tools": [
+      "Bash",
+      "mcp__playwright__browser_navigate"
+    ],
+    "evidence_checks": [
+      "跑 `curl http://localhost:5000/product/1/groups` 後 HTTP 200 且 body 含 'community-section'",
+      "跑 `curl http://localhost:5000/product/999/groups` 後 HTTP 404",
+      "跑 Playwright browse /product/1/hotels 後 take_screenshot 畫面可讀到商品詳情"
+    ]
+  },
+  "out_of_scope": [
+    "Community Section 實際 UI 填入（歸 W4-PG-4）",
+    "訂位/結帳功能（out_of_scope of 整專專專 wish）",
+    "E2E 湋試（歸 W4-AQ-1）"
+  ],
+  "escalation_on_block": [
+    "DB 連線失敗無法讀到 Product（本地無 PostgreSQL）→ 改為讀 data/ JSON fallback 並記錄在 execution_log",
+    "W2-UIUX-9 nodeId 無法確認對應 variant → chat admin [QUERY]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1：/product/1/groups 返回 200 且 body 含 'community-section'",
+    "AC-2：/product/999/groups 返回 404",
+    "AC-3：4 類 variant 均能正常渲染（至少各一筆樣本資料）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:15:47.785039+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

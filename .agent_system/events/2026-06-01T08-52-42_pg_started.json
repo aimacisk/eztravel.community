@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:52:42.349754+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-4",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[TASK task_id=T-eztcomm-20260601-W1-PG-4]\n[WISH] W-eztcomm-20260601-REBUILD\n[並行組: WAVE-1-PG] 與 W1-PG-1~3/5~7 平行\n\n== Worktree 紀律（PG 強制）==\ncwd: D:/Projects/ai.factory/projects/eztravel.community/.worktr",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

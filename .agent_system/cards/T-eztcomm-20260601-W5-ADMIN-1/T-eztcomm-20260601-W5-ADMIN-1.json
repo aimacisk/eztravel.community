@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W5-ADMIN-1",
+  "prj_id": "eztravel.community",
+  "status": "PENDING_USER_GCLOUD_AUTH",
+  "title": "W5 GCP 首次環境建置 — gcloud auth + Cloud SQL + SA + Artifact Registry + Secret Manager",
+  "created_at": "2026-06-01T09:04:08.725635+00:00",
+  "assignee": "admin",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "## 前置條件（需使用者先完成）\n\n此卡狀態為 PENDING_USER_GCLOUD_AUTH：使用者須先執行 `gcloud auth login` 並確認已登入有 eztravel-community-prod 專案存取權限的帳號，以及 `gh auth login` 確認 GitHub CLI 已登入 micchang 帳號。\n\n完成前置條件後，請通知 admin 繼續執行以下步驟。\n\n---\n\n## GCP 首次環境建置 SOP\n\n### Step 1：確認/建立 GCP 專案\n\n```bash\n# 確認專案存在（若使用者已建立）\ngcloud projects describe eztravel-community-prod\n\n# 若不存在則建立\n# gcloud projects create eztravel-community-prod --name=\"EzTravel Community\"\n# gcloud billing accounts list  # 查 billing account ID\n# gcloud billing projects link eztravel-community-prod --billing-account=<BILLING_ACCOUNT_ID>\n```\n\n### Step 2：啟用必要 API\n\n```bash\ngcloud services enable run.googleapis.com \\\n  sqladmin.googleapis.com \\\n  artifactregistry.googleapis.com \\\n  secretmanager.googleapis.com \\\n  cloudbuild.googleapis.com \\\n  iam.googleapis.com \\\n  --project=eztravel-community-prod\n```\n\n### Step 3：建立 Cloud SQL PostgreSQL 15 instance\n\n```bash\ngcloud sql instances create eztcomm-db \\\n  --database-version=POSTGRES_15 \\\n  --tier=db-f1-micro \\\n  --region=asia-east1 \\\n  --project=eztravel-community-prod \\\n  --storage-type=SSD \\\n  --storage-size=10GB \\\n  --no-backup\n# 等待約 3-5 分鐘\n```\n\n建立資料庫與使用者：\n```bash\ngcloud sql databases create eztcomm \\\n  --instance=eztcomm-db \\\n  --project=eztravel-community-prod\n\n# 設定密碼（請用強密碼替換 <STRONG_PASSWORD>）\ngcloud sql users create eztcomm_user \\\n  --instance=eztcomm-db \\\n  --password=<STRONG_PASSWORD> \\\n  --project=eztravel-community-prod\n```\n\n### Step 4：建立 Service Account\n\n```bash\ngcloud iam service-accounts create eztcomm-runner \\\n  --display-name=\"EzTravel Community Cloud Run SA\" \\\n  --project=eztravel-community-prod\n\n# 授予必要權限\ngcloud projects add-iam-policy-binding eztravel-community-prod \\\n  --member=\"serviceAccount:eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com\" \\\n  --role=\"roles/cloudsql.client\"\n\ngcloud projects add-iam-policy-binding eztravel-community-prod \\\n  --member=\"serviceAccount:eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com\" \\\n  --role=\"roles/secretmanager.secretAccessor\"\n\ngcloud projects add-iam-policy-binding eztravel-community-prod \\\n  --member=\"serviceAccount:eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com\" \\\n  --role=\"roles/run.invoker\"\n```\n\n### Step 5：建立 Artifact Registry repo\n\n```bash\ngcloud artifacts repositories create eztcomm-repo \\\n  --repository-format=docker \\\n  --location=asia-east1 \\\n  --description=\"EzTravel Community container images\" \\\n  --project=eztravel-community-prod\n\n# 授予 SA push 權限\ngcloud artifacts repositories add-iam-policy-binding eztcomm-repo \\\n  --location=asia-east1 \\\n  --member=\"serviceAccount:eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com\" \\\n  --role=\"roles/artifactregistry.writer\" \\\n  --project=eztravel-community-prod\n```\n\n### Step 6：建立 Secret Manager secret（DB 連線字串）\n\n```bash\n# 連線字串格式（替換 <STRONG_PASSWORD>）\necho -n \"Host=/cloudsql/eztravel-community-prod:asia-east1:eztcomm-db;Database=eztcomm;Username=eztcomm_user;Password=<STRONG_PASSWORD>\" | \\\n  gcloud secrets create eztcomm-db-connection \\\n    --data-file=- \\\n    --project=eztravel-community-prod\n```\n\n### Step 7：產生 GitHub CI/CD 用的 Service Account Key\n\n```bash\ngcloud iam service-accounts keys create /tmp/eztcomm-sa-key.json \\\n  --iam-account=eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com \\\n  --project=eztravel-community-prod\n\n# 授予 SA 使用 Cloud Run 部署的權限\ngcloud projects add-iam-policy-binding eztravel-community-prod \\\n  --member=\"serviceAccount:eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com\" \\\n  --role=\"roles/run.admin\"\n\ngcloud projects add-iam-policy-binding eztravel-community-prod \\\n  --member=\"serviceAccount:eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com\" \\\n  --role=\"roles/iam.serviceAccountUser\"\n```\n\n### Step 8：設定 GitHub Secret\n\n```bash\n# 確認 gh CLI 已登入 micchang 帳號\ngh auth status\n\n# 設定 GOOGLE_CREDENTIALS secret（使用上步產生的 SA key）\ngh secret set GOOGLE_CREDENTIALS \\\n  --repo=micchang/eztravel.community \\\n  --body=\"$(cat /tmp/eztcomm-sa-key.json)\"\n\n# 安全清除 key 檔\nrm /tmp/eztcomm-sa-key.json\n```\n\n### Step 9：驗證\n\n```bash\ngcloud sql instances describe eztcomm-db --project=eztravel-community-prod | grep state\n# 預期輸出含 RUNNABLE\n\ngcloud artifacts repositories describe eztcomm-repo \\\n  --location=asia-east1 --project=eztravel-community-prod\n# 預期成功\n\ngcloud secrets describe eztcomm-db-connection --project=eztravel-community-prod\n# 預期成功\n```\n\n完工後在最終回應結尾加 [TASK_DONE]。",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W5-AT-1/T-eztcomm-20260601-W5-AT-1.json",
+    "projects/eztravel.community/03_architecture/devops.md"
+  ],
+  "depends_on": [],
+  "objective": "以 gcloud CLI 完成 eztravel-community-prod GCP 專案的首次環境建置，包含：啟用必要 API、建立 Cloud SQL PostgreSQL 15 instance（eztcomm-db）、建立 Service Account（eztcomm-runner）、建立 Artifact Registry repo（eztcomm-repo）、建立 Secret Manager secret（eztcomm-db-connection）、設定 IAM 綁定，使 CI/CD pipeline 能在無需人工介入下完成 docker push + Cloud Run deploy + DB migration。",
+  "goal_state": "gcloud projects describe eztravel-community-prod 回傳 projectId=eztravel-community-prod；gcloud sql instances describe eztcomm-db --project=eztravel-community-prod 回傳 state=RUNNABLE；gcloud artifacts repositories describe eztcomm-repo --location=asia-east1 --project=eztravel-community-prod 成功；gcloud secrets describe eztcomm-db-connection --project=eztravel-community-prod 成功；gcloud iam service-accounts describe eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com 成功；GitHub Secret GOOGLE_CREDENTIALS 已設定（由使用者確認）。",
+  "verification": {
+    "verifier": "admin 親自執行（需使用者先 gcloud auth login）",
+    "tools": [
+      "gcloud",
+      "gh"
+    ],
+    "evidence_checks": [
+      "gcloud sql instances describe eztcomm-db --project=eztravel-community-prod 後輸出含 'RUNNABLE'",
+      "gcloud artifacts repositories describe eztcomm-repo --location=asia-east1 --project=eztravel-community-prod 後輸出含 'eztcomm-repo'",
+      "gcloud secrets describe eztcomm-db-connection --project=eztravel-community-prod 後輸出含 'eztcomm-db-connection'",
+      "gcloud iam service-accounts describe eztcomm-runner@eztravel-community-prod.iam.gserviceaccount.com 後輸出含 'eztcomm-runner'"
+    ]
+  },
+  "out_of_scope": [
+    "GitHub repo 建立（歸 W5-ADMIN-2）",
+    "Dockerfile 或 release.yml 撰寫（歸 W5-PG-1/PG-2）",
+    "首次 [release] commit 與 smoke test（歸 W5-ADMIN-3）",
+    "應用程式程式碼修改（歸 PG 系列卡）",
+    "Cloud Run 服務本身的 deploy（那是 CI/CD pipeline 觸發）"
+  ],
+  "escalation_on_block": [
+    "gcloud auth login 尚未完成 → 此卡維持 PENDING_USER_GCLOUD_AUTH，等使用者通知後再執行",
+    "Billing account 未綁定或配額不足 → 通知使用者提供 billing account ID 或確認配額",
+    "Cloud SQL 建立失敗（如 tier 不可用）→ chat admin + [QUERY] 確認替代 tier",
+    "IAM 權限不足執行 gcloud 指令 → 請使用者確認 Owner/Editor 角色後重試"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1: gcloud sql instances describe eztcomm-db 回傳 state=RUNNABLE",
+    "AC-2: Artifact Registry eztcomm-repo 建立成功",
+    "AC-3: Secret Manager eztcomm-db-connection 建立成功且含 Cloud SQL unix socket 連線字串",
+    "AC-4: Service Account eztcomm-runner 建立成功且具備 cloudsql.client + secretmanager.secretAccessor + run.admin 角色",
+    "AC-5: GitHub Secret GOOGLE_CREDENTIALS 已設定（gh secret list 可見）"
+  ],
+  "wiki_target": "06_wiki/05_deployment_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

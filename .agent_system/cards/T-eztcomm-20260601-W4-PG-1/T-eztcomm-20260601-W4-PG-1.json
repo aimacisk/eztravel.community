@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-PG-1",
+  "prj_id": "eztravel.community",
+  "status": "IN_PROGRESS",
+  "title": "[W4] PG — Entities + EF Core + Migrations + ASP.NET Identity",
+  "created_at": "2026-06-01T08:51:19.643941+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] W-eztcomm-20260601-REBUILD\n[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W4-PG-1 + branch feat/T-eztcomm-20260601-W4-PG-1\n\n目標：在 W4-AT-2 基底骨架上，實作 EzTravel.Community.Core Entities + EzTravel.Community.Infrastructure 的 AppDbContext + EF Core migrations + ASP.NET Identity 設定。\n\n【上游輸入】\n- W4-AT-1 deliverables：data_model.md（Entities 欄位規格）、auth_spec.md（Identity 設定）\n- W4-AT-2：solution 骨架已建立（src/ 下 4 csproj）\n\n【Core — Entities（EzTravel.Community.Core/Entities/）】\n依 data_model.md 建立：\n- ApplicationUser : IdentityUser（新增 DisplayName, AvatarUrl, CreatedAt）\n- Product（Id, CategorySlug, Title, Description, Price, ThumbnailUrl, CreatedAt）\n- Review（Id, ProductId FK, UserId FK, Rating[1-5], Body, CreatedAt, UpdatedAt）\n- ProductImage（Id, ProductId FK, ImageUrl, DisplayOrder）\n\n【Infrastructure — AppDbContext（EzTravel.Community.Infrastructure/）】\n- AppDbContext : IdentityDbContext<ApplicationUser>\n- DbSet<Product>, DbSet<Review>, DbSet<ProductImage>\n- OnModelCreating：索引設定（Review.ProductId + UserId，Product.CategorySlug）\n\n【EF Core Migrations】\n- `dotnet ef migrations add InitialCreate --project Infrastructure --startup-project Web`\n- 產生 Migrations/xxxxxx_InitialCreate.cs\n- 不在本卡執行 `database update`（需要 DB 連線，暫跳過）\n\n【ASP.NET Identity】\n- ApplicationUser 繼承 IdentityUser 已上（Core/Entities）\n- Program.cs 調用 AddIdentity + Cookie 設定（LoginPath: \"/Account/Login\"）\n- AccountController stub（Login/Register/Logout Action，空實作回 View()）\n- Views/Account/Login.cshtml + Register.cshtml（最簡 scaffold，不含樣式）\n\n【9 條 PG 紀律（Serilog 已在 AT-2 skeleton 設好，PG 只負責業務層）】\n\n[依賴: W4-AT-1 + W4-AT-2 完成後]",
+  "context_paths": [
+    "projects/eztravel.community/src/",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W4-AT-1/T-eztcomm-20260601-W4-AT-1.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-AT-1",
+    "T-eztcomm-20260601-W4-AT-2"
+  ],
+  "objective": "在 AT-2 骨架上實作 Domain Entities（Product/Review/ProductImage/ApplicationUser）+ AppDbContext + EF Core 初始 migration + ASP.NET Identity AccountController stub",
+  "goal_state": "`dotnet build` 仍 Build succeeded；`src/EzTravel.Community.Infrastructure/Migrations/` 下存在 InitialCreate migration 檔；AccountController 含 Login/Register/Logout action；`dotnet run` 後 `/Account/Login` 返回 200",
+  "verification": {
+    "verifier": "PG 自驗",
+    "tools": [
+      "Bash"
+    ],
+    "evidence_checks": [
+      "跑 `dotnet build` 後輸出含 'Build succeeded'",
+      "跑 `ls src/EzTravel.Community.Infrastructure/Migrations/` 後輸出含 'InitialCreate'",
+      "跑 `curl http://localhost:5000/Account/Login` 後 HTTP status 200 或 302 redirect"
+    ]
+  },
+  "out_of_scope": [
+    "Controller business logic（實際 DB query，歸 W4-PG-2~4）",
+    "執行 `dotnet ef database update`（需 DB 連線，歸 W4-PG-6 或 local dev setup）",
+    "Figma 樣式實作（歸 W4-PG-2~3）",
+    "Docker / GCP（歸 W5）"
+  ],
+  "escalation_on_block": [
+    "EF Core / Npgsql version 衝突 → 對照 .NET 8 支援版本 matrix，外流3 次再報",
+    "W4-AT-2 骨架不完整（缺少 csproj）→ chat admin [QUERY]",
+    "dotnet ef 指令找不到 → 先跑 `dotnet tool install -g dotnet-ef`"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1：4 Entity class 存在（Product/Review/ProductImage/ApplicationUser）",
+    "AC-2：AppDbContext 繼承 IdentityDbContext<ApplicationUser>",
+    "AC-3：Migrations/ 下有 InitialCreate .cs 檔",
+    "AC-4：`dotnet build` Build succeeded",
+    "AC-5：`/Account/Login` 返回 200/302"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:01:44.684513+00:00",
+  "completed_at": "2026-06-01T09:14:47.160144+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

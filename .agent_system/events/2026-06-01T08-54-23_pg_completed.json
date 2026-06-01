@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:54:23.116887+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-3",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "Playwright MCP 瀏覽器被占用。改用 Python playwright 直接執行。\n輸出路徑有誤（`data/data/`），先確認頁面結構再修正腳本。\n修正路徑錯誤並強化 DOM 擷取（先加入 DOM 結構探查）：\nDOM 結構清楚了。關鍵選擇器：\n- `Layout_searchEngineBlock__kAV_R` — 搜尋框\n- `TopWidgetBlock_article-wrapper__y3T_Z` — banner + promo 圖片區\n- `HotProducts_hot_products__gEpWU` — 大家都搜（主題/熱門）\n- `common_wi",
+  "ref": {
+    "worker_id": "pg-2",
+    "response_chars": 11987
+  }
+}

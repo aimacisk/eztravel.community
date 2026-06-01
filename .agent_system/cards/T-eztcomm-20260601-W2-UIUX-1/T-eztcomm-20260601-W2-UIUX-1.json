@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W2-UIUX-1",
   "prj_id": "eztravel.community",
-  "status": "IN_PROGRESS",
+  "status": "DONE",
   "title": "建 Figma file 'eztravel.community design' + Tokens page",
   "created_at": "2026-06-01T08:00:00+00:00",
   "assignee": "uiux",
@@ -23,8 +23,17 @@
   "goal_state": "Figma file 已建立，Tokens page 含完整色票卡/typography/spacing 視覺化，6 件套落盤於 02_design/",
   "started_at": "2026-06-01T08:45:00+00:00",
   "agent_session_id": "uiux-T-eztcomm-20260601-W2-UIUX-1",
-  "completed_at": null,
-  "deliverables": [],
-  "execution_log": "進場中：正在爬取 eztravel.com.tw 學習風格",
-  "wiki_draft_path": null
+  "completed_at": "2026-06-01T10:30:00+00:00",
+  "deliverables": [
+    "projects/eztravel.community/02_design/design_tokens.json",
+    "projects/eztravel.community/02_design/figma_deliverables.md",
+    "projects/eztravel.community/02_design/sources.md",
+    "projects/eztravel.community/02_design/motifs.md",
+    "projects/eztravel.community/02_design/view_examples/01_homepage_hero.png",
+    "projects/eztravel.community/02_design/view_examples/02_homepage_full.png",
+    "projects/eztravel.community/02_design/figma_template/README.md",
+    "agents/uiux/workspace/T-eztcomm-20260601-W2-UIUX-1_visual_audit.md"
+  ],
+  "execution_log": "1. Playwright 爬取 eztravel.com.tw：確認品牌主色為翠綠 #11D073（非規格預期橙紅，以真實數據為準）；字體 Gudea+Heiti+微軟正黑體；截圖 2 張落地 view_examples/。2. use_figma 建立 Figma 檔案 6XmYJOpiSXab2gtGlmWtks，頁面命名 Tokens，繪製：品牌色 4 張色票卡 (1:6/1:12/1:18/1:24) + 中性色 8 張 (1:33~1:75) + accent 4 張 (1:84~1:102) + Typography block (1:111) + Spacing Scale (1:132/1:135)。3. get_screenshot 對全部 18 nodeId 跑視覺自驗，8 維度全數通過。4. 6 件套落盤：design_tokens.json / figma_deliverables.md / sources.md / motifs.md / view_examples/ / figma_template/。5. 9 條 UIUX 紀律達標（見 figma_deliverables.md 自驗表）。",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-1/T-eztcomm-20260601-W2-UIUX-1_uiux_draft.md"
 }

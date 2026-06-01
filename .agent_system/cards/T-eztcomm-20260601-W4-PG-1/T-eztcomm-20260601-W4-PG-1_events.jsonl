@@ -1,0 +1,2 @@
+{"ts":"2026-06-01T09:01:44.684513+00:00","actor":"pg","type":"started","details":{"summary":"進場：IN_PROGRESS；讀卡 + 讀 data_model.md / auth.md / AT-2 骨架源碼"}}
+{"ts":"2026-06-01T09:12:06+00:00","actor":"pg","type":"progress","details":{"summary":"所有源碼已寫入 worktree：5 Entities + 3 EF Configs + 3 Repos + 2 Services + AccountController + Program.cs；等待 admin 執行 dotnet ef migrations + build + git commit"}}

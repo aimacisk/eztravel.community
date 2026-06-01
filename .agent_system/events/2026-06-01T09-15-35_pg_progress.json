@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:15:35.211253+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-2",
+  "agent": "pg",
+  "type": "progress",
+  "summary": "You've hit your org's monthly usage limit",
+  "ref": {
+    "worker_id": "pg-1",
+    "response_chars": 41
+  }
+}

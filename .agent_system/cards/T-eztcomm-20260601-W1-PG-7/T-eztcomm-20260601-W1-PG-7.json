@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W1-PG-7",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W1] PG — Playwright 爬景點分類頁 → data/景點/",
   "created_at": "2026-06-01T08:23:30.810471+00:00",
   "assignee": "pg",
@@ -41,9 +41,18 @@
   "parent_wish_id": "W-eztcomm-20260601-REBUILD",
   "acceptance_criteria": [],
   "wiki_target": null,
-  "deliverables": [],
-  "execution_log": "",
-  "started_at": null,
-  "completed_at": null,
-  "commit_sha": null
+  "deliverables": [
+    "projects/eztravel.community/data/景點/景點.json",
+    "projects/eztravel.community/data/景點/景點_screenshot.png",
+    "projects/eztravel.community/data/景點/images/attraction_banner_01~15.jpg",
+    "projects/eztravel.community/data/景點/images/attraction_product_01~03.{jpg,png}",
+    "projects/eztravel.community/data/景點/images/attraction_theme_01~07.jpg",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-7/scripts/crawl_spot.py",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-7/scripts/inspect_spot.py"
+  ],
+  "execution_log": "1. 讀 data_schema.md + crawler_brief.md，確認景點頁 URL=https://trip.eztravel.com.tw/ 與 schema 規範（category=attraction）。\n2. MCP Playwright 已佔用，改用 Python playwright 套件。\n3. DOM 探查：執行 inspect_spot.py，取得 Next.js CSS module class 名稱（Layout_wrapper__1DZ9m、TopWidgetBlock_article-wrapper__y3T_Z、OneBanner_one-banner__Z4ide、ThreeProductsSwiper_swiper__7StIX、HotProducts_hot_products__gEpWU、ArticleLayout_article_layout__FBaNz、common_widget_wrapper__m8_2_ 等）。\n4. 撰寫 crawl_spot.py：7 個 section（search_bar/hero_banner/category_nav/featured_items/destination_grid/theme_section/footer_links），選器對齊實際 class 名稱，輸出路徑 data/景點/。\n5. 執行 crawl_spot.py：截圖 2360KB，JSON 19KB，25 張圖（banner×15 + product×3 + theme×7），全部 ≤2MB。\n6. Schema 驗證 PASS：7 sections，所有 item 含 6 必填欄位，無空字串，local image_url 路徑正確。\ncommit_sha: PENDING_ADMIN_COMMIT",
+  "started_at": "2026-06-01T09:06:35.830735+00:00",
+  "completed_at": "2026-06-01T09:55:00.000000+00:00",
+  "commit_sha": "PENDING_ADMIN_COMMIT",
+  "agent_session_id": ""
 }

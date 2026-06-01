@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:06:06.068517+00:00",
+  "task_id": "T-eztcomm-20260601-PM-PLAN",
+  "agent": "pm",
+  "type": "chat_to_admin",
+  "summary": "[PLAN batch=WISH-W-eztcomm-20260601-REBUILD prj=eztravel.community short=eztcomm at=2026-06-01T10:30:00Z]\n\n📋 規劃結果：許願卡 W-eztcomm-20260601-REBUILD（eztravel.community 重建）→ 40 張任務卡\n🎯 目標：重建 eztravel.commun",
+  "ref": {
+    "inbox_path": "D:\\Projects\\ai.factory\\agents\\admin\\inbox\\2026-06-01T09-06-06-032281_pm_m-073affe1406d.json",
+    "msg_id": "m-073affe1406d"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:57:56.708747+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-1",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "規格已讀完。Figma OAuth 授權確認正常（ai.macisk，Pro tier）。現在依序執行：進場改卡 → 爬 eztravel 學風格 → 建 Figma file → 產 tokens 頁 → 6 件套。\n卡狀態已改 IN_PROGRESS。現在用 Playwright 爬 eztravel.com.tw 學習風格。\n風格資料已完整擷取。核心色彩確認：\n- **品牌主色**：`#11D073`（翠綠，非橙紅）\n- **深綠強調**：`#0C9251`\n- **促銷橙**：`#FF8B00`、促銷黃 `#FAB617`\n- **字體**：Gudea + Heiti + 微軟正黑體\n",
+  "ref": {
+    "worker_id": "uiux-2",
+    "response_chars": 16674
+  }
+}

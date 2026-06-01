@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:17:11.056945+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W3-UIUX-2 — instance Community Module 到 4 類商品頁 variant\n\n[依據] (全 DONE)\n- Figma file 6XmYJOpiSXab2gtGlmWtks\n- 02_design/figma_deliverables.md (Tokens + Community Modu",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

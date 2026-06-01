@@ -1,0 +1,64 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W5-PG-3",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "W5 Production 設定 — appsettings.Production.json + Cloud SQL 連線字串注入",
+  "created_at": "2026-06-01T09:03:28.929499+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W5-PG-3 + branch feat/T-eztcomm-20260601-W5-PG-3\n\n上游依賴：\n- T-eztcomm-20260601-W5-AT-1（devops.md §4 Cloud SQL unix socket 格式規範）\n- T-eztcomm-20260601-W4-PG-1（AppDbContext + ConnectionStrings 設定基礎）\n\n## 任務：Production 環境設定 + Cloud SQL 連線字串注入\n\n### 1. 新增 appsettings.Production.json\n\n在 EztravelCommunity.Web/ 下新增 appsettings.Production.json：\n\n```json\n{\n  \"Serilog\": {\n    \"MinimumLevel\": {\n      \"Default\": \"Information\",\n      \"Override\": {\n        \"Microsoft\": \"Warning\",\n        \"Microsoft.AspNetCore\": \"Warning\",\n        \"System\": \"Warning\"\n      }\n    }\n  },\n  \"AllowedHosts\": \"*\"\n}\n```\n\n注意：ConnectionStrings 不寫在此檔案（改由 Program.cs 從 env var 注入，避免 secret 洩漏）。\n\n### 2. 修改 Program.cs — Production 環境注入 DB_CONNECTION_STRING\n\n在 builder.Services 設定資料庫連線之前，加入以下邏輯（必須在 AddDbContext 之前）：\n\n```csharp\n// Production 環境從環境變數覆寫 ConnectionString（Cloud Run 透過 Secret Manager 注入）\nif (builder.Environment.IsProduction())\n{\n    var dbConnStr = Environment.GetEnvironmentVariable(\"DB_CONNECTION_STRING\");\n    if (!string.IsNullOrEmpty(dbConnStr))\n    {\n        builder.Configuration[\"ConnectionStrings:DefaultConnection\"] = dbConnStr;\n    }\n}\n```\n\nCloud SQL unix socket 連線字串格式（供參考，實際值由 GCP Secret Manager 注入）：\n```\nHost=/cloudsql/eztravel-community-prod:asia-east1:eztcomm-db;Database=eztcomm;Username=eztcomm_user;Password=<from_secret>\n```\n\n### 3. 確認 appsettings.json（開發環境 fallback）\n\n確認 EztravelCommunity.Web/appsettings.json 的 ConnectionStrings:DefaultConnection 存在且為合理開發值（例如 SQLite 或本機 PostgreSQL），不動它。\n\n### 4. 驗證\n\n```bash\ndotnet build EztravelCommunity.Web/EztravelCommunity.Web.csproj\n# 預期：Build succeeded, 0 Error(s)\n\ncat EztravelCommunity.Web/appsettings.Production.json\n# 預期：含 \"Serilog\"\n\ncat EztravelCommunity.Web/Program.cs | grep -A 5 \"DB_CONNECTION_STRING\"\n# 預期：含 GetEnvironmentVariable(\"DB_CONNECTION_STRING\") 區塊\n```\n\n### 5. wiki draft\n\n產出 .agent_system/cards/T-eztcomm-20260601-W5-PG-3/T-eztcomm-20260601-W5-PG-3_pg_draft.md，說明 Production 設定策略與 Cloud SQL 連線字串注入方式。\n\n完工後在最終回應結尾加 [TASK_DONE]。",
+  "context_paths": [
+    "projects/eztravel.community/src/EztravelCommunity.Web/Program.cs",
+    "projects/eztravel.community/src/EztravelCommunity.Web/appsettings.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W5-AT-1/T-eztcomm-20260601-W5-AT-1.json",
+    "projects/eztravel.community/03_architecture/devops.md"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W5-AT-1",
+    "T-eztcomm-20260601-W4-PG-1"
+  ],
+  "objective": "在 EztravelCommunity.Web 專案新增 appsettings.Production.json，設定 Serilog Production 等級，並在 Program.cs 中於 Production 環境下從環境變數 DB_CONNECTION_STRING 覆寫 ConnectionStrings:DefaultConnection（Cloud SQL unix socket 格式），確保 Cloud Run 部署後能正確連到 eztcomm-db。",
+  "goal_state": "appsettings.Production.json 存在且包含 Serilog Production 設定；Program.cs 在 Production 環境下讀取 env var DB_CONNECTION_STRING 並覆寫 DefaultConnection；dotnet build 0 Error(s)；本機 dotnet run --environment Development 仍使用 appsettings.Development.json 中的 SQLite/PostgreSQL 設定不受影響。",
+  "verification": {
+    "verifier": "PG 自驗 + AQ 覆驗",
+    "tools": [
+      "dotnet build",
+      "dotnet run",
+      "cat"
+    ],
+    "evidence_checks": [
+      "cat EztravelCommunity.Web/appsettings.Production.json 後輸出含 'Serilog'",
+      "cat EztravelCommunity.Web/Program.cs 後輸出含 'DB_CONNECTION_STRING'",
+      "dotnet build 後輸出含 'Build succeeded' 且含 '0 Error(s)'",
+      "grep 'DB_CONNECTION_STRING' EztravelCommunity.Web/Program.cs 後輸出含 'GetEnvironmentVariable' 或 '\"DB_CONNECTION_STRING\"'"
+    ]
+  },
+  "out_of_scope": [
+    "Dockerfile 或 release.yml（歸 W5-PG-1 / W5-PG-2）",
+    "GCP Secret Manager 建立操作（歸 W5-ADMIN-1）",
+    "修改 appsettings.Development.json（不動開發設定）",
+    "EF Migration 操作（歸 W4-PG-1 / W5-AT-1 規範）",
+    "Identity 或業務邏輯任何修改"
+  ],
+  "escalation_on_block": [
+    "DB_CONNECTION_STRING 注入位置與 AddDbContext 有順序衝突 → chat admin + [QUERY] 等仲裁，不擅自重構 Program.cs",
+    "dotnet build 出現 Error(s) 且原因不明 → 回報 error message + [BLOCKED] 等 admin 指示",
+    "appsettings 層級覆蓋邏輯與已有設定產生矛盾 → chat admin + [QUERY]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-1: appsettings.Production.json 存在且含 Serilog MinimumLevel 設定",
+    "AC-2: Program.cs 含 DB_CONNECTION_STRING env var 覆寫邏輯，且位於 AddDbContext 之前",
+    "AC-3: dotnet build 0 Error(s)",
+    "AC-4: 本機 Development 環境不受影響（appsettings.Development.json 仍為主要設定源）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:27:13.175338+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

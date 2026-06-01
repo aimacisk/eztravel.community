@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:15:47.857150+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-3",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W4-PG-3 — ProductDetail controller/view (4 類 variant + 假商品 seed)\n\n[Worktree] .worktrees/T-eztcomm-20260601-W4-PG-3/ (已建)\n[Branch] feat/T-eztcomm-20260601-W4-PG-3\n\n[",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

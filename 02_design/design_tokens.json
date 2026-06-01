@@ -1,11 +1,120 @@
 {
-  "$comment": "設計標記(Design Tokens)— 由 UIUX agent 制定。所有視覺值必須以 token 表達,禁止 PG 端 hard-code。",
-  "pid": "{{PID}}",
-  "version": "0.1.0",
-  "color": {},
-  "spacing": {},
-  "typography": {},
-  "radius": {},
-  "shadow": {},
-  "motion": {}
+  "$schema": "https://json.schemastore.org/design-tokens",
+  "_meta": {
+    "project": "eztravel.community",
+    "figma_file_key": "6XmYJOpiSXab2gtGlmWtks",
+    "figma_page": "Tokens",
+    "source_url": "https://www.eztravel.com.tw/",
+    "created_at": "2026-06-01",
+    "task_id": "T-eztcomm-20260601-W2-UIUX-1",
+    "version": "1.0.0",
+    "_note": "所有視覺值均從 eztravel.com.tw 真實爬取；品牌主色為翠綠 #11D073，非規格預期橙紅"
+  },
+
+  "color": {
+    "brand": {
+      "primary": {
+        "$value": "#11D073",
+        "$type": "color",
+        "$description": "品牌主色 — CTA 按鈕、active 狀態、品牌識別",
+        "$comment": "爬取自 eztravel.com.tw rgb(17,208,115)"
+      },
+      "dark": {
+        "$value": "#0C9251",
+        "$type": "color",
+        "$description": "品牌深色 — hover/pressed 狀態、深色 badge"
+      },
+      "light": {
+        "$value": "#E7FAF1",
+        "$type": "color",
+        "$description": "品牌淡底色 — 成功提示背景、highlight 底色"
+      },
+      "mint": {
+        "$value": "#CFF6E3",
+        "$type": "color",
+        "$description": "品牌薄荷色 — chip 淡底、次要 badge 底色"
+      }
+    },
+    "neutral": {
+      "900": { "$value": "#222222", "$type": "color", "$description": "主體文字" },
+      "700": { "$value": "#444444", "$type": "color", "$description": "Footer 背景" },
+      "500": { "$value": "#666666", "$type": "color", "$description": "次要文字" },
+      "400": { "$value": "#999999", "$type": "color", "$description": "輔助文字" },
+      "300": { "$value": "#CCCCCC", "$type": "color", "$description": "禁用狀態" },
+      "200": { "$value": "#E8E8E8", "$type": "color", "$description": "分隔線/邊框" },
+      "100": { "$value": "#FAFAFA", "$type": "color", "$description": "卡片背景" },
+      "50":  { "$value": "#F1F7F8", "$type": "color", "$description": "冷色調淺底" },
+      "white": { "$value": "#FFFFFF", "$type": "color", "$description": "純白" }
+    },
+    "accent": {
+      "orange": { "$value": "#FF8B00", "$type": "color", "$description": "促銷/限時 CTA" },
+      "yellow": { "$value": "#FAB617", "$type": "color", "$description": "星等/重點標籤" },
+      "red":    { "$value": "#FF7777", "$type": "color", "$description": "警示/折扣徽章" }
+    },
+    "surface": {
+      "cool":  { "$value": "#F1F7F8", "$type": "color", "$description": "冷色調頁面底色" },
+      "white": { "$value": "#FFFFFF", "$type": "color", "$description": "純白頁面/卡片底色" }
+    }
+  },
+
+  "font": {
+    "family": {
+      "chinese": {
+        "$value": "'Noto Sans TC', 'PingFang TC', '微軟正黑體', sans-serif",
+        "$type": "fontFamily",
+        "$description": "繁體中文優先字型堆疊"
+      },
+      "latin": {
+        "$value": "'Inter', 'Gudea', sans-serif",
+        "$type": "fontFamily",
+        "$description": "Latin / 數字字型堆疊"
+      }
+    },
+    "size": {
+      "display": { "$value": "40", "$type": "dimension", "$description": "Display/H1 — Hero 主標" },
+      "h2":      { "$value": "28", "$type": "dimension", "$description": "H2 — 區段標題" },
+      "h3":      { "$value": "22", "$type": "dimension", "$description": "H3 — 子標題/卡片主標" },
+      "h4":      { "$value": "18", "$type": "dimension", "$description": "H4 — 小標題/卡片副標" },
+      "body":    { "$value": "14", "$type": "dimension", "$description": "Body — 正文" },
+      "small":   { "$value": "12", "$type": "dimension", "$description": "Small — 輔助資訊" },
+      "caption": { "$value": "11", "$type": "dimension", "$description": "Caption — 版權/footnote" }
+    },
+    "weight": {
+      "bold":    { "$value": "700", "$type": "fontWeight", "$description": "粗體 — 標題" },
+      "medium":  { "$value": "500", "$type": "fontWeight", "$description": "中等 — 副標題/button" },
+      "regular": { "$value": "400", "$type": "fontWeight", "$description": "標準 — 正文" }
+    },
+    "lineHeight": {
+      "tight":  { "$value": "1.2",  "$type": "number", "$description": "緊縮 — 大標題" },
+      "normal": { "$value": "1.5",  "$type": "number", "$description": "標準 — 正文" },
+      "loose":  { "$value": "1.75", "$type": "number", "$description": "寬鬆 — 說明文字" }
+    }
+  },
+
+  "spacing": {
+    "1":  { "$value": "4",  "$type": "dimension", "$description": "4px — 最小內距" },
+    "2":  { "$value": "8",  "$type": "dimension", "$description": "8px — 緊湊間距" },
+    "3":  { "$value": "12", "$type": "dimension", "$description": "12px — 小元素 padding" },
+    "4":  { "$value": "16", "$type": "dimension", "$description": "16px — 標準 padding" },
+    "6":  { "$value": "24", "$type": "dimension", "$description": "24px — 卡片內距" },
+    "8":  { "$value": "32", "$type": "dimension", "$description": "32px — 區段間距" },
+    "12": { "$value": "48", "$type": "dimension", "$description": "48px — 頁面層級大間距" }
+  },
+
+  "radius": {
+    "sm":   { "$value": "4",    "$type": "dimension", "$description": "4px — chip/badge/小按鈕" },
+    "md":   { "$value": "8",    "$type": "dimension", "$description": "8px — 卡片/input/一般按鈕" },
+    "lg":   { "$value": "12",   "$type": "dimension", "$description": "12px — modal/底部 sheet" },
+    "full": { "$value": "9999", "$type": "dimension", "$description": "全圓 — avatar/圓形 icon 按鈕" }
+  },
+
+  "shadow": {
+    "card":     { "$value": "0 2px 8px rgba(0,0,0,0.08)",  "$type": "shadow", "$description": "卡片陰影" },
+    "elevated": { "$value": "0 4px 16px rgba(0,0,0,0.12)", "$type": "shadow", "$description": "較高浮起 — modal/dropdown" }
+  },
+
+  "transition": {
+    "fast":   { "$value": "150ms ease", "$type": "duration", "$description": "快速 — hover 色彩" },
+    "normal": { "$value": "250ms ease", "$type": "duration", "$description": "標準 — 展開/收合" }
+  }
 }

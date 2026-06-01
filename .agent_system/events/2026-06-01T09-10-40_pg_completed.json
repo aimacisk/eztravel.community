@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:10:40.494769+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-1",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "進場，改卡 IN_PROGRESS，讀取合約文件。\n合約文件讀取完畢。開始執行爬蟲任務。先確認 worktree 目錄結構。\n目錄建立完成。載入 Playwright MCP tools，開始爬取首頁。\n開始導航至 eztravel 首頁。\n頁面已載入。先按 Escape 關閉可能的彈窗，再等待內容完全渲染。\n頁面滾動完成，拍全頁截圖。\n截圖只能先存到 pg 的 agent 目錄，再手動複製到 worktree。\n截圖儲存成功。現在擷取 DOM 內容以解析所有 sections。\nDOM 資料解析完成。現在擷取更多圖片資訊，特別是 hero banner 與各 section 圖片。\n擷取頂部",
+  "ref": {
+    "worker_id": "pg-1",
+    "response_chars": 49456
+  }
+}

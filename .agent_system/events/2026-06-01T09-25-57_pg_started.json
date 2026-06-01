@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:25:57.656817+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-4",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W4-PG-4 — Community feature (Review + ReviewLike Entity / Repo / Service / Controller / View / Razor partial)\n\n[Worktree] .worktrees/T-eztcomm-20260601-W4-PG-4/ (已建",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

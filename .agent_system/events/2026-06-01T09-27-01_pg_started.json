@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:27:01.243297+00:00",
+  "task_id": "T-eztcomm-20260601-W5-PG-1",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W5-PG-1 — Dockerfile (.NET 8 multi-stage build, linux/amd64)\n\n[Worktree] .worktrees/T-eztcomm-20260601-W5-PG-1/ (已建)\n[Branch] feat/T-eztcomm-20260601-W5-PG-1\n\n[輸入]\n",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

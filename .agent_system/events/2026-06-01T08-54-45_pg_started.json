@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T08:54:45.257407+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-5",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W1-PG-5 — 爬 https://packages.eztravel.com.tw/ (自由行)\n[Worktree] d:/Projects/ai.factory/projects/eztravel.community/.worktrees/T-eztcomm-20260601-W1-PG-5/\n[Branch] fe",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W4-PG-5",
+  "prj_id": "eztravel.community",
+  "status": "IN_PROGRESS",
+  "title": "[W4] PG — Serilog stdout JSON 強化 + /health endpoint",
+  "created_at": "2026-06-01T08:56:39.615396+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W4-PG-5 + branch feat/T-eztcomm-20260601-W4-PG-5\n\n[WISH] W-eztcomm-20260601-REBUILD\n\n## 目標\n在 EztravelCommunity.Web 強化 Serilog stdout JSON 輸出，並新增 /health endpoint 供 Cloud Run liveness/readiness probe 使用。\n\n## 上游依賴\n- T-eztcomm-20260601-W4-AT-2：基底專案骨架（sln + csproj + DI 已就緒）\n- 03_architecture/devops.md 中 §3 PG 強制的 Serilog 規格\n\n## 工作項目\n\n### 1. Serilog 套件安裝（EztravelCommunity.Web.csproj）\n```\ndotnet add EztravelCommunity.Web package Serilog.AspNetCore\ndotnet add EztravelCommunity.Web package Serilog.Formatting.Compact\ndotnet add EztravelCommunity.Web package Serilog.Sinks.Console\n```\n\n### 2. Program.cs — bootstrap logger + UseSerilog\n```csharp\n// 最頂端（在 var builder = ... 之前）\nLog.Logger = new LoggerConfiguration()\n    .MinimumLevel.Override(\"Microsoft\", LogEventLevel.Warning)\n    .Enrich.FromLogContext()\n    .WriteTo.Console(new CompactJsonFormatter())\n    .CreateBootstrapLogger();\n\n// builder 設定\nbuilder.Host.UseSerilog((ctx, services, cfg) =>\n    cfg.ReadFrom.Configuration(ctx.Configuration)\n       .ReadFrom.Services(services)\n       .Enrich.FromLogContext()\n       .WriteTo.Console(new CompactJsonFormatter()));\n```\n\n### 3. appsettings.json — Serilog 最低 Severity 設定\n```json\n\"Serilog\": {\n  \"MinimumLevel\": {\n    \"Default\": \"Information\",\n    \"Override\": {\n      \"Microsoft.AspNetCore\": \"Warning\",\n      \"Microsoft.EntityFrameworkCore\": \"Warning\"\n    }\n  }\n}\n```\n\n### 4. /health endpoint（MapGet 在 app.Run() 前）\n```csharp\napp.MapGet(\"/health\", () => Results.Ok(new { status = \"healthy\" }));\n```\n\n### 5. 業務 log 範例（在 HomeController）\n```csharp\n_logger.LogInformation(\"首頁載入，商品數: {Count}\", products.Count);\n```\n\n## 完工自驗\n1. `dotnet run --project EztravelCommunity.Web` → stdout 出現 JSON 格式 log（含 Level/Message 欄位）\n2. `curl http://localhost:5000/health` → 200 OK，body 含 \"healthy\"\n3. `dotnet build` → 0 errors\n\n## 產出\n- EztravelCommunity.Web/Program.cs（Serilog 完整設定）\n- EztravelCommunity.Web/appsettings.json（含 Serilog section）\n- Serilog 套件已加入 csproj\n- wiki_draft: .agent_system/cards/T-eztcomm-20260601-W4-PG-5/T-eztcomm-20260601-W4-PG-5_pg_draft.md\n\n## 完工 marker\n最終回應結尾附 [TASK_DONE]",
+  "context_paths": [
+    "projects/eztravel.community/src/",
+    "projects/eztravel.community/03_architecture/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-AT-2"
+  ],
+  "objective": "在 EztravelCommunity.Web 補強 Serilog stdout CompactJsonFormatter 輸出，並新增 /health endpoint 供 Cloud Run probe 使用。",
+  "goal_state": "dotnet run 啟動後 stdout 輸出 JSON 格式 log（每行含 \"@l\"/\"@m\" 欄位）；GET /health 返回 HTTP 200，body 含 \"healthy\"；dotnet build 0 errors。",
+  "verification": {
+    "verifier": "PG 自驗 + QA 覆驗",
+    "tools": [
+      "dotnet run",
+      "curl",
+      "dotnet build"
+    ],
+    "evidence_checks": [
+      "跑 dotnet run --project EztravelCommunity.Web 後 stdout 含 '{\"@l\"' 或 '{\"Level\"'",
+      "跑 curl http://localhost:5000/health 後輸出含 '\"healthy\"'",
+      "跑 dotnet build 後輸出含 '0 Error(s)'"
+    ]
+  },
+  "out_of_scope": [
+    "HomeController/CategoryController 業務邏輯（歸 W4-PG-2）",
+    "Npgsql DB 連線字串（歸 W4-PG-1 / W5-PG-3）",
+    "Dockerfile HEALTHCHECK 指向（歸 W5-PG-1）",
+    "Identity 登入頁設定（歸 W4-PG-1）"
+  ],
+  "escalation_on_block": [
+    "Serilog 套件安裝失敗或版本衝突 → 停手 chat admin + [QUERY] 等仲裁",
+    "devops.md 不存在或 Serilog 規格未定義 → 依此卡 instruction §3 自行設定並記錄 execution_log",
+    "dotnet run 因 DB 連線失敗無法啟動 → 改用 dotnet build 驗證編譯正確性 + 通知 admin [INFO]"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W4PG5-01：dotnet run 後 stdout log 為 JSON 格式（含 Level/Message/Timestamp）",
+    "AC-W4PG5-02：GET /health 返回 200 OK body 含 \"healthy\"",
+    "AC-W4PG5-03：dotnet build 0 errors",
+    "AC-W4PG5-04：wiki_draft 存在並含自驗結果"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:11:38.589470+00:00",
+  "completed_at": "2026-06-01T09:14:06.688144+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T09:01:44.753857+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-1",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[任務] T-eztcomm-20260601-W4-PG-1 — Core entities + EF Core + Identity + initial migration\n\n[Worktree] d:/Projects/ai.factory/projects/eztravel.community/.worktrees/T-eztcomm-20260601-W4-PG-",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

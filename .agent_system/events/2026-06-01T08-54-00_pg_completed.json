@@ -1,0 +1,27 @@
+{
+  "ts": "2026-06-01T08:54:00+00:00",
+  "task_id": "T-eztcomm-20260601-W1-PG-4",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "Playwright 爬取 vacation.eztravel.com.tw 完成：5 sections / 截圖 1369KB / 12 張圖片 / AC-crawl-01~04 全通過 / commit e99906a",
+  "ref": {
+    "delivered_files": [
+      "data/團體/團體.json",
+      "data/團體/團體_screenshot.png",
+      "data/團體/images/group_banner_01.jpg",
+      "data/團體/images/group_banner_02.jpg",
+      "data/團體/images/group_banner_03.jpg",
+      "data/團體/images/group_banner_04.jpg",
+      "data/團體/images/group_banner_05.jpg",
+      "data/團體/images/group_banner_06.jpg",
+      "data/團體/images/group_banner_07.jpg",
+      "data/團體/images/group_banner_08.jpg",
+      "data/團體/images/group_banner_09.jpg",
+      "data/團體/images/group_banner_10.jpg",
+      "data/團體/images/group_product_01.jpg",
+      "data/團體/images/group_product_02.jpg",
+      "scripts/crawl_group.py"
+    ],
+    "task_board_status": "DONE"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260601-W5-PG-1",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W5] PG — Dockerfile multi-stage build + PORT 8080",
+  "created_at": "2026-06-01T08:58:50.403541+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WORKTREE] dispatch 建立 .worktrees/T-eztcomm-20260601-W5-PG-1 + branch feat/T-eztcomm-20260601-W5-PG-1\n\n[WISH] W-eztcomm-20260601-REBUILD\n\n## 目標\n依 devops.md §1 規格，在專案根目錄撰寫 Dockerfile（multi-stage build），確保 Cloud Run 部署可用。\n\n## 上游依賴\n- T-eztcomm-20260601-W5-AT-1：devops.md §1 Dockerfile 規格\n- T-eztcomm-20260601-W4-PG-5：/health endpoint 已就緒（Cloud Run probe 用）\n\n## Dockerfile 完整內容（嚴格遵守 devops.md §1）\n\n```dockerfile\n# Stage 1: Build\nFROM mcr.microsoft.com/dotnet/sdk:8.0 AS build\nWORKDIR /src\n\n# 先 copy sln + csproj 以利 layer cache\nCOPY *.sln ./\nCOPY EztravelCommunity.Web/EztravelCommunity.Web.csproj EztravelCommunity.Web/\nCOPY EztravelCommunity.Core/EztravelCommunity.Core.csproj EztravelCommunity.Core/\nCOPY EztravelCommunity.Infrastructure/EztravelCommunity.Infrastructure.csproj EztravelCommunity.Infrastructure/\nCOPY EztravelCommunity.Tests/EztravelCommunity.Tests.csproj EztravelCommunity.Tests/\n\nRUN dotnet restore\n\nCOPY . .\nRUN dotnet publish EztravelCommunity.Web/EztravelCommunity.Web.csproj \\\n    -c Release -o /app/publish --no-restore\n\n# Stage 2: Runtime\nFROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime\nWORKDIR /app\nCOPY --from=build /app/publish .\n\nEXPOSE 8080\nENV ASPNETCORE_URLS=http://+:8080\nENV ASPNETCORE_ENVIRONMENT=Production\n\nENTRYPOINT [\"dotnet\", \"EztravelCommunity.Web.dll\"]\n```\n\n## .dockerignore（一併建立）\n```\n**/bin/\n**/obj/\n**/.vs/\n.git/\n.agent_system/\ndata/\n```\n\n## 完工自驗\n1. `docker build -t eztcomm-test .` → 0 errors，成功產生 image\n2. `docker run -p 8080:8080 eztcomm-test` → /health endpoint 返回 200（需設定 DB 或允許無 DB 啟動）\n3. 若本機無 Docker，可驗 `docker build` 的 output log 含 \"Successfully built\"\n\n## 補充：Cloud Run 環境變數由 W5-ADMIN-1 建立的 Secret Manager 注入，此卡不處理 DB 連線。\n\n## 產出\n- Dockerfile（專案根目錄）\n- .dockerignore（專案根目錄）\n- wiki_draft: .agent_system/cards/T-eztcomm-20260601-W5-PG-1/T-eztcomm-20260601-W5-PG-1_pg_draft.md\n\n## 完工 marker\n最終回應結尾附 [TASK_DONE]",
+  "context_paths": [
+    "projects/eztravel.community/src/",
+    "projects/eztravel.community/03_architecture/devops.md"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W5-AT-1",
+    "T-eztcomm-20260601-W4-PG-5"
+  ],
+  "objective": "依 devops.md §1 規格撰寫 multi-stage Dockerfile，EXPOSE 8080，供 Cloud Run 部署使用。",
+  "goal_state": "Dockerfile 存在於專案根目錄；docker build 成功（0 errors）；image 執行後 GET /health 返回 200；ASPNETCORE_URLS=http://+:8080。",
+  "verification": {
+    "verifier": "PG 自驗",
+    "tools": [
+      "docker build",
+      "docker run"
+    ],
+    "evidence_checks": [
+      "跑 docker build -t eztcomm-test . 後 stdout 含 'Successfully built' 或 'exporting to image'",
+      "跑 docker run -p 8080:8080 eztcomm-test + curl http://localhost:8080/health 後輸出含 '\"healthy\"'",
+      "cat Dockerfile 含 'FROM mcr.microsoft.com/dotnet/aspnet:8.0' 且含 'EXPOSE 8080'"
+    ]
+  },
+  "out_of_scope": [
+    "Cloud Run 實際部署（歸 W5-ADMIN-3）",
+    "DB 連線字串設定（歸 W5-PG-3）",
+    "CI/CD workflow（歸 W5-PG-2）",
+    "GCP Secret Manager 建置（歸 W5-ADMIN-1）"
+  ],
+  "escalation_on_block": [
+    "Docker 未安裝 / daemon 未啟動 → 將 Dockerfile 寫入 + 標記㌀docker build 進行中（需 admin 驗證）㌁完工 + chat admin [INFO]",
+    "csproj 路徑與實際目錄結構不符 → 先 ls src/ 確認實際路徑再撰寫",
+    "devops.md 不存在 → 依此卡 instruction 直接實作並記錄 execution_log"
+  ],
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "acceptance_criteria": [
+    "AC-W5PG1-01：Dockerfile 存在於專案根目錄",
+    "AC-W5PG1-02：docker build 成功（0 errors）",
+    "AC-W5PG1-03：Dockerfile 含 EXPOSE 8080 且 ENV ASPNETCORE_URLS=http://+:8080",
+    "AC-W5PG1-04：.dockerignore 存在且排除 obj/ bin/ .git/"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T09:27:01.177763+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}
