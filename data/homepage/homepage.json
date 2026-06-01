@@ -1,0 +1,602 @@
+{
+  "page": "homepage",
+  "scraped_at": "2026-06-01T08:00:00.000Z",
+  "url": "https://www.eztravel.com.tw/",
+  "sections": [
+    {
+      "id": "hero_banner",
+      "type": "hero_banner",
+      "title": null,
+      "items": [
+        {
+          "text": "吉伊卡哇",
+          "image_url": "images/homepage_banner_01.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/taitungballoon/",
+          "price": null,
+          "badge": null,
+          "description": "2026臺東熱氣球嘉年華"
+        }
+      ]
+    },
+    {
+      "id": "category_nav",
+      "type": "category_nav",
+      "title": "啟動你的旅程",
+      "items": [
+        {
+          "text": "機 + 酒",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機場接送",
+          "image_url": null,
+          "link_url": "https://airport-transfer.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "當地參團",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/global/local/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵假期",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/thsr/vacation/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "列車套票",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/formosa/express/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "巴士旅遊",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/taiwan/bus/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵團票",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/domestic/custMadeGroup",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "票券當地遊",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "new_member_promo",
+      "type": "promo_section",
+      "title": "新會員見面禮",
+      "items": [
+        {
+          "text": "看更多",
+          "image_url": null,
+          "link_url": "https://member.eztravel.com.tw/member/serviceFAQ?tab=membership&nav=memberTiers",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "立即領$5000大禮包",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/events/member/?p=member6&IF=New_Gift",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "前往領取",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/events/member/?p=member6&IF=New_Gift",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "featured_products",
+      "type": "featured_items",
+      "title": "個人化推薦",
+      "items": [
+        {
+          "text": "台北-東京機加酒",
+          "image_url": "images/homepage_product_01.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-TYO?rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=fwh_round-trip_TPE_TYO",
+          "price": "12,599起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台北-釜山",
+          "image_url": "images/homepage_product_02.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-PUS/?outbounddate=13%2F07%2F2026&inbounddate=18%2F07%2F2026&adults=1&children=0&infants=0&direct=false&cabintype=any&rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=flight_round-trip_TPE_PUS_2026-07",
+          "price": "5,863起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "蘭陽烏石港海景酒店(Lanyang Seaview Hotel)",
+          "image_url": "images/homepage_product_03.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=7614&HotelID=71327915&rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=71327915",
+          "price": "3,500起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "【7月場次】2026臺灣國際熱氣球嘉年華。繫留體驗券",
+          "image_url": "images/homepage_product_04.jpg",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000012121?rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=TKAI000012121",
+          "price": "550起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "沖繩逸之彩酒店(Okinawa Hinode Resort and Hot Spring Hotel)",
+          "image_url": "images/homepage_product_05.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=92573&HotelID=67309116&rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=67309116",
+          "price": "4,003起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "★門票6880元區★0726【高鐵+三麗鷗萌旅號】DXS高雄巨蛋演唱會★承億酒店自由行套票2天",
+          "image_url": "images/homepage_product_06.jpg",
+          "link_url": "https://trip.eztravel.com.tw/domestic/introduction/GRP0000008186?rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=GRP0000008186",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "【2026歌詩達郵輪】莎倫娜號、沖繩自由行4天",
+          "image_url": "images/homepage_product_07.png",
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/p/FRN0000020252?rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=FRN0000020252",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台中華航【沖繩童樂】鳳梨園、神奇鐘乳洞、東南植物園、一晚海濱飯店四日",
+          "image_url": "images/homepage_product_08.jpg",
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001925/GFG0000034595?rec_sid=ZKPQV52SdiHT4fzgyppPqT&rec_mid=11093&rec_id=03f53463-ca8f-4aef-bff2-e1dad03b0d1e&rec_pid=VDR0000001925%2FGFG0000034595",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hot_deals",
+      "type": "quick_links",
+      "title": null,
+      "items": [
+        {
+          "text": "全支付 最高贈800▸",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/pxpayplus/promo/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "熱氣球8月場 本週3開搶▸",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/taitungballoon/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "泰國玩全攻略▸",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/thailand/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "東京玩全攻略▸",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/tokyo/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "澎湖花火節 盛大展演▸",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/penghu/travel/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "summer_tours",
+      "type": "product_list",
+      "title": "搶先預購．暑假卡位戰",
+      "items": [
+        {
+          "text": "親子跟團每人現省$500",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/summer/holiday/",
+          "price": "21,000起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "每周推薦 獨家優惠買到賺到!最高減四千",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/keywords?q=%E6%99%9A%E9%B3%A5%E4%BF%B1%E6%A8%82%E9%83%A8%20%E8%B7%9F%E5%9C%98%E9%99%90%E6%99%82%E7%9C%81&avbl=1&depDateFrom=20260305&depDateTo=20260831&type=4&cst=24&departure=TPE&page=1&rankBy=2",
+          "price": "24,900起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "夏戀北海道盛夏限定花田饗宴",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/keywords?q=%E8%96%B0%E8%A1%A3%E8%8D%89&avbl=1&depDateFrom=20260615&depDateTo=20260831&type=4&cst=48&departure=TPE&rankBy=2",
+          "price": "26,888起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "已成團專區出國跟團不必等",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/groupgo/",
+          "price": "13,888起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "易遊嚴選樂高樂園 水族館",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/introduction/FRN0000020406",
+          "price": "32,900起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "global_group_tours",
+      "type": "product_list",
+      "title": "全球跟團",
+      "items": [
+        {
+          "text": "6/30前訂購，贈「雲雀集團餐券」",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/groupevent/",
+          "price": "15,900起",
+          "badge": null,
+          "description": "出國跟團 回國即享美食饗宴"
+        },
+        {
+          "text": "易遊主打星曼芭長榮5+1日無購物團~超激省",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/introduction/FRN0000019649",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "韓國自在輕鬆遊不進人蔘保肝",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/keywords?q=%E4%B8%8D%E8%B5%B0%E4%BA%BA%E8%94%98%E4%BF%9D%E8%82%9D&avbl=1&type=4&cst=35&departure=TPE&page=1&rankBy=2",
+          "price": "12,700起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "泰國親子動物園超近距離互動體驗",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/keywords?q=%E5%8B%95%E7%89%A9%E5%9C%92&avbl=1&depDateFrom=20260528&depDateTo=20260901&type=4&cst=26&departure=TPE&flag=vdr",
+          "price": "14,788起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "中華航空直飛美加夢幻美景一站直達！",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/cigorgeous/america/",
+          "price": "87,900起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hot_packages",
+      "type": "product_list",
+      "title": "自遊最夯",
+      "items": [
+        {
+          "text": "大三巴、旅遊塔澳門機加酒3天2夜",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-MFM?travelday=2&checkin=&checkout=&ages=&cabintype=&passenger=200&roomqty=1&airline=&direct=false&dport=&cityid=59&hotelid=",
+          "price": "9,999起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "晴空塔、迪士尼東京機加酒5天4夜",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-TYO",
+          "price": "13,100起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "美食、購物、寺廟曼谷機加酒5天4夜",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-BKK",
+          "price": "9,200起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "特色美食逛街購物大阪機加酒5天4夜",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-OSA",
+          "price": "12,899起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "療癒海景度假勝地沖繩機加酒5天4夜",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-OKA",
+          "price": "9,300起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "taiwan_travel",
+      "type": "product_list",
+      "title": "全台玩樂",
+      "items": [
+        {
+          "text": "全台賞花浪漫出發",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/flowerspecial/",
+          "price": "899起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "阿里山林鐵全線通車",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/alishanrailway/",
+          "price": "6,750起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵來回!小琉球機車暢遊2天",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/thsr/vacation/?p=vacation1#subTag6",
+          "price": "2,980起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "盛夏跳島，澎湖花火節！",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/ezholiday/",
+          "price": "6,999起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "featured_hotels",
+      "type": "featured_items",
+      "title": "全球訂房",
+      "items": [
+        {
+          "text": "Fun宿玩一夏",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/hotel/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "APP折扣碼最高200",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/discountcode/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "訂房優惠大全集一頁快搜",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/theme/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "曼谷|東京|沖繩|首爾|倫敦|巴黎",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/oversea/top12city/",
+          "price": "1,636起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "【花蓮理想大地渡假飯店】",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/hotelsale",
+          "price": "4,299起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "campaign_coupons",
+      "type": "promo_section",
+      "title": "優惠票券",
+      "items": [
+        {
+          "text": "【59折】高鐵。限9/30前高鐵票+門票/美食",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/thsrc/",
+          "price": null,
+          "badge": "59折",
+          "description": null
+        },
+        {
+          "text": "【58折】晶華azie爐烤牛排贈美福下午茶",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000007928",
+          "price": "985起",
+          "badge": "58折",
+          "description": null
+        },
+        {
+          "text": "【機場接送】限時9折立即確認/追蹤航班",
+          "image_url": null,
+          "link_url": "https://airport-transfer.eztravel.com.tw/",
+          "price": null,
+          "badge": "9折",
+          "description": null
+        },
+        {
+          "text": "【包車】玩日本最佳方式沖繩/九州/東京/大阪",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/charterbus/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "flight_special_fares",
+      "type": "product_list",
+      "title": "機票特惠",
+      "items": [
+        {
+          "text": "台北-東京來回・10/29-11/03",
+          "image_url": "images/homepage_promo_01.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-TYO/?outbounddate=29/10/2026&inbounddate=03/11/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": "7,205起",
+          "badge": "樂桃航空",
+          "description": null
+        },
+        {
+          "text": "台北-大阪來回・11/06-11/11",
+          "image_url": "images/homepage_promo_01.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-OSA/?outbounddate=06/11/2026&inbounddate=11/11/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": "6,963起",
+          "badge": "樂桃航空",
+          "description": null
+        },
+        {
+          "text": "台北-首爾來回・07/21-07/25",
+          "image_url": "images/homepage_promo_02.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-SEL/?outbounddate=21/07/2026&inbounddate=25/07/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": "5,262起",
+          "badge": "酷航",
+          "description": null
+        },
+        {
+          "text": "台北-福岡來回・10/11-10/16",
+          "image_url": "images/homepage_promo_03.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-FUK/?outbounddate=11/10/2026&inbounddate=16/10/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": "9,763起",
+          "badge": "亞洲航空",
+          "description": null
+        },
+        {
+          "text": "台北-釜山來回・06/02-06/06",
+          "image_url": "images/homepage_promo_04.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-PUS/?outbounddate=02/06/2026&inbounddate=06/06/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": "5,103起",
+          "badge": "濟州航空",
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "cruise_deals",
+      "type": "product_list",
+      "title": "歌詩達限定艙房~4人同行2人免費",
+      "items": [
+        {
+          "text": "歌詩達限定艙房~4人同行2人免費2026暑假航次",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/activity/costa/serena/?p=serena2",
+          "price": "8,900起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "沖繩自由行4天出發日:7/18、7/26、8/2、8/8",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/introduction/FRN0000020252/20260718",
+          "price": "10,400起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "沖繩、宮古島5天(高出)出發日:7/21",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/introduction/FRN0000020269?t=104530",
+          "price": "12,175起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "沖繩、石垣島自由行5天出發日:7/29、8/19",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/introduction/FRN0000020255/20260729",
+          "price": "12,175起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "福岡、釜山自由行6天出發日:7/21",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/pkgfrn/introduction/FRN0000020257?t=142435",
+          "price": "14,675起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    }
+  ]
+}
