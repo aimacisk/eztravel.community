@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:51:20.316879+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-5",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "W2-UIUX-5 團體分類頁 完整繪 in page 130:2\n\n紀律見 §F (Rule 0a + Rule 0b)\n\n1. Read data/團體/full_screenshot.png + 團體.json\n2. ToolSearch + setCurrentPageAsync('130:2')\n3. 建 wrapper + 完整繪所有 sections (全 items 建)\n4. ≤",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

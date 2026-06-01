@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:51:16.753853+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-4",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "W2-UIUX-4 旅館分類頁 完整繪 in page 119:2\n\n紀律見 §F (Rule 0a + Rule 0b)\n\n1. Read data/旅館/full_screenshot.png + 旅館.json\n2. ToolSearch + setCurrentPageAsync('119:2')\n3. 建 wrapper + 完整繪所有 sections (search_bar / pr",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

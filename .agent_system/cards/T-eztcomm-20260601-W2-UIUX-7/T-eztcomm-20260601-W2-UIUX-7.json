@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W2-UIUX-7",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W2] UIUX — Figma 票券分類頁（依 data/票券/ 真實繪製）",
   "created_at": "2026-06-01T08:35:54.557128+00:00",
   "assignee": "uiux",
@@ -45,11 +45,23 @@
     "AC-W2U7-02：5 維度視覺自驗 pass",
     "AC-W2U7-03：nodeId 記錄於 deliverables"
   ],
-  "wiki_target": null,
-  "deliverables": [],
-  "execution_log": "",
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=187:2 (page: Category-票券)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=187:3 (Wrapper 1440px VERTICAL AUTO-layout，整頁 1440×1818px)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=187:4 (SearchBar 1440×80，品牌綠底 #2AB071，BreadcrumbTabs + 4 chips + 搜尋列)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=189:2 (HeroBanner，15 BannerCard WRAP，依 data/票券 hero_banner 真實資料)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=189:33 (CategoryNav，17 分類 chip h=28 fixed auto hug width，依 category_nav 真實資料)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=190:2 (HotTickets「玩樂票券」，5 TicketCard，依 hot_tickets 真實資料)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=190:26 (PromoSection「城市熱銷」，12 PromoCard 4×3 WRAP，依 promo_section 真實資料)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=195:2 (ThemeSection「優惠專區」，5 ThemeCard 彩色頂欄，依 theme_section 真實資料)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=195:30 (Footer，深色底 #1A1A2E，4 欄 SPACE_BETWEEN，20 導覽連結，依 footer_links 真實資料)",
+    "projects/eztravel.community/02_design/figma_deliverables.md (W2-UIUX-7 節點清冊已更新)"
+  ],
+  "execution_log": "依 data/票券/票券.json 全部 6 sections 真實資料在 Figma page '187:2 Category-票券' 繪製完整票券分類頁。主 Wrapper 187:3（VERTICAL AUTO-layout，width=1440px fixed，height=1818px AUTO），7 sections 序列堆疊：SearchBar(187:4 品牌綠底+BreadcrumbTabs+搜尋 chips)、HeroBanner(189:2 全部 15 items WRAP 排列)、CategoryNav(189:33 全部 17 chips h=28 fixed auto hug width)、HotTickets(190:2 「玩樂票券」全部 5 TicketCards)、PromoSection(190:26 「城市熱銷」全部 12 PromoCards 4×3 WRAP grid)、ThemeSection(195:2 「優惠專區」全部 5 ThemeCards 彩色頂欄設計)、Footer(195:30 深色底 #1A1A2E 4 欄導覽)。全部 nodeId 經 get_metadata 驗證確認持久化。整頁 get_screenshot(187:3) 取得 1440×1818px 截圖，8 維度視覺自驗全 PASS。U-1~U-9 全通過（chip h=28 fixed + auto hug content + sections 間距足夠 + 無文字溢出 + 無區塊重疊）。AC-W2U7-01~03 全通過。figma_deliverables.md W2-UIUX-7 節點清冊已更新至最新 nodeIds。",
+  "wiki_draft_path": "projects/eztravel.community/02_design/figma_deliverables.md",
   "started_at": "2026-06-01T09:10:24.010481+00:00",
-  "completed_at": "2026-06-01T13:56:10.990654+00:00",
+  "completed_at": "2026-06-02T06:30:00.000000+00:00",
   "commit_sha": null,
   "agent_session_id": ""
 }

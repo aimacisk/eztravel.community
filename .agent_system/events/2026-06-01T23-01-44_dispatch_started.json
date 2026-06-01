@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T23:01:44.485329+00:00",
+  "task_id": "T-eztcomm-20260602-DISPATCH-CONT",
+  "agent": "dispatch",
+  "type": "started",
+  "summary": "mode: continuous\nprj_id: eztravel.community\nshort: eztcomm\ncomm_room_id: R-6e81799101a8\npoll_interval_seconds: 30\nstale_threshold_minutes: 10\n\n你是 dispatch，負責持續推進 @eztcomm 專案剩餘工作。\n\n【當前 TODO 可派清單（依賴順序）】",
+  "ref": {
+    "worker_id": "dispatch-1",
+    "agent_session_id": ""
+  }
+}

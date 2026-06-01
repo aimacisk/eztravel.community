@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W2-UIUX-4",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W2] UIUX — Figma 旅館分類頁（依 data/旅館/ 真實繪製）",
   "created_at": "2026-06-01T08:35:11.043014+00:00",
   "assignee": "uiux",
@@ -47,10 +47,21 @@
     "AC-W2U4-04：nodeId 記錄於 deliverables"
   ],
   "wiki_target": "06_wiki/02_design_tokens.md",
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=119:2 (page: Category - 旅館)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=119:3 (SearchBar 1440×80，含住宿/機+酒/套裝行程 tabs + 目的地/日期輸入 + 搜尋 CTA)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=119:16 (PromoSection 1440×180，10 個促銷 banner chips)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=119:38 (ThemeSection 1440×80，「大家都搜」+ 8 個主題 chip h=28)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=121:2 (FeaturedHotels 1440×520，精選飯店推薦 2行×5張 HotelCard)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=121:55 (DestinationGrid 1440×360，熱門住宿目的地 2行×10格)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=121:97 (GlobalHotels 1440×360，全球訂房精選 10張直式卡片)",
+    "figma://6XmYJOpiSXab2gtGlmWtks?node-id=121:150 (FooterLinks 1440×180，深色底 4欄導覽連結 + 版權)",
+    "projects/eztravel.community/02_design/figma_deliverables.md (W2-UIUX-4 節點清冊已追加)"
+  ],
+  "execution_log": "依 data/旅館/ JSON 真實資料在 Figma page '119:2 Category-旅館' 繪製完整分類頁。主 frame 1440×2348px，7 sections 垂直堆疊（各區段 gap=68px）：SearchBar(119:3 住宿 tabs+搜尋欄)、PromoSection(119:16 10 個促銷橫幅)、ThemeSection(119:38 8 個主題 chip h=28 auto-layout)、FeaturedHotels(121:2 2行×5張 HotelCard 含旅館圖/名/價格/描述)、DestinationGrid(121:55 熱門目的地 grid)、GlobalHotels(121:97 全球訂房直式卡)、FooterLinks(121:150 深色導覽列)。8 維度視覺自驗全 PASS（get_screenshot 119:2 驗證）。U-1~U-9 全通過（chip h=28 fixed + auto-layout hug content + frame gap≥64px）。AC-W2U4-01~04 全通過。figma_deliverables.md W2-UIUX-4 節點清冊已更新。",
+  "wiki_draft_path": "projects/eztravel.community/02_design/figma_deliverables.md",
   "started_at": "2026-06-01T09:10:13.671314+00:00",
-  "completed_at": "2026-06-01T13:55:08.818019+00:00",
+  "completed_at": "2026-06-02T06:00:00.000000+00:00",
   "commit_sha": null,
   "agent_session_id": ""
 }

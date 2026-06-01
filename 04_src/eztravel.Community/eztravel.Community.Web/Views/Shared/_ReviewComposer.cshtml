@@ -1,0 +1,28 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model ProductDetailViewModel
+
+<form class="review-composer" data-product-id="@Model.Id" id="review-composer">
+    <fieldset>
+        <legend>評論商品</legend>
+
+        <div class="review-composer__star-picker" id="star-picker">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <button type="button" class="star-picker__star" data-rating="@i">☆</button>
+            }
+            <input type="hidden" name="rating" id="rating-input" value="0" required />
+        </div>
+
+        <label class="review-composer__field">
+            <span>留言</span>
+            <textarea name="text" minlength="10" maxlength="2000" required rows="4" placeholder="分享您的旅遊體驗"></textarea>
+        </label>
+
+        <label class="review-composer__field">
+            <span>上傳照片 (最多 6 張)</span>
+            <input type="file" name="photos" accept="image/*" multiple data-max-count="6" />
+        </label>
+
+        <button type="submit" class="review-composer__submit">送出評論</button>
+    </fieldset>
+</form>

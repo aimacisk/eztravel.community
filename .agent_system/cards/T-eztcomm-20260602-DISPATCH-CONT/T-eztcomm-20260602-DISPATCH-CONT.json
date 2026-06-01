@@ -1,0 +1,40 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-DISPATCH-CONT",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[dispatch] eztcomm 持續推進 — 完成剩餘 TODO 卡",
+  "created_at": "2026-06-01T23:01:30.221562+00:00",
+  "assignee": "dispatch",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "mode: continuous\nprj_id: eztravel.community\nshort: eztcomm\npoll_interval_seconds: 30\nstale_threshold_minutes: 10\n\n當前 TODO 清單（可立即派工）：\n- T-eztcomm-20260601-W2-UIUX-10：[W2] UIUX 6件套產出（README + sources.md + tokens.json + view_examples + motifs + figma_template）— assignee: uiux\n- T-eztcomm-20260601-W2-UIUX-11：[W2] UIUX W2 全頁自驗（9 條紀律 + screenshot）— assignee: uiux，depends on W2-UIUX-10\n- T-eztcomm-20260601-W3-UIUX-3：[W3] UIUX W3 visual self-audit + figma_deliverables — assignee: uiux\n- T-eztcomm-20260601-W4-PG-6：[W4] PG Unit+Integration tests（xUnit + WebApplicationFactory）— assignee: pg\n- T-eztcomm-20260601-W4-AQ-1：[W4] AQ Playwright E2E TC-01~06 — assignee: qa，depends on W4-PG-6\n\n阻塞卡（skip，等使用者授權）：\n- T-eztcomm-20260601-W5-ADMIN-1：PENDING_USER_GCLOUD_AUTH\n- T-eztcomm-20260601-W5-ADMIN-2：PENDING_USER_GH_AUTH\n- T-eztcomm-20260601-W5-ADMIN-3：depends on W5-ADMIN-1\n\n紀律：\n- 每完成一卡推 [DISPATCH ...] 給 admin inbox\n- 每 10 分鐘發心跳 💓\n- stale > 10 min → inject 驗活，連 3 輪 → stop + 回報\n- PENDING_USER_* 卡跳過不派\n- 遇 DONE = true 且全部非阻塞卡完工 → 發 ✅✅✅ 完工通報，self DONE",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/task_board.json",
+    "projects/eztravel.community/"
+  ],
+  "depends_on": [],
+  "objective": "持續派工推進 eztcomm 剩餘 TODO 卡，直到所有可執行卡片完成或遇到 user-auth 阻塞",
+  "goal_state": "IN_PROGRESS=0、TODO 僅剩 PENDING_USER_* 阻塞卡（W5-ADMIN-1/2/3），其餘 UIUX/PG/QA 卡全 DONE",
+  "verification": {},
+  "out_of_scope": [
+    "W5-ADMIN-1（需 gcloud auth）",
+    "W5-ADMIN-2（需 GitHub auth）",
+    "W5-ADMIN-3（依賴 W5-ADMIN-1）",
+    "改動 agents.json 或平台設定"
+  ],
+  "escalation_on_block": [
+    "Worker 卡 stale > 3 輪 → stop + 開異常回報給 admin",
+    "task_board.json 讀寫失敗 → chat admin [ERROR]",
+    "OAuth quota 耗盡 → 暫停派工，回報 admin"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [],
+  "wiki_target": null,
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-01T23:01:44.388568+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": ""
+}

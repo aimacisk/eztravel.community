@@ -1,0 +1,22 @@
+@* Template:單則評論卡 (透過 JavaScript 重複 render) *@
+<template id="review-card-template">
+    <article class="review-card">
+        <header class="review-card__header">
+            <img class="review-card__avatar" src="" alt="avatar" />
+            <div>
+                <div class="review-card__name"></div>
+                <div class="review-card__date"></div>
+            </div>
+        </header>
+        <div class="review-card__rating"></div>
+        <p class="review-card__text"></p>
+        <div class="review-card__photos"></div>
+        <footer class="review-card__footer">
+            <button type="button" class="review-card__helpful">
+                <span class="helpful-icon">👍</span>
+                <span class="helpful-count">0</span>
+            </button>
+        </footer>
+        <div class="review-card__reply"></div>
+    </article>
+</template>

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T20:45:30.924059+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-3",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "W2-UIUX-3 機票分類頁 in page 100:2\n\n1. Read data/機票/full_screenshot.png(看真實 eztravel 機票畫面)\n2. Read data/機票/機票.json(取真實 sections + items)\n3. ToolSearch 載 figma 工具 schema\n4. use_figma 在 page 100:2 建 wrapper ",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

@@ -1,0 +1,19 @@
+@{
+    var filters = new[]
+    {
+        new { Key = "all", Label = "全部" },
+        new { Key = "5", Label = "5★" },
+        new { Key = "4", Label = "4★" },
+        new { Key = "3-down", Label = "3★↓" },
+        new { Key = "has-photo", Label = "有照片" },
+        new { Key = "newest", Label = "最新" },
+        new { Key = "most-relevant", Label = "最相關" }
+    };
+}
+
+<nav class="filter-bar" role="navigation">
+    @foreach (var f in filters)
+    {
+        <button type="button" class="filter-bar__chip" data-filter="@f.Key">@f.Label</button>
+    }
+</nav>

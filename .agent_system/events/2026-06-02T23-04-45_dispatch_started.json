@@ -1,0 +1,29 @@
+{
+  "ts": "2026-06-02T23:04:45Z",
+  "task_id": "T-eztcomm-20260602-DISPATCH-CONT",
+  "agent": "dispatch",
+  "type": "started",
+  "summary": "eztcomm continuous dispatch started; Wave A launched: UIUX-10, UIUX-3, PG-6",
+  "ref": {
+    "batch_id": "eztcomm-cont",
+    "launched": [
+      {
+        "task_id": "T-eztcomm-20260601-W2-UIUX-10",
+        "token": "sub-eab3ef0c9781"
+      },
+      {
+        "task_id": "T-eztcomm-20260601-W3-UIUX-3",
+        "token": "sub-3a805077bb4b"
+      },
+      {
+        "task_id": "T-eztcomm-20260601-W4-PG-6",
+        "token": "sub-5658a6246f16"
+      }
+    ],
+    "room_id": "R-11170dff421e",
+    "wave_b_pending": [
+      "T-eztcomm-20260601-W2-UIUX-11",
+      "T-eztcomm-20260601-W4-AQ-1"
+    ]
+  }
+}

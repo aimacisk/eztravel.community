@@ -1,0 +1,13 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model ProductDetailViewModel
+
+<div class="rating-distribution">
+    <div class="rating-distribution__overall">
+        <div class="rating-distribution__score">@Model.AverageRating.ToString("0.0")</div>
+        <partial name="_StarRating" model="Model.AverageRating" />
+        <div class="rating-distribution__count">@Model.ReviewCount 則評論</div>
+    </div>
+    <div class="rating-distribution__bars" id="rating-bars" data-product-id="@Model.Id">
+        @* 5/4/3/2/1 星分布長條,JavaScript 載入 *@
+    </div>
+</div>

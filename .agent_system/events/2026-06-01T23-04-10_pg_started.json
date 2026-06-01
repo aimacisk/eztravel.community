@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T23:04:10.975236+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-6",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[TASK task_id=T-eztcomm-20260601-W4-PG-6]\n\n[WISH] W-eztcomm-20260601-REBUILD\n\n## 目標\n在 EztravelCommunity.Tests 撰寫 xUnit 單元測試（ReviewService / CategoryService）與 WebApplicationFactory 整合測試（主要路由），確保 W4 功能可",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

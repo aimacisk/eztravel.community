@@ -1,0 +1,24 @@
+@model double
+
+@{
+    var fullStars = (int)Math.Floor(Model);
+    var hasHalf = (Model - fullStars) >= 0.5;
+}
+
+<div class="star-rating" data-rating="@Model" aria-label="評分 @Model 顆星">
+    @for (int i = 1; i <= 5; i++)
+    {
+        if (i <= fullStars)
+        {
+            <span class="star star--full">★</span>
+        }
+        else if (i == fullStars + 1 && hasHalf)
+        {
+            <span class="star star--half">★</span>
+        }
+        else
+        {
+            <span class="star star--empty">☆</span>
+        }
+    }
+</div>
