@@ -1,0 +1,649 @@
+{
+  "page": "機票",
+  "scraped_at": "2026-06-01T08:44:52.000Z",
+  "url": "https://flight.eztravel.com.tw/",
+  "sections": [
+    {
+      "id": "search_bar",
+      "type": "search_bar",
+      "title": null,
+      "items": [
+        {
+          "text": "輸入國家/城市/機場關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "來回",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "單程",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "多行程",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機 + 酒",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出發地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "目的地",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "去程",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "回程",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "人數",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "航空公司偏好",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "艙等",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hero_banner",
+      "type": "hero_banner",
+      "title": null,
+      "items": [
+        {
+          "text": "機票週3狂歡日",
+          "image_url": "images/flight_banner_01.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/flightpromotion/?p=flightpromotion3#subTag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026盛夏",
+          "image_url": "images/flight_banner_02.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/summervacation/?p=summervacation3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026台東熱氣球",
+          "image_url": "images/flight_banner_03.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/taitungballoon/?p=taitungballoon4",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "TW 全航線85折",
+          "image_url": "images/flight_banner_04.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/twayair-TW/?p=twayair-TW2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "AK 暑假促銷",
+          "image_url": "images/flight_banner_05.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/airasia-D7/?p=airasia-D73",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "JL 東京9折",
+          "image_url": "images/flight_banner_06.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/japan-airlines-JL/?p=japan-airlines-JL2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "ZE 全航線95折",
+          "image_url": "images/flight_banner_07.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/flightpromotion/?p=flightpromotion2#subTag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "廣島之戀",
+          "image_url": "images/flight_banner_08.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/Hiroshima/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "9G 開航",
+          "image_url": "images/flight_banner_09.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/flightpromotion/?p=flightpromotion4#subTag5",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "MU 雙人折$500",
+          "image_url": "images/flight_banner_10.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/china-eastern-airlines-MU/?p=china-eastern-airlines-MU2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "TK 奧斯陸折$954",
+          "image_url": "images/flight_banner_11.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/flightpromotion/?p=flightpromotion3#subTag3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "EY 最高折$2,000",
+          "image_url": "images/flight_banner_12.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/etihad-EY/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "富邦產險",
+          "image_url": "images/flight_banner_13.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/travel-insurance-oversea/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "NX TTE",
+          "image_url": "images/flight_banner_14.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/airmacau-NX/?p=airmacau-NX2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "PR 雙人8折",
+          "image_url": "images/flight_banner_15.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/philippineairlines-PR/?p=philippineairlines-PR2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "BI 85折",
+          "image_url": "images/flight_banner_16.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/royalbrunei-BI/?p=royalbrunei-BI2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "CZ 雙人9折",
+          "image_url": "images/flight_banner_17.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/china-southern-airlines-CZ/?p=china-southern-airlines-CZ2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "HB 85折",
+          "image_url": "images/flight_banner_18.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/greaterbay-airlines-HB/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "TK 歐洲7折",
+          "image_url": "images/flight_banner_19.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/turkish-airlines-TK/?p=turkish-airlines-TK2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "NZ 下單抽桃機VIP",
+          "image_url": "images/flight_banner_20.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/air-new-zealand-NZ/?p=air-new-zealand-NZ2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "NZ 夏季旅展",
+          "image_url": "images/flight_banner_21.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/air-new-zealand-NZ/?p=air-new-zealand-NZ2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "JX 美國85折",
+          "image_url": "images/flight_banner_22.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/starlux-airlines-JX/?p=starlux-airlines-JX2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "CI 美國8折",
+          "image_url": "images/flight_banner_23.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/china-airlines-CI/?p=china-airlines-CI2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "IT 冬季航班開賣",
+          "image_url": "images/flight_banner_24.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/tigerair-taiwan-IT/?p=tigerair-taiwan-IT4#subTag2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "MH 9折",
+          "image_url": "images/flight_banner_25.png",
+          "link_url": "https://flight.eztravel.com.tw/activity/malaysia-airlines-MH/?p=malaysia-airlines-MH2#subTag2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "JX 東南亞86折",
+          "image_url": "images/flight_banner_26.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/starlux-airlines-JX/?p=starlux-airlines-JX2#subTag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "EY 中東/歐洲75折",
+          "image_url": "images/flight_banner_27.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/etihad-EY/?p=etihad-EY2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "釜山玩全攻略",
+          "image_url": "images/flight_banner_28.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/busan/?p=busan2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "東京玩全攻略",
+          "image_url": "images/flight_banner_29.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/tokyo/?p=tokyo2#subtag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "關西全攻略",
+          "image_url": "images/flight_banner_30.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/kansai/?p=kansai2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "夏威夷玩全攻略",
+          "image_url": "images/flight_banner_31.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/hawaii/?p=hawaii2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "制霸日本",
+          "image_url": "images/flight_banner_32.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/japan/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "制霸韓國",
+          "image_url": "images/flight_banner_33.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/korea/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026 澎湖花火節",
+          "image_url": "images/flight_banner_34.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/penghu/travel/?p=travel2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "日本免稅",
+          "image_url": "images/flight_banner_35.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/coupon/?p=coupon3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "泰國機場免稅",
+          "image_url": "images/flight_banner_36.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/coupon/?p=coupon1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機票週3狂歡日",
+          "image_url": "images/flight_banner_37.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/flightpromotion/?p=flightpromotion3#subTag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "APP首購",
+          "image_url": "images/flight_banner_38.jpg",
+          "link_url": "https://www.eztravel.com.tw/events/app-first-purchase/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "會員生日禮",
+          "image_url": "images/flight_banner_39.jpg",
+          "link_url": "https://www.eztravel.com.tw/events/birthday/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "新會員大禮包",
+          "image_url": "images/flight_banner_40.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/events/member/?p=member6&IF=New_Gift",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "玉山易遊卡",
+          "image_url": "images/flight_banner_41.jpg",
+          "link_url": "https://www.eztravel.com.tw/events/esuneztravelcard/index.html",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "廉航我最省",
+          "image_url": "images/flight_banner_42.jpg",
+          "link_url": "https://flight.eztravel.com.tw/activity/LCC/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵加價購79折起",
+          "image_url": "images/flight_banner_43.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/thsr/promo/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "promo_fares",
+      "type": "promo_section",
+      "title": "特惠票價",
+      "items": [
+        {
+          "text": "折扣碼管理",
+          "image_url": null,
+          "link_url": "https://member.eztravel.com.tw/member/discount/manage",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hot_routes",
+      "type": "product_list",
+      "title": "熱門航線",
+      "items": [
+        {
+          "text": "長榮票規整理",
+          "image_url": null,
+          "link_url": "https://flight.cdn-eztravel.com.tw/flight/image/airlinepage/BR/BR_20260301FAREFAMILY.pdf",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "華航票規整理",
+          "image_url": null,
+          "link_url": "https://flight.cdn-eztravel.com.tw/flight/image/airlinepage/CI/CI_farefamily_20260317.pdf",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "學生票專區",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/activity/student/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "廉航懶人包",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/activity/LCC/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "日本機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/activity/cheap-flights-to-japan/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "購票必讀",
+          "image_url": null,
+          "link_url": "https://eztravelnews.blog/bookaflight2023/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "富邦旅遊不便險",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/activity/travel-insurance-oversea/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "出國網卡推薦",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/wifi/sim/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "加購高鐵79折",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/activity/thsr/promo/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "airline_section",
+      "type": "other",
+      "title": "航空公司",
+      "items": [
+        {
+          "text": "泰國獅子航空",
+          "image_url": "images/flight_product_01.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-TYO/?outbounddate=02/06/2026&inbounddate=05/06/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": null,
+          "image_url": "images/flight_product_02.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-TYO/?outbounddate=02/06/2026&inbounddate=05/06/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "捷星日本航空",
+          "image_url": "images/flight_product_03.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-OSA/?outbounddate=23/06/2026&inbounddate=26/06/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台灣虎航",
+          "image_url": "images/flight_product_04.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-SEL/?outbounddate=27/06/2026&inbounddate=01/07/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "亞洲航空",
+          "image_url": "images/flight_product_05.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-FUK/?outbounddate=05/06/2026&inbounddate=10/06/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "泰越捷航空",
+          "image_url": "images/flight_product_06.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-OKA/?outbounddate=07/06/2026&inbounddate=10/06/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "濟州航空",
+          "image_url": "images/flight_product_07.png",
+          "link_url": "https://flight.eztravel.com.tw/tickets-roundtrip-TPE-PUS/?outbounddate=02/06/2026&inbounddate=06/06/2026&adults=1&children=0&infants=0&direct=true&cabintype=any&dport=&aport=&airline=",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "visa_info",
+      "type": "quick_links",
+      "title": "簽證資訊",
+      "items": [
+        {
+          "text": "護照．簽證",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/visa",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "護照簽證",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/visa",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    }
+  ]
+}
