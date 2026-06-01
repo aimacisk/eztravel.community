@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:50:20.945223+00:00",
+  "task_id": "T-eztcomm-20260601-W1-AQ-1",
+  "agent": "qa",
+  "type": "started",
+  "summary": "[重派] W1-AQ-1 — W1 data 完整性驗證\n[依據] data_schema.md + data/{homepage,機票,旅館,團體,自由行,票券,景點}/\n[執行] 7 頁逐一驗 → 05_tests/W1_data_audit.md\n[完工] [TASK_DONE] + 7 頁 PASS/FAIL + 報告路徑\n[紀律] 中文 + 全形 + 真實檢查\n\ncontext_path",
+  "ref": {
+    "worker_id": "qa-1",
+    "agent_session_id": ""
+  }
+}

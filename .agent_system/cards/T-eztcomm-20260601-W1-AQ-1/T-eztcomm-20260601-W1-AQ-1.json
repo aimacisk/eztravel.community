@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W1-AQ-1",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W1] AQ — 對照截圖驗證 7 頁 JSON 涵蓋畫面所有可見內容",
   "created_at": "2026-06-01T08:23:51.107069+00:00",
   "assignee": "qa",
@@ -47,10 +47,13 @@
   "parent_wish_id": "W-eztcomm-20260601-REBUILD",
   "acceptance_criteria": [],
   "wiki_target": "06_wiki/05_qa_report.md",
-  "deliverables": [],
+  "deliverables": [
+    "05_tests/W1_data_audit.md"
+  ],
   "execution_log": "",
   "started_at": "2026-06-01T09:13:58.434494+00:00",
-  "completed_at": null,
-  "commit_sha": null,
-  "agent_session_id": ""
+  "completed_at": "2026-06-01T14:28:05.845915+00:00",
+  "commit_sha": "dc277fe",
+  "agent_session_id": "",
+  "admin_committed_at": "2026-06-01T14:30:00+00:00"
 }

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T14:29:07.613469+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-4",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.\n\n---\n\nSummary:\n## 1. Primary Request and Intent\n\n**派遣卡片**：T-eztcomm-20260601-W4-PG-4（Community feature — Review + ReviewLike + Razor partial）\n\n**核心意",
+  "ref": {
+    "worker_id": "pg-2",
+    "response_chars": 56961
+  }
+}

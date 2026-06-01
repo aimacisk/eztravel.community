@@ -1,0 +1,47 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model PageDataViewModel
+@{
+    ViewData["Title"] = Model.DisplayName;
+}
+
+<h1 class="category-page__heading">@Model.DisplayName</h1>
+
+@foreach (var sec in Model.Sections)
+{
+    <div id="@sec.Id" class="page-section page-section--@sec.Type">
+        @if (!string.IsNullOrEmpty(sec.Title))
+        {
+            <h2 class="page-section__title">@sec.Title</h2>
+        }
+        @switch (sec.Type)
+        {
+            case "banner":
+            case "banner_carousel":
+                @await Html.PartialAsync("_Section_Banner", sec)
+                break;
+            case "category_nav":
+            case "navigation":
+                @await Html.PartialAsync("_Section_CategoryNav", sec)
+                break;
+            case "featured_items":
+            case "featured_grid":
+            case "product_list":
+                @await Html.PartialAsync("_Section_FeaturedGrid", sec)
+                break;
+            case "promo_card":
+            case "promo":
+                @await Html.PartialAsync("_Section_PromoCard", sec)
+                break;
+            case "search_bar":
+            case "search_form":
+                @await Html.PartialAsync("_Section_SearchForm", sec)
+                break;
+            case "footer":
+                @await Html.PartialAsync("_Section_Footer", sec)
+                break;
+            default:
+                @await Html.PartialAsync("_Section_Generic", sec)
+                break;
+        }
+    </div>
+}

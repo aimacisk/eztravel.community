@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:21:52.202967+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-4",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[任務] W4-PG-4 — Community feature (Review + ReviewLike + 5 Razor partial)\n\n[Worktree] .worktrees/T-eztcomm-20260601-W4-PG-4/\n[Branch] feat/T-eztcomm-20260601-W4-PG-4\n\n[輸入] communi",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

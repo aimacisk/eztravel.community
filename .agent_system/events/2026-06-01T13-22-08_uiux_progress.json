@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:22:08.827160+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "progress",
+  "summary": "You've hit your org's monthly usage limit",
+  "ref": {
+    "worker_id": "uiux-1",
+    "response_chars": 41
+  }
+}

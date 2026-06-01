@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:22:08.281479+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[任務] W2-UIUX-2 — Figma Home 頁繪製\n[依據] fileKey 6XmYJOpiSXab2gtGlmWtks (Tokens DONE) + data/homepage/{homepage.json, images/, homepage_screenshot.png}\n[執行] 新增 page \"Home\",依 data/hom",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

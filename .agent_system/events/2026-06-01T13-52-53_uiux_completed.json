@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:52:53.753802+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "# 進場確認 — UIUX Agent W2-UIUX-2 Figma Home 頁繪製\n\n**收到派工：** T-eztcomm-20260601-W2-UIUX-2 [重派]  \n**任務：** Figma Home 頁繪製（fileKey `6XmYJOpiSXab2gtGlmWtks`，基於 homepage.json）  \n**授權範圍：** `projects/eztravel.community/02_design/` + `projects/eztravel.community/data/homepage/`\n\n---\n\n## 進場 SOP 檢核\n\n根據 UIUX CLAUDE",
+  "ref": {
+    "worker_id": "uiux-1",
+    "response_chars": 18643
+  }
+}

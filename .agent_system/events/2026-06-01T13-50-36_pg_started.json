@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:50:36.637810+00:00",
+  "task_id": "T-eztcomm-20260601-W5-PG-1",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[重派] W5-PG-1 — Dockerfile (.NET 8 multi-stage linux/amd64)\n[Worktree] .worktrees/T-eztcomm-20260601-W5-PG-1/\n[輸出] Dockerfile (sdk:8.0 build → aspnet:8.0 runtime + COPY data/ → wwwroot/data/ + EXPOSE 8",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

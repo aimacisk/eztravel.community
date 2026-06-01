@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T14:26:24.280756+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-3",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[重派 — 策略改變] W4-PG-3 — ProductDetail controller/view (4 variant + seed)\n\n**sandbox 限制 git/dotnet BLOCKED**。**禁標 [TASK_DONE] 沒檔案內容貼回應**。\n\n[輸入] entities + EF Core 在 main (W4-PG-1 + W4-AT-2) +",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

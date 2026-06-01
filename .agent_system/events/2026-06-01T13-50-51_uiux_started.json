@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:50:51.332812+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-7",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[重派] W2-UIUX-7 — Figma 票券分類頁 (fileKey 6XmYJOpiSXab2gtGlmWtks + data/票券/) 真實繪製 + 自驗。[完工] [TASK_DONE] + nodeId。中文 + 全形 + 真實\n\ncontext_paths(沙盒授權):\n  - projects/eztravel.community/02_design/\n  - projects/",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

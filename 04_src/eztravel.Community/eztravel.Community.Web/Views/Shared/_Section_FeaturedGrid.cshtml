@@ -1,0 +1,31 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<div class="featured-grid">
+    @foreach (var item in Model.Items)
+    {
+        <a class="product-card" href="@item.LinkUrl">
+            @if (!string.IsNullOrEmpty(item.ImageUrl))
+            {
+                <div class="product-card__media">
+                    <img src="@item.ImageUrl" alt="@item.Text" loading="lazy" />
+                    @if (!string.IsNullOrEmpty(item.Badge))
+                    {
+                        <span class="product-card__badge">@item.Badge</span>
+                    }
+                </div>
+            }
+            <div class="product-card__body">
+                <h3 class="product-card__title">@item.Text</h3>
+                @if (!string.IsNullOrEmpty(item.Description))
+                {
+                    <p class="product-card__desc">@item.Description</p>
+                }
+                @if (!string.IsNullOrEmpty(item.Price))
+                {
+                    <div class="product-card__price">@item.Price</div>
+                }
+            </div>
+        </a>
+    }
+</div>

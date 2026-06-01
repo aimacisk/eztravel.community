@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T14:28:05.818123+00:00",
+  "task_id": "T-eztcomm-20260601-W1-AQ-1",
+  "agent": "qa",
+  "type": "completed",
+  "summary": "[STATUS] 已切換對話對象 → eztcomm@dashboard(QA)\n\n---\n\n**進場確認**:\n\n讀卡中...\nThis session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.\n\nSummary:\n1. Primary Request and Intent:\n   The user is requesting a comprehensive ",
+  "ref": {
+    "worker_id": "qa-1",
+    "response_chars": 15219
+  }
+}

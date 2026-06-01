@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:50:24.510957+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-3",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[重派] W4-PG-3 — ProductDetail 4 variant + seed\n[Worktree] .worktrees/T-eztcomm-20260601-W4-PG-3/\n[輸出] ProductController + Detail.cshtml + 4 variant partial + ProductSeeder + EnsureCreated/Seed\n[驗收] dot",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

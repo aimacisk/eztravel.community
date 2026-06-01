@@ -1,0 +1,15 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<nav class="category-nav">
+    @foreach (var item in Model.Items)
+    {
+        <a class="category-nav__item" href="@item.LinkUrl">
+            @if (!string.IsNullOrEmpty(item.ImageUrl))
+            {
+                <img src="@item.ImageUrl" alt="@item.Text" loading="lazy" />
+            }
+            <span>@item.Text</span>
+        </a>
+    }
+</nav>

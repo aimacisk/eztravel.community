@@ -1,0 +1,13 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<form class="search-form" method="get">
+    @foreach (var item in Model.Items)
+    {
+        <label class="search-form__field">
+            <span class="search-form__label">@item.Text</span>
+            <input type="text" placeholder="@item.Description" />
+        </label>
+    }
+    <button type="submit" class="search-form__submit">搜尋</button>
+</form>

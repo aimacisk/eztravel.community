@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T14:25:32.695958+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-2",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[重派 — 策略改變] W4-PG-2 — Home + Category 6 controller/view\n\n**重要新指令(因 sandbox 限制)**:\n你的環境 `git/dotnet/npm commands BLOCKED`。**禁止標 [TASK_DONE]**直到完成下列三證:\n1. commit_sha 真實存在(若無法 commi",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

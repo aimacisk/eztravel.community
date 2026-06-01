@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:49:33.459674+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-2",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[重派] W4-PG-2 — Home + Category 6 controller/view 從 data/ 載入\n[Worktree] .worktrees/T-eztcomm-20260601-W4-PG-2/\n[輸出] HomeController + CategoryController + Views + Section partials + static files\n[驗收] do",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

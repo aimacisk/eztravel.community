@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T14:25:42.263317+00:00",
+  "task_id": "T-eztcomm-20260601-W5-PG-1",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[重派 — 策略改變] W5-PG-1 — Dockerfile\n\n**sandbox 限制 git/docker BLOCKED**。**禁標 [TASK_DONE] 沒交付檔案內容**。\n\n[要產出的檔案(完整內容貼進回應)]\n1. Dockerfile (專案 root: projects/eztravel.community/Dockerfile)\n2. .dock",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

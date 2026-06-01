@@ -1,0 +1,15 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<div class="site-footer-content">
+    @foreach (var item in Model.Items)
+    {
+        <div class="site-footer-content__group">
+            <strong>@item.Text</strong>
+            @if (!string.IsNullOrEmpty(item.LinkUrl))
+            {
+                <a href="@item.LinkUrl">@(item.Description ?? "前往")</a>
+            }
+        </div>
+    }
+</div>

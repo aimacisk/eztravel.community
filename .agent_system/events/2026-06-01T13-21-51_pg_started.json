@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:21:51.849553+00:00",
+  "task_id": "T-eztcomm-20260601-W4-PG-3",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[任務] W4-PG-3 — ProductDetail controller/view 4 variant + seed\n\n[Worktree] .worktrees/T-eztcomm-20260601-W4-PG-3/\n[Branch] feat/T-eztcomm-20260601-W4-PG-3\n\n[輸入] 04_src/eztravel.Co",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:22:11.324587+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-4",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[任務] W2-UIUX-4 — Figma 旅館分類頁\n[依據] fileKey 6XmYJOpiSXab2gtGlmWtks + data/旅館/\n[執行] page \"Category - 旅館\" 真實繪製 + 自驗\n[完工] [TASK_DONE] + nodeId\n[紀律] 中文 + 全形 + 真實\n\ncontext_paths(沙盒授權):\n",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

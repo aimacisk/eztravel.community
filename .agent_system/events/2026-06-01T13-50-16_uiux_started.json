@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:50:16.833790+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[重派] W2-UIUX-2 — Figma Home 頁繪製\n[依據] fileKey 6XmYJOpiSXab2gtGlmWtks + data/homepage/\n[執行] 新增 page \"Home\",依 data/homepage/homepage.json 真實 sections 繪製,Tokens 風格,自驗\n[完工] [TASK_DONE] + page nodeId + 自驗\n[",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

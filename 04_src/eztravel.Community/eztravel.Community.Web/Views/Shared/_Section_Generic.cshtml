@@ -1,0 +1,23 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<div class="generic-section">
+    @foreach (var item in Model.Items)
+    {
+        <article class="generic-item">
+            @if (!string.IsNullOrEmpty(item.ImageUrl))
+            {
+                <img src="@item.ImageUrl" alt="@item.Text" loading="lazy" />
+            }
+            <h3>@item.Text</h3>
+            @if (!string.IsNullOrEmpty(item.Description))
+            {
+                <p>@item.Description</p>
+            }
+            @if (!string.IsNullOrEmpty(item.LinkUrl))
+            {
+                <a href="@item.LinkUrl">了解更多</a>
+            }
+        </article>
+    }
+</div>

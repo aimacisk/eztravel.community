@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T12:16:39.437457+00:00",
+  "task_id": "T-eztcomm-20260601-W5-AT-1",
+  "agent": "at",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[任務] T-eztcomm-20260601-W5-AT-1 — 寫 03_architecture/devops.md (完整 GCP 規格)\n\n**注意:現有 devops.md 是 _template 原版 (含 {{ProjectName}}),請完整覆寫**\n\n[輸出] projects/eztravel.community/03_archi",
+  "ref": {
+    "worker_id": "at-1",
+    "agent_session_id": ""
+  }
+}

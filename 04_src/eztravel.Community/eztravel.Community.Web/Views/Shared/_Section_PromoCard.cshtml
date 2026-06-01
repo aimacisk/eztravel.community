@@ -1,0 +1,21 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<div class="promo-grid">
+    @foreach (var item in Model.Items)
+    {
+        <a class="promo-card" href="@item.LinkUrl">
+            @if (!string.IsNullOrEmpty(item.ImageUrl))
+            {
+                <img src="@item.ImageUrl" alt="@item.Text" loading="lazy" />
+            }
+            <div class="promo-card__body">
+                <h3>@item.Text</h3>
+                @if (!string.IsNullOrEmpty(item.Description))
+                {
+                    <p>@item.Description</p>
+                }
+            </div>
+        </a>
+    }
+</div>

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:21:51.441817+00:00",
+  "task_id": "T-eztcomm-20260601-W5-AT-1",
+  "agent": "at",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[任務] T-eztcomm-20260601-W5-AT-1 — 寫 03_architecture/devops.md (完整 GCP 規格,覆寫 _template 原版)\n\n[依據] 設計 spec docs/superpowers/specs/2026-06-01-eztravel-community-rebuild-design.md §3 ",
+  "ref": {
+    "worker_id": "at-1",
+    "agent_session_id": ""
+  }
+}

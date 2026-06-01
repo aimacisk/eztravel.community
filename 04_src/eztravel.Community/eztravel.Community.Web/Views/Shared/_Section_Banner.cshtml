@@ -1,0 +1,28 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<div class="banner-grid">
+    @foreach (var item in Model.Items)
+    {
+        <a class="banner-card" href="@item.LinkUrl">
+            @if (!string.IsNullOrEmpty(item.ImageUrl))
+            {
+                <img src="@ResolveImage(item.ImageUrl, Model.Id)" alt="@item.Text" loading="lazy" />
+            }
+            @if (!string.IsNullOrEmpty(item.Text))
+            {
+                <div class="banner-card__caption">@item.Text</div>
+            }
+        </a>
+    }
+</div>
+
+@functions {
+    string ResolveImage(string imageUrl, string sectionId)
+    {
+        if (imageUrl.StartsWith("http", StringComparison.OrdinalIgnoreCase)) return imageUrl;
+        // images/foo.jpg → ~/data/{folder}/images/foo.jpg, folder 由 URL 推
+        var slug = ViewContext.RouteData.Values["slug"]?.ToString() ?? "homepage";
+        return Url.Content($"~/data/{slug}/{imageUrl}");
+    }
+}

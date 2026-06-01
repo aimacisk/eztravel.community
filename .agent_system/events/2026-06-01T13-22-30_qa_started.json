@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:22:30.838534+00:00",
+  "task_id": "T-eztcomm-20260601-W1-AQ-1",
+  "agent": "qa",
+  "type": "started",
+  "summary": "[模型] sonnet (爆改 opus)\n[任務] W1-AQ-1 — W1 data 完整性驗證\n[依據] data_schema.md + data/{homepage,機票,旅館,團體,自由行,票券,景點}/\n[執行] 7 頁逐一驗 (json parse / sections >= 3 / screenshot >= 200KB / images >= 5 / image_url 無孤兒",
+  "ref": {
+    "worker_id": "qa-1",
+    "agent_session_id": ""
+  }
+}

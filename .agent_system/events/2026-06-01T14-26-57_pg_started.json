@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T14:26:57.595537+00:00",
+  "task_id": "T-eztcomm-20260601-W5-PG-2",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[派 — 新卡] W5-PG-2 — .github/workflows/release.yml ([release] commit message 觸發)\n\n**sandbox 限制 git/gh BLOCKED**。**禁標 [TASK_DONE] 沒檔案內容貼回應**。\n\n[依據] 03_architecture/devops.md (W5-AT-1 DONE,GCP",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

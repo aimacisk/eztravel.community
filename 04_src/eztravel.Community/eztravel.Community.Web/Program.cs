@@ -48,6 +48,9 @@ try
     builder.Services.AddScoped<IReviewService, ReviewService>();
     builder.Services.AddScoped<IProductService, ProductService>();
 
+    // Page data loader (從 wwwroot/data 載入 W1 爬蟲資料)
+    builder.Services.AddSingleton<EzTravel.Community.Web.Services.IPageDataLoader, EzTravel.Community.Web.Services.PageDataLoader>();
+
     // MVC + Razor Pages（Identity UI 需要）
     builder.Services.AddControllersWithViews();
     builder.Services.AddRazorPages();

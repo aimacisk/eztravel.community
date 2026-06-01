@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T13:52:35.469694+00:00",
+  "task_id": "T-eztcomm-20260601-W5-PG-3",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.\n\nSummary:\n1. **Primary Request and Intent**:\n   User has dispatched task T-eztcomm-20260601-W5-PG-3 (marked as \"[重派]\" re-dispatch) requiring:\n   - C",
+  "ref": {
+    "worker_id": "pg-1",
+    "response_chars": 12963
+  }
+}

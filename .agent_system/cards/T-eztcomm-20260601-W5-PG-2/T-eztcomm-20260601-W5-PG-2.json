@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W5-PG-2",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W5] PG — .github/workflows/release.yml（[release] commit 觸發 CI/CD）",
   "created_at": "2026-06-01T08:59:20.003865+00:00",
   "assignee": "pg",
@@ -51,9 +51,13 @@
     "AC-W5PG2-05：wiki_draft 含 GitHub Secrets 設定說明"
   ],
   "wiki_target": "06_wiki/04_dev_guide.md",
-  "deliverables": [],
+  "deliverables": [
+    ".github/workflows/release.yml"
+  ],
   "execution_log": "",
-  "started_at": null,
-  "completed_at": null,
-  "commit_sha": null
+  "started_at": "2026-06-01T14:26:57.526537+00:00",
+  "completed_at": "2026-06-01T14:28:28.628995+00:00",
+  "commit_sha": "dc277fe",
+  "agent_session_id": "",
+  "admin_committed_at": "2026-06-01T14:30:00+00:00"
 }

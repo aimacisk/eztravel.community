@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T14:25:52.555876+00:00",
+  "task_id": "T-eztcomm-20260601-W5-PG-3",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[模型] sonnet\n[重派] W5-PG-3 — appsettings.Production.json + Cloud SQL Unix socket + startup migrate\n\n**sandbox 限制**。禁標 [TASK_DONE] 沒交付檔案內容。\n\n[輸出]\n1. 04_src/eztravel.Community/eztravel.Community.Web/appse",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

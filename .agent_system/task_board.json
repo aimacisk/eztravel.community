@@ -86,13 +86,6 @@
       "created_at": "2026-06-01T08:57:26.476478+00:00"
     },
     {
-      "task_id": "T-eztcomm-20260601-W5-PG-2",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "[W5] PG — .github/workflows/release.yml（[release] commit 觸發 CI/CD）",
-      "created_at": "2026-06-01T08:59:20.003865+00:00"
-    },
-    {
       "task_id": "T-eztcomm-20260601-W5-ADMIN-1",
       "prj_id": "eztravel.community",
       "status": "PENDING_USER_GCLOUD_AUTH",
@@ -105,104 +98,6 @@
       "status": "TODO",
       "title": "W5 首次 [release] commit + Cloud Run smoke test — AC-6 / AC-7 驗收",
       "created_at": "2026-06-01T09:04:47.496708+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-4",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W2] UIUX — Figma 旅館分類頁（依 data/旅館/ 真實繪製）",
-      "created_at": "2026-06-01T08:35:11.043014+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-5",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W2] UIUX — Figma 團體分類頁（依 data/團體/ 真實繪製）",
-      "created_at": "2026-06-01T08:35:31.363567+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-6",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W2] UIUX — Figma 自由行分類頁（依 data/自由行/ 真實繪製）",
-      "created_at": "2026-06-01T08:35:43.797558+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-7",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W2] UIUX — Figma 票券分類頁（依 data/票券/ 真實繪製）",
-      "created_at": "2026-06-01T08:35:54.557128+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-2",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W2] UIUX — Figma Home 頁面（依 data/homepage/ 真實繪製）",
-      "created_at": "2026-06-01T08:34:39.777899+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-8",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W2] UIUX — Figma 景點分類頁（依 data/景點/ 真實繪製）",
-      "created_at": "2026-06-01T08:36:05.000030+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W1-AQ-1",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W1] AQ — 對照截圖驗證 7 頁 JSON 涵蓋畫面所有可見內容",
-      "created_at": "2026-06-01T08:23:51.107069+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W4-PG-2",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W4] PG — HomeController + CategoryController + Razor views",
-      "created_at": "2026-06-01T08:52:34.682229+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W4-PG-3",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W4] PG — ProductDetailController + Razor view（4 類 variant）",
-      "created_at": "2026-06-01T08:52:59.890872+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W5-AT-1",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W5] AT — devops.md（Dockerfile + CI/CD + Cloud Run + Cloud SQL 規格）",
-      "created_at": "2026-06-01T08:58:20.372456+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W3-UIUX-2",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W3] UIUX — instance Community Module 到 4 類商品頁 variant",
-      "created_at": "2026-06-01T08:49:38.642226+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W4-PG-4",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W4] PG — Community feature（ReviewController + AJAX + partial）",
-      "created_at": "2026-06-01T08:53:31.431611+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W5-PG-1",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W5] PG — Dockerfile multi-stage build + PORT 8080",
-      "created_at": "2026-06-01T08:58:50.403541+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W5-PG-3",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "W5 Production 設定 — appsettings.Production.json + Cloud SQL 連線字串注入",
-      "created_at": "2026-06-01T09:03:28.929499+00:00"
     }
   ],
   "schema_version": "v0.53",
@@ -307,6 +202,74 @@
       "created_at": "2026-06-01T08:56:39.615396+00:00"
     },
     {
+      "task_id": "T-eztcomm-20260601-W4-PG-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W4] PG — Entities + EF Core + Migrations + ASP.NET Identity",
+      "created_at": "2026-06-01T08:51:19.643941+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-AT-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W5] AT — devops.md（Dockerfile + CI/CD + Cloud Run + Cloud SQL 規格）",
+      "created_at": "2026-06-01T08:58:20.372456+00:00",
+      "commit_sha": "6c3e53b",
+      "admin_commit": true
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W1-AQ-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W1] AQ — 對照截圖驗證 7 頁 JSON 涵蓋畫面所有可見內容",
+      "created_at": "2026-06-01T08:23:51.107069+00:00",
+      "commit_sha": "dc277fe",
+      "admin_commit": true
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-PG-2",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W5] PG — .github/workflows/release.yml（[release] commit 觸發 CI/CD）",
+      "created_at": "2026-06-01T08:59:20.003865+00:00",
+      "commit_sha": "dc277fe",
+      "admin_commit": true
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-PG-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W5] PG — Dockerfile multi-stage build + PORT 8080",
+      "created_at": "2026-06-01T08:58:50.403541+00:00",
+      "commit_sha": "dc277fe",
+      "admin_commit": true
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-PG-3",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "W5 Production 設定 — appsettings.Production.json + Cloud SQL 連線字串注入",
+      "created_at": "2026-06-01T09:03:28.929499+00:00",
+      "commit_sha": "dc277fe",
+      "admin_commit": true
+    }
+  ],
+  "REWORK": [
+    {
+      "task_id": "T-eztcomm-20260601-W4-PG-2",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W4] PG — HomeController + CategoryController + Razor views",
+      "created_at": "2026-06-01T08:52:34.682229+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W4-PG-3",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W4] PG — ProductDetailController + Razor view（4 類 variant）",
+      "created_at": "2026-06-01T08:52:59.890872+00:00"
+    },
+    {
       "task_id": "T-eztcomm-20260601-W2-UIUX-3",
       "prj_id": "eztravel.community",
       "status": "DONE",
@@ -321,18 +284,67 @@
       "created_at": "2026-06-01T08:36:38.088465+00:00"
     },
     {
-      "task_id": "T-eztcomm-20260601-W4-PG-1",
-      "prj_id": "eztravel.community",
-      "status": "DONE",
-      "title": "[W4] PG — Entities + EF Core + Migrations + ASP.NET Identity",
-      "created_at": "2026-06-01T08:51:19.643941+00:00"
-    },
-    {
       "task_id": "T-eztcomm-20260601-W3-UIUX-1",
       "prj_id": "eztravel.community",
       "status": "DONE",
       "title": "[W3] UIUX — Figma Community Module page：5 atomic primitives",
       "created_at": "2026-06-01T08:49:13.593515+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W4-PG-4",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W4] PG — Community feature（ReviewController + AJAX + partial）",
+      "created_at": "2026-06-01T08:53:31.431611+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-2",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma Home 頁面（依 data/homepage/ 真實繪製）",
+      "created_at": "2026-06-01T08:34:39.777899+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-6",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma 自由行分類頁（依 data/自由行/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:43.797558+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-4",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma 旅館分類頁（依 data/旅館/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:11.043014+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-5",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma 團體分類頁（依 data/團體/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:31.363567+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-7",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma 票券分類頁（依 data/票券/ 真實繪製）",
+      "created_at": "2026-06-01T08:35:54.557128+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-8",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — Figma 景點分類頁（依 data/景點/ 真實繪製）",
+      "created_at": "2026-06-01T08:36:05.000030+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W3-UIUX-2",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W3] UIUX — instance Community Module 到 4 類商品頁 variant",
+      "created_at": "2026-06-01T08:49:38.642226+00:00"
     }
   ]
 }
