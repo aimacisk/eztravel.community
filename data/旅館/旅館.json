@@ -1,0 +1,744 @@
+{
+  "page": "旅館",
+  "scraped_at": "2026-06-01T08:52:00.000Z",
+  "url": "https://hotel.eztravel.com.tw/",
+  "sections": [
+    {
+      "id": "search_bar",
+      "type": "search_bar",
+      "title": null,
+      "items": [
+        {
+          "text": "訂房 + 高鐵、訂房 + 高鐵、機 + 酒、機 + 酒",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": "搜尋類型選項：訂房 + 高鐵 / 訂房 + 高鐵 / 機 + 酒 / 機 + 酒"
+        },
+        {
+          "text": "輸入國家/城市/區域/飯店關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": "搜尋框佔位文字"
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": "搜尋框佔位文字"
+        }
+      ]
+    },
+    {
+      "id": "promo_section",
+      "type": "promo_section",
+      "title": "促銷活動",
+      "items": [
+        {
+          "text": "重磅推薦",
+          "image_url": "images/hotel_banner_01.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/hotelsale",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "捷絲旅+晶泉丰旅",
+          "image_url": "images/hotel_banner_02.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/JustSleep",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "住花蓮千元有找",
+          "image_url": "images/hotel_banner_03.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/hualien/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "制霸泰國",
+          "image_url": "images/hotel_banner_04.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/thailand/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026熱氣球",
+          "image_url": "images/hotel_banner_05.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/taitungballoon/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "釜山玩全攻略",
+          "image_url": "images/hotel_banner_06.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/busan/?p=busan3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026盛夏",
+          "image_url": "images/hotel_banner_07.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/summervacation/?p=summervacation5",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高年級",
+          "image_url": "images/hotel_banner_08.jpg",
+          "link_url": "https://trip.eztravel.com.tw/activity/subsidy/?p=subsidy5",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "百大風雲飯店",
+          "image_url": "images/hotel_banner_09.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/bestselling/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "關西玩全攻略",
+          "image_url": "images/hotel_banner_10.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/kansai/?p=kansai3",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "theme_section",
+      "type": "theme_section",
+      "title": "大家都搜",
+      "items": [
+        {
+          "text": "Fun宿玩一夏",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/hotel/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "訂房贈票劵",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/coupon",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "新開幕飯店",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/hotel/Brandnewhotel",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "風雲飯店優勝",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/bestselling/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "寵物當家",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/pet/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "三井優惠劵",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/mitsui/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "無障礙客房精選",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/accessible/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "牛肉麵住房專案",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/activity/domestic/beefnoodle/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "featured_hotels",
+      "type": "featured_items",
+      "title": "精選飯店推薦",
+      "items": [
+        {
+          "text": "長榮鳳凰酒店 礁溪✨暑假早鳥！！",
+          "image_url": "images/hotel_product_01.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=7614&HotelID=1255405",
+          "price": "6,999起",
+          "badge": null,
+          "description": "06/30前訂購暑假入住 贈１２歲孩童免費住🧑🏻‍🧑🏻‍🧒🏻"
+        },
+        {
+          "text": "臺中公園智選假日飯店",
+          "image_url": "images/hotel_product_02.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=3849&HotelID=924355",
+          "price": "2,541起",
+          "badge": null,
+          "description": "會員獨享價"
+        },
+        {
+          "text": "尚順君樂飯店✨含早餐$4,000起",
+          "image_url": "images/hotel_product_03.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=7809&HotelID=3680012",
+          "price": "4,000起",
+          "badge": null,
+          "description": "贈育樂券&景點門票"
+        },
+        {
+          "text": "夏都城旅(台南安平館)📌全房型６折起",
+          "image_url": "images/hotel_product_04.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=3847&HotelID=19550000",
+          "price": "2,199起",
+          "badge": null,
+          "description": "200坪兒童遊戲室暢玩"
+        },
+        {
+          "text": "宜蘭力麗威斯汀度假酒店⭐限時快閃⭐",
+          "image_url": "images/hotel_product_05.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=7614&HotelID=9730264",
+          "price": "3,999起",
+          "badge": null,
+          "description": "房內泡湯♨️碳酸氫鈉泉 贈DerZOMAR聯名面膜"
+        },
+        {
+          "text": "虎之門霍里克酒店",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=228&HotelID=132855236",
+          "price": "3,170起",
+          "badge": null,
+          "description": "虎之門霍里克酒店"
+        },
+        {
+          "text": "安泊麗嘉 大阪難波",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=219&HotelID=132248293",
+          "price": "4,560起",
+          "badge": null,
+          "description": "安泊麗嘉 大阪難波"
+        },
+        {
+          "text": "南門酒店沖繩",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=92573&HotelID=125806568",
+          "price": "3,200起",
+          "badge": null,
+          "description": "南門酒店沖繩"
+        },
+        {
+          "text": "BASE LAYER HOTEL 福岡",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=248&HotelID=133038213",
+          "price": "2,500起",
+          "badge": null,
+          "description": "BASE LAYER HOTEL 福岡"
+        },
+        {
+          "text": "明洞SL酒店",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=274&HotelID=131955599",
+          "price": "3,300起",
+          "badge": null,
+          "description": "明洞SL酒店"
+        },
+        {
+          "text": "NewCZ 南浦酒店",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=253&HotelID=132620392",
+          "price": "4,710起",
+          "badge": null,
+          "description": "NewCZ 南浦酒店"
+        },
+        {
+          "text": "桃禧漫遊露營區⛺️鄰近桃園石門水庫",
+          "image_url": "images/hotel_product_06.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=7570&HotelID=119754080",
+          "price": "5,580起",
+          "badge": null,
+          "description": "一泊二食BBQ🍹豪華露營體驗"
+        },
+        {
+          "text": "JR東日本大飯店台北",
+          "image_url": "images/hotel_product_07.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=617&HotelID=78246064",
+          "price": "5,650起",
+          "badge": null,
+          "description": "獨家升等再贈抵用券"
+        },
+        {
+          "text": "凱旋酒店",
+          "image_url": "images/hotel_product_08.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=617&HotelID=31534015",
+          "price": "2,999起",
+          "badge": null,
+          "description": "暑假含早6折起，贈一個停車位"
+        },
+        {
+          "text": "新北大埔硫磺溫泉商旅",
+          "image_url": "images/hotel_product_09.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=7662&HotelID=8162230",
+          "price": "2,862起",
+          "badge": null,
+          "description": "CP值高房內即可泡湯"
+        }
+      ]
+    },
+    {
+      "id": "destination_grid",
+      "type": "destination_grid",
+      "title": "熱門住宿目的地",
+      "items": [
+        {
+          "text": "每週之星",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "★東台灣",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "★中台灣",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "★南台灣",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "★北台灣",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "✈日本",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "✈韓國",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "✈東南亞",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026全新開幕夢想清單",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "日本花時間旅行",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "漫遊品越南",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "預約完美海島旅行",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "法國經典輕奢遊",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "日韓",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "東南亞",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "歐美紐澳",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "港澳/中國",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "人氣推薦首選",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "✪品牌酒店✪",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "捷運我最近",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "global_hotels",
+      "type": "product_list",
+      "title": "全球訂房精選",
+      "items": [
+        {
+          "text": "2026全新開幕夢想清單",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "日韓",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026年4月底新開幕",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=228&HotelID=132855236",
+          "price": "3,170起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026年4月全新開幕",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=219&HotelID=132248293",
+          "price": "4,560起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026年5月底新開幕",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=92573&HotelID=125806568",
+          "price": "3,200起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026年4月全新開幕",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=248&HotelID=133038213",
+          "price": "2,500起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2025年11月全新開幕",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=274&HotelID=131955599",
+          "price": "3,300起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2025年12月全新開幕",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=253&HotelID=132620392",
+          "price": "4,710起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "人氣推薦首選",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "桃禧漫遊露營區⛺️鄰近桃園石門水庫",
+          "image_url": "images/hotel_product_15.jpg",
+          "link_url": "https://hotel.eztravel.com.tw/detail?CityID=7570&HotelID=119754080",
+          "price": "5,580起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "footer_links",
+      "type": "footer_links",
+      "title": null,
+      "items": [
+        {
+          "text": "關於易遊網",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/about/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "會員權益",
+          "image_url": null,
+          "link_url": "https://member.eztravel.com.tw/member/membership?tab=memberTiers",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "客服中心",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/support/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "服務據點",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/branches/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "菁英招募",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/events/career/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國際機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/?p=domestic",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "全球訂房",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國外旅遊",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "遊輪",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/cruise/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機 + 酒",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "票券活動",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內旅遊",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "環島之星",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/formosa/express/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "鐵道旅行",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/tra-hsr/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內飛機旅遊",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/tw-airline-packages/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內外租車",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/car/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "護照簽證",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/visa",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵國旅聯票",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/thsrc/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "iOS",
+          "image_url": null,
+          "link_url": "https://m.eztravel.com.tw/app/promotion/W01?direct=ios&campaign=store",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    }
+  ]
+}
