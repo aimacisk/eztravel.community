@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T23:22:56.929092+00:00",
+  "task_id": "T-eztcomm-20260601-W4-AQ-1",
+  "agent": "qa",
+  "type": "started",
+  "summary": "[TASK task_id=T-eztcomm-20260601-W4-AQ-1]\n\n[WISH] W-eztcomm-20260601-REBUILD\n\n## 目標\n使用 Playwright 執行 E2E 測試 TC-01~TC-06，驗收 W4 全部 AC，產出 QA 驗收報告。\n\n## 上游依賴\n- T-eztcomm-20260601-W4-PG-4：Community feature ",
+  "ref": {
+    "worker_id": "qa-1",
+    "agent_session_id": ""
+  }
+}

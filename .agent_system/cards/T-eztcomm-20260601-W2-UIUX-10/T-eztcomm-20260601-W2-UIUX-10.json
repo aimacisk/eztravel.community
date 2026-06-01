@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W2-UIUX-10",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W2] UIUX — 6 件套產出（README + sources.md + tokens.json + view_examples + motifs + figma_template）",
   "created_at": "2026-06-01T08:37:05.852816+00:00",
   "assignee": "uiux",
@@ -53,10 +53,18 @@
     "AC-W2U10-03：README.md 含 3 維度風格描述和 Figma URL"
   ],
   "wiki_target": "06_wiki/02_design_tokens.md",
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "projects/eztravel.community/skills/styling/README.md",
+    "projects/eztravel.community/skills/styling/sources.md",
+    "projects/eztravel.community/skills/styling/tokens.json",
+    "projects/eztravel.community/skills/styling/view_examples/index.json",
+    "projects/eztravel.community/skills/styling/motifs/brand_visual_language.md",
+    "projects/eztravel.community/skills/styling/figma_template.json"
+  ],
+  "execution_log": "依 W2-UIUX-1~9 全部 DONE 交付物彙整，建立 skills/styling/ 目錄並輸出 6 件套。1. README.md：3 維度（風格特徵 / 動線設計 / 選用動機）+ Figma URL + token 速查表。2. sources.md：單一來源 eztravel.com.tw，2026-06-01 Playwright 爬取，候選評估 4 家（eztravel 選用，klook/kkday/liontravel 排除）。3. tokens.json：完整 W3C Design Token 格式，來自 02_design/design_tokens.json，含 color/font/spacing/radius/shadow/transition 全命名空間 + _figma_node 對照。4. view_examples/index.json：10 頁面 nodeId 索引（Tokens / Home / 機票 / 旅館 / 自由行 / 團體 / 票券 / 景點 / ProductDetail），含 Figma URL + section 層級描述。5. motifs/brand_visual_language.md：翠綠旅程品牌主題，8 色情感地圖、2 層陰影、4 圓角、7 步間距、7 層字型、降級策略。6. figma_template.json：完整 fileKey + 所有 W2 頁面 nodeId 索引 + PG quick_reference（W4-PG-2 Home / W4-PG-3 ProductDetail / W4-PG-4 6 分類）+ W3 Community slot 定位。AC-W2U10-01/02/03 全通過。",
   "started_at": "2026-06-01T23:03:50.754287+00:00",
-  "completed_at": null,
+  "completed_at": "2026-06-01T23:14:09.972122+00:00",
   "commit_sha": null,
-  "agent_session_id": ""
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-10/T-eztcomm-20260601-W2-UIUX-10_uiux_draft.md",
+  "agent_session_id": "uiux-T-eztcomm-20260601-W2-UIUX-10"
 }

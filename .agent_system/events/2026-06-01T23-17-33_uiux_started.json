@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T23:17:33.169013+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-11",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[WISH] W-eztcomm-20260601-REBUILD\n\n進場第一動作打 `/goal W2 全部 frame 通過 9 條 UIUX 紀律自驗，自驗報告輸出完成，無紅旗`\n\n## 依賴已解鎖\nT-eztcomm-20260601-W2-UIUX-2~9 全部 DONE；T-eztcomm-20260601-W2-UIUX-10（6 件套）也已 DONE。\nfigma_template",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

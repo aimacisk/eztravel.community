@@ -1,0 +1,1 @@
+{"ts":"2026-06-01T23:39:10Z","actor":"dispatch","type":"completed","details":{"deliverables":["[DISPATCH 2026-06-01T23:38:46Z] AQ-1 FAIL 6 bugs CRITICAL x1","[DISPATCH 2026-06-01T23:39:06Z] W4 Wave B 全完工"],"summary":"continuous dispatch 完成，5 卡 DONE，QA 發現 6 bugs，W5 阻塞等使用者授權，dispatch 退場"}}

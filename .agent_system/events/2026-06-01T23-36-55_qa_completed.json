@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T23:36:55.310209+00:00",
+  "task_id": "T-eztcomm-20260601-W4-AQ-1",
+  "agent": "qa",
+  "type": "completed",
+  "summary": "進場確認任務。依卡片紀律，先讀取卡本體與任務板，再更新 IN_PROGRESS，然後執行測試。\n服務未啟動。先更新卡片為 IN_PROGRESS，同時調查服務啟動所需配置。\n確認資料結構後，現在嘗試啟動服務並執行測試。先進行 build 確認：\n服務啟動於 5150（launchSettings.json 覆蓋）。現在逐條執行 TC-01 到 TC-06。\n發現關鍵 bug：`_LoginPartial.cshtml` 缺失導致所有頁面 500。繼續測試 API 端點並記錄所有問題。\nPlaywright 可用。先擷取關鍵截圖作為 bug 證據。\n已獲得完整測試證據。現在終止服務並產出報告。\n",
+  "ref": {
+    "worker_id": "qa-1",
+    "response_chars": 11822
+  }
+}

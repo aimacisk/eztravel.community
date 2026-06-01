@@ -1,0 +1,343 @@
+{
+  "_meta": {
+    "task_id": "T-eztcomm-20260601-W2-UIUX-11",
+    "prj_id": "eztravel.community",
+    "auditor": "uiux",
+    "audit_type": "W2全頁自驗",
+    "figma_file_key": "6XmYJOpiSXab2gtGlmWtks",
+    "audited_at": "2026-06-02T00:00:00+08:00",
+    "total_nodes": 11,
+    "summary": {
+      "overall_status": "PASS_WITH_WARN",
+      "pass_count": 10,
+      "warn_count": 1,
+      "fail_count": 0,
+      "criteria_description": "9 條 UIUX 紀律 + 5 維度視覺判斷"
+    }
+  },
+  "criteria_legend": {
+    "C1": "無高寬比異常 frame（高不得遠大於寬，須符合頁面比例）",
+    "C2": "無肥大/過寬元件",
+    "C3": "無寫死寬度（元件使用 auto-layout，非固定 px 寬）",
+    "C4": "無跑版（元件在 frame 內未溢出或對齊錯誤）",
+    "C5": "無遮蔽（overlapping elements 不互相遮蓋關鍵內容）",
+    "C6": "無 frame 重疊",
+    "C7": "無文字溢出",
+    "C8": "deliverables 完整（每頁 nodeId 已記錄）",
+    "C9": "每頁 screenshot 已完成"
+  },
+  "nodes": [
+    {
+      "node_id": "153:2",
+      "page_name": "Home",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=153:2",
+      "canvas_size": "1440x4164",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "寬 1440px 頁面長頁設計，高寬比合理（4164/1440≈2.9，正常長頁）" },
+        "C2": { "result": "PASS", "note": "各區塊元件比例正常，無過寬/肥大元件" },
+        "C3": { "result": "PASS", "note": "Hero banner/分類 chip/卡片均使用 auto-layout，無 hard-coded 固定寬" },
+        "C4": { "result": "PASS", "note": "Hero、搜尋欄、分類區、卡片列表、Footer 各區塊對齊良好，無跑版" },
+        "C5": { "result": "PASS", "note": "各區塊層次清晰，無關鍵內容被遮蔽" },
+        "C6": { "result": "PASS", "note": "各獨立 section frame 排列有序，無重疊" },
+        "C7": { "result": "PASS", "note": "標題/說明文字均在 frame 邊界內，無溢出" },
+        "C8": { "result": "PASS", "note": "nodeId 153:2 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 498×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "首頁結構完整：Hero 搜尋欄 + 熱門分類 chips + 推薦卡片 + Footer。品牌綠 #11D073 正確應用於 CTA 按鈕與 badge。內容為台灣旅遊題材，真實性良好。"
+      }
+    },
+    {
+      "node_id": "180:2",
+      "page_name": "機票 (Flight)",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=180:2",
+      "canvas_size": "1440x1453",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×1453，高寬比≈1.0，正常頁面比例" },
+        "C2": { "result": "PASS", "note": "搜尋框、航空公司 chips 比例均正常" },
+        "C3": { "result": "PASS", "note": "搜尋欄使用 auto-layout，chips 寬度 hug content" },
+        "C4": { "result": "PASS", "note": "搜尋欄/篩選區/結果列表 對齊整齊，無跑版" },
+        "C5": { "result": "PASS", "note": "無元素互相遮蔽" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "航空公司名稱、價格、時間文字均在邊界內" },
+        "C8": { "result": "PASS", "note": "nodeId 180:2 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1428×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "機票頁搜尋欄設計清晰，出發/目的地/日期欄位明確。航空公司篩選 chip 高度固定、寬度 hug content，符合 UIUX 紀律。"
+      }
+    },
+    {
+      "node_id": "119:2",
+      "page_name": "旅館 (Hotel)",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=119:2",
+      "canvas_size": "1440x2328",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×2328，高寬比≈1.6，長頁合理" },
+        "C2": { "result": "PASS", "note": "飯店卡片、促銷 badge 比例正常" },
+        "C3": { "result": "PASS", "note": "卡片使用 auto-layout，佈局彈性" },
+        "C4": { "result": "PASS", "note": "搜尋區/篩選/卡片 grid 對齊正確" },
+        "C5": { "result": "PASS", "note": "promotions badge 浮層屬合理設計，無遮蔽關鍵資訊" },
+        "C6": { "result": "PASS", "note": "各 section 排列有序" },
+        "C7": { "result": "PASS", "note": "飯店名稱、評分、價格文字均正常" },
+        "C8": { "result": "PASS", "note": "nodeId 119:2 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 891×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "旅館頁使用藍色系為主色（非品牌綠，旅館品類色差異化可接受）。促銷 badge 設計清晰，飯店卡片評分星星、價位呈現正確。"
+      }
+    },
+    {
+      "node_id": "127:2",
+      "page_name": "自由行 (FreeTour)",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=127:2",
+      "canvas_size": "1440x1452",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×1452，高寬比≈1.0，正常頁面比例" },
+        "C2": { "result": "PASS", "note": "目的地 chips 多彩但尺寸正常" },
+        "C3": { "result": "PASS", "note": "目的地 chips hug content，非固定寬" },
+        "C4": { "result": "PASS", "note": "目的地 chips 群組、卡片對齊正確" },
+        "C5": { "result": "PASS", "note": "無元素遮蔽" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "目的地名稱、行程天數文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 127:2 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1429×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "自由行頁目的地 chips 多彩（日本黃/韓國藍/泰國紅等），整體色彩協調且體現各目的地品牌聯想。卡片內容行程天數、出發城市呈現清晰。"
+      }
+    },
+    {
+      "node_id": "130:2",
+      "page_name": "團體 (GroupTour)",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=130:2",
+      "canvas_size": "2148x2124",
+      "overall_result": "WARN",
+      "criteria": {
+        "C1": { "result": "WARN", "note": "frame 寬度 2148px > 標準 1440px 桌機設計規格。設計系統定義 1440px 為標準寬度，此 frame 超標 708px。視覺內容已填滿，高寬比 2148:2124≈1.01 本身合理，問題在於絕對寬度偏大。建議後續修正為 1440px 標準寬。" },
+        "C2": { "result": "PASS", "note": "2 欄式行程卡片比例正常" },
+        "C3": { "result": "PASS", "note": "卡片使用 auto-layout" },
+        "C4": { "result": "PASS", "note": "卡片 grid 2 欄對齊正確，無明顯跑版" },
+        "C5": { "result": "PASS", "note": "無元素遮蔽" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "行程名稱、天數、價格文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 130:2 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1440×1424" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "WARN",
+        "content_authenticity": "PASS",
+        "notes": "團體頁 canvas 寬度 2148px 超過標準 1440px，比例維度 WARN。內容視覺上已填滿兩欄行程卡片，視覺品質尚可，但後續需修正 frame 寬度至 1440px 以符合設計系統規範。"
+      },
+      "action_required": "LOW — 後續修正 frame 寬度至 1440px，不影響當前 W2 交付。"
+    },
+    {
+      "node_id": "187:3",
+      "page_name": "票券 (Ticket)",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=187:3",
+      "canvas_size": "1440x1818",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×1818，高寬比≈1.26，正常長頁" },
+        "C2": { "result": "PASS", "note": "城市熱銷卡片 4 欄比例正常，badge 尺寸合理" },
+        "C3": { "result": "PASS", "note": "卡片使用 auto-layout" },
+        "C4": { "result": "PASS", "note": "4 欄卡片 grid 對齊整齊" },
+        "C5": { "result": "PASS", "note": "折扣 badge 浮層屬合理設計（icon-on-card overlay）" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "景點/活動名稱、價格文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 187:3 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1141×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "票券頁城市熱銷卡片佈局豐富（4 欄），層次清晰。折扣 badge 設計位於卡片右上角，屬合理 intentional overlay。內容涵蓋台灣各地景點票券，真實性良好。"
+      }
+    },
+    {
+      "node_id": "144:2",
+      "page_name": "景點 (Attraction)",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=144:2",
+      "canvas_size": "1440x3820",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×3820，高寬比≈2.65，長頁設計合理" },
+        "C2": { "result": "PASS", "note": "景點卡片比例正常" },
+        "C3": { "result": "PASS", "note": "卡片使用 auto-layout" },
+        "C4": { "result": "PASS", "note": "出發城市分區 + 景點卡片對齊正確" },
+        "C5": { "result": "PASS", "note": "無元素遮蔽" },
+        "C6": { "result": "PASS", "note": "各城市分區 section 無重疊" },
+        "C7": { "result": "PASS", "note": "景點名稱、地點標籤文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 144:2 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 543×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "景點頁長頁設計，以出發城市（台北、台中、高雄等）分區展示景點。使用淡藍綠色佔位圖，整體色調一致。景點名稱、地點資訊呈現清晰。"
+      }
+    },
+    {
+      "node_id": "88:3",
+      "page_name": "ProductDetail - GroupTour",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:3",
+      "canvas_size": "1440x1600",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×1600，高寬比≈1.11，正常頁面比例" },
+        "C2": { "result": "PASS", "note": "側欄預訂卡片、行程 timeline 比例正常" },
+        "C3": { "result": "PASS", "note": "內容區使用 auto-layout" },
+        "C4": { "result": "PASS", "note": "Hero/內容/側欄三欄佈局對齊正確" },
+        "C5": { "result": "PASS", "note": "無關鍵內容被遮蔽" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "產品名稱、行程說明、價格文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 88:3 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1296×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "團體行 PD 頁：深綠 Hero 圖配品牌色，行程 timeline 清晰展示 D1-D5 行程。評價卡片整齊 4 欄，側欄預訂框明確。底部 Community_Area 380px slot 預留給 W3-UIUX-2。"
+      }
+    },
+    {
+      "node_id": "88:123",
+      "page_name": "ProductDetail - FreeTour",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:123",
+      "canvas_size": "1440x1600",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×1600，高寬比≈1.11，正常頁面比例" },
+        "C2": { "result": "PASS", "note": "行程概覽卡片比例正常" },
+        "C3": { "result": "PASS", "note": "內容使用 auto-layout" },
+        "C4": { "result": "PASS", "note": "與 GroupTour 一致的三欄佈局，對齊正確" },
+        "C5": { "result": "PASS", "note": "無遮蔽問題" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "自由行景點說明文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 88:123 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1296×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "自由行 PD 頁：深藍 Hero 色（品類差異化）。景點行程以天為單位列表，可選景點卡片呈現。與 GroupTour 結構一致但內容差異化體現正確，Community_Area slot 一致預留。"
+      }
+    },
+    {
+      "node_id": "88:243",
+      "page_name": "ProductDetail - Hotel",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:243",
+      "canvas_size": "1440x1600",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×1600，高寬比≈1.11，正常頁面比例" },
+        "C2": { "result": "PASS", "note": "房型卡片比例正常" },
+        "C3": { "result": "PASS", "note": "房型卡片使用 auto-layout" },
+        "C4": { "result": "PASS", "note": "房型選擇區與旅館資訊對齊正確" },
+        "C5": { "result": "PASS", "note": "無遮蔽問題" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "房型名稱、設施說明、價格文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 88:243 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1296×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "旅館 PD 頁：紫色 Hero（旅館品類色）。房型說明取代行程 timeline，設施圖示與評論卡片對齊。Community_Area slot 預留正確。與其他 variant 差異化體現明顯（旅館特有：床型/面積/早餐選項）。"
+      }
+    },
+    {
+      "node_id": "88:355",
+      "page_name": "ProductDetail - Ticket",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:355",
+      "canvas_size": "1440x1600",
+      "overall_result": "PASS",
+      "criteria": {
+        "C1": { "result": "PASS", "note": "1440×1600，高寬比≈1.11，正常頁面比例" },
+        "C2": { "result": "PASS", "note": "票種選擇卡片比例正常" },
+        "C3": { "result": "PASS", "note": "票種卡片使用 auto-layout" },
+        "C4": { "result": "PASS", "note": "票種說明區佈局對齊正確" },
+        "C5": { "result": "PASS", "note": "無遮蔽問題" },
+        "C6": { "result": "PASS", "note": "各 section 無重疊" },
+        "C7": { "result": "PASS", "note": "票種名稱、使用說明、價格文字正常" },
+        "C8": { "result": "PASS", "note": "nodeId 88:355 已記錄於 figma_template.json" },
+        "C9": { "result": "PASS", "note": "screenshot 已取得，渲染尺寸 1296×1440" }
+      },
+      "visual_5d": {
+        "alignment": "PASS",
+        "typography": "PASS",
+        "color": "PASS",
+        "proportion": "PASS",
+        "content_authenticity": "PASS",
+        "notes": "票券 PD 頁：橙棕 Hero（票券品類色）。票種選擇（成人/兒童/老人）以卡片形式呈現，價格層級清晰。使用說明、注意事項、兌換流程依序排列。Community_Area slot 預留正確。"
+      }
+    }
+  ],
+  "overall_audit_summary": {
+    "status": "PASS_WITH_WARN",
+    "pass_nodes": ["153:2", "180:2", "119:2", "127:2", "187:3", "144:2", "88:3", "88:123", "88:243", "88:355"],
+    "warn_nodes": ["130:2"],
+    "fail_nodes": [],
+    "warn_details": {
+      "130:2": "團體頁 frame 寬度 2148px 超過標準設計系統 1440px。建議後續任務修正至 1440px。視覺內容完整，不影響 W2 交付。"
+    },
+    "criteria_summary": {
+      "C1_ratio": { "pass": 10, "warn": 1, "fail": 0 },
+      "C2_oversized": { "pass": 11, "warn": 0, "fail": 0 },
+      "C3_autolayout": { "pass": 11, "warn": 0, "fail": 0 },
+      "C4_layout": { "pass": 11, "warn": 0, "fail": 0 },
+      "C5_overlap": { "pass": 11, "warn": 0, "fail": 0 },
+      "C6_frame_overlap": { "pass": 11, "warn": 0, "fail": 0 },
+      "C7_text_overflow": { "pass": 11, "warn": 0, "fail": 0 },
+      "C8_deliverables": { "pass": 11, "warn": 0, "fail": 0 },
+      "C9_screenshot": { "pass": 11, "warn": 0, "fail": 0 }
+    },
+    "acceptance_criteria": {
+      "AC-W2U11-01": { "result": "PASS", "evidence": "w2_visual_audit_report.json 存在，涵蓋全部 11 個 W2 nodeId" },
+      "AC-W2U11-02": { "result": "PASS_WITH_WARN", "evidence": "9 條 UIUX 紀律 10 節點全 PASS，1 節點（130:2）有 WARN（非 FAIL），無任何 FAIL 項" },
+      "AC-W2U11-03": { "result": "PASS", "evidence": "Home(153:2) 截圖 498×1440、機票(180:2) 截圖 1428×1440、旅館(119:2) 截圖 891×1440 均成功取得" }
+    }
+  }
+}

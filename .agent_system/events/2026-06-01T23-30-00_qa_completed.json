@@ -1,0 +1,14 @@
+{
+  "ts": "2026-06-01T23:30:00+00:00",
+  "task_id": "T-eztcomm-20260601-W4-AQ-1",
+  "agent": "qa",
+  "type": "completed",
+  "summary": "三閘門全 FAIL。6 bug（CRITICAL×1 HIGH×3 MEDIUM×2）。BUG-001 _LoginPartial.cshtml 缺失阻塞全站 500；BUG-002 PageDataLoader dev 路徑多往上 2 層造成分類頁 404；BUG-004 PostgreSQL 未啟動。TC 0/6 PASS（TC-06 PARTIAL）。W4 AC-5 本機可運作未達標。建議 PM 仲裁後派 PG REWORK（BUG-001/002/003/006）及 BA（BUG-004/005）。",
+  "ref": {
+    "delivered_files": [
+      "projects/eztravel.community/05_tests/bug_reports_W4AQ1.json",
+      "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W4-AQ-1/T-eztcomm-20260601-W4-AQ-1_qa_draft.md"
+    ],
+    "task_board_status": "DONE"
+  }
+}

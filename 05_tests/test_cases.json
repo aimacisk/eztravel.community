@@ -1,11 +1,132 @@
 {
-  "$comment": "測試案例集 — 由 QA agent 依 BA AC 與 AT openapi.yaml 撰寫。涵蓋整合測試、邊界測試、安全掃描。",
-  "pid": "{{PID}}",
-  "version": "0.1.0",
+  "$comment": "測試案例集 — W4 QA 驗收後修正版（BUG-005 路由對齊修正，TC-05 改測 reviews list API）",
+  "pid": "eztravel.community",
+  "version": "0.2.0",
+  "updated_at": "2026-06-02",
   "categories": {
-    "integration": [],
+    "integration": [
+      {
+        "id": "TC-01",
+        "title": "首頁可正常載入",
+        "priority": "P0",
+        "ac_ref": "AC-5",
+        "steps": [
+          { "action": "GET", "url": "http://localhost:5150/", "expected_status": 200 }
+        ],
+        "assertions": [
+          "body 包含 eztravel 品牌文字",
+          "分類導航列可見",
+          "HTTP 狀態碼為 200"
+        ]
+      },
+      {
+        "id": "TC-02",
+        "title": "分類頁（機票）顯示商品列表",
+        "priority": "P0",
+        "ac_ref": "AC-5",
+        "note": "BUG-005 修正：slug 改為 flight（無 s）",
+        "steps": [
+          { "action": "GET", "url": "http://localhost:5150/category/flight", "expected_status": 200 }
+        ],
+        "assertions": [
+          "body 包含至少 1 筆商品卡片",
+          "HTTP 狀態碼為 200"
+        ]
+      },
+      {
+        "id": "TC-03",
+        "title": "商品詳情頁顯示社群區塊",
+        "priority": "P0",
+        "ac_ref": "AC-5",
+        "note": "BUG-005 修正：路由改為 /product/detail/{id}；社群區塊用 class='community-module' 不是 id",
+        "steps": [
+          { "action": "GET", "url": "http://localhost:5150/product/detail/1", "expected_status": 200 }
+        ],
+        "assertions": [
+          "body 包含 class='community-module' 的元素",
+          "頁面顯示商品名稱",
+          "HTTP 狀態碼為 200"
+        ]
+      },
+      {
+        "id": "TC-04",
+        "title": "已登入使用者可送出留言",
+        "priority": "P0",
+        "ac_ref": "AC-5",
+        "note": "BUG-005 修正：登入路由為 /Identity/Account/Login；送出路由為 /api/products/{productId}/reviews",
+        "prerequisites": [
+          "測試帳號已在 Identity DB 建立",
+          "PostgreSQL 已啟動（Production）或 InMemory DB 已 seed（Development）"
+        ],
+        "steps": [
+          {
+            "action": "POST",
+            "url": "http://localhost:5150/Identity/Account/Login",
+            "body": { "Input.Email": "test@test.com", "Input.Password": "Test@12345" },
+            "expected_status": 302,
+            "note": "取得 .AspNetCore.Identity.Application cookie"
+          },
+          {
+            "action": "POST",
+            "url": "http://localhost:5150/api/products/1/reviews",
+            "headers": { "Content-Type": "application/json" },
+            "body": { "rating": 4, "body": "這次旅遊體驗非常棒，導遊專業，行程安排完善。" },
+            "expected_status": 201,
+            "note": "需帶 auth cookie"
+          }
+        ],
+        "assertions": [
+          "response body 包含 id 欄位（新建 review id）",
+          "HTTP 狀態碼為 201 Created"
+        ]
+      },
+      {
+        "id": "TC-05",
+        "title": "評論列表 API 可查詢",
+        "priority": "P1",
+        "ac_ref": "AC-5",
+        "note": "BUG-005 修正：原 TC 指定的 /review/stats 端點不存在；改測 GET /api/products/{productId}/reviews（已實作）",
+        "steps": [
+          {
+            "action": "GET",
+            "url": "http://localhost:5150/api/products/1/reviews",
+            "expected_status": 200,
+            "note": "公開端點，不需登入"
+          }
+        ],
+        "assertions": [
+          "response body 包含 items 陣列",
+          "response body 包含 total 欄位",
+          "response body 包含 page 欄位",
+          "HTTP 狀態碼為 200",
+          "Content-Type 包含 application/json"
+        ]
+      }
+    ],
+    "security": [
+      {
+        "id": "TC-06",
+        "title": "未登入使用者無法送出留言（應回 401）",
+        "priority": "P0",
+        "ac_ref": "AC-5",
+        "note": "BUG-005 修正：路由改為 /api/products/{id}/reviews；BUG-006 修正後應回 401 而非 302（[ApiController] + ConfigureApplicationCookie OnRedirectToLogin 攔截）",
+        "steps": [
+          {
+            "action": "POST",
+            "url": "http://localhost:5150/api/products/1/reviews",
+            "headers": { "Content-Type": "application/json" },
+            "body": { "rating": 4, "body": "未授權的留言嘗試" },
+            "expected_status": 401,
+            "note": "不帶 cookie / Authorization header"
+          }
+        ],
+        "assertions": [
+          "HTTP 狀態碼為 401 Unauthorized",
+          "不應為 302 重定向（API 端點 REST 慣例）"
+        ]
+      }
+    ],
     "boundary": [],
-    "security": [],
     "regression": []
   },
   "coverageTarget": {

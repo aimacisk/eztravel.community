@@ -1,0 +1,192 @@
+{
+  "schema_version": "v1",
+  "task_id": "T-eztcomm-20260601-W4-AQ-1",
+  "parent_wish_id": "W-eztcomm-20260601-REBUILD",
+  "generated_at": "2026-06-01T23:30:00Z",
+  "generated_by": "qa",
+  "summary": {
+    "total": 6,
+    "critical": 1,
+    "high": 3,
+    "medium": 2,
+    "tc_pass": 0,
+    "tc_fail": 5,
+    "tc_partial": 1
+  },
+  "bugs": [
+    {
+      "bug_id": "BUG-eztcomm-20260601-001",
+      "linkedTaskId": "T-eztcomm-20260601-W4-AQ-1",
+      "severity": "critical",
+      "title": "_LoginPartial.cshtml 缺失 — 所有 Razor 頁面回傳 HTTP 500",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5150/",
+        "headers": { "Accept": "*/*" },
+        "body": null
+      },
+      "response": {
+        "status": 500,
+        "headers": { "Content-Type": "text/html; charset=utf-8" },
+        "body": "System.InvalidOperationException: The partial view '_LoginPartial' was not found. The following locations were searched: /Views/Home/_LoginPartial.cshtml, /Views/Shared/_LoginPartial.cshtml, /Pages/Shared/_LoginPartial.cshtml"
+      },
+      "stackTrace": "System.InvalidOperationException: The partial view '_LoginPartial' was not found.\n   at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync\n   at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync() in Views/Shared/_Layout.cshtml:line 39",
+      "reproSteps": [
+        "1. dotnet run 啟動服務（ASPNETCORE_ENVIRONMENT=Development）",
+        "2. GET http://localhost:5150/ 任何使用 _Layout.cshtml 的頁面",
+        "3. 回傳 HTTP 500，body 含 InvalidOperationException: partial view '_LoginPartial' was not found"
+      ],
+      "affectedTCs": ["TC-01", "TC-02"],
+      "rootCauseGuess": "code",
+      "detail": "Views/Shared/_LoginPartial.cshtml 檔案缺失。此檔案由 ASP.NET Core Identity scaffolding 產生，用於 navbar 登入/登出按鈕。_Layout.cshtml 第 39 行使用 <partial name=\"_LoginPartial\" />，因檔案不存在導致所有繼承 _Layout 的頁面均 500。修復：執行 `dotnet aspnet-codegenerator identity -dc AppDbContext --files Account.Login` 產生缺失 scaffold，或手動建立最小化 _LoginPartial.cshtml。",
+      "evidence": ["screenshot:TC01_home_500.png", "curl_TC01_status_500"],
+      "createdAt": "2026-06-01",
+      "createdBy": "qa"
+    },
+    {
+      "bug_id": "BUG-eztcomm-20260601-002",
+      "linkedTaskId": "T-eztcomm-20260601-W4-AQ-1",
+      "severity": "high",
+      "title": "PageDataLoader 開發環境 fallback 路徑計算錯誤 — 分類頁回傳 404",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5150/category/flight",
+        "headers": { "Accept": "*/*" },
+        "body": null
+      },
+      "response": {
+        "status": 404,
+        "headers": { "Content-Length": "0" },
+        "body": ""
+      },
+      "stackTrace": "（無 exception，PageDataLoader.Load() 找不到資料檔，回傳 null，Controller 回 NotFound()）",
+      "reproSteps": [
+        "1. dotnet run 啟動服務（Development 環境）",
+        "2. GET http://localhost:5150/category/flight",
+        "3. 回傳 HTTP 404",
+        "4. 根因：PageDataLoader 往上 5 層 (到 D:/Projects/ai.factory) 找 data/機票/機票.json，但實際路徑在 D:/Projects/ai.factory/projects/eztravel.community/data/機票/機票.json"
+      ],
+      "affectedTCs": ["TC-02"],
+      "rootCauseGuess": "code",
+      "detail": "Services/PageDataLoader.cs 的 devDataRoot 計算：Path.Combine(_env.ContentRootPath, \"..\", \"..\", \"..\", \"..\", \"..\", \"data\", info.FolderName)。ContentRootPath = eztravel.Community.Web 目錄，往上 5 層到 D:/Projects/ai.factory，但 data 資料夾在 projects/eztravel.community/data/。應改為往上 3 層（到 eztravel.community 專案根）再找 data/。",
+      "evidence": ["curl_TC02_status_404", "path_analysis_5_levels_up"],
+      "createdAt": "2026-06-01",
+      "createdBy": "qa"
+    },
+    {
+      "bug_id": "BUG-eztcomm-20260601-003",
+      "linkedTaskId": "T-eztcomm-20260601-W4-AQ-1",
+      "severity": "high",
+      "title": "/health 路由衝突 — Program.cs MapGet 與 HealthController 重複定義",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5150/health",
+        "headers": { "Accept": "*/*" },
+        "body": null
+      },
+      "response": {
+        "status": 500,
+        "headers": { "Content-Type": "text/html; charset=utf-8" },
+        "body": "Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: HTTP: GET /health, EzTravel.Community.Web.Controllers.HealthController.Get (eztravel.Community.Web)"
+      },
+      "stackTrace": "Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException at DefaultEndpointSelector.ReportAmbiguity",
+      "reproSteps": [
+        "1. 啟動服務",
+        "2. GET http://localhost:5150/health",
+        "3. 回傳 HTTP 500 AmbiguousMatchException"
+      ],
+      "affectedTCs": [],
+      "rootCauseGuess": "code",
+      "detail": "Program.cs 同時有 app.MapGet(\"/health\", ...) 與 HealthController（[Route(\"[controller]\")]）兩個 /health 路由定義，造成衝突。修復：擇一刪除。建議保留 HealthController 以符合 MVC 架構慣例，刪除 Program.cs 中的 MapGet。",
+      "evidence": ["curl_health_ambiguous_500"],
+      "createdAt": "2026-06-01",
+      "createdBy": "qa"
+    },
+    {
+      "bug_id": "BUG-eztcomm-20260601-004",
+      "linkedTaskId": "T-eztcomm-20260601-W4-AQ-1",
+      "severity": "high",
+      "title": "PostgreSQL 未啟動 — DB 依賴端點全部 500",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5150/product/detail/1",
+        "headers": { "Accept": "*/*" },
+        "body": null
+      },
+      "response": {
+        "status": 500,
+        "headers": { "Content-Type": "text/html; charset=utf-8" },
+        "body": "System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Npgsql.NpgsqlException: Failed to connect to 127.0.0.1:5432 → SocketException: 無法連線，因為目標電腦拒絕連線"
+      },
+      "stackTrace": "Npgsql.NpgsqlException: Failed to connect to 127.0.0.1:5432\n   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException",
+      "reproSteps": [
+        "1. 確認 PostgreSQL 未啟動（無 5432 port listening）",
+        "2. GET http://localhost:5150/product/detail/1",
+        "3. 回傳 HTTP 500 NpgsqlException Failed to connect"
+      ],
+      "affectedTCs": ["TC-03", "TC-04", "TC-05"],
+      "rootCauseGuess": "spec",
+      "detail": "驗收前置條件（instruction 第一段）要求 `dotnet run` 本機服務啟動，但未說明 PostgreSQL 必須啟動。appsettings.Development.json 連線字串指向 localhost:5432 eztcomm_dev，但測試環境無 PostgreSQL 服務。所有 AppDbContext 相關端點（ProductController、ReviewsController GET list）均 500。建議在前置條件中明確要求：啟動 PostgreSQL + 執行 migration。",
+      "evidence": ["curl_product_detail_npgsql_500", "curl_api_reviews_500"],
+      "createdAt": "2026-06-01",
+      "createdBy": "qa"
+    },
+    {
+      "bug_id": "BUG-eztcomm-20260601-005",
+      "linkedTaskId": "T-eztcomm-20260601-W4-AQ-1",
+      "severity": "medium",
+      "title": "TC 規格路由與實際實作不符 — 5 處路由錯誤",
+      "request": {
+        "method": "GET / POST",
+        "url": "多個（見 detail）",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 404,
+        "headers": {},
+        "body": "（所有 TC 指定路由均 404）"
+      },
+      "stackTrace": "（無，純路由不存在）",
+      "reproSteps": [
+        "1. 按 TC 指定路由發送請求",
+        "2. 所有回傳 404"
+      ],
+      "affectedTCs": ["TC-02", "TC-03", "TC-04", "TC-05", "TC-06"],
+      "rootCauseGuess": "spec",
+      "detail": "TC 規格與實作路由對照：\n1. TC-02 slug: 'flights' → 實際: 'flight' (CategoryController [Route(\"category/{slug}\")])\n2. TC-03 路由: /product/1/groups → 實際: /product/detail/1 (ProductController [Route(\"product\")] [HttpGet(\"detail/{id:int}\")])\n3. TC-03 驗收條件: id=\"community-section\" → 實際 HTML: class=\"community-module\"（無此 id）\n4. TC-04/TC-06 路由: POST /review/create → 實際: POST /api/products/{productId}/reviews\n5. TC-05 路由: GET /review/stats?productId=1 → 此 endpoint 不存在，stats 資料透過 /api/products/{productId}/reviews 聚合計算\n6. TC-04/TC-06 登入路由: POST /account/login → 實際: POST /Identity/Account/Login（Razor Pages Identity）",
+      "evidence": ["route_comparison_table", "controller_source_review"],
+      "createdAt": "2026-06-01",
+      "createdBy": "qa"
+    },
+    {
+      "bug_id": "BUG-eztcomm-20260601-006",
+      "linkedTaskId": "T-eztcomm-20260601-W4-AQ-1",
+      "severity": "medium",
+      "title": "ReviewsController 使用 [ApiController] 但未登入時重定向（非 401）",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:5150/api/products/1/reviews",
+        "headers": { "Content-Type": "application/json" },
+        "body": "{\"rating\": 5, \"body\": \"test review content\"}"
+      },
+      "response": {
+        "status": 302,
+        "headers": { "Location": "http://localhost:5150/Identity/Account/Login?ReturnUrl=%2Fapi%2Fproducts%2F1%2Freviews" },
+        "body": ""
+      },
+      "stackTrace": "（無 exception）",
+      "reproSteps": [
+        "1. 確認未登入狀態（無 Cookie / Bearer token）",
+        "2. POST http://localhost:5150/api/products/1/reviews Content-Type: application/json",
+        "3. 回傳 HTTP 302 → /Identity/Account/Login"
+      ],
+      "affectedTCs": ["TC-06"],
+      "rootCauseGuess": "architecture",
+      "detail": "ReviewsController 標記 [ApiController]，依 RFC 應對未授權的 JSON 請求回傳 HTTP 401（或 403）而非 302 重定向。目前實作走 Cookie Authentication 預設行為（重定向到 Login），這對 API 端點不符合 REST 慣例。TC-06 原始預期「HTTP 302」雖然符合目前行為，但 API 設計應改為 401，前端 JS 再處理重定向。注意：此 bug 在 TC-06 指定行為範圍內「可接受」，列為架構建議。",
+      "evidence": ["curl_TC06b_302_redirect"],
+      "createdAt": "2026-06-01",
+      "createdBy": "qa"
+    }
+  ]
+}

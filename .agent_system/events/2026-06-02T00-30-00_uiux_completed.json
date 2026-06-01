@@ -1,0 +1,29 @@
+{
+  "ts": "2026-06-02T00:30:00.000000+00:00",
+  "task_id": "T-eztcomm-20260601-W2-UIUX-11",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "W2 全頁自驗完成（PASS_WITH_WARN）：11 nodes 跑完 9 條 UIUX 紀律 + 5 維度自驗，10 PASS / 1 WARN（團體頁 frame 寬度 2148px） / 0 FAIL。自驗報告與 wiki 草稿已輸出。",
+  "ref": {
+    "delivered_files": [
+      "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-11/w2_visual_audit_report.json",
+      "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-11/T-eztcomm-20260601-W2-UIUX-11_uiux_draft.md"
+    ],
+    "task_board_status": "DONE",
+    "audit_result": "PASS_WITH_WARN",
+    "figma_file_key": "6XmYJOpiSXab2gtGlmWtks",
+    "nodes_audited": [
+      "153:2",
+      "180:2",
+      "119:2",
+      "127:2",
+      "130:2",
+      "187:3",
+      "144:2",
+      "88:3",
+      "88:123",
+      "88:243",
+      "88:355"
+    ]
+  }
+}

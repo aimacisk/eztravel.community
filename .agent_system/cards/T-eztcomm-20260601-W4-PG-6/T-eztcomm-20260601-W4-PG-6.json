@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W4-PG-6",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W4] PG — Unit tests + Integration tests（xUnit + WebApplicationFactory）",
   "created_at": "2026-06-01T08:57:01.767873+00:00",
   "assignee": "pg",
@@ -50,10 +50,18 @@
     "AC-W4PG6-04：wiki_draft 存在並含測試清單與 PASS 結果"
   ],
   "wiki_target": "06_wiki/04_dev_guide.md",
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "04_src/eztravel.Community/eztravel.Community.Tests/Tests/Unit/ReviewServiceTests.cs",
+    "04_src/eztravel.Community/eztravel.Community.Tests/Tests/Unit/CategoryServiceTests.cs",
+    "04_src/eztravel.Community/eztravel.Community.Tests/Tests/Integration/WebIntegrationTests.cs",
+    "04_src/eztravel.Community/eztravel.Community.Web/Services/ReviewService.cs",
+    "04_src/eztravel.Community/eztravel.Community.Web/Program.cs",
+    "04_src/eztravel.Community/eztravel.Community.Tests/eztravel.Community.Tests.csproj"
+  ],
+  "execution_log": "實作 11 tests（Unit×7 + Integration×4）。(1) ReviewService.CreateReviewAsync 新增 Rating 1–5 前置驗證，拋 ValidationException；(2) Program.cs 補 public partial class Program {} 供 WebApplicationFactory<Program> 存取；(3) Tests.csproj 新增 EF InMemory 8.* 套件；(4) CustomWebApplicationFactory 替換 AppDbContext 為 per-factory InMemory DB，並 Mock IPageDataLoader 讓 /category/flights 返回有效 model。修復迴圈：0 輪（設計預先分析規避已知陷阱）。commit_sha=PENDING_ADMIN_COMMIT。",
+  "wiki_draft_path": ".agent_system/cards/T-eztcomm-20260601-W4-PG-6/T-eztcomm-20260601-W4-PG-6_pg_draft.md",
   "started_at": "2026-06-01T23:04:10.882235+00:00",
-  "completed_at": null,
-  "commit_sha": null,
+  "completed_at": "2026-06-01T23:19:54.634687+00:00",
+  "commit_sha": "PENDING_ADMIN_COMMIT",
   "agent_session_id": ""
 }

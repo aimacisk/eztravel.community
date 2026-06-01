@@ -1,8 +1,10 @@
 using EzTravel.Community.Core.Entities;
+using EzTravel.Community.Core.Enums;
 using EzTravel.Community.Core.Interfaces.Services;
 using EzTravel.Community.Infrastructure.Data;
 using EzTravel.Community.Infrastructure.DependencyInjection;
 using EzTravel.Community.Web.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -44,6 +46,27 @@ try
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
 
+    // BUG-006 修復：/api/* 未授權時回 401，而非 302 重定向 Login（[ApiController] REST 慣例）
+    builder.Services.ConfigureApplicationCookie(opts =>
+    {
+        opts.Events.OnRedirectToLogin = ctx =>
+        {
+            if (ctx.Request.Path.StartsWithSegments("/api"))
+                ctx.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            else
+                ctx.Response.Redirect(ctx.RedirectUri);
+            return Task.CompletedTask;
+        };
+        opts.Events.OnRedirectToAccessDenied = ctx =>
+        {
+            if (ctx.Request.Path.StartsWithSegments("/api"))
+                ctx.Response.StatusCode = StatusCodes.Status403Forbidden;
+            else
+                ctx.Response.Redirect(ctx.RedirectUri);
+            return Task.CompletedTask;
+        };
+    });
+
     // Application 服務（骨架空殼，業務邏輯由 W4-PG-* 填入）
     builder.Services.AddScoped<IReviewService, ReviewService>();
     builder.Services.AddScoped<IProductService, ProductService>();
@@ -66,6 +89,24 @@ try
         Log.Information("Production migration 套用完成");
     }
 
+    // Development: InMemory DB 建立 schema + 注入測試用種子資料
+    if (app.Environment.IsDevelopment())
+    {
+        using var scope = app.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        await db.Database.EnsureCreatedAsync();
+        if (!db.Products.Any())
+        {
+            db.Products.AddRange(
+                new Product { Id = 1, Name = "日本東京自由行 5 天 4 夜", Category = ProductCategory.FreeTour, Description = "含來回機票、飯店住宿，自由探索東京精華景點", CreatedAt = DateTime.UtcNow },
+                new Product { Id = 2, Name = "泰國曼谷團體深度旅遊", Category = ProductCategory.GroupTour, Description = "含機票、飯店、全程專業導遊陪同", CreatedAt = DateTime.UtcNow },
+                new Product { Id = 3, Name = "沖繩海濱飯店 3 晚自由行", Category = ProductCategory.Hotel, Description = "太平洋視野套房，含早餐，近美麗海水族館", CreatedAt = DateTime.UtcNow }
+            );
+            await db.SaveChangesAsync();
+            Log.Information("Development 種子資料注入完成（3 筆 Product）");
+        }
+    }
+
     // Middleware Pipeline
     if (!app.Environment.IsProduction())
         app.UseDeveloperExceptionPage();
@@ -78,10 +119,7 @@ try
     app.UseAuthorization();
     app.UseSerilogRequestLogging();
 
-    // /health endpoint for Cloud Run + Docker HEALTHCHECK
-    app.MapGet("/health", () => Results.Ok(new { status = "ok", ts = DateTime.UtcNow }));
-
-    // Route
+    // Route  (注意: /health 由 HealthController 提供，避免 AmbiguousMatchException)
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");

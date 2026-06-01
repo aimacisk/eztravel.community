@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W3-UIUX-3",
   "prj_id": "eztravel.community",
-  "status": "IN_PROGRESS",
+  "status": "DONE",
   "title": "[W3] UIUX — W3 視覺自驗 + figma_deliverables 完整列出",
   "created_at": "2026-06-01T08:50:01.455903+00:00",
   "assignee": "uiux",
@@ -48,10 +48,25 @@
     "AC-3：figma_deliverables 含 fileKey 欄位"
   ],
   "wiki_target": "06_wiki/02_design_tokens.md",
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "figma_deliverables fileKey=6XmYJOpiSXab2gtGlmWtks",
+    "Community Module page 87:2 — 5 primitives 視覺自驗 PASS",
+    "Community / StarRating nodeId=91:14 PASS",
+    "Community / RatingDistribution nodeId=92:2 PASS",
+    "Community / ReviewCard nodeId=104:2 PASS",
+    "Community / FilterBar nodeId=105:2 PASS",
+    "Community / ReviewComposer nodeId=106:2 PASS",
+    "Product Detail page 88:2 frame 88:471 — 4 variant Community Section 視覺自驗 PASS",
+    "團體旅遊 ProductDetail Community Section nodeId=88:3 PASS",
+    "自由行 ProductDetail Community Section nodeId=88:123 PASS",
+    "旅館 ProductDetail Community Section nodeId=88:243 PASS",
+    "票券 ProductDetail Community Section nodeId=88:355 PASS",
+    "wiki_draft: projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-3/T-eztcomm-20260601-W3-UIUX-3_uiux_draft.md"
+  ],
+  "execution_log": "1. 讀取 W3-UIUX-1 deliverables：確認 5 primitives nodeId（91:14/92:2/104:2/105:2/106:2），fileKey=6XmYJOpiSXab2gtGlmWtks，pageId=87:2。W3-UIUX-2 deliverables 欄位為空（卡片紀律違規），改用 get_metadata 查找 Product Detail 頁（88:2）結構，確認 Community Section 整合於 frame 88:471 的 4 variant（88:3/88:123/88:243/88:355）。\n2. 對全部 9 個 nodeId 執行 get_screenshot，取得截圖 URL 並親眼視覺確認。\n3. 5 維度自驗結果：所有 9 個 frame 全部 PASS（文字不溢出 / 無遮蔽 / 排版正常 / token 配色 / 命名正確）。特別說明：StarRating（91:14）ComponentSet 尺寸 96×20px 為正常（5 星 ×~19px），variants 在 ComponentSet 內 x=0,y=0 堆疊為 Figma 標準行為；RatingDistribution（92:2）symbol bounds height=10px 為 clip 定義，實際渲染 195px 視覺正確。\n4. 發現 Product Detail 頁存在 2 組 frame：88:471（1440×1600，完整 Community Module 整合）為驗收對象；194:18（800×900）僅含佔位符，非本卡驗收範圍。\n5. wiki_draft 已產出完整 figma_deliverables 清單（9 frame × nodeId + url + 自驗結果），9/9 PASS。",
   "started_at": "2026-06-01T23:04:38.679027+00:00",
-  "completed_at": null,
+  "completed_at": "2026-06-01T23:15:56.253393+00:00",
   "commit_sha": null,
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-3/T-eztcomm-20260601-W3-UIUX-3_uiux_draft.md",
   "agent_session_id": ""
 }

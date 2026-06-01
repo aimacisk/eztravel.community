@@ -51,20 +51,6 @@
       "created_at": "2026-06-01T08:36:43.439287+00:00"
     },
     {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-11",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "[W2] UIUX — W2 全頁自驗（9 條 UIUX 紀律 + 每 nodeId screenshot + 5 維度）",
-      "created_at": "2026-06-01T08:37:33.518972+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W4-AQ-1",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "[W4] AQ — Playwright E2E TC-01~06 + AC 驗收報告",
-      "created_at": "2026-06-01T08:57:26.476478+00:00"
-    },
-    {
       "task_id": "T-eztcomm-20260601-W5-ADMIN-1",
       "prj_id": "eztravel.community",
       "status": "PENDING_USER_GCLOUD_AUTH",
@@ -80,36 +66,7 @@
     }
   ],
   "schema_version": "v0.53",
-  "IN_PROGRESS": [
-    {
-      "task_id": "T-eztcomm-20260602-DISPATCH-CONT",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[dispatch] eztcomm 持續推進 — 完成剩餘 TODO 卡",
-      "created_at": "2026-06-01T23:01:30.221562+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W2-UIUX-10",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W2] UIUX — 6 件套產出（README + sources.md + tokens.json + view_examples + motifs + figma_template）",
-      "created_at": "2026-06-01T08:37:05.852816+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W4-PG-6",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W4] PG — Unit tests + Integration tests（xUnit + WebApplicationFactory）",
-      "created_at": "2026-06-01T08:57:01.767873+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W3-UIUX-3",
-      "prj_id": "eztravel.community",
-      "status": "IN_PROGRESS",
-      "title": "[W3] UIUX — W3 視覺自驗 + figma_deliverables 完整列出",
-      "created_at": "2026-06-01T08:50:01.455903+00:00"
-    }
-  ],
+  "IN_PROGRESS": [],
   "DONE": [
     {
       "task_id": "T-eztcomm-20260601-W2-UIUX-1",
@@ -365,16 +322,16 @@
       "commit_sha": "60ef119",
       "admin_audit": "Home 107:2 found EMPTY (0 children) — previously verified 5 sections now lost, demote to REWORK",
       "admin_audit_re_promote": "Home wrapper 153:2 (1440x4164) confirmed via nodeId metadata (page list c=0 is cache bug)"
-    }
-  ],
-  "REWORK": [
+    },
     {
       "task_id": "T-eztcomm-20260601-W4-PG-3",
       "prj_id": "eztravel.community",
       "status": "DONE",
       "title": "[W4] PG — ProductDetailController + Razor view（4 類 variant）",
       "created_at": "2026-06-01T08:52:59.890872+00:00",
-      "admin_audit_revert": "No ProductController.cs / ReviewsController.cs / _Product_*.cshtml / _Community_*.cshtml — implementation missing"
+      "admin_audit_revert": "No ProductController.cs / ReviewsController.cs / _Product_*.cshtml / _Community_*.cshtml — implementation missing",
+      "commit_sha": "af07889",
+      "admin_audit": "admin wrote controllers + views, dotnet build 0 error 0 warning"
     },
     {
       "task_id": "T-eztcomm-20260601-W4-PG-4",
@@ -382,7 +339,53 @@
       "status": "DONE",
       "title": "[W4] PG — Community feature（ReviewController + AJAX + partial）",
       "created_at": "2026-06-01T08:53:31.431611+00:00",
-      "admin_audit_revert": "No ProductController.cs / ReviewsController.cs / _Product_*.cshtml / _Community_*.cshtml — implementation missing"
+      "admin_audit_revert": "No ProductController.cs / ReviewsController.cs / _Product_*.cshtml / _Community_*.cshtml — implementation missing",
+      "commit_sha": "af07889",
+      "admin_audit": "admin wrote controllers + views, dotnet build 0 error 0 warning"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-10",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — 6 件套產出（README + sources.md + tokens.json + view_examples + motifs + figma_template）",
+      "created_at": "2026-06-01T08:37:05.852816+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W3-UIUX-3",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W3] UIUX — W3 視覺自驗 + figma_deliverables 完整列出",
+      "created_at": "2026-06-01T08:50:01.455903+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W4-PG-6",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W4] PG — Unit tests + Integration tests（xUnit + WebApplicationFactory）",
+      "created_at": "2026-06-01T08:57:01.767873+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-DISPATCH-CONT",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[dispatch] eztcomm 持續推進 — 完成剩餘 TODO 卡",
+      "created_at": "2026-06-01T23:01:30.221562+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W2-UIUX-11",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W2] UIUX — W2 全頁自驗（9 條 UIUX 紀律 + 每 nodeId screenshot + 5 維度）",
+      "created_at": "2026-06-01T08:37:33.518972+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W4-AQ-1",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[W4] AQ — Playwright E2E TC-01~06 + AC 驗收報告",
+      "created_at": "2026-06-01T08:57:26.476478+00:00",
+      "completed_at": "2026-06-01T23:30:00Z"
     }
-  ]
+  ],
+  "REWORK": []
 }

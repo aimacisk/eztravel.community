@@ -52,7 +52,8 @@ public class PageDataLoader : IPageDataLoader
         if (!File.Exists(jsonPath))
         {
             // 開發環境 fallback：從 project 根目錄的 data/ 讀
-            var devDataRoot = Path.Combine(_env.ContentRootPath, "..", "..", "..", "..", "..", "data", info.FolderName);
+            // ContentRootPath = .../eztravel.Community.Web/，往上 3 層到 eztravel.community/
+            var devDataRoot = Path.Combine(_env.ContentRootPath, "..", "..", "..", "data", info.FolderName);
             jsonPath = Path.Combine(devDataRoot, jsonFileName);
             if (!File.Exists(jsonPath))
             {

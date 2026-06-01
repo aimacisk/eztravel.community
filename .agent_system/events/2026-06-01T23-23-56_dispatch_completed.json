@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-01T23:23:56.434753+00:00",
+  "task_id": "T-eztcomm-20260602-DISPATCH-CONT",
+  "agent": "dispatch",
+  "type": "completed",
+  "summary": "進場 onboarding 開始。先讀取 task_board.json 確認卡片狀態，並更新自身 dispatch 卡為 IN_PROGRESS。\n狀態確認：dispatch 卡已 IN_PROGRESS，全 pool 健康（lazy_pending 可用）。現在讀取 Wave A 三張卡的完整 instruction。\n卡片讀取完成。現在確認 PG-6 worktree 所需的 git 狀態，同時準備 report 到群聊。\n群聊房間重啟後已清除，需重建。同時開始建立 PG-6 worktree。\nworktree 建立成功。現在重建群聊房間，同時 launch Wave A。\n群聊 R-",
+  "ref": {
+    "worker_id": "dispatch-1",
+    "response_chars": 21199
+  }
+}

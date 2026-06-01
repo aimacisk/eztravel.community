@@ -1,1 +1,0 @@
-{"task_id": "T-eztcomm-20260602-DISPATCH-CONT", "agent": "dispatch", "worker_id": "dispatch-1", "pid": 183592, "acquired_at": "2026-06-01T23:01:44.539333+00:00", "ttl_seconds": 1800, "expires_at": "2026-06-01T23:31:44.539333+00:00", "msg_kind": "task", "msg_id": "m-e7f9e430b3ab"}

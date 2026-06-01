@@ -1,0 +1,25 @@
+{
+  "ts": "2026-06-02T05:30:00+00:00",
+  "task_id": "T-eztcomm-20260601-W3-UIUX-3",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "W3 全部 Figma 產出（5 primitives + 4 variant Community Section）視覺自驗完成，9/9 PASS。figma_deliverables 完整清單已產出至 wiki_draft。",
+  "ref": {
+    "delivered_files": [
+      "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-3/T-eztcomm-20260601-W3-UIUX-3_uiux_draft.md"
+    ],
+    "task_board_status": "DONE",
+    "figma_fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodes_audited": [
+      "91:14 Community/StarRating PASS",
+      "92:2 Community/RatingDistribution PASS",
+      "104:2 Community/ReviewCard PASS",
+      "105:2 Community/FilterBar PASS",
+      "106:2 Community/ReviewComposer PASS",
+      "88:3 團體旅遊 ProductDetail Community Section PASS",
+      "88:123 自由行 ProductDetail Community Section PASS",
+      "88:243 旅館 ProductDetail Community Section PASS",
+      "88:355 票券 ProductDetail Community Section PASS"
+    ]
+  }
+}
