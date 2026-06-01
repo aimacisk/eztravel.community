@@ -1,0 +1,101 @@
+name: Release to GCP Cloud Run
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  release:
+    if: contains(github.event.head_commit.message, '[release]')
+    runs-on: ubuntu-latest
+
+    env:
+      GCP_PROJECT_ID: eztravel-community-prod
+      GCP_REGION: asia-east1
+      ARTIFACT_REPO: eztravel-images
+      IMAGE_NAME: eztravel-community
+      SERVICE_NAME: eztravel-community
+      CLOUD_SQL_CONNECTION_NAME: eztravel-community-prod:asia-east1:eztcomm-db
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.GCP_PROJECT_ID }}
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
+
+      - name: Compute image tags
+        id: tags
+        run: |
+          REGISTRY="${GCP_REGION}-docker.pkg.dev/${GCP_PROJECT_ID}/${ARTIFACT_REPO}/${IMAGE_NAME}"
+          SHA_TAG="${REGISTRY}:${GITHUB_SHA}"
+          LATEST_TAG="${REGISTRY}:latest"
+          echo "sha_tag=${SHA_TAG}" >> "$GITHUB_OUTPUT"
+          echo "latest_tag=${LATEST_TAG}" >> "$GITHUB_OUTPUT"
+
+      - name: Docker build
+        run: |
+          docker build \
+            --platform linux/amd64 \
+            -t ${{ steps.tags.outputs.sha_tag }} \
+            -t ${{ steps.tags.outputs.latest_tag }} \
+            .
+
+      - name: Docker push
+        run: |
+          docker push ${{ steps.tags.outputs.sha_tag }}
+          docker push ${{ steps.tags.outputs.latest_tag }}
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.SERVICE_NAME }} \
+            --image=${{ steps.tags.outputs.sha_tag }} \
+            --region=${{ env.GCP_REGION }} \
+            --platform=managed \
+            --allow-unauthenticated \
+            --memory=512Mi \
+            --cpu=1 \
+            --min-instances=0 \
+            --max-instances=10 \
+            --concurrency=80 \
+            --port=8080 \
+            --add-cloudsql-instances=${{ env.CLOUD_SQL_CONNECTION_NAME }} \
+            --set-env-vars=ASPNETCORE_ENVIRONMENT=Production,CLOUD_SQL_CONNECTION_NAME=${{ env.CLOUD_SQL_CONNECTION_NAME }} \
+            --set-secrets=DB_PASSWORD=DB_PASSWORD:latest \
+            --quiet
+
+      - name: Smoke test
+        run: |
+          URL=$(gcloud run services describe ${{ env.SERVICE_NAME }} \
+            --region=${{ env.GCP_REGION }} \
+            --format='value(status.url)')
+          echo "Deployed URL: $URL"
+          for i in {1..10}; do
+            if curl -fsS "$URL/health" > /tmp/health.json; then
+              cat /tmp/health.json
+              exit 0
+            fi
+            echo "attempt $i failed, retrying..."
+            sleep 5
+          done
+          echo "Smoke test failed after 10 attempts"
+          exit 1

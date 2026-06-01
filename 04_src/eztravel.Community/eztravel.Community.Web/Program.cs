@@ -4,6 +4,7 @@ using EzTravel.Community.Infrastructure.Data;
 using EzTravel.Community.Infrastructure.DependencyInjection;
 using EzTravel.Community.Web.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Formatting.Compact;
 
@@ -53,6 +54,15 @@ try
 
     var app = builder.Build();
 
+    // Production: 啟動前自動套用 migration
+    if (app.Environment.IsProduction())
+    {
+        using var scope = app.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        await db.Database.MigrateAsync();
+        Log.Information("Production migration 套用完成");
+    }
+
     // Middleware Pipeline
     if (!app.Environment.IsProduction())
         app.UseDeveloperExceptionPage();
@@ -64,6 +74,9 @@ try
     app.UseAuthentication();
     app.UseAuthorization();
     app.UseSerilogRequestLogging();
+
+    // /health endpoint for Cloud Run + Docker HEALTHCHECK
+    app.MapGet("/health", () => Results.Ok(new { status = "ok", ts = DateTime.UtcNow }));
 
     // Route
     app.MapControllerRoute(
