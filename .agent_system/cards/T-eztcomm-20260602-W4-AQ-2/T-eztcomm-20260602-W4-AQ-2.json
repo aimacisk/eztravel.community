@@ -1,0 +1,67 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-W4-AQ-2",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "W4-AQ-2 重驗：6 個 bug 修復後 TC-01~TC-06 全 pass 確認",
+  "created_at": "2026-06-01T23:49:04.803008+00:00",
+  "assignee": "qa",
+  "phase": "QA",
+  "priority": "P0",
+  "instruction": "## W4-AQ-2 重驗任務\n\n### 背景\n\nW4-AQ-1 發現 6 個 bug，已於 commit 8e75a53 全部修復：\n- BUG-001 CRITICAL：建立了缺失的 `Views/Shared/_LoginPartial.cshtml`\n- BUG-002 HIGH：修正 `PageDataLoader.cs` dev fallback 路徑（5層→3層）\n- BUG-003 HIGH：移除 `Program.cs` 重複的 `/health` MapGet\n- BUG-004 HIGH：清空 `appsettings.Development.json` DefaultConnection，啟用 InMemory + 種子資料\n- BUG-005 MEDIUM：更新 `05_tests/test_cases.json`，修正 TC-02~TC-06 路由規格\n- BUG-006 MEDIUM：加入 `ConfigureApplicationCookie`，/api/* 回 401 而非 302\n\n### 測試環境\n\n- 專案路徑：`D:\\Projects\\ai.factory\\projects\\eztravel.community\\04_src\\eztravel.Community`\n- 執行方式：`dotnet run --project eztravel.Community.Web --launch-profile \"https\"` 或直接 `dotnet run`\n- launchSettings.json 覆蓋 port 為 5150（ASPNETCORE_ENVIRONMENT=Development）\n- **不需要 PostgreSQL**：Development 環境使用 InMemory DB，種子資料自動注入\n\n### TC 執行清單（依 05_tests/test_cases.json v0.2.0）\n\n**TC-01**：`GET http://localhost:5150/` → 預期 HTTP 200，body 含品牌文字\n**TC-02**：`GET http://localhost:5150/category/flight` → 預期 HTTP 200，body 含商品卡片\n**TC-03**：`GET http://localhost:5150/product/detail/1` → 預期 HTTP 200，body 含 class=\"community-module\"\n**TC-04**：登入後 `POST http://localhost:5150/api/products/1/reviews` → 預期 HTTP 201（需建立測試帳號）\n**TC-05**：`GET http://localhost:5150/api/products/1/reviews` → 預期 HTTP 200，body 含 items + total\n**TC-06**：未登入 `POST http://localhost:5150/api/products/1/reviews` → 預期 HTTP **401**（不是 302）\n\n### 驗收 AC\n\n- AC-W4AQ2-01：TC-01~TC-06 全部 PASS（6/6）\n- AC-W4AQ2-02：TC-06 回 401（驗證 BUG-006 修復）\n- AC-W4AQ2-03：TC-03 頁面包含 community-module（驗證 BUG-004 InMemory 種子）\n- AC-W4AQ2-04：TC-05 回 items 陣列 + total（驗證 reviews list API）\n- AC-W4AQ2-05：wiki_draft 含完整 PASS/FAIL 表格 + 截圖路徑\n\n### 交付物\n\n1. `05_tests/bug_reports_W4AQ2.json`（通過確認報告）\n2. `cards/T-eztcomm-20260602-W4-AQ-2/T-eztcomm-20260602-W4-AQ-2_qa_draft.md`（wiki 草稿）\n3. Playwright 截圖（TC-01, TC-03, TC-05, TC-06 各一張）\n",
+  "context_paths": [
+    "04_src/eztravel.Community/eztravel.Community.Web",
+    "05_tests/test_cases.json",
+    "05_tests/bug_reports_W4AQ1.json",
+    ".agent_system/cards/T-eztcomm-20260601-W4-AQ-1/T-eztcomm-20260601-W4-AQ-1_qa_draft.md"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-AQ-1"
+  ],
+  "objective": "驗證 W4-AQ-1 發現的 6 個 bug（commit 8e75a53）修復後，TC-01~TC-06 全部通過，W4 AC-5（本機可運作）達標。",
+  "goal_state": "TC-01~TC-06 全部 PASS（6/6）；W4 AC-5 標記達標；bug_reports_W4AQ2.json 記錄驗收結果。",
+  "verification": {
+    "verifier": "QA 自驗",
+    "tools": [
+      "curl",
+      "playwright",
+      "dotnet run"
+    ],
+    "evidence_checks": [
+      "TC-06 curl -o /dev/null -s -w '%{http_code}' -X POST http://localhost:5150/api/products/1/reviews -H Content-Type:application/json -d '{\"rating\":4,\"body\":\"test\"}' 輸出含 401",
+      "TC-05 curl http://localhost:5150/api/products/1/reviews 輸出含 items",
+      "TC-01 curl http://localhost:5150/ HTTP 200",
+      "TC-03 curl http://localhost:5150/product/detail/1 輸出含 community-module"
+    ]
+  },
+  "out_of_scope": [
+    "W5 GCP 部署驗證",
+    "PostgreSQL 環境測試（已由 InMemory 取代）",
+    "TC-04 整合測試（需 Identity 完整環境，移至 W5 後再補）"
+  ],
+  "escalation_on_block": [
+    "服務無法啟動 → 先跑 dotnet build 確認 0 errors，再回報具體錯誤訊息",
+    "TC-06 仍回 302 → 確認 Program.cs 包含 ConfigureApplicationCookie 段落（commit 8e75a53）"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "TC-01~TC-06 全部 PASS（6/6）",
+    "TC-06 回 HTTP 401（不是 302）",
+    "TC-03 顯示 community-module 元素",
+    "TC-05 回含 items 陣列的 JSON",
+    "wiki_draft 完整",
+    "bug_reports_W4AQ2.json 記錄驗收結果"
+  ],
+  "wiki_target": "06_wiki/05_qa_report.md",
+  "deliverables": [
+    "05_tests/bug_reports_W4AQ2.json",
+    "05_tests/test_cases.json",
+    ".agent_system/cards/T-eztcomm-20260602-W4-AQ-2/T-eztcomm-20260602-W4-AQ-2_qa_draft.md"
+  ],
+  "execution_log": "W4-AQ-2 重驗完成：commit 8e75a53 修復 BUG-001~006 後，TC-01~TC-06 全部 PASS（6/6）。TC-06 確認回 401（BUG-006 修復），TC-03 community-module 顯示（BUG-004 InMemory 種子），TC-04 Identity 登入 + 201 留言建立，TC-05 reviews list API 200。W4 AC-5（本機可運作）達標。W5 前置需求：使用者需 gcloud auth + GitHub repo 建立。",
+  "started_at": "2026-06-02T07:00:00+00:00",
+  "completed_at": "2026-06-02T07:50:00+00:00",
+  "wiki_draft_path": ".agent_system/cards/T-eztcomm-20260602-W4-AQ-2/T-eztcomm-20260602-W4-AQ-2_qa_draft.md",
+  "commit_sha": null,
+  "status": "DONE"
+}

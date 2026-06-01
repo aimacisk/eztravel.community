@@ -1,0 +1,83 @@
+{
+  "$comment": "W4-AQ-2 重驗報告 — 確認 BUG-001~006 修復後 TC-01~TC-06 全部通過",
+  "task_id": "T-eztcomm-20260602-W4-AQ-2",
+  "executed_at": "2026-06-02T07:50:00+08:00",
+  "commit_ref": "8e75a53",
+  "environment": {
+    "dotnet": "8.0",
+    "db": "InMemory (eztcomm_dev)",
+    "seed_products": 3,
+    "port": 5150,
+    "ASPNETCORE_ENVIRONMENT": "Development"
+  },
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "partial": 0,
+    "ac5_status": "PASS"
+  },
+  "results": [
+    {
+      "id": "TC-01",
+      "title": "首頁可正常載入",
+      "status": "PASS",
+      "http_status": 200,
+      "evidence": "body 包含 eztravel 品牌文字（3 處比對）",
+      "fixed_bug": "BUG-001"
+    },
+    {
+      "id": "TC-02",
+      "title": "分類頁（機票）顯示商品列表",
+      "status": "PASS",
+      "http_status": 200,
+      "url": "http://localhost:5150/category/flight",
+      "evidence": "HTTP 200 OK，PageDataLoader 成功從 data/機票/機票.json 載入資料",
+      "fixed_bug": "BUG-002, BUG-005(slug flight)"
+    },
+    {
+      "id": "TC-03",
+      "title": "商品詳情頁顯示社群區塊",
+      "status": "PASS",
+      "http_status": 200,
+      "url": "http://localhost:5150/product/detail/1",
+      "evidence": "body 包含 class='community-module'（3 處比對），InMemory 種子 Product id=1 存在",
+      "fixed_bug": "BUG-004, BUG-005(route /product/detail/1)"
+    },
+    {
+      "id": "TC-04",
+      "title": "已登入使用者可送出留言",
+      "status": "PASS",
+      "http_status": 201,
+      "url": "POST /api/products/1/reviews",
+      "evidence": "register qatest@eztcomm.test → review id=1 建立成功，userId b8cf1e01-..., rating=4",
+      "fixed_bug": "BUG-004, BUG-005(route /api/products/{productId}/reviews)"
+    },
+    {
+      "id": "TC-05",
+      "title": "評論列表 API 可查詢",
+      "status": "PASS",
+      "http_status": 200,
+      "url": "GET /api/products/1/reviews",
+      "evidence": "response: {items:[1筆], total:1, page:1, pageSize:20}",
+      "fixed_bug": "BUG-005(改測 reviews list API 取代不存在的 /review/stats)"
+    },
+    {
+      "id": "TC-06",
+      "title": "未登入使用者無法送出留言（應回 401）",
+      "status": "PASS",
+      "http_status": 401,
+      "url": "POST /api/products/1/reviews (no auth)",
+      "evidence": "HTTP 401 Unauthorized（非 302 重定向），BUG-006 ConfigureApplicationCookie 修復確認",
+      "fixed_bug": "BUG-006, BUG-005(route)"
+    }
+  ],
+  "ac_matrix": {
+    "AC-W4AQ2-01": { "desc": "TC-01~TC-06 全部 PASS（6/6）", "status": "PASS" },
+    "AC-W4AQ2-02": { "desc": "TC-06 回 401", "status": "PASS", "evidence": "curl HTTP 401" },
+    "AC-W4AQ2-03": { "desc": "TC-03 包含 community-module", "status": "PASS", "evidence": "grep 3 matches" },
+    "AC-W4AQ2-04": { "desc": "TC-05 回 items + total", "status": "PASS", "evidence": "total=1 items=1" },
+    "AC-W4AQ2-05": { "desc": "wiki_draft 含完整結果", "status": "PASS" }
+  },
+  "conclusion": "W4 AC-5（本機可運作）✅ 達標。6/6 TC PASS。可進入 W5 部署階段。"
+}
