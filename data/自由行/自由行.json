@@ -1,0 +1,513 @@
+{
+  "page": "自由行",
+  "scraped_at": "2026-06-01T09:03:28.000Z",
+  "url": "https://packages.eztravel.com.tw/",
+  "sections": [
+    {
+      "id": "search_bar",
+      "type": "search_bar",
+      "title": null,
+      "items": [
+        {
+          "text": "輸入國家/城市/機場關鍵字",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": "輸入國家/城市/機場關鍵字"
+        },
+        {
+          "text": "請選擇",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": "請選擇"
+        },
+        {
+          "text": "想住哪裡?",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": "想住哪裡?"
+        }
+      ]
+    },
+    {
+      "id": "hero_banner",
+      "type": "hero_banner",
+      "title": null,
+      "items": [
+        {
+          "text": "華航TTE 81折",
+          "image_url": "images/freetour_banner_01.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/CI/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "港味潮遊",
+          "image_url": "images/freetour_banner_02.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/HKG/?p=HKG12",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "星宇TTE 88折",
+          "image_url": "images/freetour_banner_03.jpg",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-TYO?fromdt=20260525&enddt=20260529&dport=&aport=&roomqty=1&passenger=200&ages=&airline=JX&cabintype=x&direct=false&checkin=20260525&checkout=20260529",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國泰TTE 8折",
+          "image_url": "images/freetour_banner_04.jpg",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-TYO?fromdt=&enddt=&dport=&aport=&roomqty=1&passenger=200&ages=&airline=CX&cabintype=x&direct=false&checkin=&checkout=&cityid=&hotelid=&from=sx",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "週3狂歡日",
+          "image_url": "images/freetour_banner_05.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/globalcity/promotion/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026熱氣球",
+          "image_url": "images/freetour_banner_06.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/taitungballoon/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "制霸泰國",
+          "image_url": "images/freetour_banner_07.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/thailand/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "釜山玩全攻略",
+          "image_url": "images/freetour_banner_08.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/busan/?p=busan2#subtag2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "韓食風味之旅",
+          "image_url": "images/freetour_banner_09.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/KOREATRIP/?P=KOREATRIP7",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026盛夏",
+          "image_url": "images/freetour_banner_10.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/summervacation/?p=summervacation4",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "APP首購",
+          "image_url": "images/freetour_banner_11.jpg",
+          "link_url": "https://www.eztravel.com.tw/events/app-first-purchase/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "LJ 9折",
+          "image_url": "images/freetour_banner_12.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-PUS?fromdt=20260601&enddt=20260605&dport=&aport=&roomqty=1&passenger=200&ages=&airline=LJ&cabintype=x&direct=false&checkin=20260601&checkout=20260605&cityid=253",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "廣島自由行",
+          "image_url": "images/freetour_banner_13.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/package-event2/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "JX 釜山",
+          "image_url": "images/freetour_banner_14.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/JX/?P=JX2#subTag2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "回饋有禮",
+          "image_url": "images/freetour_banner_15.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/globalcity/promotion/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "德威88折",
+          "image_url": "images/freetour_banner_16.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/TW/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "JX 台中熊本開航",
+          "image_url": "images/freetour_banner_17.jpg",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-RMQ-KMJ?fromdt=20260410&enddt=20260414&dport=&aport=&roomqty=1&passenger=200&ages=&airline=JX&cabintype=x&direct=false&checkin=&checkout=",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "夏威夷",
+          "image_url": "images/freetour_banner_18.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/hawaii/?p=hawaii5",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026連假攻略",
+          "image_url": "images/freetour_banner_19.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/longholiday/?p=longholiday1#subtag3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "東京玩全攻略",
+          "image_url": "images/freetour_banner_20.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/tokyo/?p=tokyo2#subtag2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "制霸韓國",
+          "image_url": "images/freetour_banner_21.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/korea/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "長程線機加酒",
+          "image_url": "images/freetour_banner_22.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/island/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "華信機加酒",
+          "image_url": "images/freetour_banner_23.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/twfxh/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "星宇宮古",
+          "image_url": "images/freetour_banner_24.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/JX/?p=JX2#subTag2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機加酒免萬元",
+          "image_url": "images/freetour_banner_25.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/workbalance/?p=workbalance1#subTag1/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "微醺假期",
+          "image_url": "images/freetour_banner_26.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/workbalance/?p=workbalance3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "長榮 日日精彩",
+          "image_url": "images/freetour_banner_27.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/BR/?p=BR12",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "長榮戀戀香港",
+          "image_url": "images/freetour_banner_28.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/BR/?p=BR11#subTag2",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "長榮東南亞",
+          "image_url": "images/freetour_banner_29.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/BR/?p=BR3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "CX 南亞中東",
+          "image_url": "images/freetour_banner_30.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/CX/?p=CX6#subTag4",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hot_packages",
+      "type": "product_list",
+      "title": null,
+      "items": [
+        {
+          "text": "台北-東京機加酒",
+          "image_url": "images/freetour_product_01.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-TYO?rec_sid=F4zZNedfV2WYGavnjKuprs&rec_mid=12876&rec_id=afe0c446-5794-490e-a656-13f8fa1092e7&rec_pid=fwh_round-trip_TPE_TYO",
+          "price": "12,599起",
+          "badge": null,
+          "description": "台北-東京機加酒\n\n06/15-06/19\n\n12,599起"
+        },
+        {
+          "text": "台北-沖繩(那霸)機加酒",
+          "image_url": "images/freetour_product_02.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-OKA?rec_sid=F4zZNedfV2WYGavnjKuprs&rec_mid=12876&rec_id=afe0c446-5794-490e-a656-13f8fa1092e7&rec_pid=fwh_round-trip_TPE_OKA",
+          "price": "14,239起",
+          "badge": null,
+          "description": "台北-沖繩(那霸)機加酒\n\n06/15-06/19\n\n14,239起"
+        },
+        {
+          "text": "台北-大阪機加酒",
+          "image_url": "images/freetour_product_03.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-OSA?rec_sid=F4zZNedfV2WYGavnjKuprs&rec_mid=12876&rec_id=afe0c446-5794-490e-a656-13f8fa1092e7&rec_pid=fwh_round-trip_TPE_OSA",
+          "price": "13,636起",
+          "badge": null,
+          "description": "台北-大阪機加酒\n\n06/15-06/19\n\n13,636起"
+        },
+        {
+          "text": "台北-香港機加酒",
+          "image_url": "images/freetour_product_04.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-HKG?rec_sid=F4zZNedfV2WYGavnjKuprs&rec_mid=12876&rec_id=afe0c446-5794-490e-a656-13f8fa1092e7&rec_pid=fwh_round-trip_TPE_HKG",
+          "price": "10,231起",
+          "badge": null,
+          "description": "台北-香港機加酒\n\n06/15-06/19\n\n10,231起"
+        },
+        {
+          "text": "台北-釜山機加酒",
+          "image_url": "images/freetour_product_05.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-PUS?rec_sid=F4zZNedfV2WYGavnjKuprs&rec_mid=12876&rec_id=afe0c446-5794-490e-a656-13f8fa1092e7&rec_pid=fwh_round-trip_TPE_PUS",
+          "price": "11,275起",
+          "badge": null,
+          "description": "台北-釜山機加酒\n\n06/15-06/19\n\n11,275起"
+        },
+        {
+          "text": "台北-福岡機加酒",
+          "image_url": "images/freetour_product_06.png",
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-FUK?rec_sid=F4zZNedfV2WYGavnjKuprs&rec_mid=12876&rec_id=afe0c446-5794-490e-a656-13f8fa1092e7&rec_pid=fwh_round-trip_TPE_FUK",
+          "price": "16,271起",
+          "badge": null,
+          "description": "台北-福岡機加酒\n\n06/15-06/19\n\n16,271起"
+        }
+      ]
+    },
+    {
+      "id": "hot_products",
+      "type": "quick_links",
+      "title": null,
+      "items": [
+        {
+          "text": "當季最夯",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "長榮大旅行家",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/activity/BR/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "華航精緻旅遊",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/activity/CI/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "質感星旅行",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/activity/JX/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "離島微渡假",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/activity/twfxh/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "海島渡假清單",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/activity/island/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "一起去曼谷",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-BKK",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "暢玩首爾",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-SEL",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "香港最好玩",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/roundtrip-TPE-HKG",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "航空專區",
+      "type": "featured_items",
+      "title": "航空專區",
+      "items": [
+        {
+          "text": null,
+          "image_url": "images/freetour_product_07.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/HKG/?p=HKG5",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": null,
+          "image_url": "images/freetour_product_08.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/globalcity/promotion/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": null,
+          "image_url": "images/freetour_product_09.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/twfxh/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": null,
+          "image_url": "images/freetour_product_10.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/SEA/?p=SEA3#subTag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": null,
+          "image_url": "images/freetour_product_11.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/KOREATRIP/?P=KOREATRIP7",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "主題活動",
+      "type": "featured_items",
+      "title": "主題活動",
+      "items": [
+        {
+          "text": "沖繩",
+          "image_url": "images/freetour_product_12.png",
+          "link_url": "https://packages.eztravel.com.tw/activity/okinawa/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "九州",
+          "image_url": "images/freetour_product_13.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/Kyushu/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "萬元專區",
+          "image_url": "images/freetour_product_14.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/workbalance/?p=workbalance1#subTag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "OMO星野集團",
+          "image_url": "images/freetour_product_15.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/omobyhoshino/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "酒店式公寓",
+          "image_url": "images/freetour_product_16.jpg",
+          "link_url": "https://packages.eztravel.com.tw/activity/apartment/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    }
+  ]
+}
