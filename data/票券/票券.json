@@ -1,0 +1,664 @@
+{
+  "page": "票券",
+  "scraped_at": "2026-06-01T09:04:35.000Z",
+  "url": "https://activity.eztravel.com.tw/",
+  "sections": [
+    {
+      "id": "search_bar",
+      "type": "search_bar",
+      "title": null,
+      "items": [
+        {
+          "text": "請輸入",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "搜尋",
+          "image_url": null,
+          "link_url": null,
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hero_banner",
+      "type": "hero_banner",
+      "title": null,
+      "items": [
+        {
+          "text": "2026熱氣球",
+          "image_url": "images/ticket_banner_01.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/taitungballoon/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵59折",
+          "image_url": "images/ticket_banner_02.jpg",
+          "link_url": "https://activity.eztravel.com.tw/activity/thsr/?p=thsr6",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "西日本",
+          "image_url": "images/ticket_banner_03.jpg",
+          "link_url": "https://activity.eztravel.com.tw/activity/jrpasspromo/?p=jrpasspromo6",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "廣島交通票買1送1",
+          "image_url": "images/ticket_banner_04.jpg",
+          "link_url": "https://activity.eztravel.com.tw/activity/jrpasspromo/?p=jrpasspromo7",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "餐券優惠",
+          "image_url": "images/ticket_banner_05.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/foodie/?page=3",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "制霸泰國",
+          "image_url": "images/ticket_banner_06.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/thailand/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "釜山玩全攻略",
+          "image_url": "images/ticket_banner_07.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/busan/?p=busan5",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026盛夏",
+          "image_url": "images/ticket_banner_08.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/summervacation/?p=summervacation8",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "奇美埃及",
+          "image_url": "images/ticket_banner_09.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/amusement/park/?p=park5#subtag1",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "全台樂園門票優惠",
+          "image_url": "images/ticket_banner_10.jpg",
+          "link_url": "https://activity.eztravel.com.tw/activity/amusement/park/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "WIFI網卡5折起",
+          "image_url": "images/ticket_banner_11.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/wifi/sim/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "APP首購",
+          "image_url": "images/ticket_banner_12.jpg",
+          "link_url": "https://www.eztravel.com.tw/events/app-first-purchase/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "夏威夷",
+          "image_url": "images/ticket_banner_13.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/hawaii/?p=hawaii4",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "2026連假攻略",
+          "image_url": "images/ticket_banner_14.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/longholiday/?p=longholiday1#subtag7",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "東京玩全攻略",
+          "image_url": "images/ticket_banner_15.jpg",
+          "link_url": "https://www.eztravel.com.tw/activity/tokyo/?p=tokyo5",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "category_nav",
+      "type": "category_nav",
+      "title": null,
+      "items": [
+        {
+          "text": "高鐵國旅聯票",
+          "image_url": "images/ticket_nav_icon_01.png",
+          "link_url": "https://activity.eztravel.com.tw/thsrc/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "餐券美食",
+          "image_url": "images/ticket_nav_icon_02.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/foodie/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "日本交通票/JR",
+          "image_url": "images/ticket_nav_icon_03.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/jrpasspromo/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "一日遊",
+          "image_url": "images/ticket_nav_icon_04.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/daytour/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "門票",
+          "image_url": "images/ticket_nav_icon_05.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/ticketsnpasses/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "WIFI/網卡",
+          "image_url": "images/ticket_nav_icon_06.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/wifi/sim/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國外包車",
+          "image_url": "images/ticket_nav_icon_07.png",
+          "link_url": "https://activity.eztravel.com.tw/activity/charterbus/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "全球接送機",
+          "image_url": "images/ticket_nav_icon_08.png",
+          "link_url": "https://airport-transfer.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "環球影城",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/list?q=%E7%92%B0%E7%90%83%E5%BD%B1%E5%9F%8E",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "日本全玩樂",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/alljapan/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "一日遊",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/daytour/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "住宿券",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/list?q=%E4%BD%8F%E5%AE%BF%E5%88%B8",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "王品餐券",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/list?q=%E7%8E%8B%E5%93%81",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "客製包車|填表單",
+          "image_url": null,
+          "link_url": "https://docs.google.com/forms/d/e/1FAIpQLSf51UWRwPxmL__LxJAT0848lQH6WSvue2ywuFkovocim63FBA/viewform",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台灣樂園優惠",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/amusement/park/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台灣好行",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/taiwantrip/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "電影票79折",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/list?q=%E5%BD%B1%E5%9F%8E%E9%9B%BB%E5%BD%B1%E7%A5%A8",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "hot_tickets",
+      "type": "featured_items",
+      "title": "玩樂票券",
+      "items": [
+        {
+          "text": null,
+          "image_url": "images/ticket_product_01.jpg",
+          "link_url": "https://activity.eztravel.com.tw/activity/jrpasspromo/?p=jrpasspromo6",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "【59折】高鐵。限9/30前",
+          "image_url": "images/ticket_product_02.jpg",
+          "link_url": "https://activity.eztravel.com.tw/thsrc/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "【58折】晶華azie爐烤牛排",
+          "image_url": "images/ticket_product_03.jpg",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000007928",
+          "price": "985起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "【機場接送】限時9折",
+          "image_url": null,
+          "link_url": "https://airport-transfer.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "【包車】玩日本最佳方式",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/charterbus/",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "promo_section",
+      "type": "promo_section",
+      "title": "城市熱銷",
+      "items": [
+        {
+          "text": "門票。奇美博物館",
+          "image_url": "images/ticket_promo_01.jpg",
+          "link_url": "https://activity.eztravel.com.tw/list?q=%E5%A5%87%E7%BE%8E",
+          "price": "200起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "門票。奇美博物館",
+          "image_url": "images/ticket_promo_02.jpg",
+          "link_url": "https://activity.eztravel.com.tw/list?q=%E5%A5%87%E7%BE%8E",
+          "price": "200起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "門票。四草隧道",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/list?q=%E5%9B%9B%E8%8D%89",
+          "price": "107起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台南十鼓門票",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000002822",
+          "price": "488起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "門票。屏東海生館",
+          "image_url": "images/ticket_promo_03.png",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000001769",
+          "price": "420起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "門票。屏東海生館",
+          "image_url": "images/ticket_promo_04.png",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000001769",
+          "price": "420起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "探索拉美。海底玻璃半潛艇",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000008623",
+          "price": "350起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "東琉線。快速通關免排隊",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000010504",
+          "price": "200起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "大阪周遊卡",
+          "image_url": "images/ticket_promo_05.png",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKNCT-48361291",
+          "price": "650起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "大阪周遊卡",
+          "image_url": "images/ticket_promo_06.png",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKNCT-48361291",
+          "price": "650起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "關西鐵路卡2日/3日券",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/detail/TKNCT-104920424",
+          "price": "1,025起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "京都天橋立一日遊",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/detail/TKNKL-168248",
+          "price": "2,600起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "theme_section",
+      "type": "theme_section",
+      "title": "優惠專區",
+      "items": [
+        {
+          "text": "58折。晶華azie牛排",
+          "image_url": "images/ticket_theme_01.jpg",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000007928",
+          "price": "985起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "香港杜莎夫人",
+          "image_url": "images/ticket_theme_02.png",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000002219",
+          "price": "1,902起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "台中．麗寶樂園/馬拉灣",
+          "image_url": "images/ticket_theme_03.jpg",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000003474",
+          "price": "699起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "關西樂享券豪華版",
+          "image_url": "images/ticket_theme_04.jpg",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000012379",
+          "price": "3,070起",
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "套裝6千/4千/2千",
+          "image_url": "images/ticket_theme_05.png",
+          "link_url": "https://activity.eztravel.com.tw/detail/TKAI000010896",
+          "price": "360起",
+          "badge": null,
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "footer_links",
+      "type": "footer_links",
+      "title": null,
+      "items": [
+        {
+          "text": "關於易遊網",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/about/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "會員權益",
+          "image_url": null,
+          "link_url": "https://member.eztravel.com.tw/member/membership?tab=memberTiers",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "客服中心",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/support/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "服務據點",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/branches/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "菁英招募",
+          "image_url": null,
+          "link_url": "https://www.eztravel.com.tw/events/career/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國際機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內機票",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/?p=domestic",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "全球訂房",
+          "image_url": null,
+          "link_url": "https://hotel.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國外旅遊",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "遊輪",
+          "image_url": null,
+          "link_url": "https://vacation.eztravel.com.tw/cruise/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "機 + 酒",
+          "image_url": null,
+          "link_url": "https://packages.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "票券活動",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內旅遊",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "環島之星",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/activity/formosa/express/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "鐵道旅行",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/tra-hsr/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內飛機旅遊",
+          "image_url": null,
+          "link_url": "https://trip.eztravel.com.tw/tw-airline-packages/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "國內外租車",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/activity/car/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "護照簽證",
+          "image_url": null,
+          "link_url": "https://flight.eztravel.com.tw/visa",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "高鐵國旅聯票",
+          "image_url": null,
+          "link_url": "https://activity.eztravel.com.tw/thsrc/",
+          "price": null,
+          "badge": null,
+          "description": null
+        },
+        {
+          "text": "iOS",
+          "image_url": null,
+          "link_url": "https://m.eztravel.com.tw/app/promotion/W01?direct=ios&campaign=store",
+          "price": null,
+          "badge": null,
+          "description": null
+        }
+      ]
+    }
+  ]
+}
