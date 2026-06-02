@@ -1,0 +1,360 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@using System.Linq
+@model PageDataViewModel
+@{
+    ViewData["Title"] = Model.DisplayName ?? "機票";
+    var searchSec  = Model.Sections.FirstOrDefault(s => s.Type == "search_bar");
+    var heroSec    = Model.Sections.FirstOrDefault(s => s.Type == "hero_banner");
+    var routesSec  = Model.Sections.FirstOrDefault(s => s.Type == "product_list");
+    var airlineSec = Model.Sections.FirstOrDefault(s => s.Type == "other");
+    var promoSec   = Model.Sections.FirstOrDefault(s => s.Type == "promo_section");
+    var visaSec    = Model.Sections.FirstOrDefault(s => s.Type == "quick_links");
+}
+
+<style>
+/* ── Flight Page – CSS variables only, no hardcoded colour values ── */
+
+/* Search Widget */
+.flight-search {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    margin-bottom: var(--spacing-6);
+    box-shadow: var(--shadow-card);
+}
+.flight-search__tabs {
+    display: flex;
+    gap: var(--spacing-1);
+    border-bottom: 2px solid var(--color-border-light);
+    margin-bottom: var(--spacing-4);
+}
+.flight-search__tab {
+    padding: var(--spacing-2) var(--spacing-4);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-base);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.flight-search__tab:hover  { color: var(--color-brand-primary); }
+.flight-search__tab--active {
+    color: var(--color-brand-primary);
+    border-bottom-color: var(--color-brand-primary);
+}
+.flight-search__types {
+    display: flex;
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-4);
+}
+.flight-search__type-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    cursor: pointer;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+}
+.flight-search__fields {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1.5fr;
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+}
+.flight-search__field label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-1);
+}
+.flight-search__input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-2) var(--spacing-3);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-card);
+}
+.flight-search__input:focus {
+    outline: none;
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 0 0 2px var(--color-brand-primary);
+}
+
+/* Hero Banner Grid */
+.flight-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+}
+.flight-hero-card {
+    display: block;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: var(--color-border-light);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: box-shadow var(--transition-fast);
+}
+.flight-hero-card:hover { box-shadow: var(--shadow-floating); color: var(--color-text-primary); }
+.flight-hero-card__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background-color: var(--color-border-light);
+    display: block;
+}
+.flight-hero-card__img--placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: var(--color-border-light);
+}
+.flight-hero-card__label {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    background-color: var(--color-bg-card);
+}
+
+/* Section layout */
+.flight-section { margin-bottom: var(--spacing-8); }
+.flight-section__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+/* Hot Routes Grid */
+.flight-routes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-3);
+}
+.flight-route-card {
+    display: block;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
+    text-decoration: none;
+    background-color: var(--color-bg-card);
+    transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+.flight-route-card:hover {
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-brand-primary);
+}
+.flight-route-card__title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+}
+.flight-route-card__cta {
+    font-size: var(--font-size-sm);
+    color: var(--color-brand-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Airline Pills */
+.flight-airlines {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-3);
+}
+.flight-airline-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-2) var(--spacing-4);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    background-color: var(--color-bg-card);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+.flight-airline-pill:hover {
+    border-color: var(--color-brand-primary);
+    color: var(--color-brand-primary);
+}
+.flight-airline-pill__img {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Promo / Visa Cards */
+.flight-promo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+}
+.flight-promo-card {
+    display: block;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-6) var(--spacing-4);
+    background-color: var(--color-bg-card);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-card);
+    min-height: 100px;
+    transition: box-shadow var(--transition-fast);
+}
+.flight-promo-card:hover { box-shadow: var(--shadow-floating); }
+.flight-promo-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+}
+.flight-promo-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+</style>
+
+<!-- ── SearchBar ─────────────────────────────────────────────────────── -->
+@if (searchSec != null)
+{
+    <div class="flight-search">
+        <nav class="flight-search__tabs">
+            <a href="/category/flight" class="flight-search__tab flight-search__tab--active">機票</a>
+            <a href="/category/hotel"  class="flight-search__tab">機+酒</a>
+            <a href="#"                class="flight-search__tab">機+酒+船</a>
+            <a href="#"                class="flight-search__tab">訂房</a>
+        </nav>
+        <div class="flight-search__types">
+            <label class="flight-search__type-label"><input type="radio" name="tripType" checked> 來回</label>
+            <label class="flight-search__type-label"><input type="radio" name="tripType"> 單程</label>
+            <label class="flight-search__type-label"><input type="radio" name="tripType"> 多行程</label>
+        </div>
+        <div class="flight-search__fields">
+            <div class="flight-search__field">
+                <label>出發地</label>
+                <input class="flight-search__input" type="text" placeholder="輸入國家/城市/機場關鍵字">
+            </div>
+            <div class="flight-search__field">
+                <label>目的地</label>
+                <select class="flight-search__input"><option>請選擇</option></select>
+            </div>
+            <div class="flight-search__field">
+                <label>出發日</label>
+                <select class="flight-search__input"><option>請選擇</option></select>
+            </div>
+            <div class="flight-search__field">
+                <label>回程日</label>
+                <select class="flight-search__input"><option>請選擇</option></select>
+            </div>
+            <div class="flight-search__field">
+                <label>艙等及人數</label>
+                <select class="flight-search__input"><option>經濟艙 1 位</option></select>
+            </div>
+        </div>
+        <button class="btn btn-primary">搜尋機票</button>
+    </div>
+}
+
+<!-- ── Hero Banner (first 4) ─────────────────────────────────────────── -->
+@if (heroSec != null && heroSec.Items.Any())
+{
+    <div class="flight-hero-grid">
+        @foreach (var banner in heroSec.Items.Take(4))
+        {
+            <a class="flight-hero-card" href="@(banner.LinkUrl ?? "#")" target="_blank" rel="noopener">
+                @if (!string.IsNullOrEmpty(banner.ImageUrl))
+                {
+                    <img class="flight-hero-card__img"
+                         src="/data/機票/@banner.ImageUrl"
+                         alt="@banner.Text"
+                         loading="lazy">
+                }
+                else
+                {
+                    <div class="flight-hero-card__img--placeholder"></div>
+                }
+                <div class="flight-hero-card__label">@banner.Text</div>
+            </a>
+        }
+    </div>
+}
+
+<!-- ── Hot Routes ────────────────────────────────────────────────────── -->
+@if (routesSec != null && routesSec.Items.Any())
+{
+    <div class="flight-section">
+        <h2 class="flight-section__title">@(string.IsNullOrEmpty(routesSec.Title) ? "熱門票規 / 航線" : routesSec.Title)</h2>
+        <div class="flight-routes-grid">
+            @foreach (var route in routesSec.Items)
+            {
+                <a class="flight-route-card" href="@(route.LinkUrl ?? "#")" target="_blank" rel="noopener">
+                    <div class="flight-route-card__title">@route.Text</div>
+                    <span class="flight-route-card__cta">點我了解</span>
+                </a>
+            }
+        </div>
+    </div>
+}
+
+<!-- ── Airline Pills ─────────────────────────────────────────────────── -->
+@if (airlineSec != null && airlineSec.Items.Any())
+{
+    <div class="flight-section">
+        <h2 class="flight-section__title">@(string.IsNullOrEmpty(airlineSec.Title) ? "航空公司專區" : airlineSec.Title)</h2>
+        <div class="flight-airlines">
+            @foreach (var airline in airlineSec.Items.Where(i => !string.IsNullOrEmpty(i.Text) || !string.IsNullOrEmpty(i.ImageUrl)))
+            {
+                <a class="flight-airline-pill" href="@(airline.LinkUrl ?? "#")" target="_blank" rel="noopener">
+                    @if (!string.IsNullOrEmpty(airline.ImageUrl))
+                    {
+                        <img class="flight-airline-pill__img"
+                             src="/data/機票/@airline.ImageUrl"
+                             alt="@airline.Text"
+                             loading="lazy">
+                    }
+                    @if (!string.IsNullOrEmpty(airline.Text))
+                    {
+                        <span>@airline.Text</span>
+                    }
+                </a>
+            }
+        </div>
+    </div>
+}
+
+<!-- ── Promo + Visa Cards ────────────────────────────────────────────── -->
+@{
+    var promoItems = (promoSec?.Items ?? Enumerable.Empty<ItemViewModel>())
+        .Concat(visaSec?.Items ?? Enumerable.Empty<ItemViewModel>())
+        .Take(3)
+        .ToList();
+}
+@if (promoItems.Any())
+{
+    <div class="flight-section">
+        <h2 class="flight-section__title">機票促銷 / 護照簽證</h2>
+        <div class="flight-promo-grid">
+            @foreach (var promo in promoItems)
+            {
+                <a class="flight-promo-card" href="@(promo.LinkUrl ?? "#")" target="_blank" rel="noopener">
+                    <div class="flight-promo-card__title">@promo.Text</div>
+                    @if (!string.IsNullOrEmpty(promo.Description))
+                    {
+                        <p class="flight-promo-card__desc">@promo.Description</p>
+                    }
+                </a>
+            }
+        </div>
+    </div>
+}

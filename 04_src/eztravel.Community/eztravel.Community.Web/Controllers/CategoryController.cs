@@ -20,4 +20,12 @@ public class CategoryController : Controller
         if (model is null) return NotFound();
         return View(model);
     }
+
+    [HttpGet("flight")]
+    public IActionResult Flight()
+    {
+        var model = _loader.Load("flight");
+        if (model is null) return NotFound();
+        return View(model);
+    }
 }
