@@ -1,0 +1,32 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model ProductDetailViewModel
+@{
+    ViewData["Title"] = Model.Name + " — 旅客評論";
+}
+
+@*
+    Views/Review/Submit.cshtml
+    T-eztcomm-20260602-W6PG-COMMUNITY
+    Playwright 視覺測試入口: GET /Review/Submit?productId=1
+    AC-W6-01 body bg #F1F7F8
+    AC-W6-02 navbar #11D073
+    AC-W6-04 Figma nodeId 87:2 相似度 ≥ 70%
+*@
+
+<article class="product-detail">
+    <header class="product-detail__hero">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" alt="@Model.Name" class="product-detail__image" />
+        }
+        <h1 class="product-detail__title">@Model.Name</h1>
+        @if (!string.IsNullOrEmpty(Model.Description))
+        {
+            <p class="product-detail__desc">@Model.Description</p>
+        }
+    </header>
+
+    <section class="product-detail__community">
+        <partial name="_ReviewSection" model="Model" />
+    </section>
+</article>

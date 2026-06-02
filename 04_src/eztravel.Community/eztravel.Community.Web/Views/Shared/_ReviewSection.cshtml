@@ -1,0 +1,45 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model ProductDetailViewModel
+@*
+    _ReviewSection.cshtml
+    T-eztcomm-20260602-W6PG-COMMUNITY: Community AJAX 視覺重建
+    Figma ref: nodeId 87:2 (6XmYJOpiSXab2gtGlmWtks)
+    CSS: CSS variables only — NO hardcoded colour values
+*@
+
+<section class="review-section" data-product-id="@Model.Id" id="review-section">
+
+    <h2 class="review-section__title">旅客評論</h2>
+
+    @* 評分摘要 *@
+    <partial name="_RatingDistribution" model="Model" />
+
+    @* 篩選列 *@
+    <partial name="_FilterBar" />
+
+    @* 評論卡片列表（AJAX 載入） *@
+    <ul class="review-section__list" id="review-list" data-product-id="@Model.Id">
+        @* JavaScript fills this from /api/products/{id}/reviews *@
+    </ul>
+
+    @* 載入更多 *@
+    <button type="button" class="review-section__load-more" id="load-more-btn" data-page="1">
+        載入更多評論
+    </button>
+
+    @* 評論卡片範本（隱藏，由 JS clone） *@
+    <partial name="_ReviewCard" />
+
+    @* 撰寫評論區 *@
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <partial name="_ReviewComposer" model="Model" />
+    }
+    else
+    {
+        <p class="community-module__login-hint">
+            <a asp-area="Identity" asp-page="/Account/Login">登入</a> 後可發表評論
+        </p>
+    }
+
+</section>

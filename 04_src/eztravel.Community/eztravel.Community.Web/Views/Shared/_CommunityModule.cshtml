@@ -1,25 +1,11 @@
 @using EzTravel.Community.Web.Models.ViewModels
 @model ProductDetailViewModel
 
+@*
+    _CommunityModule.cshtml — thin wrapper, delegates to _ReviewSection
+    T-eztcomm-20260602-W6PG-COMMUNITY
+*@
+
 <section class="community-module" data-product-id="@Model.Id">
-    <header class="community-module__summary">
-        <partial name="_RatingDistribution" model="Model" />
-    </header>
-
-    <partial name="_FilterBar" />
-
-    <ul class="community-module__list" id="review-list" data-product-id="@Model.Id">
-        @* 評論列表透過 JavaScript 由 /api/products/{id}/reviews 載入 *@
-    </ul>
-
-    @if (User.Identity?.IsAuthenticated == true)
-    {
-        <partial name="_ReviewComposer" model="Model" />
-    }
-    else
-    {
-        <p class="community-module__login-hint">
-            <a asp-area="Identity" asp-page="/Account/Login">登入</a> 後可發表評論
-        </p>
-    }
+    <partial name="_ReviewSection" model="Model" />
 </section>
