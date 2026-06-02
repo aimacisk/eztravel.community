@@ -36,4 +36,15 @@ public class CategoryController : Controller
         if (model is null) return NotFound();
         return View(model);
     }
+
+    // T-eztcomm-20260602-W6PG-CAT-GROUPTOUR: 團體分類頁獨立 route
+    // 需要明確 route 因為 class-level [Route("category")] 取代 conventional routing
+    [Route("Category/GroupTour")]
+    [HttpGet]
+    public IActionResult GroupTour()
+    {
+        var model = _loader.Load("grouptour");
+        if (model is null) return NotFound();
+        return View("GroupTour", model);
+    }
 }

@@ -1,0 +1,126 @@
+@* T-eztcomm-20260602-W6PG-CAT-GROUPTOUR: 團體分類頁 — 依 Figma nodeId 130:2 視覺重建
+   CSS variables only — brand colors via var(--color-brand-primary) in site.css，不寫 hardcoded hex
+   Layout 由 _ViewStart.cshtml 自動套用，此檔不重複宣告 *@
+@using EzTravel.Community.Web.Models.ViewModels
+@model PageDataViewModel
+@{
+    ViewData["Title"] = Model.DisplayName + " - 易遊網";
+}
+
+<style>
+    /* ── GroupTour 分類頁專屬樣式 (T-eztcomm-20260602-W6PG-CAT-GROUPTOUR) ──
+       所有顏色值一律引用 site.css :root CSS variables，不寫 hardcoded hex。
+       ──────────────────────────────────────────────────────────────────── */
+
+    /* 頁首英雄區：品牌綠漸層背景 (Figma 130:2 設計參考) */
+    .grouptour-hero {
+        background: linear-gradient(135deg,
+            var(--color-brand-primary) 0%,
+            var(--color-brand-dark)   100%);
+        color: #ffffff;
+        padding: var(--spacing-8) var(--spacing-6);
+        border-radius: var(--radius-lg);
+        margin-bottom: var(--spacing-8);
+        text-align: center;
+    }
+
+    .grouptour-hero__title {
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-bold);
+        font-family: var(--font-family-display);
+        margin-bottom: var(--spacing-3);
+    }
+
+    .grouptour-hero__subtitle {
+        font-size: var(--font-size-lg);
+        font-family: var(--font-family-primary);
+        opacity: 0.88;
+    }
+
+    /* search_bar 區段：品牌綠底色 (對齊 Figma 搜尋列視覺) */
+    .page-section--search_bar.grouptour-search,
+    .page-section--search_form.grouptour-search {
+        background-color: var(--color-brand-primary);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-6);
+        margin-bottom: var(--spacing-8);
+    }
+
+    /* search 區段內 title 改白色 */
+    .grouptour-search .page-section__title {
+        color: #ffffff;
+    }
+
+    /* 行程卡片區域加上內距 */
+    .grouptour-products {
+        padding-top: var(--spacing-4);
+    }
+
+    /* 卡片區 section 標題下邊距 */
+    .grouptour-products .page-section__title {
+        color: var(--color-text-primary);
+        border-left: 4px solid var(--color-brand-primary);
+        padding-left: var(--spacing-3);
+    }
+</style>
+
+@* 頁首英雄區 (Figma 130:2: 品牌綠 navbar 下方的 hero banner) *@
+<div class="grouptour-hero">
+    <div class="grouptour-hero__title">@Model.DisplayName旅遊</div>
+    <div class="grouptour-hero__subtitle">探索世界，共享美好時光</div>
+</div>
+
+@* 各 Section 迴圈 — 完全沿用 Show.cshtml 的 partial dispatch 機制 *@
+@foreach (var sec in Model.Sections)
+{
+    @{
+        var isSearchSection = sec.Type == "search_bar" || sec.Type == "search_form";
+        var isFeaturedSection = sec.Type is "featured_items" or "featured_grid" or "product_list";
+        var extraCss = isSearchSection ? " grouptour-search"
+                     : isFeaturedSection ? " grouptour-products"
+                     : string.Empty;
+    }
+
+    <div id="@sec.Id" class="page-section page-section--@sec.Type@extraCss">
+        @if (!string.IsNullOrEmpty(sec.Title))
+        {
+            <h2 class="page-section__title">@sec.Title</h2>
+        }
+        @switch (sec.Type)
+        {
+            case "banner":
+            case "banner_carousel":
+                @await Html.PartialAsync("_Section_Banner", sec)
+                break;
+
+            case "category_nav":
+            case "navigation":
+                @await Html.PartialAsync("_Section_CategoryNav", sec)
+                break;
+
+            case "featured_items":
+            case "featured_grid":
+            case "product_list":
+                @await Html.PartialAsync("_Section_FeaturedGrid", sec)
+                break;
+
+            case "promo_card":
+            case "promo":
+                @await Html.PartialAsync("_Section_PromoCard", sec)
+                break;
+
+            case "search_bar":
+            case "search_form":
+                @await Html.PartialAsync("_Section_SearchForm", sec)
+                break;
+
+            case "footer":
+                @await Html.PartialAsync("_Section_Footer", sec)
+                break;
+
+            default:
+                @await Html.PartialAsync("_Section_Generic", sec)
+                break;
+        }
+    </div>
+}
