@@ -335,8 +335,8 @@
 
 <!-- ── Promo + Visa Cards ────────────────────────────────────────────── -->
 @{
-    var promoItems = (promoSec?.Items ?? Enumerable.Empty<ItemViewModel>())
-        .Concat(visaSec?.Items ?? Enumerable.Empty<ItemViewModel>())
+    var promoItems = (promoSec?.Items ?? Enumerable.Empty<SectionItemViewModel>())
+        .Concat(visaSec?.Items ?? Enumerable.Empty<SectionItemViewModel>())
         .Take(3)
         .ToList();
 }
