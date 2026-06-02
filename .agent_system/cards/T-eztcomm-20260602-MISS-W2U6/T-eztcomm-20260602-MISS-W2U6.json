@@ -1,0 +1,57 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-MISS-W2U6",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[MISS W2] W2-UIUX-6 自由行分類頁 — 新建設計 + figma_deliverables",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "instruction": "[WISH W4-REBUILD 防線 1+2] 新建 W2-UIUX-6 自由行分類頁 Figma 設計\n\n## 背景\nW2-UIUX-6（原卡）status=TODO，deliverables=[]，設計完全未開始。\n\n## 步驟\n1. 打開 Figma fileKey=6XmYJOpiSXab2gtGlmWtks\n2. 新增 page \"Category-自由行\"\n3. 依 data/free-travel/*.json 真實資料繪製以下 sections：\n   - SearchBar（1440×80，品牌綠底 #11D073）\n   - HeroBanner（促銷 banner chips，依 JSON hero_banner）\n   - CategoryNav（分類 chips，依 JSON category_nav）\n   - ProductGrid（自由行套裝，依 JSON featured 真實資料）\n   - Footer（深色底導覽）\n4. 命名 frame：Wrapper（auto-layout VERTICAL）\n5. 對全部 nodeId 跑 get_screenshot + 5D 自驗\n6. 輸出 figma_deliverables.json 到 cards/T-eztcomm-20260602-MISS-W2U6/figma_deliverables.json：\n   - fileKey=6XmYJOpiSXab2gtGlmWtks\n   - nodeIds: [新建後的 nodeId 列表]\n   - razor_targets: [\"Views/Category/FreeTour.cshtml\"]\n7. 回應結尾打 [TASK_DONE]\n\n## 參考設計\n- W2-UIUX-3（機票）同類型結構，可直接複製調整\n- tokens.json 提供所有 CSS variable 值\n",
+  "context_paths": [
+    "projects/eztravel.community/data/",
+    "projects/eztravel.community/skills/styling/tokens.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-3/T-eztcomm-20260601-W2-UIUX-3.json"
+  ],
+  "acceptanceCriteria": [
+    "[防線 1-UIUX自驗] 對 nodeId 清單（新建 Category-自由行 page 全部 frame nodeId）逐一呼叫 get_screenshot，5D 自驗（品牌色/字型/間距/響應/文字）全部 PASS",
+    "[防線 2-figma_deliverables] 結構化欄位已填：fileKey / nodeIds 陣列 / page_url / screenshots 路徑清單 / razor_targets / self_audit 結果 (5D)",
+    "AC-MISS-02：自由行 Figma page 存在於 fileKey=6XmYJOpiSXab2gtGlmWtks",
+    "AC-MISS-03：free-travel data 的真實資料（至少 3 筆）已在 Figma frame 中顯示"
+  ],
+  "wikiTarget": "06_wiki/02_design.md",
+  "depends_on": [],
+  "createdBy": "pm",
+  "objective": "在 Figma 新建自由行分類頁（依 data/free-travel/ 真實資料），輸出 figma_deliverables.json",
+  "goal_state": "Figma 含 Category-自由行 page，Wrapper frame 完整，figma_deliverables.json 存在，nodeIds 陣列非空，self_audit 全 PASS",
+  "verification": {
+    "verifier": "UIUX 自驗 + GATE-UIUX 覆驗",
+    "tools": [
+      "mcp__figma-remote-mcp__use_figma",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "get_screenshot 對新建 Wrapper nodeId 有截圖回傳",
+      "figma_deliverables.json 存在於 cards/T-eztcomm-20260602-MISS-W2U6/",
+      "截圖目測：品牌綠 #11D073 navbar 可見，文字非空，無框線溢出"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 Controller / Model / EF 設定，純 Figma 設計工作",
+    "不動 site.css / _Layout.cshtml（CSS Foundation 由 R1 負責，已 DONE）",
+    "不建立完整 Razor 視圖（PG Wave 6 負責），只需提供完整 figma_deliverables"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 失效 / get_screenshot timeout → chat admin [QUERY] 說明 token 狀態，不繼續",
+    "nodeId 不存在或 Figma frame 已被刪除 → 讀原卡 execution_log 確認正確 nodeId，仍找不到則 chat admin [ESCALATION]"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

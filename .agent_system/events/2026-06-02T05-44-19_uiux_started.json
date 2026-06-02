@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:44:19.766568+00:00",
+  "task_id": "T-eztcomm-R-UIUX-REAUDIT-W3",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[WISH] EZTCOMM-W4-REBUILD — 第 3 道防線前置準備（W3 UIUX Reaudit）\n\n**上游輸入**：W3-UIUX-1/2/3（T-eztcomm-20260601-W3-UIUX-1/2/3）既有卡；W3-UIUX-2（TODO）需先完成設計。\n\n**下游消費**：T-eztcomm-R-UIUX-AUDIT-GATE 機械化驗證，格式必須完整。\n\n**執行步驟",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

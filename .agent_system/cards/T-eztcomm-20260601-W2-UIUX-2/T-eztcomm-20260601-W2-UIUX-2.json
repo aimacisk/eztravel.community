@@ -79,5 +79,19 @@
   "agent_session_id": "T-eztcomm-20260601-W2-UIUX-2-session-resume",
   "admin_audit_at": "2026-06-02T04:30:00+00:00",
   "admin_audit_revert_at": "2026-06-02T04:48:00+00:00",
-  "admin_audit_reason": "Page 107:2 found empty in 2nd audit — content lost between W2-UIUX-2 first DONE and now"
+  "admin_audit_reason": "Page 107:2 found empty in 2nd audit — content lost between W2-UIUX-2 first DONE and now",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": ["153:2"],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "screenshots": ["projects/eztravel.community/06_wiki/visual/w2/153_2.png"],
+    "razor_targets": ["Views/Home/Index.cshtml"],
+    "self_audit": {
+      "layout": "PASS",
+      "spacing": "PASS",
+      "color": "PASS",
+      "typography": "PASS",
+      "component": "PASS"
+    }
+  }
 }

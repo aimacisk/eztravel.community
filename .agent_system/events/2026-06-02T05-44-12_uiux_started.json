@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:44:12.199315+00:00",
+  "task_id": "T-eztcomm-R-UIUX-REAUDIT-W2",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[WISH] EZTCOMM-W4-REBUILD — 第 3 道防線前置準備（W2 UIUX Reaudit）\n\n**上游輸入**：W2-UIUX-1~11 既有 DONE 卡（T-eztcomm-20260601-W2-UIUX-1 到 T-eztcomm-20260601-W2-UIUX-11）的現有設計；W2-UIUX-5（IP）和 W2-UIUX-6（TODO）需先完成設計。\n\n**下游",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

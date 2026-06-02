@@ -1,0 +1,57 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-CI-CHECK",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[CI W8] CSS Token 機械驗 + 最終回歸測試",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "instruction": "[WISH W4-REBUILD 防線 7-CSS機械驗] 最終 CI 機械驗收\n\n## 進場第一動作\n打 `/goal site.css 含完整 CSS variables，grep #11D073 非空，Playwright body bg = rgb(241,247,248)`\n\n## 驗收項目（全部自動化）\n\n### 防線 7 — CSS Token 機械驗\n1. `grep -c 'color-' wwwroot/css/site.css ≥ 16`（16 個 --color-* variable）\n2. `grep -i '11D073' wwwroot/css/site.css` 非空（品牌色已定義）\n3. `grep 'surface-cool' wwwroot/css/site.css` 非空（背景色已定義）\n\n### Playwright 端對端驗收\n對以下 7 個路由逐一驗收：\n- / (Home)\n- /Category/Flight\n- /Category/Hotel\n- /Category/FreeTour\n- /Category/GroupTour\n- /Category/Ticket\n- /Category/Attraction\n\n每個路由：\n1. `browser_navigate(localhost:5150{route})`\n2. `browser_evaluate(\"getComputedStyle(document.body).backgroundColor\")` → 回傳值含 '241, 247, 248'\n3. `browser_evaluate(\"getComputedStyle(document.body).fontFamily\")` → 含 'Noto' 或 'sans-serif' 且非 Bootstrap 預設\n4. `browser_take_screenshot` → 記錄截圖路徑\n\n### xUnit 回歸測試\n確認 W4-PG-1 的 EF/Identity 與 W4-PG-5 的 health endpoint 仍然通過（不被重建卡影響）。\n\n## 輸出\nci_check_report.json 寫入 cards/T-eztcomm-20260602-CI-CHECK/ci_check_report.json\n\n## 完工\n- 全部 PASS → [TASK_DONE]，專案視覺重建完成\n- 任何 FAIL → chat admin [ESCALATION]，列 FAIL 項目\n",
+  "context_paths": [],
+  "acceptanceCriteria": [
+    "[防線 7-CSS機械驗] grep '#11D073' wwwroot/css/site.css 輸出非空；Playwright evaluate body.backgroundColor ≠ rgb(255,255,255)；navbar 背景含 #11D073",
+    "AC-CI-01：grep -c 'color-' site.css ≥ 16",
+    "AC-CI-02：grep '11D073' site.css 非空（含 --color-brand-primary: #11D073）",
+    "AC-CI-03：7 路由 Playwright body.backgroundColor = rgb(241,247,248)",
+    "AC-CI-04：xUnit 測試（W4-PG-1/PG-5 相關）仍 PASS，未被重建卡破壞"
+  ],
+  "wikiTarget": "06_wiki/04_dev_guide.md",
+  "depends_on": [
+    "T-eztcomm-20260602-GATE-PG"
+  ],
+  "createdBy": "pm",
+  "objective": "執行防線 7 CSS 機械驗 + 7 路由 Playwright 端對端驗收 + xUnit 回歸，確認 W4 重建完整",
+  "goal_state": "ci_check_report.json 存在，verdict=PASS；grep 確認 16+ CSS variables；7 路由 Playwright body bg = rgb(241,247,248)",
+  "verification": {
+    "verifier": "PG 自驗（自動化）",
+    "tools": [
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash"
+    ],
+    "evidence_checks": [
+      "跑 grep -c 'color-' wwwroot/css/site.css 後輸出數字 ≥ 16",
+      "跑 grep -i '11D073' wwwroot/css/site.css 後輸出非空，含 --color-brand-primary",
+      "7 路由 Playwright evaluate body.backgroundColor 均回傳含 '241, 247, 248'"
+    ]
+  },
+  "out_of_scope": [
+    "不修改任何 Controller / CSS / Razor 檔案，只執行驗收指令",
+    "W5-ADMIN-* 雲端部署卡不在本卡範圍"
+  ],
+  "escalation_on_block": [
+    "app 無法啟動（dotnet run 失敗）→ 讀 Serilog log，分析 startup error，chat admin [ERROR]",
+    "xUnit 測試失敗（非 CSS 相關）→ 記錄到 ci_check_report FAIL 清單，不自行修復，chat admin [ESCALATION]"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

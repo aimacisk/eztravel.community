@@ -1,0 +1,72 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-R4",
+  "prj_id": "eztravel.community",
+  "status": "SUPERSEDED",
+  "title": "Category Listings 視覺重建 — 6 種旅遊分類列表頁對齊 figma",
+  "created_at": "2026-06-02T04:44:27.699884+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH W4-REBUILD] Category Listings 視覺重建 — 6 種旅遊分類列表頁對齊 figma\n\n## 前置條件\nT-eztcomm-20260602-R1（CSS Foundation）必須已 DONE。\n\n## Figma 參考\n- Figma file：https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design\n- 各分類 nodeId：\n  - `180:2` — Flight 機票列表（page_node: 100:2，wrapper 180:2，1440×1453）\n  - `119:2` — Hotel 住宿列表\n  - `127:2` — FreeTour 自由行列表\n  - `130:2` — GroupTour 跟團旅列表\n  - `187:3` — Ticket 票券列表\n  - `144:2` — Attraction 景點列表\n\n## Flight 頁面子區段（180:2 頁的分解，其他分類可類推）\n- `180:3` — Breadcrumb\n- `180:10` — Search Filter Bar\n- `180:30` — Filter Chips\n- `180:50` — Product Card List\n- `185:10` — Pagination\n- `185:14` — Footer\n\n## 共用視覺規範（所有 6 種分類適用）\n\n### 商品卡片（Listing Card）\n```css\n.listing-card {\n  background: var(--color-surface-white);\n  border: 1px solid var(--color-neutral-200);\n  border-radius: var(--radius-md);\n  box-shadow: var(--shadow-card);\n  transition: box-shadow var(--transition-fast);\n  padding: var(--spacing-4);\n  display: flex;\n  gap: var(--spacing-4);\n}\n.listing-card:hover { box-shadow: var(--shadow-elevated); }\n.listing-card__title {\n  font-size: var(--font-size-h4);\n  font-weight: var(--font-weight-medium);\n  color: var(--color-neutral-900);\n}\n.listing-card__price {\n  font-size: var(--font-size-h3);\n  font-weight: var(--font-weight-bold);\n  color: var(--color-accent-orange);\n}\n.listing-card .btn-view {\n  background: var(--color-brand-primary);\n  color: #fff;\n  border-radius: var(--radius-md);\n  padding: var(--spacing-2) var(--spacing-4);\n}\n```\n\n### 篩選 Chips（Filter Bar）\n```css\n.filter-chip {\n  background: var(--color-neutral-100);\n  border-radius: var(--radius-sm);\n  padding: var(--spacing-1) var(--spacing-3);\n  font-size: var(--font-size-small);\n  cursor: pointer;\n  border: 1px solid var(--color-neutral-300);\n  transition: all var(--transition-fast);\n}\n.filter-chip.active,\n.filter-chip:hover {\n  background: var(--color-brand-mint);\n  border-color: var(--color-brand-primary);\n  color: var(--color-neutral-900);\n}\n```\n\n### Breadcrumb\n```css\n.breadcrumb-item { font-size: var(--font-size-small); color: var(--color-neutral-500); }\n.breadcrumb-item.active { color: var(--color-neutral-900); }\n```\n\n### Pagination\n```css\n.page-link { color: var(--color-brand-primary); }\n.page-item.active .page-link {\n  background: var(--color-brand-primary);\n  border-color: var(--color-brand-dark);\n  color: #fff;\n}\n```\n\n## figma_deliverables\n- fileKey: 6XmYJOpiSXab2gtGlmWtks\n- nodes:\n  - 180:2 → Views/Flight/Index.cshtml（或對應 listing view）\n  - 119:2 → Views/Hotel/Index.cshtml\n  - 127:2 → Views/FreeTour/Index.cshtml\n  - 130:2 → Views/GroupTour/Index.cshtml\n  - 187:3 → Views/Ticket/Index.cshtml\n  - 144:2 → Views/Attraction/Index.cshtml（若存在）\n- URL: https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design?node-id=180:2\n\n## 視覺自驗（完工前必做）\n對 180:2 / 119:2 / 127:2 / 130:2 / 187:3 / 144:2 各執行 `mcp__figma-remote-mcp__get_screenshot`，\nPlaywright 各訪問對應 listing URL，5 維度評估 ≥70%，execution_log 記錄每個分類對照結果。\n\n## worktree 規範\n- worktree：`.worktrees/T-eztcomm-20260602-R4/`\n- branch：`feat/T-eztcomm-20260602-R4`\n- 完工：`git fetch ../.. main && git rebase main` → `git checkout main && git merge feat/T-eztcomm-20260602-R4`\n- 最終回應打 `[TASK_DONE]`",
+  "context_paths": [
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Views/",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+    "projects/eztravel.community/skills/styling/figma_template.json",
+    "projects/eztravel.community/skills/styling/tokens.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260602-R1"
+  ],
+  "objective": "修改 Flight / Hotel / FreeTour / GroupTour / Ticket / Attraction 6 種旅遊分類的 Listing 頁 Razor 視圖，套用 R1 CSS Foundation，完全對齊 figma 各分類列表頁設計稿（nodeId 180:2 / 119:2 / 127:2 / 130:2 / 187:3 / 144:2）。",
+  "goal_state": "6 種分類列表頁（/Flight / /Hotel / /FreeTour / /GroupTour / /Ticket / /Attraction）商品卡片皆有 shadow-card + radius-md + 橘色價格 + 綠色 CTA；篩選 Bar 有 chip active 狀態（brand.mint 底）；Pagination active 頁為品牌綠；figma 各 nodeId 截圖 5 維度評估 ≥70%。",
+  "verification": {
+    "verifier": "pg 自驗（Playwright 6 分類頁 + figma get_screenshot）",
+    "tools": [
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "跑 Playwright navigate /Flight 後 take_screenshot，商品卡片有可見陰影（非純平面 Bootstrap 列表）",
+      "跑 figma get_screenshot node 180:2 後對照 Playwright /Flight 截圖，5 維度自評 ≥70%",
+      "跑 Playwright evaluate querySelectorAll('.filter-chip.active')[0].style.background 包含 'CFF6E3'（brand.mint）或對應 rgb",
+      "跑 Playwright evaluate querySelector('.page-item.active .page-link').style 確認品牌綠 active 分頁"
+    ]
+  },
+  "out_of_scope": [
+    "Listing 查詢 / 分頁 Controller 邏輯不得修改",
+    "ProductDetail 詳情頁（歸 R3 負責）",
+    "Community 評論元件（歸 R5 負責）",
+    "Search / filter API endpoint 不得異動"
+  ],
+  "escalation_on_block": [
+    "某分類的 Razor View 路徑或 Controller 結構不明 → 掃 Controllers/ + Views/ 目錄後 chat admin [QUERY]",
+    "figma get_screenshot 某 nodeId 失敗 → 跳過該 node 改純 Playwright 自驗並記錄原因",
+    "6 分類共用 partial vs 各自獨立 view 判斷困難 → 抽象 _ProductListingCard.cshtml partial 供所有分類使用"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-R4-01：6 種分類列表頁商品卡片 computed box-shadow 非 none",
+    "AC-R4-02：figma 各分類 nodeId 截圖與 Playwright 截圖 5 維度自評 ≥70%",
+    "AC-R4-03：Filter chip active 狀態 background 為 brand.mint（#CFF6E3）",
+    "AC-R4-04：Pagination active page 背景為 brand.primary（#11D073）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-02T05:26:06.897555+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": "",
+  "superseded_by": [
+    "T-eztcomm-20260602-W6PG-CAT-FLIGHT",
+    "T-eztcomm-20260602-W6PG-CAT-HOTEL",
+    "T-eztcomm-20260602-W6PG-CAT-FREETOUR",
+    "T-eztcomm-20260602-W6PG-CAT-GROUPTOUR",
+    "T-eztcomm-20260602-W6PG-CAT-TICKET",
+    "T-eztcomm-20260602-W6PG-CAT-ATTRACTION"
+  ],
+  "reclaim_reason": "REPLACED_BY_REBUILD_DUE_TO_FALSE_DONE — 拆解為 6 張個別分類頁卡",
+  "superseded_at": "2026-06-02T05:28:12+00:00"
+}

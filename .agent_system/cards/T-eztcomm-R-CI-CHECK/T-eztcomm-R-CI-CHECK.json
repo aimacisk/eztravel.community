@@ -1,0 +1,61 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-R-CI-CHECK",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[CI Check] 第 7 道防線：CSS 機械化 CI 檢查腳本（5 條規則 + block on fail）",
+  "created_at": "2026-06-02T05:28:16.503168+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — 第 7 道防線（CSS 機械化 CI，singleton）\n\n**觸發條件**：T-eztcomm-20260602-R2/R3/R4/R5/R6 全部 DONE 後執行（CSS 全部落地才能驗）\n\n**上游輸入**：\n- R1 的 site.css（已含 #11D073 + CSS variables）\n- R2~R6 的 razor views（已使用 CSS variables）\n\n**執行範圍**：\n撰寫 PowerShell 腳本 `projects/eztravel.community/04_src/EzTravel.Community/scripts/ci_css_check.ps1`\n\n**5 條必過規則**：\n```powershell\n# Rule 1: 品牌色必命中\n$hit1 = (Select-String -Path \"wwwroot/css/site.css\" -Pattern \"11D073\" -Quiet)\n\n# Rule 2: CSS variables 數量 ≥ 15\n$count2 = (Select-String -Path \"wwwroot/css/site.css\" -Pattern \"color-brand|color-neutral|font-size-\" | Measure-Object).Count\n\n# Rule 3: body 背景非純白（Playwright）\n# Rule 4: nav 背景非純白（Playwright）\n# Rule 5: font-family 含 Noto（Playwright）\n# Rules 3-5 用 Playwright node.js 腳本或 pwsh 調用 playwright\n```\n\n腳本邏輯：\n- 全部 5 條通過 → exit code 0（可 merge）\n- 任一條失敗 → exit code 1 + 印失敗項目（block merge）\n\n**可選（如有 GitHub Actions）**：\n- 在 `.github/workflows/css_check.yml` 加 step 呼叫此腳本\n\n**本卡完工後**：\n- 在 main branch commit scripts/ci_css_check.ps1\n- 手動跑一次驗輸出（全 5 條通過才 DONE）\n- 寫 execution_log 附腳本輸出截圖/文字",
+  "context_paths": [
+    "projects/eztravel.community/04_src/EzTravel.Community/wwwroot/css/site.css",
+    "projects/eztravel.community/04_src/EzTravel.Community/scripts/",
+    "projects/eztravel.community/.github/workflows/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260602-R2",
+    "T-eztcomm-20260602-R3",
+    "T-eztcomm-20260602-R4",
+    "T-eztcomm-20260602-R5",
+    "T-eztcomm-20260602-R6"
+  ],
+  "objective": "撰寫 PowerShell CI 檢查腳本（5 條 CSS 規則），全通才退 code 0，任一失敗退 code 1 並列明原因，防止無品牌色的代碼 merge。",
+  "goal_state": "scripts/ci_css_check.ps1 存在於 main branch，手動執行全 5 條規則通過（exit code 0），execution_log 含腳本輸出記錄。",
+  "verification": {
+    "verifier": "pg 自驗 + admin 確認",
+    "tools": [
+      "Bash (pwsh)",
+      "Grep"
+    ],
+    "evidence_checks": [
+      "scripts/ci_css_check.ps1 存在（ls 命中）",
+      "pwsh ci_css_check.ps1 執行輸出含 'ALL 5 RULES PASSED' 或類似字樣且 exit code = 0",
+      "grep -c '11D073' site.css 輸出 ≥ 1（Rule 1 真實命中）"
+    ]
+  },
+  "out_of_scope": [
+    "CSS 實作本身（R1~R6 已完成）",
+    "完整 CI/CD pipeline 設置（GitHub Actions 可選，不強制）",
+    "E2E 業務測試（歸 QA）"
+  ],
+  "escalation_on_block": [
+    "Playwright CLI 在 CI 環境無法安裝 → Rule 3/4/5 改用 grep-based 替代方案 + chat admin 確認",
+    "Rule 2 計數 < 15（CSS variables 不足）→ 不修腳本，改 chat admin 確認是否 R1 有遺漏"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "scripts/ci_css_check.ps1 存在且有執行權限",
+    "腳本含 5 條規則（11D073 grep / variables count ≥15 / body-bg / nav-bg / font-family）",
+    "手動執行全通 exit code 0",
+    "任一 rule 失敗時腳本明確印出哪條失敗",
+    "commit 到 main branch（commit_sha 非 null）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

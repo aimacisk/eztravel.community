@@ -1,0 +1,57 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-MISS-W2U5",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[MISS W2] W2-UIUX-5 團體分類頁 — 完成設計 + figma_deliverables",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "instruction": "[WISH W4-REBUILD 防線 1+2] 完成 W2-UIUX-5 團體分類頁設計並填寫 figma_deliverables\n\n## 背景\nW2-UIUX-5（原卡）status=IN_PROGRESS，已有部分 nodeId（130:2,130:3,130:7,130:21,130:139）但設計未完工。\n\n## 步驟\n1. 讀取 `T-eztcomm-20260601-W2-UIUX-5/T-eztcomm-20260601-W2-UIUX-5.json` 的 execution_log\n2. 打開 Figma fileKey=6XmYJOpiSXab2gtGlmWtks，找 page 130:2（Category-團體）\n3. 確認現有 frames 是否完整：SearchBar / HeroBanner / ThemeSection / ProductCards / Footer\n4. 若缺少 section → 補繪，依 data/團體/ JSON 資料填入真實內容\n5. 對全部 nodeId 跑 get_screenshot + 5D 自驗\n6. 輸出 figma_deliverables.json：\n   - fileKey=6XmYJOpiSXab2gtGlmWtks\n   - nodeIds: [\"130:2\",\"130:3\",\"130:7\",\"130:21\",\"130:139\"，...（補充完整）]\n   - razor_targets: [\"Views/Category/GroupTour.cshtml\"]\n7. 把 figma_deliverables.json 寫入本卡 cards/T-eztcomm-20260602-MISS-W2U5/figma_deliverables.json\n8. 回應結尾打 [TASK_DONE]\n\n## 參考資料\n- data/團體/*.json：真實 JSON 資料\n- W2-UIUX-3（機票）為同類型分類頁的設計參考\n",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-5/T-eztcomm-20260601-W2-UIUX-5.json",
+    "projects/eztravel.community/data/team-travel/",
+    "projects/eztravel.community/skills/styling/tokens.json"
+  ],
+  "acceptanceCriteria": [
+    "[防線 1-UIUX自驗] 對 nodeId 清單（130:2, 130:3, 130:7, 130:21, 130:139 + 補充 sections）逐一呼叫 get_screenshot，5D 自驗（品牌色/字型/間距/響應/文字）全部 PASS",
+    "[防線 2-figma_deliverables] 結構化欄位已填：fileKey / nodeIds 陣列 / page_url / screenshots 路徑清單 / razor_targets / self_audit 結果 (5D)",
+    "AC-MISS-01：figma_deliverables.json 存在且 nodeIds 非空",
+    "AC-MISS-02：team-travel data 的真實資料（至少 3 筆 product）已在 Figma frame 中顯示"
+  ],
+  "wikiTarget": "06_wiki/02_design.md",
+  "depends_on": [],
+  "createdBy": "pm",
+  "objective": "完成 W2-UIUX-5 團體分類頁所有 Figma frames 設計，輸出 figma_deliverables.json（防線 1+2）",
+  "goal_state": "Category-團體 page 在 Figma 含完整 SearchBar/HeroBanner/ThemeSection/ProductCards/Footer，figma_deliverables.json 存在含全部 nodeId + self_audit 全 PASS",
+  "verification": {
+    "verifier": "UIUX 自驗",
+    "tools": [
+      "mcp__figma-remote-mcp__get_screenshot",
+      "mcp__figma-remote-mcp__use_figma"
+    ],
+    "evidence_checks": [
+      "跑 mcp__figma-remote-mcp__get_screenshot nodeId=130:2 後有截圖回傳（非空）",
+      "figma_deliverables.json 存在於 cards/T-eztcomm-20260602-MISS-W2U5/ 且 nodeIds 陣列 ≥ 5 個",
+      "self_audit brand_color 含 '#11D073' 或 '#2AB071'"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 Controller / Model / EF 設定，純 Figma 設計工作",
+    "不動 site.css / _Layout.cshtml（CSS Foundation 由 R1 負責，已 DONE）",
+    "不建立完整 Razor 視圖（PG Wave 6 負責），只需提供完整 figma_deliverables"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 失效 / get_screenshot timeout → chat admin [QUERY] 說明 token 狀態，不繼續",
+    "nodeId 不存在或 Figma frame 已被刪除 → 讀原卡 execution_log 確認正確 nodeId，仍找不到則 chat admin [ESCALATION]"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

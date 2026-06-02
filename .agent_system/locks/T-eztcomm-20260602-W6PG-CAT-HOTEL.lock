@@ -1,0 +1,1 @@
+{"task_id": "T-eztcomm-20260602-W6PG-CAT-HOTEL", "agent": "pg", "worker_id": "pg-3", "pid": 144900, "acquired_at": "2026-06-02T05:53:21.764237+00:00", "ttl_seconds": 1800, "expires_at": "2026-06-02T06:23:21.764237+00:00", "msg_kind": "task", "msg_id": "m-182082cc51d1"}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-R-PG6-AUDIT",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "[PG6 Audit] 驗 W4-PG-6 假 DONE — commit_sha=PENDING_ADMIN_COMMIT 真實性",
+  "created_at": "2026-06-02T05:26:23.397151+00:00",
+  "assignee": "qa",
+  "phase": "QA",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — 假 DONE 稽核（PG6）\n\n**上游輸入**：T-eztcomm-20260601-W4-PG-6 卡本體（commit_sha=\"PENDING_ADMIN_COMMIT\"，宣稱 11 個 tests 存在）\n\n**執行步驟**：\n1. 讀取 T-eztcomm-20260601-W4-PG-6 卡本體，取 deliverables 清單 + execution_log\n2. 執行 `git -C projects/eztravel.community log --oneline -30` 確認 main branch 最近 commits\n3. 確認 W4-PG-6 宣稱的 11 個 E2E/unit tests 是否實際存在於 main branch：\n   - Glob 掃描 `projects/eztravel.community/04_src/**/Tests/` 或 `**/test/**`\n   - Grep 搜尋測試方法名稱（從 execution_log 取名稱）\n4. 判定結果：\n   a. **測試不存在** → 寫 audit log（06_wiki/audit/pg6_audit_{ts}.md）+ chat admin \"[ERROR] W4-PG-6 假 DONE 確認，測試不存在於 main，建議 reopen REWORK\"\n   b. **測試存在但 commit_sha 假** → 找真實 commit sha（git log --follow --grep 相關 message）→ 回填 commit_sha + 寫 audit log\n   c. **測試存在且 commit_sha 真** → 寫 audit log 標記「通過」+ 本卡 DONE\n\n**audit log 格式**（06_wiki/audit/pg6_audit_{ts}.md）：\n```\n# W4-PG-6 Audit Log @ {ts}\n## 結論：{通過 / 假 DONE}\n## 測試存在性：{列表}\n## commit_sha 狀態：{PENDING_ADMIN_COMMIT → 真實 sha 或 NOT_FOUND}\n## 建議動作：{...}\n```",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W4-PG-6/",
+    "projects/eztravel.community/04_src/",
+    "projects/eztravel.community/06_wiki/audit/"
+  ],
+  "depends_on": [],
+  "objective": "稽核 W4-PG-6（commit_sha=PENDING_ADMIN_COMMIT）是否真實 DONE，確認 11 個測試是否在 main branch 存在。",
+  "goal_state": "06_wiki/audit/ 下存在 pg6_audit_{ts}.md，記錄測試真實存在性 + commit_sha 狀態 + 建議動作；若假 DONE 則 admin 已收到 [ERROR] 通知。",
+  "verification": {
+    "verifier": "qa 自驗 + admin 複核",
+    "tools": [
+      "Bash (git log)",
+      "Glob",
+      "Grep"
+    ],
+    "evidence_checks": [
+      "06_wiki/audit/pg6_audit_{ts}.md 存在且結論欄非空",
+      "若假 DONE：admin 群聊收到 [ERROR] 通知且包含 W4-PG-6 字樣"
+    ]
+  },
+  "out_of_scope": [
+    "修復 W4-PG-6 本身（若假 DONE 由 admin 開 REWORK）",
+    "其他 PG 卡的驗證（歸 T-eztcomm-R-PG-AUDIT-GATE）"
+  ],
+  "escalation_on_block": [
+    "git 指令失敗（repo 不存在 / 無權限）→ chat admin",
+    "無法確定測試名稱（execution_log 資訊不足）→ chat admin 提供測試清單"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "06_wiki/audit/pg6_audit_{ts}.md 已寫，含結論 + 測試存在清單 + commit_sha 狀態",
+    "若假 DONE（測試不存在）：admin-dispatch-comm 群聊有 [ERROR] 通知",
+    "本卡 status=DONE + 附 audit log 路徑於 deliverables"
+  ],
+  "wiki_target": "06_wiki/05_qa_report.md",
+  "deliverables": [
+    "06_wiki/audit/pg6_audit_20260602T062500.md"
+  ],
+  "execution_log": "稽核 T-eztcomm-20260601-W4-PG-6 假 DONE。結論：工作完成但未提交。11 個測試案例（ReviewServiceTests×5 + CategoryServiceTests×2 + WebIntegrationTests×4）存在於 worktree 但狀態為 untracked，從未 git commit。commit_sha=PENDING_ADMIN_COMMIT 從未解析。main branch 無任何 W4-PG-6 相關 commit。建議 admin 代為 commit + merge + 回填 SHA，無需 REWORK（工作品質合格）。",
+  "started_at": "2026-06-02T05:44:34.305982+00:00",
+  "completed_at": "2026-06-02T06:25:00.000000+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

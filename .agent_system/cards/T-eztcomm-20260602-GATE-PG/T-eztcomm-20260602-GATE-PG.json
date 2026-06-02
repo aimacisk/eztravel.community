@@ -1,0 +1,62 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-GATE-PG",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[GATE W7] PG 反向閘 — 驗收全部頁面 CSS + Playwright",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "instruction": "[WISH W4-REBUILD 防線 6-PG反向閘] PG Gate 驗收\n\n## 目的\n由 admin 派 sonnet 子 agent 重驗所有 Wave 6 PG 卡的視覺重建品質，\n確保 CSS variables 套用、品牌色、Playwright 截圖均符合規範。\n\n## 驗收對象（共 10 張）\n- T-eztcomm-20260602-W6PG-HOME\n- T-eztcomm-20260602-W6PG-LAYOUT\n- T-eztcomm-20260602-W6PG-DETAIL\n- T-eztcomm-20260602-W6PG-CAT-FLIGHT\n- T-eztcomm-20260602-W6PG-CAT-HOTEL\n- T-eztcomm-20260602-W6PG-CAT-FREETOUR\n- T-eztcomm-20260602-W6PG-CAT-GROUPTOUR\n- T-eztcomm-20260602-W6PG-CAT-TICKET\n- T-eztcomm-20260602-W6PG-CAT-ATTRACTION\n- T-eztcomm-20260602-W6PG-COMMUNITY\n\n## 每張卡驗收步驟\n1. Playwright navigate 到對應路由\n2. evaluate body.backgroundColor → 確認 = rgb(241,247,248)\n3. take_screenshot → 目測 navbar 含綠色、無 Bootstrap 藍\n4. evaluate getComputedStyle(document.body).fontFamily → 含 'Noto'\n5. 讀卡 execution_log 確認 commit_sha 非空且非 PENDING\n\n## 驗收輸出\ngate_pg_report.json 寫入 cards/T-eztcomm-20260602-GATE-PG/gate_pg_report.json\n\n## 結論\n- 全 PASS → [TASK_DONE]，CI-CHECK 解鎖\n- 任何 FAIL → chat admin [ESCALATION] 清單，不標 DONE\n",
+  "context_paths": [],
+  "acceptanceCriteria": [
+    "[防線 6-PG反向閘] GATE-PG 卡將由 admin 派 sonnet 重驗 Playwright 截圖 vs Figma 截圖，視覺一致性確認",
+    "AC-GATE-PG-01：gate_pg_report.json 存在，verdict=PASS",
+    "AC-GATE-PG-02：所有頁面 body.backgroundColor = rgb(241,247,248)",
+    "AC-GATE-PG-03：所有頁面 navbar 截圖含品牌綠（#11D073）"
+  ],
+  "wikiTarget": "06_wiki/04_dev_guide.md",
+  "depends_on": [
+    "T-eztcomm-20260602-W6PG-HOME",
+    "T-eztcomm-20260602-W6PG-LAYOUT",
+    "T-eztcomm-20260602-W6PG-DETAIL",
+    "T-eztcomm-20260602-W6PG-CAT-FLIGHT",
+    "T-eztcomm-20260602-W6PG-CAT-HOTEL",
+    "T-eztcomm-20260602-W6PG-CAT-FREETOUR",
+    "T-eztcomm-20260602-W6PG-CAT-GROUPTOUR",
+    "T-eztcomm-20260602-W6PG-CAT-TICKET",
+    "T-eztcomm-20260602-W6PG-CAT-ATTRACTION",
+    "T-eztcomm-20260602-W6PG-COMMUNITY"
+  ],
+  "createdBy": "pm",
+  "objective": "對 Wave 6 全部 10 張 PG 卡進行防線 6 反向視覺驗收",
+  "goal_state": "gate_pg_report.json 存在，verdict=PASS，所有 10 張卡 Playwright 截圖驗收通過",
+  "verification": {
+    "verifier": "admin 派 sonnet 子 agent",
+    "tools": [
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate"
+    ],
+    "evidence_checks": [
+      "跑 cat cards/T-eztcomm-20260602-GATE-PG/gate_pg_report.json 後 verdict=PASS",
+      "gate_pg_report.json 的 pass 欄位 = 10"
+    ]
+  },
+  "out_of_scope": [
+    "不負責修復 FAIL 的頁面（退回對應 W6PG-* 卡）",
+    "不動任何 Razor / CSS 檔案，只讀取驗收"
+  ],
+  "escalation_on_block": [
+    "app 無法啟動（5150 無回應）→ 立即 chat admin [ERROR]，不繼續驗收",
+    "> 30% 頁面 FAIL → 立即 chat admin [ESCALATION]，不等全部驗完"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

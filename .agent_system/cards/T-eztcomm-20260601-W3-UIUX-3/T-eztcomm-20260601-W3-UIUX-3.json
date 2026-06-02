@@ -63,6 +63,27 @@
     "票券 ProductDetail Community Section nodeId=88:355 PASS",
     "wiki_draft: projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-3/T-eztcomm-20260601-W3-UIUX-3_uiux_draft.md"
   ],
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": ["91:14", "92:2", "104:2", "105:2", "106:2", "88:3", "88:123", "88:243", "88:355"],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "screenshots": [
+      "06_wiki/visual/w3/91_14.png",
+      "06_wiki/visual/w3/92_2.png",
+      "06_wiki/visual/w3/104_2.png",
+      "06_wiki/visual/w3/105_2.png",
+      "06_wiki/visual/w3/106_2.png",
+      "06_wiki/visual/w3/88_3.png",
+      "06_wiki/visual/w3/88_123.png",
+      "06_wiki/visual/w3/88_243.png",
+      "06_wiki/visual/w3/88_355.png"
+    ],
+    "razor_targets": [],
+    "self_audit": {
+      "dimensions": ["文字不溢出", "無元件遮蔽", "排版無跑版", "配色使用token", "元件命名正確"],
+      "results": "9/9 PASS"
+    }
+  },
   "execution_log": "1. 讀取 W3-UIUX-1 deliverables：確認 5 primitives nodeId（91:14/92:2/104:2/105:2/106:2），fileKey=6XmYJOpiSXab2gtGlmWtks，pageId=87:2。W3-UIUX-2 deliverables 欄位為空（卡片紀律違規），改用 get_metadata 查找 Product Detail 頁（88:2）結構，確認 Community Section 整合於 frame 88:471 的 4 variant（88:3/88:123/88:243/88:355）。\n2. 對全部 9 個 nodeId 執行 get_screenshot，取得截圖 URL 並親眼視覺確認。\n3. 5 維度自驗結果：所有 9 個 frame 全部 PASS（文字不溢出 / 無遮蔽 / 排版正常 / token 配色 / 命名正確）。特別說明：StarRating（91:14）ComponentSet 尺寸 96×20px 為正常（5 星 ×~19px），variants 在 ComponentSet 內 x=0,y=0 堆疊為 Figma 標準行為；RatingDistribution（92:2）symbol bounds height=10px 為 clip 定義，實際渲染 195px 視覺正確。\n4. 發現 Product Detail 頁存在 2 組 frame：88:471（1440×1600，完整 Community Module 整合）為驗收對象；194:18（800×900）僅含佔位符，非本卡驗收範圍。\n5. wiki_draft 已產出完整 figma_deliverables 清單（9 frame × nodeId + url + 自驗結果），9/9 PASS。",
   "started_at": "2026-06-01T23:04:38.679027+00:00",
   "completed_at": "2026-06-01T23:15:56.253393+00:00",

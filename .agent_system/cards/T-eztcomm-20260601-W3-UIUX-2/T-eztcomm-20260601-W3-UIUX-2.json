@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W3-UIUX-2",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W3] UIUX — instance Community Module 到 4 類商品頁 variant",
   "created_at": "2026-06-01T08:49:38.642226+00:00",
   "assignee": "uiux",
@@ -50,8 +50,30 @@
     "AC-4：get_screenshot 4 個 variant 視覺確認通過"
   ],
   "wiki_target": "06_wiki/02_design_tokens.md",
-  "deliverables": [],
-  "execution_log": "",
+  "deliverables": [
+    "Figma file 6XmYJOpiSXab2gtGlmWtks page 88:2 ProductDetail Community Section",
+    "團體旅遊 ProductDetail Community Section nodeId=88:3 (922×1024px) PASS",
+    "自由行 ProductDetail Community Section nodeId=88:123 (922×1024px) PASS",
+    "旅館 ProductDetail Community Section nodeId=88:243 (922×1024px) PASS",
+    "票券 ProductDetail Community Section nodeId=88:355 (922×1024px) PASS"
+  ],
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": ["88:3", "88:123", "88:243", "88:355"],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design?node-id=88:2",
+    "screenshots": [
+      "06_wiki/visual/w3/88_3.png",
+      "06_wiki/visual/w3/88_123.png",
+      "06_wiki/visual/w3/88_243.png",
+      "06_wiki/visual/w3/88_355.png"
+    ],
+    "razor_targets": [],
+    "self_audit": {
+      "dimensions": ["文字不溢出", "無元件遮蔽", "排版無跑版", "配色使用token", "元件命名正確"],
+      "results": "4/4 PASS"
+    }
+  },
+  "execution_log": "將 W3-UIUX-1 Community Module primitives instance 到 ProductDetail 4 類 variant（pageId=88:2）。整合於 frame 88:471（1440×1600px，含完整 Community Module）。4 variants：團體旅遊（88:3，922×1024px，綠色 hero banner + Community Section 整合）、自由行（88:123，922×1024px，藍綠色 hero + 大阪京都自由行）、旅館（88:243，922×1024px，紫色 hero + 台北君悅酒店 + 房型說明）、票券（88:355，922×1024px，橘色 hero + 東京迪士尼門票 + 票券說明）。所有 variant 底部均含 Community Section（StarRating/RatingDistribution/FilterBar/ReviewCard×2/ReviewComposer），配色使用 W2 token，排版一致，間距 ≥24px。get_screenshot 5 維度視覺自驗全 PASS（截圖存於 06_wiki/visual/w3/）。",
   "started_at": "2026-06-01T09:17:10.987575+00:00",
   "completed_at": "2026-06-01T13:58:10.905665+00:00",
   "commit_sha": null,

@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:53:10.584752+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-CAT-FLIGHT",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[WISH W4-REBUILD 防線 4+5+7] [W6 PG] 機票分類頁視覺重建\n\n## 進場第一動作\n打 `/goal [W6 PG] 機票分類頁視覺重建 完工後 localhost:5150/Category/Flight 頁面外觀對齊 Figma 設計稿（品牌綠 #11D073 navbar、body bg #F1F7F8、字型 Noto Sans TC），AC-W6-01~03 全",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

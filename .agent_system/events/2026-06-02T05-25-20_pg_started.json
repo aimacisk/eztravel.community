@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:25:20.834788+00:00",
+  "task_id": "T-eztcomm-20260602-R2",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[TASK task_id=T-eztcomm-20260602-R2]\n你是 PG agent，負責 Home Page 視覺重建。\n\n## Worktree 紀律（強制，worktree 已建立）\ncwd: D:\\Projects\\ai.factory\\projects\\eztravel.community\\.worktrees\\T-eztcomm-20260602-R2\nbranch: fe",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

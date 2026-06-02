@@ -1,0 +1,64 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-R1",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "CSS Foundation — tokens.json → site.css 完整轉譯",
+  "created_at": "2026-06-02T04:42:43.422998+00:00",
+  "assignee": "uiux",
+  "phase": "IMPLEMENTATION",
+  "priority": "P0",
+  "instruction": "[WISH W4-REBUILD] CSS Foundation — 將 tokens.json 完整轉譯為 site.css CSS variables\n\n## 背景\nW2 UIUX 已交付完整 tokens.json（W3C Design Token 格式）與 figma_template.json，但 W4 PG 實作時未將 token 轉譯成 CSS variables，導致 site.css 僅餘 Bootstrap 預設 22 行（無品牌色、無正確字型、無間距 / 陰影系統）。本卡負責補足此基礎層，讓後續所有 Razor 視圖可以引用統一 CSS variables。\n\n## 讀取來源\n- tokens.json：`projects/eztravel.community/skills/styling/tokens.json`\n- figma_template.json：`projects/eztravel.community/skills/styling/figma_template.json`\n- figma file：https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design\n\n## 目標檔案\n- `projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css`\n- `projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml`\n\n## 必填 CSS variables（:root 區段）\n\n### Color tokens（16 個）\n```css\n:root {\n  --color-brand-primary: #11D073;   /* Figma 1:6 */\n  --color-brand-dark: #0C9251;      /* Figma 1:12 */\n  --color-brand-light: #E7FAF1;     /* Figma 1:18 */\n  --color-brand-mint: #CFF6E3;      /* Figma 1:24 */\n  --color-neutral-900: #222222;     /* body text */\n  --color-neutral-700: #444444;\n  --color-neutral-500: #666666;     /* placeholder */\n  --color-neutral-400: #999999;     /* disabled */\n  --color-neutral-300: #CCCCCC;     /* border */\n  --color-neutral-200: #E8E8E8;     /* card border */\n  --color-neutral-100: #FAFAFA;     /* hover bg */\n  --color-surface-cool: #F1F7F8;   /* page bg */\n  --color-surface-white: #FFFFFF;  /* card bg */\n  --color-accent-orange: #FF8B00;  /* promo price */\n  --color-accent-yellow: #FAB617;  /* star rating */\n  --color-accent-red: #FF7777;     /* error */\n}\n```\n\n### Font tokens\n```css\n:root {\n  --font-family-chinese: \"Noto Sans TC\", \"Heiti TC\", \"Microsoft JhengHei\", sans-serif;\n  --font-family-latin: \"Inter\", \"Gudea\", sans-serif;\n  --font-size-display: 40px;\n  --font-size-h2: 28px;\n  --font-size-h3: 22px;\n  --font-size-h4: 18px;\n  --font-size-body: 14px;\n  --font-size-small: 12px;\n  --font-size-caption: 11px;\n  --font-weight-bold: 700;\n  --font-weight-medium: 500;\n  --font-weight-regular: 400;\n  --line-height-tight: 1.2;\n  --line-height-normal: 1.5;\n  --line-height-loose: 1.75;\n}\n```\n\n### Spacing tokens\n```css\n:root {\n  --spacing-1: 4px;\n  --spacing-2: 8px;\n  --spacing-3: 12px;\n  --spacing-4: 16px;\n  --spacing-6: 24px;\n  --spacing-8: 32px;\n  --spacing-12: 48px;\n}\n```\n\n### Radius tokens\n```css\n:root {\n  --radius-sm: 4px;\n  --radius-md: 8px;\n  --radius-lg: 12px;\n  --radius-full: 9999px;\n}\n```\n\n### Shadow tokens\n```css\n:root {\n  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);\n  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.12);\n}\n```\n\n### Transition tokens\n```css\n:root {\n  --transition-fast: 150ms ease;\n  --transition-normal: 250ms ease;\n}\n```\n\n## 全域樣式（必填，在 :root 之後）\n```css\nbody {\n  background-color: var(--color-surface-cool);\n  color: var(--color-neutral-900);\n  font-family: var(--font-family-chinese);\n  font-size: var(--font-size-body);\n  line-height: var(--line-height-normal);\n}\n\n.navbar, .navbar-brand, header {\n  background-color: var(--color-brand-primary) !important;\n  color: #fff;\n}\n\n.card {\n  background: var(--color-surface-white);\n  border: 1px solid var(--color-neutral-200);\n  border-radius: var(--radius-md);\n  box-shadow: var(--shadow-card);\n  transition: box-shadow var(--transition-fast);\n}\n\n.card:hover {\n  box-shadow: var(--shadow-elevated);\n}\n\n.btn-primary {\n  background-color: var(--color-brand-primary);\n  border-color: var(--color-brand-dark);\n  color: #fff;\n  border-radius: var(--radius-md);\n}\n\n.btn-primary:hover {\n  background-color: var(--color-brand-dark);\n}\n\n.price, .price-highlight {\n  color: var(--color-accent-orange);\n  font-weight: var(--font-weight-bold);\n}\n\n.chip, .badge-mint {\n  background-color: var(--color-brand-mint);\n  border-radius: var(--radius-sm);\n  padding: var(--spacing-1) var(--spacing-3);\n  font-size: var(--font-size-small);\n}\n```\n\n## Google Fonts 引入（_Layout.cshtml <head>）\n```html\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&display=swap\" rel=\"stylesheet\">\n```\n\n## figma_deliverables\n- fileKey: 6XmYJOpiSXab2gtGlmWtks\n- page: Tokens page（Figma Variables）\n- token nodes: 1:6（brand.primary）, 1:12（brand.dark）, 1:18（brand.light）, 1:24（brand.mint）\n- typography block: 1:111\n- spacing block: 1:132, 1:135\n- target files: site.css, _Layout.cshtml\n\n## worktree 工作規範\n- worktree 路徑：`.worktrees/T-eztcomm-20260602-R1/`\n- branch：`feat/T-eztcomm-20260602-R1`\n- 完工後執行：`git fetch ../.. main && git rebase main` → 解衝突 → `git checkout main && git merge feat/T-eztcomm-20260602-R1`（fast-forward）\n- 最終回應結尾打 `[TASK_DONE]`",
+  "context_paths": [
+    "projects/eztravel.community/skills/styling/tokens.json",
+    "projects/eztravel.community/skills/styling/figma_template.json",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml"
+  ],
+  "depends_on": [],
+  "objective": "將 W2 UIUX 交付的 tokens.json（W3C Design Token）全部轉譯為 site.css CSS variables，並套用全域樣式（body 背景 #F1F7F8、Noto Sans TC / Inter 字型、navbar 品牌綠 #11D073），作為所有後續視覺重建卡的樣式基礎。",
+  "goal_state": "site.css 包含完整 `:root { }` CSS variables（color 16 個、font-family 2 個、font-size 7 個、font-weight 3 個、spacing 7 個、radius 4 個、shadow 2 個、transition 2 個）；body background-color 為 #F1F7F8（非 #FFFFFF）；字型為 Noto Sans TC + Inter；navbar 含品牌綠 #11D073；Google Fonts 已引入 _Layout.cshtml。",
+  "verification": {
+    "verifier": "uiux 自驗 + admin Playwright 覆驗",
+    "tools": [
+      "grep",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate"
+    ],
+    "evidence_checks": [
+      "跑 grep -i '11D073' wwwroot/css/site.css 後輸出包含 '--color-brand-primary: #11D073'",
+      "跑 Playwright navigate localhost:5150 後 evaluate getComputedStyle(document.body).backgroundColor 回傳值包含 '241, 247, 248'（#F1F7F8 rgb）",
+      "跑 Playwright take_screenshot localhost:5150 後目測 navbar 背景為綠色（非白色 / Bootstrap 預設藍）",
+      "site.css 包含至少 16 個 --color-* variable 定義（grep -c 'color-' site.css ≥ 16）"
+    ]
+  },
+  "out_of_scope": [
+    "Controller 邏輯與 Model 結構不得修改",
+    "不動 W4-PG-1 建立的 EF/Identity 設定",
+    "不新增業務功能（僅 CSS / 樣式基礎）",
+    "不刪除既有 Bootstrap 引用（僅在其之後疊加 CSS variables 覆寫）"
+  ],
+  "escalation_on_block": [
+    "Google Fonts CDN 無法載入（網路限制）→ 改用本地字型 fallback 並 chat admin [QUERY] 說明",
+    "site.css 路徑找不到 → chat admin [QUERY] 確認正確 wwwroot 路徑",
+    "Bootstrap 全域樣式衝突導致品牌色被覆蓋 → 分析 specificity 衝突並加 !important 或提升 selector，不可靜默放棄"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-R1-01：grep -i '11D073' site.css 輸出非空，包含 --color-brand-primary 定義",
+    "AC-R1-02：Playwright evaluate body background-color ≠ rgb(255, 255, 255)，應為 rgb(241, 247, 248)",
+    "AC-R1-03：Playwright 截圖 navbar 區域視覺確認含品牌綠色 #11D073",
+    "AC-R1-04：site.css :root 區段包含 16 個 color、7 個 spacing、4 個 radius、2 個 shadow token 定義"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [
+    "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+    "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml"
+  ],
+  "execution_log": "將 tokens.json（W3C Design Token v1.0.0）完整轉譯為 site.css CSS variables。:root 含 color×16、font-family×2、font-size×7、font-weight×3、spacing×7、radius×4、shadow×2、transition×2，共 43 個 CSS variables。body background-color=var(--color-bg-primary)(#F1F7F8)、font-family=Noto Sans TC+Inter。navbar 覆寫為 var(--color-brand-primary)(#11D073)。_Layout.cshtml 引入 Google Fonts（Noto Sans TC+Inter 400/500/700）。AC-R1-01~04 全通過。commit 4173f0d，rebase main 無衝突。",
+  "started_at": "2026-06-02T05:11:09.892320+00:00",
+  "completed_at": "2026-06-02T05:15:14.736893+00:00",
+  "commit_sha": "4173f0d",
+  "agent_session_id": "",
+  "wiki_draft_path": ".agent_system/cards/T-eztcomm-20260602-R1/T-eztcomm-20260602-R1_uiux_draft.md"
+}

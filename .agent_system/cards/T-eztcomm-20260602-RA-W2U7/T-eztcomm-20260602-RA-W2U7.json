@@ -1,0 +1,57 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-RA-W2U7",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[REAUDIT W1] W2-UIUX-7 票券分類頁補 figma_deliverables",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "instruction": "[WISH W4-REBUILD 防線 1+2] [REAUDIT W1] W2-UIUX-7 票券分類頁補 figma_deliverables\n\n## 背景\nW4-PG 假完工事件根因之一：原卡 T-eztcomm-20260601-W2-UIUX-7 完工時未填寫結構化 figma_deliverables 欄位，\n導致 PG 無法定位正確 Figma frame，只能靠文字描述實作，產出完全偏離設計。\n\n本卡補足防線 1（UIUX 自驗 screenshot）與防線 2（figma_deliverables 結構化欄位）。\n\n## 步驟\n1. 讀取原卡 `T-eztcomm-20260601-W2-UIUX-7/T-eztcomm-20260601-W2-UIUX-7.json` 的 execution_log，確認全部已完成的 nodeId\n2. 打開 Figma fileKey=6XmYJOpiSXab2gtGlmWtks，Category-票券\n3. 對以下 nodeId 逐一呼叫 `mcp__figma-remote-mcp__get_screenshot`：\n   187:2, 187:3, 187:4, 189:2, 189:33, 190:2, 190:26, 195:2, 195:30\n4. 對每個 screenshot 做 5D 自驗：\n   - 品牌色：navbar/CTA 必須是 #11D073（或 #2AB071），不可出現 Bootstrap 藍 #0d6efd\n   - 字型：Noto Sans TC + Inter，不可是 Bootstrap sans-serif 預設\n   - 間距：card padding ≥ 16px，heading margin ≥ 24px\n   - 響應：1440px 設計寬度，frame 無溢出\n   - 文字：中文正確，無截斷，無亂碼\n5. 填寫結構化 figma_deliverables JSON，寫入\n   `projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U7/figma_deliverables.json`：\n   ```json\n   {\n     \"fileKey\": \"6XmYJOpiSXab2gtGlmWtks\",\n     \"page\": \"Category-票券\",\n     \"nodeIds\": [\"187:2\", \"187:3\", \"187:4\", \"189:2\", \"189:33\", \"190:2\", \"190:26\", \"195:2\", \"195:30\"],\n     \"screenshots\": [\"path/to/screenshot_<nodeId>.png\", \"...\"],\n     \"razor_targets\": [\"Views/Category/Ticket.cshtml\"],\n     \"self_audit\": {\n       \"brand_color\": \"PASS/FAIL + 說明\",\n       \"font\": \"PASS/FAIL + 說明\",\n       \"spacing\": \"PASS/FAIL + 說明\",\n       \"responsive\": \"PASS/FAIL + 說明\",\n       \"text\": \"PASS/FAIL + 說明\"\n     },\n     \"source_card\": \"T-eztcomm-20260601-W2-UIUX-7\"\n   }\n   ```\n6. 回應結尾打 [TASK_DONE]\n\n## figma_deliverables 路徑（供 Wave 4 GATE-UIUX 及 Wave 6 PG 使用）\n`projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U7/figma_deliverables.json`\n",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-7/T-eztcomm-20260601-W2-UIUX-7.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U7/figma_deliverables.json"
+  ],
+  "acceptanceCriteria": [
+    "[防線 1-UIUX自驗] 對 nodeId 清單（187:2, 187:3, 187:4, 189:2, 189:33, 190:2, 190:26, 195:2, 195:30）逐一呼叫 get_screenshot，5D 自驗（品牌色/字型/間距/響應/文字）全部 PASS",
+    "[防線 2-figma_deliverables] 結構化欄位已填：fileKey / nodeIds 陣列 / page_url / screenshots 路徑清單 / razor_targets / self_audit 結果 (5D)",
+    "AC-RA-01：figma_deliverables.json 存在於 cards/T-eztcomm-20260602-RA-W2U7/ 且可被 json.load() 解析",
+    "AC-RA-02：self_audit 物件所有欄位以 PASS 開頭，FAIL 項目若有則附說明且不阻塞此卡",
+    "AC-RA-03：razor_targets 列出此設計對應的 .cshtml 檔名（如無對應填 N/A）"
+  ],
+  "wikiTarget": "06_wiki/02_design.md",
+  "depends_on": [],
+  "createdBy": "pm",
+  "objective": "對原卡 T-eztcomm-20260601-W2-UIUX-7 的所有 Figma frames 補跑 get_screenshot + 5D 自驗，輸出結構化 figma_deliverables.json（防線 1+2）",
+  "goal_state": "檔案 `cards/T-eztcomm-20260602-RA-W2U7/figma_deliverables.json` 存在，含 fileKey/nodeIds/screenshots/razor_targets/self_audit，所有 5D 自驗欄位 PASS",
+  "verification": {
+    "verifier": "UIUX 自驗 + Wave 4 GATE-UIUX 覆驗",
+    "tools": [
+      "mcp__figma-remote-mcp__get_screenshot",
+      "Read"
+    ],
+    "evidence_checks": [
+      "跑 cat cards/T-eztcomm-20260602-RA-W2U7/figma_deliverables.json 後 JSON 存在且含 fileKey=6XmYJOpiSXab2gtGlmWtks",
+      "self_audit 物件所有欄位值以 PASS 開頭（無 FAIL）",
+      "nodeIds 陣列非空（W2U11/W3U3 除外，可引用子 audit report）"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 Controller / Model / EF 設定，純 Figma 設計工作",
+    "不動 site.css / _Layout.cshtml（CSS Foundation 由 R1 負責，已 DONE）",
+    "不建立完整 Razor 視圖（PG Wave 6 負責），只需提供完整 figma_deliverables"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 失效 / get_screenshot timeout → chat admin [QUERY] 說明 token 狀態，不繼續",
+    "nodeId 不存在或 Figma frame 已被刪除 → 讀原卡 execution_log 確認正確 nodeId，仍找不到則 chat admin [ESCALATION]"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

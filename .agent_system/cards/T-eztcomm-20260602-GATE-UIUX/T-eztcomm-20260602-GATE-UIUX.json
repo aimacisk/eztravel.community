@@ -1,0 +1,88 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-GATE-UIUX",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[GATE W4] UIUX 反向閘 — 驗收全部 figma_deliverables",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "instruction": "[WISH W4-REBUILD 防線 3-UIUX反向閘] UIUX Gate 驗收\n\n## 目的\n在 PG Wave 6 開工前，由 admin 派 sonnet 子 agent 重驗所有 Wave 1-3 卡片的 figma_deliverables.json，\n確保防線 1+2 完整，才放行 PG。\n\n## 驗收步驟（由 GATE 執行 agent 跑）\n對以下 18 張卡的 figma_deliverables.json 逐一驗收：\n\n- cards/T-eztcomm-20260602-RA-W2U1/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U2/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U3/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U4/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U7/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U8/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U9/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U10/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W2U11/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W3U1/figma_deliverables.json\n- cards/T-eztcomm-20260602-RA-W3U3/figma_deliverables.json\n- cards/T-eztcomm-20260602-MISS-W2U5/figma_deliverables.json\n- cards/T-eztcomm-20260602-MISS-W2U6/figma_deliverables.json\n- cards/T-eztcomm-20260602-MISS-W3U2/figma_deliverables.json\n- cards/T-eztcomm-20260602-SUPP-LAYOUT/figma_deliverables.json\n- cards/T-eztcomm-20260602-SUPP-ERROR/figma_deliverables.json\n- cards/T-eztcomm-20260602-SUPP-AUTH/figma_deliverables.json\n- cards/T-eztcomm-20260602-SUPP-STATIC/figma_deliverables.json\n\n### 每張卡驗收標準\n1. figma_deliverables.json 存在且可被 json.load() 解析\n2. 含 fileKey = 6XmYJOpiSXab2gtGlmWtks\n3. nodeIds 陣列非空（W2U11/W3U3 全頁自驗卡可引用 sub-report）\n4. razor_targets 非空且有合理 .cshtml 路徑（或 N/A）\n5. self_audit 物件存在，所有欄位非空\n\n### 驗收失敗處置\n- 若某卡缺 figma_deliverables → 在本 GATE 卡 execution_log 記錄 `FAIL: T-eztcomm-20260602-SUPP-STATIC 缺 figma_deliverables.json`\n- **不阻塞，繼續驗下一張**\n- 全部驗完後，若有 FAIL 項目 → `chat admin [ESCALATION] GATE-UIUX N 張卡驗收失敗，需補齊再放行 PG`\n- 若全部 PASS → 可標 [TASK_DONE]，PG Wave 6 解鎖\n\n## 輸出\ngate_report.json 寫入 cards/T-eztcomm-20260602-GATE-UIUX/gate_report.json：\n```json\n{\n  \"gate\": \"UIUX\",\n  \"checked_at\": \"<ISO>\",\n  \"total\": 18,\n  \"pass\": <N>,\n  \"fail\": <M>,\n  \"fail_list\": [\"tid1\", \"tid2\"],\n  \"verdict\": \"PASS\" | \"FAIL\"\n}\n```\n",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U1/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U2/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U3/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U4/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U7/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U8/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U9/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U10/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W2U11/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W3U1/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W3U3/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-MISS-W2U5/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-MISS-W2U6/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-MISS-W3U2/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-SUPP-LAYOUT/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-SUPP-ERROR/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-SUPP-AUTH/figma_deliverables.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-SUPP-STATIC/figma_deliverables.json"
+  ],
+  "acceptanceCriteria": [
+    "[防線 3-UIUX反向閘] GATE-UIUX 卡將由 admin 派 sonnet 子 agent 重驗所有 figma_deliverables 結構化欄位",
+    "AC-GATE-01：gate_report.json 存在，verdict=PASS，fail=0",
+    "AC-GATE-02：所有 18 張前置卡 figma_deliverables.json 均可被 json.load() 解析"
+  ],
+  "wikiTarget": "06_wiki/02_design.md",
+  "depends_on": [
+    "T-eztcomm-20260602-RA-W2U1",
+    "T-eztcomm-20260602-RA-W2U2",
+    "T-eztcomm-20260602-RA-W2U3",
+    "T-eztcomm-20260602-RA-W2U4",
+    "T-eztcomm-20260602-RA-W2U7",
+    "T-eztcomm-20260602-RA-W2U8",
+    "T-eztcomm-20260602-RA-W2U9",
+    "T-eztcomm-20260602-RA-W2U10",
+    "T-eztcomm-20260602-RA-W2U11",
+    "T-eztcomm-20260602-RA-W3U1",
+    "T-eztcomm-20260602-RA-W3U3",
+    "T-eztcomm-20260602-MISS-W2U5",
+    "T-eztcomm-20260602-MISS-W2U6",
+    "T-eztcomm-20260602-MISS-W3U2",
+    "T-eztcomm-20260602-SUPP-LAYOUT",
+    "T-eztcomm-20260602-SUPP-ERROR",
+    "T-eztcomm-20260602-SUPP-AUTH",
+    "T-eztcomm-20260602-SUPP-STATIC"
+  ],
+  "createdBy": "pm",
+  "objective": "對 Wave 1-3 全部 18 張 UIUX 卡的 figma_deliverables.json 進行防線 3 反向驗收",
+  "goal_state": "gate_report.json 存在於 cards/T-eztcomm-20260602-GATE-UIUX/，verdict=PASS，fail=0",
+  "verification": {
+    "verifier": "admin 派 sonnet 子 agent",
+    "tools": [
+      "Read",
+      "Glob"
+    ],
+    "evidence_checks": [
+      "跑 cat cards/T-eztcomm-20260602-GATE-UIUX/gate_report.json 後 verdict=PASS",
+      "gate_report.json 的 pass 欄位 = 18（全部通過）"
+    ]
+  },
+  "out_of_scope": [
+    "不負責補齊缺失的 figma_deliverables（那是對應 Wave 1-3 卡的責任）",
+    "不動任何 Figma 設計檔，只讀取驗收"
+  ],
+  "escalation_on_block": [
+    "任何卡 figma_deliverables.json 缺失 → 記錄到 gate_report 後繼續，全部驗完再 chat admin",
+    "超過 30% 卡 FAIL → 立即 chat admin [ESCALATION] 不等全部驗完"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

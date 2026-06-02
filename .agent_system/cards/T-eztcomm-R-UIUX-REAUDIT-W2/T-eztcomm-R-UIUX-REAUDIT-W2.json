@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-R-UIUX-REAUDIT-W2",
+  "prj_id": "eztravel.community",
+  "status": "IN_PROGRESS",
+  "title": "[W2 UIUX Reaudit] 補齊 W2-UIUX-1~11 figma_deliverables + 視覺自驗 + 修 WARN",
+  "created_at": "2026-06-02T05:25:26.045188+00:00",
+  "assignee": "uiux",
+  "phase": "QA",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — 第 3 道防線前置準備（W2 UIUX Reaudit）\n\n**上游輸入**：W2-UIUX-1~11 既有 DONE 卡（T-eztcomm-20260601-W2-UIUX-1 到 T-eztcomm-20260601-W2-UIUX-11）的現有設計；W2-UIUX-5（IP）和 W2-UIUX-6（TODO）需先完成設計。\n\n**下游消費**：T-eztcomm-R-UIUX-AUDIT-GATE 將讀取全部 figma_deliverables 進行機械化驗證，格式必須完整。\n\n**執行步驟（對每張 W2-UIUX 卡）**：\n1. 調用 mcp__figma-remote-mcp__get_metadata 驗 fileKey + nodeId 真存在\n2. 調用 mcp__figma-remote-mcp__get_screenshot 截圖，保存至 06_wiki/visual/w2/{nodeId}.png\n3. 補 figma_deliverables 結構化欄位：\n   { fileKey, nodeIds: [], page_url, screenshots: [], razor_targets: [], self_audit: {} }\n4. 寫 5 維度視覺自評（layout / spacing / color / typography / component）\n5. 更新原卡 deliverables + execution_log，標記 reaudit 完成\n\n**特殊處理**：\n- W2-UIUX-5（IP）：完成設計，執行完整自驗，改 DONE\n- W2-UIUX-6（TODO）：完成設計，執行完整自驗，改 DONE\n- W2-UIUX-11 WARN【必修】：130:2 團體頁寬 2148px 超標 → 修正至 max-width: 1440px 或專案統一標準，重取截圖確認\n\n**禁止**：W3-UIUX 系列歸 T-eztcomm-R-UIUX-REAUDIT-W3；PG 實作不在本卡範圍。",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/",
+    "projects/eztravel.community/06_wiki/visual/w2/",
+    "projects/eztravel.community/02_design/"
+  ],
+  "depends_on": [],
+  "objective": "補齊 W2-UIUX-1~11 全部 11 張 DONE 卡的 figma_deliverables 結構化欄位並執行視覺自驗，修正 W2-UIUX-11 超寬 WARN，完成 W2-UIUX-5/6 未完成設計。",
+  "goal_state": "W2-UIUX-1~11 全 11 張卡均有 figma_deliverables（含 fileKey/nodeIds/screenshots[]），每 nodeId 有 06_wiki/visual/w2/{nodeId}.png 截圖，5 維度自評全通過，W2-UIUX-11 超寬已修正，W2-UIUX-5/6 status=DONE。",
+  "verification": {
+    "verifier": "T-eztcomm-R-UIUX-AUDIT-GATE（qa）機械化驗證",
+    "tools": [
+      "mcp__figma-remote-mcp__get_metadata",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "每張 W2-UIUX 卡 figma_deliverables.nodeIds 非空且 get_metadata 驗真存在",
+      "06_wiki/visual/w2/ 下有對應 {nodeId}.png 截圖（grep w2/ 目錄 ls 輸出含多個 png）",
+      "W2-UIUX-11 cards 欄位顯示超寬已修正（get_screenshot 寬度 ≤ 1440px）",
+      "W2-UIUX-5 和 W2-UIUX-6 status=DONE（task_board DONE bucket 含此兩 ID）"
+    ]
+  },
+  "out_of_scope": [
+    "W3-UIUX 系列（歸 T-eztcomm-R-UIUX-REAUDIT-W3）",
+    "缺漏元件設計（navbar/footer/error 頁等，歸 T-eztcomm-R-UIUX-MISSING）",
+    "PG Razor 實作",
+    "task_board.json 狀態直接修改（由 dispatch 負責）"
+  ],
+  "escalation_on_block": [
+    "figma OAuth 失效 → 標 PENDING_FIGMA_OAUTH + chat admin，不繼續",
+    "nodeId 不存在 → 在 figma 重新建 frame + 更新 figma_deliverables + chat admin 回報 nodeId 變更",
+    "W2-UIUX-5/6 原始設計遺失 → chat admin 確認是否重做還是從相近卡複製"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "W2-UIUX-1~11 全 11 張卡均已補 figma_deliverables（含 fileKey/nodeIds/page_url）",
+    "每 nodeId 均有 get_screenshot 截圖存於 06_wiki/visual/w2/",
+    "5 維度視覺自評全部通過（layout/spacing/color/typography/component）",
+    "W2-UIUX-11 的 2148px 超寬問題已修正並重取截圖",
+    "W2-UIUX-5 和 W2-UIUX-6 已標 DONE"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-02T06:00:00+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": "uiux-reaudit-w2-session-001"
+}

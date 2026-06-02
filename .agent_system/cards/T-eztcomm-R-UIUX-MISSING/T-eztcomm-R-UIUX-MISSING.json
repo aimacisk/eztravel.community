@@ -1,0 +1,150 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-R-UIUX-MISSING",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "[UIUX Missing] 補設計缺漏元件：navbar / footer / Error / 404 / LoginPartial / Privacy",
+  "created_at": "2026-06-02T05:26:00.857239+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — 補設計缺漏元件（W4-AQ-1 BUG-001 揭發）\n\n**上游輸入**：W4-AQ-1 BUG-001 bug report（LoginPartial figma 無設計）；Layout.cshtml 現有 HTML 結構；既有 design_tokens.json 品牌色系。\n\n**下游消費**：\n- T-eztcomm-20260602-R6（pg）：Layout.cshtml 重建需引用 navbar/footer/error 頁 figma 截圖\n- T-eztcomm-R-UIUX-AUDIT-GATE：機械化驗 nodeId + 截圖\n\n**必補設計元件（每一個都要在 figma 真建 frame）**：\n1. **navbar 通用元件**：Layout.cshtml `<nav>` 使用，須含 logo/nav links/LoginPartial 區塊\n2. **footer 通用元件**：Layout.cshtml `<footer>` 使用，須含版權/社群連結\n3. **Error.cshtml**：500 伺服器錯誤頁面設計\n4. **404 錯誤頁**：找不到頁面設計\n5. **LoginPartial.cshtml**：登入/登出狀態兩種（已登入 ≠ 未登入，BUG-001 核心）\n6. **Privacy.cshtml**：隱私政策頁面設計\n\n**每補一個元件的標準流程**：\na. figma 真建 frame（使用品牌色 #11D073 + 既有 design_tokens）\nb. 調用 mcp__figma-remote-mcp__get_metadata 驗 nodeId 真存在\nc. 調用 mcp__figma-remote-mcp__get_screenshot 自驗截圖\nd. 寫 figma_deliverables：{ fileKey, nodeIds, page_url, screenshots, component_name }\ne. 5 維度視覺自評\n\n所有 6 個元件完成後，彙整 figma_deliverables 到本卡 deliverables。",
+  "context_paths": [
+    "projects/eztravel.community/02_design/design_tokens.json",
+    "projects/eztravel.community/04_src/EzTravel.Community/Views/Shared/",
+    "projects/eztravel.community/.agent_system/cards/"
+  ],
+  "depends_on": [],
+  "objective": "在 figma 補建 6 個缺漏元件設計（navbar/footer/Error/404/LoginPartial/Privacy），每個均有 figma frame + 截圖 + figma_deliverables 欄位，供 R6 PG 實作對齊。",
+  "goal_state": "figma 文件中存在 6 個新建 frame（navbar/footer/Error/404/LoginPartial/Privacy），每個 nodeId 通過 get_metadata 驗真，get_screenshot 截圖已保存，figma_deliverables 格式完整，5 維度自評全通過。",
+  "verification": {
+    "verifier": "T-eztcomm-R-UIUX-AUDIT-GATE（qa）機械化驗證",
+    "tools": [
+      "mcp__figma-remote-mcp__get_metadata",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "figma_deliverables 包含 6 個元件各自的 nodeId，get_metadata 全部回傳 200（非 404）",
+      "get_screenshot 對每個 nodeId 回傳非空圖片",
+      "LoginPartial 有兩個 frame（已登入 + 未登入）各自獨立 nodeId",
+      "所有截圖均可見品牌色 #11D073（非白底 Bootstrap 預設）"
+    ]
+  },
+  "out_of_scope": [
+    "PG Razor 實作（歸 T-eztcomm-20260602-R6）",
+    "已有設計的 W2/W3 系列重建（歸 REAUDIT 卡）",
+    "後端 Controller 邏輯"
+  ],
+  "escalation_on_block": [
+    "figma OAuth 失效 → 標 PENDING_FIGMA_OAUTH + chat admin，不繼續",
+    "品牌色 design_tokens 不確定 → 讀 projects/eztravel.community/02_design/design_tokens.json，若仍不明確 chat admin",
+    "LoginPartial 需求不清（登入後顯示什麼）→ chat admin 確認 spec"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "figma 有 6 個新建 frame（navbar/footer/Error/404/LoginPartial/Privacy）且 nodeId 真存在",
+    "LoginPartial 有已登入/未登入兩種設計各自 frame",
+    "每個元件 get_screenshot 可見品牌色 #11D073（非 Bootstrap 預設白）",
+    "本卡 figma_deliverables 欄位包含全部 6 元件的 fileKey/nodeIds/page_url/screenshots"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "page": "Tokens",
+    "page_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/",
+    "components": [
+      {
+        "component_name": "Navbar",
+        "view_id": "navbar",
+        "nodeId": "249:3",
+        "frame_name": "Navbar [T-eztcomm-R-UIUX-MISSING]",
+        "dimensions": "1440×64",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=249:3",
+        "visual_audit": "PASS — 品牌綠 logo、6 分類導覽、綠色登入按鈕可見",
+        "get_metadata_verified": true,
+        "get_screenshot_verified": true
+      },
+      {
+        "component_name": "Footer",
+        "view_id": "footer",
+        "nodeId": "250:2",
+        "frame_name": "Footer [T-eztcomm-R-UIUX-MISSING]",
+        "dimensions": "1440×64",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=250:2",
+        "visual_audit": "PASS — #444444 深色底、白色版權文字、品牌綠隱私權連結",
+        "get_metadata_verified": true,
+        "get_screenshot_verified": true
+      },
+      {
+        "component_name": "LoginPartial/未登入",
+        "view_id": "login_partial_logged_out",
+        "nodeId": "250:6",
+        "frame_name": "LoginPartial/未登入 [T-eztcomm-R-UIUX-MISSING]",
+        "dimensions": "124×48",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=250:6",
+        "visual_audit": "PASS — 註冊文字 + 品牌綠登入按鈕，BUG-001 未登入狀態完整",
+        "get_metadata_verified": true,
+        "get_screenshot_verified": true
+      },
+      {
+        "component_name": "LoginPartial/已登入",
+        "view_id": "login_partial_logged_in",
+        "nodeId": "251:3",
+        "frame_name": "LoginPartial/已登入 [T-eztcomm-R-UIUX-MISSING]",
+        "dimensions": "198×48",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=251:3",
+        "visual_audit": "PASS — 品牌綠使用者名稱連結（管理帳戶）+ 灰色登出，BUG-001 已登入狀態完整",
+        "get_metadata_verified": true,
+        "get_screenshot_verified": true
+      },
+      {
+        "component_name": "Error.cshtml/500",
+        "view_id": "error_500",
+        "nodeId": "251:7",
+        "frame_name": "Error.cshtml/500 [T-eztcomm-R-UIUX-MISSING]",
+        "dimensions": "1440×480",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=251:7",
+        "visual_audit": "PASS — 紅色 #FF7777 大字 500、中文錯誤標題、品牌綠返回首頁按鈕",
+        "get_metadata_verified": true,
+        "get_screenshot_verified": true
+      },
+      {
+        "component_name": "Error.cshtml/404",
+        "view_id": "error_404",
+        "nodeId": "252:3",
+        "frame_name": "Error.cshtml/404 [T-eztcomm-R-UIUX-MISSING]",
+        "dimensions": "1440×480",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=252:3",
+        "visual_audit": "PASS — 品牌綠 #11D073 大字 404（對齊 Error.cshtml color-brand-primary）、中文錯誤標題、品牌綠返回首頁按鈕",
+        "get_metadata_verified": true,
+        "get_screenshot_verified": true
+      },
+      {
+        "component_name": "Privacy.cshtml",
+        "view_id": "privacy",
+        "nodeId": "253:2",
+        "frame_name": "Privacy.cshtml [T-eztcomm-R-UIUX-MISSING]",
+        "dimensions": "1440×540",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=253:2",
+        "visual_audit": "PASS — 隱私政策大標題、更新日期、說明段落、資訊收集章節結構完整",
+        "get_metadata_verified": true,
+        "get_screenshot_verified": true
+      }
+    ]
+  },
+  "deliverables": [
+    "figma://6XmYJOpiSXab2gtGlmWtks/249:3 — Navbar [T-eztcomm-R-UIUX-MISSING] (1440×64)",
+    "figma://6XmYJOpiSXab2gtGlmWtks/250:2 — Footer [T-eztcomm-R-UIUX-MISSING] (1440×64)",
+    "figma://6XmYJOpiSXab2gtGlmWtks/250:6 — LoginPartial/未登入 [T-eztcomm-R-UIUX-MISSING] (124×48)",
+    "figma://6XmYJOpiSXab2gtGlmWtks/251:3 — LoginPartial/已登入 [T-eztcomm-R-UIUX-MISSING] (198×48)",
+    "figma://6XmYJOpiSXab2gtGlmWtks/251:7 — Error.cshtml/500 [T-eztcomm-R-UIUX-MISSING] (1440×480)",
+    "figma://6XmYJOpiSXab2gtGlmWtks/252:3 — Error.cshtml/404 [T-eztcomm-R-UIUX-MISSING] (1440×480)",
+    "figma://6XmYJOpiSXab2gtGlmWtks/253:2 — Privacy.cshtml [T-eztcomm-R-UIUX-MISSING] (1440×540)"
+  ],
+  "execution_log": "EZTCOMM-W4-REBUILD 設計補漏任務完成。\n\n設計來源：_Layout.cshtml、_LoginPartial.cshtml、Error.cshtml、design_tokens.json 逐一對照建構。\n\n共建 7 個 Figma frame（含 LoginPartial 兩種狀態）：\n- Navbar (249:3)：1440×64，白底，品牌綠 logo + 6 分類導覽 + 登入按鈕區\n- Footer (250:2)：1440×64，#444444 深色底，版權文字 + 品牌綠隱私權連結\n- LoginPartial/未登入 (250:6)：124×48，白底邊框，註冊文字 + 品牌綠登入按鈕 — BUG-001 核心修補\n- LoginPartial/已登入 (251:3)：198×48，白底邊框，品牌綠帳號名稱連結 + 灰色登出 — BUG-001 核心修補\n- Error.cshtml/500 (251:7)：1440×480，紅色 #FF7777 大字 + 中文說明 + 品牌綠返回按鈕\n- Error.cshtml/404 (252:3)：1440×480，品牌綠 #11D073 大字（對齊 Error.cshtml 規格）+ 中文說明 + 品牌綠返回按鈕\n- Privacy.cshtml (253:2)：1440×540，隱私政策頁完整佈局\n\n全部 7 個 nodeId 通過 get_metadata 驗真 + get_screenshot 8 維度視覺自驗 PASS。\nLoginPartial 雙狀態（BUG-001 核心要求）均有獨立 frame + nodeId。\n品牌色 #11D073 於 Navbar/Footer/LoginPartial/404/返回按鈕均可見，非 Bootstrap 預設白。",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-R-UIUX-MISSING/T-eztcomm-R-UIUX-MISSING_uiux_draft.md",
+  "started_at": "2026-06-02T05:44:58.712778+00:00",
+  "completed_at": "2026-06-02T07:30:00.000000+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

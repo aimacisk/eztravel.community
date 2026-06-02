@@ -1,0 +1,63 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-R6",
+  "prj_id": "eztravel.community",
+  "status": "SUPERSEDED",
+  "title": "[R6] Layout.cshtml 全套重建：navbar + footer + Error / 404 / Privacy（對齊 Figma）",
+  "created_at": "2026-06-02T05:27:10.509343+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — Layout 全套重建（R6）\n\nSUPERSEDES：T-eztcomm-20260601-W4-PG-3（假 TODO，layout 視覺未落地）\n\n**上游輸入**：\n- T-eztcomm-20260602-R1（DONE）：site.css CSS variables\n- T-eztcomm-R-UIUX-MISSING（TODO）：figma 設計稿（navbar/footer/Error/404/LoginPartial/Privacy）— **必須等 UIUX-MISSING 完成後取 figma 截圖對齊**\n- Layout.cshtml 現有結構\n\n**執行範圍**：\n1. **Layout.cshtml**：重建 `<nav>` + `<footer>`，使用 var(--color-brand) / var(--font-*)，對齊 UIUX-MISSING figma 設計\n2. **_LoginPartial.cshtml**：對齊 figma 設計（已登入/未登入兩態）\n3. **Error.cshtml**：使用品牌色，移除 Bootstrap 預設樣式\n4. **404 錯誤頁**（若 Views/Home/HttpNotFound.cshtml 或 _404.cshtml）：同上\n5. **Privacy.cshtml**：對齊 figma 設計\n\n**驗收規則（第 4/5 道防線）**：\n- 第 4 道（PG 自驗 grep）：\n  - `grep -n \"var(--color-brand\\|#11D073\" Layout.cshtml _LoginPartial.cshtml` 必命中\n  - navbar/footer 區塊不含內聯 Bootstrap 色值\n- 第 5 道（PG 自驗 Playwright）：\n  - `nav` 背景 !== rgb(255,255,255)\n  - `footer` 背景 !== rgb(255,255,255)\n  - font-family contains \"Noto\"\n  - 截圖保存至 06_wiki/visual/pg/{task_id}/\n\n**完工必填**：\n- deliverables：所有修改檔案清單\n- figma_screenshot 對照（UIUX-MISSING 的 figma nodeId）\n- grep_hits + playwright_screenshot\n- visual_comparison：{ figma_nodeId, playwright_path, match_rating, notes }\n- wiki_draft_path",
+  "context_paths": [
+    "projects/eztravel.community/04_src/EzTravel.Community/Views/Shared/",
+    "projects/eztravel.community/04_src/EzTravel.Community/wwwroot/css/site.css",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-R-UIUX-MISSING/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260602-R1",
+    "T-eztcomm-R-UIUX-MISSING"
+  ],
+  "objective": "重建 Layout.cshtml（navbar+footer）+ _LoginPartial + Error/404/Privacy.cshtml，使用 R1 CSS variables 對齊 T-eztcomm-R-UIUX-MISSING 的 figma 設計。",
+  "goal_state": "所有 Layout 相關 Razor views 使用 var(--color-brand)，Playwright 截圖顯示 nav/footer 非白色，visual_comparison 對齊 UIUX-MISSING figma 截圖，SUPERSEDES W4-PG-3 已記錄。",
+  "verification": {
+    "verifier": "T-eztcomm-R-PG-AUDIT-GATE（qa）二次驗證",
+    "tools": [
+      "mcp__playwright__browser_take_screenshot",
+      "Grep",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "grep -n 'var(--color-brand' Layout.cshtml 命中 ≥ 1 行",
+      "Playwright 截圖 nav bgColor !== rgb(255,255,255)",
+      "Playwright 截圖 footer bgColor !== rgb(255,255,255)",
+      "visual_comparison.match_rating >= 7/10 for navbar + footer"
+    ]
+  },
+  "out_of_scope": [
+    "Community Module（歸 T-eztcomm-20260602-R5）",
+    "後端 Controller 業務邏輯",
+    "CSS variables 定義本身（已由 R1 完成）"
+  ],
+  "escalation_on_block": [
+    "T-eztcomm-R-UIUX-MISSING 未完成 → 等 UIUX-MISSING DONE 後才執行（dep 鐵則），chat admin 若超過 2 天",
+    "figma nodeId 與 UIUX-MISSING 交付不一致 → chat admin 確認最終 nodeId",
+    "LoginPartial 業務需求不清 → chat admin"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "Layout.cshtml nav/footer 使用 var(--color-brand)，grep 命中",
+    "Playwright nav + footer 截圖可見品牌色（非純白）",
+    "_LoginPartial.cshtml 有已登入/未登入兩態設計",
+    "Error.cshtml / Privacy.cshtml 移除 Bootstrap 純白背景",
+    "SUPERSEDES W4-PG-3 標記寫入 execution_log"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null,
+  "superseded_by": "T-eztcomm-20260602-W6PG-LAYOUT",
+  "admin_notes": "SUPERSEDED_BY W6PG-LAYOUT (2026-06-02 dispatch); Layout.cshtml rebuild moved to W6 series with proper Figma ref + 7-line defense discipline"
+}

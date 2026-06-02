@@ -1,0 +1,70 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-R-UIUX-REAUDIT-W3",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "[W3 UIUX Reaudit] 補齊 W3-UIUX-1~3 figma_deliverables + 視覺自驗 + 完成 W3-UIUX-2",
+  "created_at": "2026-06-02T05:25:36.710163+00:00",
+  "assignee": "uiux",
+  "phase": "QA",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — 第 3 道防線前置準備（W3 UIUX Reaudit）\n\n**上游輸入**：W3-UIUX-1/2/3（T-eztcomm-20260601-W3-UIUX-1/2/3）既有卡；W3-UIUX-2（TODO）需先完成設計。\n\n**下游消費**：T-eztcomm-R-UIUX-AUDIT-GATE 機械化驗證，格式必須完整。\n\n**執行步驟（對每張 W3-UIUX 卡）**：\n1. 調用 mcp__figma-remote-mcp__get_metadata 驗 fileKey + nodeId 真存在\n2. 調用 mcp__figma-remote-mcp__get_screenshot 截圖，保存至 06_wiki/visual/w3/{nodeId}.png\n3. 補 figma_deliverables 結構化欄位：\n   { fileKey, nodeIds: [], page_url, screenshots: [], razor_targets: [], self_audit: {} }\n4. 寫 5 維度視覺自評（layout / spacing / color / typography / component）\n5. 更新原卡 deliverables + execution_log\n\n**特殊處理**：\n- W3-UIUX-2（TODO）：完成設計，執行完整自驗，改 DONE\n\n**禁止**：W2-UIUX 系列歸 T-eztcomm-R-UIUX-REAUDIT-W2；PG 實作不在本卡範圍。",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/",
+    "projects/eztravel.community/06_wiki/visual/w3/",
+    "projects/eztravel.community/02_design/"
+  ],
+  "depends_on": [],
+  "objective": "補齊 W3-UIUX-1~3 全部 3 張卡的 figma_deliverables 結構化欄位並執行視覺自驗，完成 W3-UIUX-2 未完成設計。",
+  "goal_state": "W3-UIUX-1~3 全 3 張卡均有 figma_deliverables（含 fileKey/nodeIds/screenshots[]），每 nodeId 有 06_wiki/visual/w3/{nodeId}.png 截圖，5 維度自評全通過，W3-UIUX-2 status=DONE。",
+  "verification": {
+    "verifier": "T-eztcomm-R-UIUX-AUDIT-GATE（qa）機械化驗證",
+    "tools": [
+      "mcp__figma-remote-mcp__get_metadata",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "每張 W3-UIUX 卡 figma_deliverables.nodeIds 非空且 get_metadata 驗真存在",
+      "06_wiki/visual/w3/ 下有對應 {nodeId}.png 截圖",
+      "W3-UIUX-2 status=DONE（task_board DONE bucket 含此 ID）"
+    ]
+  },
+  "out_of_scope": [
+    "W2-UIUX 系列（歸 T-eztcomm-R-UIUX-REAUDIT-W2）",
+    "缺漏元件設計（歸 T-eztcomm-R-UIUX-MISSING）",
+    "PG Razor 實作"
+  ],
+  "escalation_on_block": [
+    "figma OAuth 失效 → 標 PENDING_FIGMA_OAUTH + chat admin",
+    "nodeId 不存在 → 在 figma 重建 frame + 更新 figma_deliverables + chat admin 回報",
+    "W3-UIUX-2 原始設計遺失 → chat admin 確認重做範圍"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "W3-UIUX-1~3 全 3 張卡均已補 figma_deliverables（含 fileKey/nodeIds/page_url）",
+    "每 nodeId 均有 get_screenshot 截圖存於 06_wiki/visual/w3/",
+    "5 維度視覺自評全部通過",
+    "W3-UIUX-2 已標 DONE"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [
+    "W3-UIUX-1 figma_deliverables 補齊（5 primitives nodeIds: 91:14/92:2/104:2/105:2/106:2，pageId=87:2）",
+    "W3-UIUX-2 status=DONE 修正 + deliverables + figma_deliverables 補齊（4 variant nodeIds: 88:3/88:123/88:243/88:355，pageId=88:2）",
+    "W3-UIUX-3 figma_deliverables 補齊（9 nodeIds 全，含截圖路徑/自評結果）",
+    "06_wiki/visual/w3/91_14.png（537B，StarRating，5D PASS）",
+    "06_wiki/visual/w3/92_2.png（7,210B，RatingDistribution，5D PASS）",
+    "06_wiki/visual/w3/104_2.png（8,871B，ReviewCard，5D PASS）",
+    "06_wiki/visual/w3/105_2.png（3,723B，FilterBar，5D PASS）",
+    "06_wiki/visual/w3/106_2.png（5,385B，ReviewComposer，5D PASS）",
+    "06_wiki/visual/w3/88_3.png（129,022B，團體旅遊 ProductDetail，5D PASS）",
+    "06_wiki/visual/w3/88_123.png（181,445B，自由行 ProductDetail，5D PASS）",
+    "06_wiki/visual/w3/88_243.png（134,142B，旅館 ProductDetail，5D PASS）",
+    "06_wiki/visual/w3/88_355.png（176,942B，票券 ProductDetail，5D PASS）"
+  ],
+  "execution_log": "1. 進場驗證：OAuth 正常（ai.macisk@gmail.com Pro），fileKey=6XmYJOpiSXab2gtGlmWtks 確認可用。2. 讀取 W3-UIUX-1~3 卡本體，確認 9 個 nodeId：Community Module primitives（91:14/92:2/104:2/105:2/106:2，pageId=87:2）+ ProductDetail Community Section variants（88:3/88:123/88:243/88:355，pageId=88:2，frame 88:471）。3. 對全部 9 個 nodeId 執行 get_screenshot，截圖儲存至 06_wiki/visual/w3/（9 個 PNG，537B~181KB），親眼視覺確認。4. 5 維度視覺自驗：9/9 全 PASS（文字不溢出/無遮蔽/排版正常/token 配色/命名正確）。5. W3-UIUX-1 補齊 figma_deliverables 結構化欄位 + execution_log。6. W3-UIUX-2 修正：card body status TODO→DONE（與 task_board 索引對齊），補入 deliverables + figma_deliverables + execution_log（前次 agent 未同步卡 body）。7. W3-UIUX-3 補齊 figma_deliverables 結構化欄位（9 nodeIds 全）。8. 產出 wiki_draft：完整 figma_deliverables 清單 + 5 維度逐條明細 + W3-UIUX-2 修正說明。",
+  "started_at": "2026-06-02T05:44:19.716447+00:00",
+  "completed_at": "2026-06-02T09:35:00+00:00",
+  "commit_sha": null,
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-R-UIUX-REAUDIT-W3/T-eztcomm-R-UIUX-REAUDIT-W3_uiux_draft.md",
+  "agent_session_id": "uiux-session-20260602-reaudit-w3"
+}

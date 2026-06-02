@@ -1,0 +1,57 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-MISS-W3U2",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[MISS W3] W3-UIUX-2 Community Module instance → 4 類商品頁",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "instruction": "[WISH W4-REBUILD 防線 1+2] 完成 W3-UIUX-2：把 Community Module 加到 Product Detail 4 類 variant\n\n## 背景\nW3-UIUX-2（原卡）status=TODO，W3-UIUX-1 的 Community Module primitives（page 87:2）\n已建好（StarRating 91:14, RatingDistribution 92:2, etc），但尚未 instance 到 Product Detail 4 類 variant。\n\n## 步驟\n1. 打開 Figma fileKey=6XmYJOpiSXab2gtGlmWtks，page 88:2（Product Detail）\n2. 在以下 4 個 variant frame 的適當位置加入 Community Module instance：\n   - GroupTour variant（88:3）\n   - Hotel variant（88:123）\n   - FreeTour variant（88:243）\n   - Ticket variant（88:355）\n3. Community Module 包含：StarRating / RatingDistribution / ReviewList / WriteReview\n4. 確保品牌色、間距、字型對齊 tokens.json\n5. 對每個 variant 跑 get_screenshot + 5D 自驗\n6. 輸出 figma_deliverables.json 到 cards/T-eztcomm-20260602-MISS-W3U2/figma_deliverables.json：\n   - fileKey=6XmYJOpiSXab2gtGlmWtks\n   - nodeIds: [\"88:3\",\"88:123\",\"88:243\",\"88:355\"（含 Community instance 後）]\n   - razor_targets: [\"Views/Product/Detail.cshtml（共用，透過 partial _ReviewSection）\"]\n7. 回應結尾打 [TASK_DONE]\n",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W3-UIUX-1/T-eztcomm-20260601-W3-UIUX-1.json",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-9/T-eztcomm-20260601-W2-UIUX-9.json",
+    "projects/eztravel.community/skills/styling/tokens.json"
+  ],
+  "acceptanceCriteria": [
+    "[防線 1-UIUX自驗] 對 nodeId 清單（88:3, 88:123, 88:243, 88:355（含 Community instance））逐一呼叫 get_screenshot，5D 自驗（品牌色/字型/間距/響應/文字）全部 PASS",
+    "[防線 2-figma_deliverables] 結構化欄位已填：fileKey / nodeIds 陣列 / page_url / screenshots 路徑清單 / razor_targets / self_audit 結果 (5D)",
+    "AC-W3U2-01：4 個 Product Detail variant 均含 Community Module instance（StarRating + ReviewList）",
+    "AC-W3U2-02：Community Module 品牌色 #11D073 / 間距 / 字型符合 tokens.json"
+  ],
+  "wikiTarget": "06_wiki/02_design.md",
+  "depends_on": [],
+  "createdBy": "pm",
+  "objective": "把 W3-UIUX-1 Community Module instance 進 Product Detail 4 類 variant frame，輸出 figma_deliverables.json",
+  "goal_state": "Product Detail page 的 4 個 variant（88:3/123/243/355）均包含 Community Module instance，figma_deliverables.json 存在，self_audit 全 PASS",
+  "verification": {
+    "verifier": "UIUX 自驗 + GATE-UIUX 覆驗",
+    "tools": [
+      "mcp__figma-remote-mcp__get_screenshot",
+      "mcp__figma-remote-mcp__use_figma"
+    ],
+    "evidence_checks": [
+      "get_screenshot nodeId=88:3 截圖後可見 StarRating 元件（5顆星）",
+      "figma_deliverables.json 存在於 cards/T-eztcomm-20260602-MISS-W3U2/，nodeIds 含 88:3/88:123/88:243/88:355",
+      "4 個 variant 截圖均可見 ReviewList 區塊（非空）"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 Controller / Model / EF 設定，純 Figma 設計工作",
+    "不動 site.css / _Layout.cshtml（CSS Foundation 由 R1 負責，已 DONE）",
+    "不建立完整 Razor 視圖（PG Wave 6 負責），只需提供完整 figma_deliverables"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 失效 / get_screenshot timeout → chat admin [QUERY] 說明 token 狀態，不繼續",
+    "nodeId 不存在或 Figma frame 已被刪除 → 讀原卡 execution_log 確認正確 nodeId，仍找不到則 chat admin [ESCALATION]"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

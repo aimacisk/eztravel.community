@@ -1,0 +1,61 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-R-PG-AUDIT-GATE",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[Audit Gate - PG] 第 6 道防線：Playwright + Figma 二次視覺驗證（R2~R6）",
+  "created_at": "2026-06-02T05:27:52.797289+00:00",
+  "assignee": "qa",
+  "phase": "QA",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — 第 6 道防線（PG Audit Gate，singleton）\n\n**觸發條件**：T-eztcomm-20260602-R2/R3/R4/R5/R6 全部 DONE 後執行。\n\n**上游輸入**：R2/R3/R4/R5/R6 卡的 visual_comparison 欄位（含 figma_nodeId + playwright_path + match_rating）\n\n**執行步驟（對每張 PG REBUILD 卡）**：\n1. 讀卡本體取 visual_comparison 欄位\n2. 重新跑 Playwright（mcp__playwright__browser_navigate + browser_take_screenshot）截最新全頁\n3. 調用 mcp__figma-remote-mcp__get_screenshot 取 figma 最新截圖（用卡的 figma_nodeId）\n4. 二次視覺比對：Playwright 截圖 vs Figma 截圖\n5. 判定：\n   - match_rating < 6/10 → reopen PG 卡 REWORK + 寫 audit log 說明不符項目\n   - match_rating >= 6/10 → 記錄通過\n6. 特別檢查（對每張卡）：\n   - Playwright `body` / `nav` / `footer` bgColor !== rgb(255,255,255)\n   - Playwright font-family contains \"Noto\"\n7. 寫 audit log：06_wiki/audit/pg_audit_{ts}.md\n\n**此卡完成後** → 解鎖 T-eztcomm-R-CI-CHECK（雖然 CI-CHECK 無正式 dep 於本卡，建議先完成 PG Audit 再跑 CI Check）",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/",
+    "projects/eztravel.community/06_wiki/audit/",
+    "projects/eztravel.community/04_src/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260602-R2",
+    "T-eztcomm-20260602-R3",
+    "T-eztcomm-20260602-R4",
+    "T-eztcomm-20260602-R5",
+    "T-eztcomm-20260602-R6"
+  ],
+  "objective": "對 R2/R3/R4/R5/R6 全部 PG REBUILD 卡執行 Playwright + Figma 二次視覺驗證，不符者 reopen REWORK，寫 audit log。",
+  "goal_state": "06_wiki/audit/pg_audit_{ts}.md 存在，所有 R 系列 PG 卡二次驗通過（或已標 REWORK），admin 收到 audit 完成通知。",
+  "verification": {
+    "verifier": "qa 自驗",
+    "tools": [
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "06_wiki/audit/pg_audit_{ts}.md 存在",
+      "audit log 含 R2/R3/R4/R5/R6 全部 5 張卡明細（缺任一卡為 INCOMPLETE）",
+      "所有 REWORK 卡已標 linkedTaskId 指向本卡"
+    ]
+  },
+  "out_of_scope": [
+    "UIUX 設計驗證（歸 T-eztcomm-R-UIUX-AUDIT-GATE）",
+    "CI 腳本撰寫（歸 T-eztcomm-R-CI-CHECK）",
+    "W4-PG-6 audit（歸 T-eztcomm-R-PG6-AUDIT）"
+  ],
+  "escalation_on_block": [
+    "Playwright 瀏覽器無法啟動 → chat admin",
+    "figma OAuth 失效 → chat admin + 標 PENDING_FIGMA_OAUTH",
+    "超過 3 張 PG 卡 match_rating < 6 → chat admin [ESCALATION] 大規模視覺落地失敗"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "06_wiki/audit/pg_audit_{ts}.md 已寫，含 R2~R6 全部 5 張卡明細",
+    "每張卡的 Playwright 截圖 bgColor 驗證有記錄（通過/失敗）",
+    "所有 REWORK 卡已標 linkedTaskId",
+    "admin-dispatch-comm 收到 audit 完成通知（通過 N / REWORK M）"
+  ],
+  "wiki_target": "06_wiki/05_qa_report.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

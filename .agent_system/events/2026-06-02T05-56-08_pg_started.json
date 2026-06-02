@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:56:08.605251+00:00",
+  "task_id": "T-eztcomm-20260602-R7",
+  "agent": "pg",
+  "type": "started",
+  "summary": "依 CHARTER §8 卡片紀律：進場讀 task_board 索引 + 卡本體 → 改索引 IN_PROGRESS + 寫卡本體 started_at + append `started` 到 events.jsonl → 完成時填卡本體 + 改索引 DONE + append `completed` 事件。\n\n== Worktree 紀律（PG 強制）==\ncwd: D:/Projects/",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

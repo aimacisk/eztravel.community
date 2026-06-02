@@ -35,5 +35,19 @@
     "agents/uiux/workspace/T-eztcomm-20260601-W2-UIUX-1_visual_audit.md"
   ],
   "execution_log": "1. Playwright 爬取 eztravel.com.tw：確認品牌主色為翠綠 #11D073（非規格預期橙紅，以真實數據為準）；字體 Gudea+Heiti+微軟正黑體；截圖 2 張落地 view_examples/。2. use_figma 建立 Figma 檔案 6XmYJOpiSXab2gtGlmWtks，頁面命名 Tokens，繪製：品牌色 4 張色票卡 (1:6/1:12/1:18/1:24) + 中性色 8 張 (1:33~1:75) + accent 4 張 (1:84~1:102) + Typography block (1:111) + Spacing Scale (1:132/1:135)。3. get_screenshot 對全部 18 nodeId 跑視覺自驗，8 維度全數通過。4. 6 件套落盤：design_tokens.json / figma_deliverables.md / sources.md / motifs.md / view_examples/ / figma_template/。5. 9 條 UIUX 紀律達標（見 figma_deliverables.md 自驗表）。",
-  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-1/T-eztcomm-20260601-W2-UIUX-1_uiux_draft.md"
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-1/T-eztcomm-20260601-W2-UIUX-1_uiux_draft.md",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": ["1:6", "1:12", "1:18", "1:24", "1:111", "1:132", "1:135"],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "screenshots": ["projects/eztravel.community/06_wiki/visual/w2/1_6.png"],
+    "razor_targets": [],
+    "self_audit": {
+      "layout": "PASS",
+      "spacing": "PASS",
+      "color": "PASS",
+      "typography": "PASS",
+      "component": "PASS"
+    }
+  }
 }

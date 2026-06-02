@@ -1,0 +1,56 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-SUPP-ERROR",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[SUPP W3] 404 / 500 錯誤頁 Figma 設計",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "instruction": "[WISH W4-REBUILD 防線 1+2] [SUPP W3] 404 / 500 錯誤頁 Figma 設計\n\n## 背景\nW4-PG 重建時發現以下頁面/元件缺乏 Figma 設計稿，PG 需要設計稿才能正確實作。\n\n## 待設計內容\n404 友善提示 + 品牌色 CTA 返回首頁；500 服務錯誤提示\n\n## 步驟\n1. 打開 Figma fileKey=6XmYJOpiSXab2gtGlmWtks\n2. 新增對應 page：新建 Error Pages\n3. 依品牌規範（tokens.json）繪製設計：\n   - 品牌色：navbar #11D073，accent orange #FF8B00，background #F1F7F8\n   - 字型：Noto Sans TC（中文）+ Inter（數字/英文）\n   - 使用 tokens.json 中定義的 spacing / radius / shadow\n4. 對全部 frame nodeId 跑 get_screenshot + 5D 自驗\n5. 輸出 figma_deliverables.json 到 cards/T-eztcomm-20260602-SUPP-ERROR/figma_deliverables.json：\n   - fileKey=6XmYJOpiSXab2gtGlmWtks\n   - nodeIds: [新建後的 nodeId 清單]\n   - razor_targets: [\"Views/Shared/Error.cshtml\", \"Views/Shared/NotFound.cshtml\"]\n6. 回應結尾打 [TASK_DONE]\n\n## 對應路由\n/error，/notfound\n",
+  "context_paths": [
+    "projects/eztravel.community/skills/styling/tokens.json",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/"
+  ],
+  "acceptanceCriteria": [
+    "[防線 1-UIUX自驗] 對 nodeId 清單（新建 Error Pages 全部 frame nodeId）逐一呼叫 get_screenshot，5D 自驗（品牌色/字型/間距/響應/文字）全部 PASS",
+    "[防線 2-figma_deliverables] 結構化欄位已填：fileKey / nodeIds 陣列 / page_url / screenshots 路徑清單 / razor_targets / self_audit 結果 (5D)",
+    "AC-SUPP-01：SUPP-ERROR Figma page 存在且有完整 frame 設計",
+    "AC-SUPP-02：品牌色 #11D073 / #F1F7F8 / Noto Sans TC 字型可見於截圖"
+  ],
+  "wikiTarget": "06_wiki/02_design.md",
+  "depends_on": [],
+  "createdBy": "pm",
+  "objective": "在 Figma 新建 404 友善提示 + 品牌色 CTA 返回首頁；500 服務錯誤提示 設計，輸出 figma_deliverables.json",
+  "goal_state": "[SUPP W3] 404 / 500 錯誤頁 Figma 設計 對應 Figma page 存在，figma_deliverables.json 含 fileKey/nodeIds/razor_targets/self_audit，5D 自驗全 PASS",
+  "verification": {
+    "verifier": "UIUX 自驗 + GATE-UIUX 覆驗",
+    "tools": [
+      "mcp__figma-remote-mcp__use_figma",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "figma_deliverables.json 存在於 cards/T-eztcomm-20260602-SUPP-ERROR/",
+      "截圖目測品牌綠 #11D073 可見於 navbar",
+      "razor_targets 含 Views/Shared/Error.cshtml"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 Controller / Model / EF 設定，純 Figma 設計工作",
+    "不動 site.css / _Layout.cshtml（CSS Foundation 由 R1 負責，已 DONE）",
+    "不建立完整 Razor 視圖（PG Wave 6 負責），只需提供完整 figma_deliverables"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 失效 / get_screenshot timeout → chat admin [QUERY] 說明 token 狀態，不繼續",
+    "nodeId 不存在或 Figma frame 已被刪除 → 讀原卡 execution_log 確認正確 nodeId，仍找不到則 chat admin [ESCALATION]"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

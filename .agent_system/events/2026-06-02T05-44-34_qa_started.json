@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:44:34.393898+00:00",
+  "task_id": "T-eztcomm-R-PG6-AUDIT",
+  "agent": "qa",
+  "type": "started",
+  "summary": "[WISH] EZTCOMM-W4-REBUILD — 假 DONE 稽核（PG6）\n\n**上游輸入**：T-eztcomm-20260601-W4-PG-6 卡本體（commit_sha=\"PENDING_ADMIN_COMMIT\"，宣稱 11 個 tests 存在）\n\n**執行步驟**：\n1. 讀取 T-eztcomm-20260601-W4-PG-6 卡本體，取 deliverables 清",
+  "ref": {
+    "worker_id": "qa-1",
+    "agent_session_id": ""
+  }
+}

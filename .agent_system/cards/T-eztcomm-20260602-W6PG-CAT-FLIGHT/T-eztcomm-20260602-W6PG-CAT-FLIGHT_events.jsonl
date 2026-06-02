@@ -1,0 +1,2 @@
+{"ts": "2026-06-02T05:28:12+00:00", "actor": "pm", "type": "card_created", "details": {"createdBy": "pm", "via": "eztcomm_rebuild_plan_cards.py", "wave": "Wave6-PG"}}
+{"ts": "2026-06-02T06:10:00+00:00", "actor": "pg", "type": "started", "details": {"agent_session_id": "", "summary": "進場：讀取 site.css (R1 CSS Foundation 已在 worktree)、CategoryController.cs（只有 Show action）、_Layout.cshtml（Bootstrap→site.css 載入順序確認）。AC-W6-01/02 由全域 body/navbar 規則滿足。待建：Flight() action + Views/Category/Flight.cshtml"}}

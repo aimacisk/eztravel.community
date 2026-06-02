@@ -1,0 +1,19 @@
+{
+  "ts": "2026-06-02T06:45:00+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-HOME",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "[W6PG-HOME] Home 頁視覺重建完畢。4 檔修改：Index.cshtml（補 3 routing case）、site.css（新增 product-card/category-nav/promo-card/page-section 組件 CSS）、_Section_PromoCard（badge）、_Section_FeaturedGrid（btn-cta）。AC-W6-01/02/03 靜態驗證 PASS；AC-W6-04 待 admin build+Playwright。commit_sha=PENDING_ADMIN_COMMIT。",
+  "ref": {
+    "delivered_files": [
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Home/Index.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Section_PromoCard.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Section_FeaturedGrid.cshtml"
+    ],
+    "task_board_status": "DONE",
+    "worktree": ".worktrees/T-eztcomm-20260602-W6PG-HOME",
+    "branch": "feat/T-eztcomm-20260602-W6PG-HOME",
+    "commit_sha": "PENDING_ADMIN_COMMIT"
+  }
+}

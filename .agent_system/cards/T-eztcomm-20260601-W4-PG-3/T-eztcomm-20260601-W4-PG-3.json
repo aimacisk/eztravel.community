@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W4-PG-3",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "SUPERSEDED",
   "title": "[W4] PG — ProductDetailController + Razor view（4 類 variant）",
   "created_at": "2026-06-01T08:52:59.890872+00:00",
   "assignee": "pg",
@@ -52,5 +52,10 @@
   "started_at": "2026-06-01T09:15:47.785039+00:00",
   "completed_at": "2026-06-01T13:52:19.913008+00:00",
   "commit_sha": null,
-  "agent_session_id": ""
+  "agent_session_id": "",
+  "superseded_by": [
+    "T-eztcomm-20260602-R3"
+  ],
+  "reclaim_reason": "REPLACED_BY_REBUILD_DUE_TO_FALSE_DONE — W4 假完工，commit_sha=null，重建為 T-eztcomm-20260602-R3",
+  "superseded_at": "2026-06-02T05:28:12+00:00"
 }

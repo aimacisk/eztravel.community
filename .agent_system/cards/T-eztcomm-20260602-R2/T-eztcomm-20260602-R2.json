@@ -1,0 +1,67 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-R2",
+  "prj_id": "eztravel.community",
+  "status": "SUPERSEDED",
+  "title": "Home Page 視覺重建 — 對齊 figma 設計稿",
+  "created_at": "2026-06-02T04:43:19.186883+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH W4-REBUILD] Home Page 視覺重建 — 對齊 figma 設計稿\n\n## 前置條件\nT-eztcomm-20260602-R1（CSS Foundation）必須已 DONE，site.css 已含完整 CSS variables。\n\n## Figma 參考\n- Figma file：https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design\n- 頁面：Home Page（page_node: 107:2）\n\n## 必須對齊的 nodeId\n- `153:2` — Home Page Wrapper（1440×4164）\n- `153:3` — Hero Section（品牌綠漸層 + 搜尋框）\n- `153:20` — Category Navigation（6 種旅遊分類）\n- `153:40` — Hot Products（商品卡片 grid）\n- `153:60` — Promotion Banner\n- `160:72` — Footer\n\n## 各區段視覺規範\n\n### Hero Section（node 153:3）\n```css\n.hero-section {\n  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-dark));\n  padding: var(--spacing-12) 0;\n}\n.hero-search-box {\n  background: var(--color-surface-white);\n  border-radius: var(--radius-lg);\n  box-shadow: var(--shadow-elevated);\n  padding: var(--spacing-4);\n}\n.hero-title {\n  font-size: var(--font-size-display);\n  font-weight: var(--font-weight-bold);\n  color: #fff;\n  line-height: var(--line-height-tight);\n}\n```\n\n### Category Navigation（node 153:20）\n- 6 個分類 icon + label（機票 / 住宿 / 自由行 / 跟團旅 / 票券 / 景點）\n- active 狀態 bottom-border：3px solid var(--color-brand-primary)\n- font-size: var(--font-size-small)；color: neutral.700\n\n### Hot Products 商品卡片（node 153:40）\n```css\n.product-card {\n  background: var(--color-surface-white);\n  border-radius: var(--radius-md);\n  box-shadow: var(--shadow-card);\n  transition: box-shadow var(--transition-fast);\n  overflow: hidden;\n}\n.product-card:hover { box-shadow: var(--shadow-elevated); }\n.product-card__title {\n  font-size: var(--font-size-h4);\n  font-weight: var(--font-weight-medium);\n  color: var(--color-neutral-900);\n}\n.product-card__price {\n  font-size: var(--font-size-h3);\n  font-weight: var(--font-weight-bold);\n  color: var(--color-accent-orange);\n}\n.product-card .btn-cta {\n  background: var(--color-brand-primary);\n  color: #fff;\n  border-radius: var(--radius-md);\n  border: none;\n}\n```\n\n## figma_deliverables\n- fileKey: 6XmYJOpiSXab2gtGlmWtks\n- nodes: 153:2, 153:3, 153:20, 153:40, 153:60, 160:72\n- Figma URL: https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design?node-id=153:2\n- 對應 Razor: Views/Home/Index.cshtml, Views/Shared/_Layout.cshtml（navbar/footer partials）\n\n## 視覺自驗（完工前必做）\n1. 對 153:3 / 153:20 / 153:40 各執行 `mcp__figma-remote-mcp__get_screenshot`\n2. 執行 Playwright `browser_navigate` http://localhost:5150/ + `browser_take_screenshot`\n3. 5 維度評估（配色 / 排版比例 / 卡片陰影圓角 / 字型層級 / 整體一致性），≥70% 達標\n4. 在 execution_log 記錄每個 nodeId 對照結果\n\n## worktree 規範\n- worktree：`.worktrees/T-eztcomm-20260602-R2/`\n- branch：`feat/T-eztcomm-20260602-R2`\n- 完工：`git fetch ../.. main && git rebase main` → `git checkout main && git merge feat/T-eztcomm-20260602-R2`\n- 最終回應打 `[TASK_DONE]`",
+  "context_paths": [
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Views/Home/",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+    "projects/eztravel.community/skills/styling/figma_template.json"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260602-R1"
+  ],
+  "objective": "修改 Home Page Razor 視圖，套用 R1 CSS Foundation 的 variables，讓 Hero / Category Nav / 商品卡片 / Promotion Banner / Footer 完全對齊 figma 設計稿（page_node 107:2）。",
+  "goal_state": "http://localhost:5150/ 的 Hero section 有品牌綠漸層背景（#11D073 → #0C9251）+ 白色搜尋框；Category Nav 有 6 種旅遊分類圖示；Hot Products 商品卡片有陰影（shadow-card）+ 圓角（radius-md）+ 橘色價格（#FF8B00）+ 綠色 CTA 按鈕；Playwright 全頁截圖與 figma nodeId 截圖 5 維度評估 ≥70% 相符。",
+  "verification": {
+    "verifier": "pg 自驗（Playwright + figma get_screenshot）",
+    "tools": [
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "跑 Playwright navigate localhost:5150 後 take_screenshot，Hero section 背景為綠色漸層（非白色）",
+      "跑 figma get_screenshot node 153:3 後對照 Playwright screenshot，5 維度自評 ≥70%",
+      "跑 Playwright evaluate querySelector('.product-card').style 後 box-shadow 非 'none'",
+      "grep -i 'shadow-card\\|radius-md' Views/Home/Index.cshtml 或 相關 partial 輸出非空"
+    ]
+  },
+  "out_of_scope": [
+    "HomeController 業務邏輯不得修改",
+    "Model / ViewModel 結構不得異動",
+    "Community 評論插槽（歸 R5 負責）不得在此卡觸動",
+    "Category Listing 詳細頁（歸 R4 負責）"
+  ],
+  "escalation_on_block": [
+    "figma get_screenshot 回傳 error / 授權問題 → 改用 Playwright 截圖單獨自驗，chat admin [QUERY] 說明 figma MCP 狀態",
+    "localhost:5150 無法訪問（server 未啟動）→ 先 dotnet run 再驗收，若 port 衝突 chat admin",
+    "Razor partial 路徑找不到 → 掃 Views/ 目錄確認命名再改"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-R2-01：Playwright 截圖 localhost:5150 Hero section 背景為品牌綠漸層（非白色）",
+    "AC-R2-02：商品卡片 computed box-shadow 非 none，含 rgba(0,0,0,0.08)",
+    "AC-R2-03：figma node 153:3 / 153:40 截圖與 Playwright 截圖 5 維度自評 ≥70% 相符",
+    "AC-R2-04：頁面不再呈現 Bootstrap 預設純文字連結列表外觀（無品牌色卡片）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": "2026-06-02T05:25:20.781153+00:00",
+  "completed_at": null,
+  "commit_sha": null,
+  "agent_session_id": "",
+  "superseded_by": [
+    "T-eztcomm-20260602-W6PG-HOME"
+  ],
+  "reclaim_reason": "REPLACED_BY_REBUILD_DUE_TO_FALSE_DONE — 拆解為 Wave 6 W6PG-HOME 等更細粒度卡",
+  "superseded_at": "2026-06-02T05:28:12+00:00"
+}

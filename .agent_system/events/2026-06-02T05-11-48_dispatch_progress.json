@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:11:48.837572+00:00",
+  "task_id": "T-eztcomm-20260602050638-DISPATCH-CONT-BOOT",
+  "agent": "dispatch",
+  "type": "progress",
+  "summary": "BOOT 訊息已送出。現在依 §8 卡片紀律更新進場狀態，並查詢 hub 事件。\nHub 無 pending 事件。依 §8 卡片紀律進場，讀取 eztcomm task_board 並更新自身卡狀態。\n請讀取以下檔案並回傳結構化摘要：\n1. D:\\Projects\\ai.factory\\projects\\eztravel.community\\.agent_system\\task_board.json\n\n回傳格式：\n- schema_version\n- 各 bucket (TODO/IN_PROGRESS/DONE/ARCHIVED) 的卡片清單（每張卡：task_id, title, sta",
+  "ref": {
+    "worker_id": "dispatch-eztcomm-1",
+    "response_chars": 2457
+  }
+}

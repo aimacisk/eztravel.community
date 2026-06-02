@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:06:49.089593+00:00",
+  "task_id": "T-eztcomm-20260602050638-DISPATCH-CONT-BOOT",
+  "agent": "dispatch",
+  "type": "started",
+  "summary": "你是 dispatch worker (binding scope=eztcomm, prj_id=eztravel.community)。\nContinuous 模式 (continuous_active=true)。\nComm room: R-1baf630a9298 (admin-dispatch-comm)。\nTask: T-eztcomm-20260602050638-DISPATCH-",
+  "ref": {
+    "worker_id": "dispatch-1",
+    "agent_session_id": ""
+  }
+}

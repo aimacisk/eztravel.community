@@ -1,0 +1,59 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-R5",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[R5] Community Module 視覺重建（ProductDetail 380px slot，SUPERSEDES W4-PG-4）",
+  "created_at": "2026-06-02T05:26:50.834968+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] EZTCOMM-W4-REBUILD — Community Module 視覺重建（R5）\n\nSUPERSEDES：T-eztcomm-20260601-W4-PG-4（假 TODO，Community feature 視覺未落地）\n\n**上游輸入**：\n- T-eztcomm-20260602-R1（DONE）：site.css CSS variables（#11D073 品牌色 + font-size-* + color-brand/neutral）\n- T-eztcomm-20260602-R3（TODO）：首頁 Homepage razor 重建（需 R3 先完成確認 layout 基礎）\n- W2/W3 UIUX 卡的 figma_deliverables（Community 區塊設計截圖）\n\n**執行範圍**：\n- 重建 Community feature 在 ProductDetail.cshtml 的 380px slot 內視覺展示\n- 使用 R1 site.css 的 CSS variables（var(--color-brand) / var(--font-size-*) 等），**不依賴 Bootstrap 預設色**\n- 對齊 W2/W3 UIUX Community 相關設計截圖\n\n**驗收規則（第 4/5 道防線）**：\n- 第 4 道（PG 自驗 grep）：\n  - `grep -n \"var(--color-brand\\|11D073\\|color-neutral\" 相關 razor/css` 必命中\n  - `grep -i \"bootstrap\" ProductDetail.cshtml` 顯示無內聯 Bootstrap 色值\n- 第 5 道（PG 自驗 Playwright）：\n  - ProductDetail 頁面 Community slot 背景 !== rgb(255,255,255)\n  - Community slot font-family contains \"Noto\"\n  - 截圖保存至 06_wiki/visual/pg/{task_id}/playwright_screenshot.png\n\n**完工必填**（7 道防線視覺證據鏈）：\n- deliverables：修改的 razor/css 檔案清單\n- figma_screenshot（對齊的 figma frame nodeId）\n- grep_hits（第 4 道 grep 命中行數）\n- playwright_screenshot（第 5 道 Playwright 截圖路徑）\n- visual_comparison：{ figma_nodeId, playwright_path, match_rating, notes }\n- wiki_draft_path：本卡 wiki 草稿",
+  "context_paths": [
+    "projects/eztravel.community/04_src/EzTravel.Community/Views/",
+    "projects/eztravel.community/04_src/EzTravel.Community/wwwroot/css/site.css",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-R3/"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260602-R1",
+    "T-eztcomm-20260602-R3"
+  ],
+  "objective": "在 ProductDetail.cshtml 380px slot 重建 Community Module 視覺，使用 R1 CSS variables 對齊 figma 設計，通過第 4/5 道防線自驗。",
+  "goal_state": "Community Module 在瀏覽器 ProductDetail 頁面可見品牌翠綠色（#11D073）配色，Playwright 截圖與 figma 截圖對齊，grep 確認 CSS variables 命中，visual_comparison 欄位已填。",
+  "verification": {
+    "verifier": "T-eztcomm-R-PG-AUDIT-GATE（qa）二次驗證",
+    "tools": [
+      "mcp__playwright__browser_take_screenshot",
+      "Grep",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "grep -n 'var(--color-brand' ProductDetail.cshtml 命中 ≥ 1 行（輸出含 community）",
+      "Playwright 截圖 Community slot bgColor !== rgb(255,255,255)（輸出含 #11D073 或非白色 rgb）",
+      "visual_comparison.match_rating >= 7/10"
+    ]
+  },
+  "out_of_scope": [
+    "Layout.cshtml navbar/footer（歸 T-eztcomm-20260602-R6）",
+    "Homepage rebuild（歸 T-eztcomm-20260602-R3）",
+    "後端 Community Controller 業務邏輯（既有保留不改）"
+  ],
+  "escalation_on_block": [
+    "R3 未完成導致 layout 不穩定 → 確認 R3 是否 DONE，若否 chat admin 調整 dep 順序",
+    "figma 無 Community 設計截圖 → chat admin 確認 UIUX 是否已補設計",
+    "Playwright 截圖失敗（server 未啟動）→ 先驗 grep，截圖等手動重跑"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "ProductDetail.cshtml Community slot 使用 var(--color-brand) 且 grep 命中",
+    "Playwright 截圖顯示 Community slot 非純白背景",
+    "visual_comparison 欄位已填（含 figma_nodeId + playwright_path + match_rating）",
+    "SUPERSEDES W4-PG-4 標記寫入 execution_log"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

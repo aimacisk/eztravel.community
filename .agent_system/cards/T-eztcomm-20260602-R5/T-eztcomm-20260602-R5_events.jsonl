@@ -1,0 +1,2 @@
+{"ts":"2026-06-02T05:26:50.834968+00:00","actor":"pm","type":"card_created","details":{"createdBy":"pm","via":"pm_plan_patch_eztcomm_w4_rebuild","batch":"EZTCOMM-W4-REBUILD"}}
+{"ts":"2026-06-02T05:35:30+00:00","actor":"pm","type":"task_board_synced","details":{"note":"手動補入 task_board TODO bucket（card_create MCP 插入失敗，relay 部分不可用）","synced_by":"pm"}}

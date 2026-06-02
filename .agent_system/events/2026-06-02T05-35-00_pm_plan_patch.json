@@ -1,0 +1,26 @@
+{
+  "ts": "2026-06-02T05:35:00+00:00",
+  "task_id": "PLAN-PATCH-EZTCOMM-W4-REBUILD",
+  "agent": "pm",
+  "type": "plan_patch",
+  "summary": "EZTCOMM-W4-REBUILD 補丁：9 張新卡（REAUDIT-W2/W3、UIUX-MISSING、PG6-AUDIT、R5、R6、UIUX-AUDIT-GATE、PG-AUDIT-GATE、CI-CHECK），W4-PG-3/W4-PG-4 標 SUPERSEDED，superseded_by 對齊 R3/R5",
+  "ref": {
+    "new_cards": [
+      "T-eztcomm-R-UIUX-REAUDIT-W2",
+      "T-eztcomm-R-UIUX-REAUDIT-W3",
+      "T-eztcomm-R-UIUX-MISSING",
+      "T-eztcomm-R-PG6-AUDIT",
+      "T-eztcomm-20260602-R5",
+      "T-eztcomm-20260602-R6",
+      "T-eztcomm-R-UIUX-AUDIT-GATE",
+      "T-eztcomm-R-PG-AUDIT-GATE",
+      "T-eztcomm-R-CI-CHECK"
+    ],
+    "superseded": [
+      {"task_id": "T-eztcomm-20260601-W4-PG-3", "superseded_by": "T-eztcomm-20260602-R3"},
+      {"task_id": "T-eztcomm-20260601-W4-PG-4", "superseded_by": "T-eztcomm-20260602-R5"}
+    ],
+    "plan_report_sent_to": "R-1baf630a9298",
+    "msg_id": "c-04730f510998"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-W6PG-COMMUNITY",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W6 PG] Community ReviewController + AJAX 視覺重建",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "instruction": [
+    "[WISH W4-REBUILD 防線 4+5+7] [W6 PG] Community ReviewController + AJAX 視覺重建\n\n## 進場第一動作\n打 `/goal [W6 PG] Community ReviewController + AJAX 視覺重建 完工後 localhost:5150/Review/Submit 頁面外觀對齊 Figma 設計稿（品牌綠 #11D073 navbar、body bg #F1F7F8、字型 Noto Sans TC），AC-W6-01~03 全 PASS`\n\n## 背景\nW4-PG 假完工事件重建卡。原始 Razor view 只有文字清單，完全未套用 CSS variables 或 Figma 設計。\n本卡使用 R1 已完成的 CSS Foundation（site.css :root CSS variables）作為樣式基礎，\n依照 T-eztcomm-20260602-RA-W3U1 的 figma_deliverables.json 重建 Views/Shared/_ReviewSection.cshtml + AJAX partial。\n\n## 讀取前置輸入\n1. **CSS Foundation（必讀）**：\n   `04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css`\n   — 確認 :root 中 CSS variables 已存在（至少 16 個 --color-*）\n2. **Figma deliverables**：\n   `projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W3U1/figma_deliverables.json`\n   — 取 nodeIds 清單及 razor_targets\n3. **資料來源**：`projects/eztravel.community/` （若適用）\n\n## 實作步驟\n1. 讀取 figma_deliverables.json，確認 nodeIds：87:2, 91:14, 92:2\n2. 對每個主要 nodeId 呼叫 `mcp__figma-remote-mcp__get_screenshot` 取得設計截圖作為參考\n3. 在 worktree `.worktrees/T-eztcomm-20260602-W6PG-COMMUNITY/` 修改 Views/Shared/_ReviewSection.cshtml + AJAX partial：\n   - 套用 CSS variables（--color-brand-primary、--color-surface-cool、--font-family-chinese 等）\n   - 對齊 Figma 設計的 layout（card grid、spacing、navbar 高度）\n   - 確保 data 綁定正確（從 Controller 傳入的 ViewModel）\n4. 用 Playwright 截圖 localhost:5150/Review/Submit 並與 Figma 截圖目測比對：\n   - 顏色：navbar #11D073、body bg #F1F7F8、accent #FF8B00 可見\n   - 字型：Noto Sans TC 中文字型（Playwright evaluate window.getComputedStyle(document.body).fontFamily 含 'Noto'）\n   - Layout：card grid、spacing 大致對齊（相似度 ≥ 70% 目測）\n5. commit worktree\n\n## Worktree 規範\n- worktree 路徑：`.worktrees/T-eztcomm-20260602-W6PG-COMMUNITY/`\n- branch：`feat/T-eztcomm-20260602-W6PG-COMMUNITY`\n- 完工後必先 `git fetch ../.. main && git rebase main` → 解衝突 → 標 [TASK_DONE]\n  （merge 由 dispatch 接手：rebase + fast-forward，不用 --no-ff）\n\n\n## 描述\nCommunity Module：Submit Review AJAX / Review List / StarRating 互動，對齊 W3-UIUX-1 設計\n\n## 禁止\n- 不可修改 EF Migrations / Entities / Controller business logic\n- 不可刪除 Bootstrap CDN 引用，只能在 Bootstrap 之後疊加 CSS variables 覆寫\n- 不可硬編碼顏色值（必須用 CSS variables）\n"
+  ],
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-RA-W3U1/figma_deliverables.json",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Views/"
+  ],
+  "acceptanceCriteria": [
+    "[防線 4-PG /goal 綁定] PG 進場第一動作打 `/goal <goal_state>`，instruction 內明列 figma nodeId 清單，PG 必須讀取並引用 T-eztcomm-20260602-RA-W3U1 的 figma_deliverables",
+    "[防線 5-PG視覺比對] PG 完工後用 Playwright 截圖 localhost:5150/Review/Submit，與 Figma get_screenshot 同 nodeId 比對，相似度 ≥ 70%（目測或像素比對）",
+    "[防線 7-CSS機械驗] grep '#11D073' wwwroot/css/site.css 輸出非空；Playwright evaluate body.backgroundColor ≠ rgb(255,255,255)；navbar 背景含 #11D073",
+    "AC-W6-01：Playwright body.backgroundColor = rgb(241,247,248)（#F1F7F8，非白色）",
+    "AC-W6-02：Playwright navbar 截圖目測含品牌綠色 #11D073（非 Bootstrap 藍）",
+    "AC-W6-03：Views/Shared/_ReviewSection.cshtml 不含 style= 硬編碼顏色，僅用 CSS class / CSS variable",
+    "AC-W6-04：Playwright 截圖與 Figma nodeId 87:2 截圖目測相似度 ≥ 70%"
+  ],
+  "wikiTarget": "06_wiki/04_dev_guide.md",
+  "depends_on": [
+    "T-eztcomm-20260602-GATE-UIUX",
+    "T-eztcomm-20260602-R1"
+  ],
+  "createdBy": "pm",
+  "objective": "依 T-eztcomm-20260602-RA-W3U1 figma_deliverables 重建 Views/Shared/_ReviewSection.cshtml + AJAX partial，套用 R1 CSS variables，消除 W4-PG 假完工",
+  "goal_state": "Playwright 截圖 localhost:5150/Review/Submit 後：navbar 綠色（#11D073）、body 背景淺灰（#F1F7F8）、中文字型（Noto Sans TC）可見；Views/Shared/_ReviewSection.cshtml + AJAX partial 不含硬編碼顏色值",
+  "verification": {
+    "verifier": "PG 自驗 + Wave 7 GATE-PG 覆驗",
+    "tools": [
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__figma-remote-mcp__get_screenshot"
+    ],
+    "evidence_checks": [
+      "跑 Playwright take_screenshot localhost:5150/Review/Submit 後截圖存在且 navbar 含綠色",
+      "跑 Playwright evaluate getComputedStyle(document.body).backgroundColor 回傳值包含 '241, 247, 248'（#F1F7F8）",
+      "跑 grep -r '#11D073' Views/Shared/_ReviewSection.cshtml 輸出空（硬編碼色值不存在，應用 CSS variable）",
+      "跑 grep 'var(--color-brand-primary)' wwwroot/css/site.css 輸出非空"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 Entities / EF Migrations / Identity 設定（W4-PG-1 已 DONE）",
+    "不動 Serilog / health endpoint 設定（W4-PG-5 已 DONE）",
+    "不重寫 business logic / data fetch，只負責 CSS variable 套用 + Razor layout 對齊 Figma"
+  ],
+  "escalation_on_block": [
+    "CSS variable 與 Bootstrap class 特異度衝突無法解決 → 分析後加 !important 或提升 selector，記錄到 execution_log，不可靜默放棄",
+    "Figma nodeId 截圖與現有 Razor view 差異 > 30%，無法在合理工時內對齊 → chat admin [ESCALATION] 說明 gap"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}

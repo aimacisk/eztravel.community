@@ -1,0 +1,1 @@
+{"ts":"2026-06-02T06:25:00+08:00","task_id":"T-eztcomm-R-PG6-AUDIT","agent":"qa","type":"completed","summary":"W4-PG-6 稽核完成：假 DONE（工作完成但未 commit）。測試 11 cases 在 worktree 存在，main branch 無 commit，commit_sha=PENDING_ADMIN_COMMIT 未解析。建議 admin 代為 commit + merge。","ref":{"delivered_files":["06_wiki/audit/pg6_audit_20260602T062500.md"],"task_board_status":"DONE"}}

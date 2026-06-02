@@ -1,0 +1,70 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-R7",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "ProductDetail 路由修復 + seed data",
+  "created_at": "2026-06-02T05:48:57.055006+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[W4-REBUILD-PATCH R7] ProductDetail 路由修復 + seed data\n\n## 背景\nadmin Playwright baseline 巡視（2026-06-02 13:44 TST）發現 `/product/{id}` 全部 HTTP 404，\nProductDetail 頁面無法訪問。本卡修復路由並建立最小 seed data。\n\n## 依賴\n- T-eztcomm-20260601-W4-PG-1（EF Core + Identity + Entities）\n\n## 進場第一動\n打 `/goal site.css 正確載入（body.bg=#F1F7F8，nav.bg=#11D073），/product/1 回 HTTP 200 並 Playwright 顯示完整頁面內容`\n\n## 主要工作\n\n### 1. 診斷 ProductDetailController routing\n- 確認 `[Route(\"product/{id}\")]` 或 `[HttpGet(\"{id}\")]` route attribute 正確\n- 確認 controller 已在 DI 容器\n- 確認 Program.cs 有 `MapControllerRoute` 覆蓋此 controller\n- 確認方法參數名稱與 route template 一致（`int id`）\n\n### 2. DB seed data\n在 `AppDbContext.OnModelCreating()` 或 `DbInitializer.cs` 建立最小 seed：\n```csharp\n// 至少 4 個 Product，各代表一個 category\nmodelBuilder.Entity<Product>().HasData(\n    new Product { Id = 1, Name = \"日本東京 7 日團體旅遊\", CategoryId = 1, Price = 28800, Description = \"含機票+住宿+導遊\" },\n    new Product { Id = 2, Name = \"泰國曼谷 5 日自由行\", CategoryId = 2, Price = 18500, Description = \"含機票+住宿\" },\n    new Product { Id = 3, Name = \"東京新宿蒙德里安飯店\", CategoryId = 3, Price = 4200, Description = \"一晚雙人房\" },\n    new Product { Id = 4, Name = \"環球影城一日票\", CategoryId = 4, Price = 2800, Description = \"成人票\" }\n);\n```\n\n### 3. EF Core migration\n```bash\ncd projects/eztravel.community/04_src/eztravel.Community\ndotnet ef migrations add Seed_ProductData --project eztravel.Community.Infrastructure --startup-project eztravel.Community.Web\ndotnet ef database update --project eztravel.Community.Infrastructure --startup-project eztravel.Community.Web\n```\n\n### 4. 驗證 HTTP 200\n```bash\ncurl http://localhost:5150/product/1  # 確認 200\ncurl http://localhost:5150/product/2  # 確認 200\ncurl http://localhost:5150/product/3  # 確認 200\ncurl http://localhost:5150/product/4  # 確認 200\n```\n\n## Line 4-5 視覺防線（7 道防線）\nLine 4 /goal 綁定（進場必打，如上）。\nLine 5 Playwright 視覺驗證：\n- `browser_navigate http://localhost:5150/product/1`\n- `browser_evaluate \"getComputedStyle(document.body).backgroundColor\"` → 含 `241, 247, 248`\n- `browser_evaluate \"getComputedStyle(document.querySelector('.navbar')).backgroundColor\"` → 含 `17, 208, 115`\n- `browser_take_screenshot` 存檔\n\n## worktree 工作規範\n- worktree 路徑：`.worktrees/T-eztcomm-20260602-R7/`\n- branch：`feat/T-eztcomm-20260602-R7`\n- 完工前：`git fetch ../.. main && git rebase main` → 解衝突 → `git checkout main && git merge feat/T-eztcomm-20260602-R7`（fast-forward，非 --no-ff）\n- 完工回應結尾打 `[TASK_DONE]`",
+  "context_paths": [
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Controllers/",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Infrastructure/Data/",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/Program.cs",
+    "projects/eztravel.community/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css"
+  ],
+  "depends_on": [
+    "T-eztcomm-20260601-W4-PG-1"
+  ],
+  "objective": "`/product/{id}` 全部 HTTP 404，Playwright 無法巡視 ProductDetail。修復 ProductDetailController routing 並建立 seed data，讓 `/product/1`~`/product/4` 全部 HTTP 200 可用。",
+  "goal_state": "`curl http://localhost:5150/product/1` 回 HTTP 200；Playwright `browser_navigate /product/1` 成功並截圖顯示頁面內容；同 id=2/3/4 亦全部 200；body.backgroundColor 為 rgb(241,247,248)，navbar 為 rgb(17,208,115)。",
+  "verification": {
+    "verifier": "PG 自驗 + admin Playwright 覆驗",
+    "tools": [
+      "curl",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_take_screenshot"
+    ],
+    "evidence_checks": [
+      "跑 curl http://localhost:5150/product/1 後輸出 HTTP/1.1 200",
+      "跑 curl http://localhost:5150/product/2 後輸出 HTTP/1.1 200",
+      "跑 curl http://localhost:5150/product/3 後輸出 HTTP/1.1 200",
+      "跑 curl http://localhost:5150/product/4 後輸出 HTTP/1.1 200",
+      "跑 Playwright browser_navigate http://localhost:5150/product/1 後 browser_evaluate getComputedStyle(document.body).backgroundColor 回傳值包含 '241, 247, 248'",
+      "跑 Playwright browser_evaluate getComputedStyle(document.querySelector('.navbar')).backgroundColor 後包含 '17, 208, 115'",
+      "跑 Playwright browser_take_screenshot 後存檔顯示完整頁面內容（含 navbar 翠綠）"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 ProductDetail View 視覺排版（歸 W6PG-DETAIL 卡）",
+    "不動 Identity / Login 設定（歸 R9）",
+    "不修改 Category 或 Order 相關邏輯",
+    "不新增業務功能，只修路由 + seed"
+  ],
+  "escalation_on_block": [
+    "EF Core migration 衝突 → 先 dev 環境 drop+recreate DB，聊 admin [QUERY] 說明",
+    "W4-PG-1 尚未 DONE（Entity 未定義）→ 標 BLOCKED 等依賴完工",
+    "seed data 外鍵約束錯誤 → 檢查 Category seed 是否先建立，chat admin [QUERY]"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-R7-01：curl http://localhost:5150/product/1 回 HTTP 200",
+    "AC-R7-02：curl http://localhost:5150/product/2~4 各自回 HTTP 200",
+    "AC-R7-03：Playwright browser_navigate /product/1 成功，截圖顯示頁面內容",
+    "AC-R7-04：Playwright evaluate body.backgroundColor 包含 '241, 247, 248'（#F1F7F8）",
+    "AC-R7-05：Playwright evaluate navbar.backgroundColor 包含 '17, 208, 115'（#11D073）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260602-R7/04_src/eztravel.Community/eztravel.Community.Web/Controllers/ProductController.cs",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260602-R7/04_src/eztravel.Community/eztravel.Community.Web/Program.cs"
+  ],
+  "execution_log": "修復 1：ProductController.cs 第 20 行 [HttpGet(\"detail/{id:int}\")] → [HttpGet(\"{id:int}\")]，使路由 /product/{id} 生效（原錯誤路由 /product/detail/{id}）。修復 2：Program.cs Development seed 補第 4 筆 Product（Id=4, Ticket 類, 環球影城一日票），滿足 AC-R7-02 /product/4 HTTP 200。site.css 無需修改（body #F1F7F8 / navbar #11D073 已正確）。InMemory DB 無需 EF migration。commit_sha=PENDING_ADMIN_COMMIT（git commands BLOCKED in sandbox）。",
+  "started_at": "2026-06-02T05:56:08.548318+00:00",
+  "completed_at": "2026-06-02T06:10:00.000000+00:00",
+  "commit_sha": "PENDING_ADMIN_COMMIT",
+  "agent_session_id": "pg-sandbox"
+}

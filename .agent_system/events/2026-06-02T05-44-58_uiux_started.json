@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T05:44:58.768753+00:00",
+  "task_id": "T-eztcomm-R-UIUX-MISSING",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[WISH] EZTCOMM-W4-REBUILD — 補設計缺漏元件（W4-AQ-1 BUG-001 揭發）\n\n**上游輸入**：W4-AQ-1 BUG-001 bug report（LoginPartial figma 無設計）；Layout.cshtml 現有 HTML 結構；既有 design_tokens.json 品牌色系。\n\n**下游消費**：\n- T-eztcomm-2026060",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

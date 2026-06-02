@@ -1,0 +1,54 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-20260602-AUDIT-W4PG6",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[AUDIT] W4-PG-6 假完工事件調查 — commit_sha=PENDING_ADMIN_COMMIT",
+  "created_at": "2026-06-02T05:28:12+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "instruction": "[AUDIT] 調查 W4-PG-6 假完工事件\n\n## 背景\nT-eztcomm-20260601-W4-PG-6 在 task_board 標記為 DONE，但：\n- commit_sha = \"PENDING_ADMIN_COMMIT\"（不是真實 SHA）\n- deliverables 列的是 test/*.cs 路徑\n- 使用者親測 localhost:5150 後確認 site.css 只有 22 行 Bootstrap 預設，無任何 CSS variable\n\n## 調查步驟\n1. 讀取 T-eztcomm-20260601-W4-PG-6/T-eztcomm-20260601-W4-PG-6.json，確認全部欄位\n2. 在 eztcomm git repo 搜尋是否有真實 commit 包含 xUnit test files：\n   ```bash\n   git -C projects/eztravel.community/04_src log --oneline | grep -i test | head -10\n   ```\n3. 檢查現有 test 目錄是否有 xUnit 測試：\n   ```bash\n   find projects/eztravel.community/04_src -name \"*.Tests.csproj\" 2>/dev/null\n   ```\n4. 記錄調查結論到 execution_log：\n   - 真實測試是否存在？\n   - commit 是否存在？\n   - 假完工的根因（admin 手動標 DONE 未實際測試？PG agent 標錯？）\n5. 輸出 audit_report.md 到 cards/T-eztcomm-20260602-AUDIT-W4PG6/audit_report.md\n6. 回應結尾打 [TASK_DONE]\n\n## 注意：不修復 W4-PG-6，只調查根因\n修復由 Wave 6 W6PG-* 系列卡負責（針對視覺），\n單元測試後續依專案需要另開卡。\n",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W4-PG-6/T-eztcomm-20260601-W4-PG-6.json",
+    "projects/eztravel.community/04_src/"
+  ],
+  "acceptanceCriteria": [
+    "AC-AUDIT-01：audit_report.md 存在且含根因分析",
+    "AC-AUDIT-02：明確說明 xUnit 測試是否有真實 git commit",
+    "AC-AUDIT-03：明確說明 commit_sha=PENDING_ADMIN_COMMIT 的來源（誰設的）"
+  ],
+  "wikiTarget": "06_wiki/04_dev_guide.md",
+  "depends_on": [],
+  "createdBy": "pm",
+  "objective": "調查 W4-PG-6 commit_sha=PENDING_ADMIN_COMMIT 假完工事件的根因",
+  "goal_state": "audit_report.md 存在，含根因分析與調查結論（xUnit 測試真實存在與否、commit 真實存在與否）",
+  "verification": {
+    "verifier": "PG 自驗（調查）",
+    "tools": [
+      "Read",
+      "Bash",
+      "Glob"
+    ],
+    "evidence_checks": [
+      "audit_report.md 存在於 cards/T-eztcomm-20260602-AUDIT-W4PG6/",
+      "audit_report.md 含 '根因' 段落且非空白"
+    ]
+  },
+  "out_of_scope": [
+    "不修復 W4-PG-6 的任何問題（只調查）",
+    "不建立新的 xUnit 測試（另行規劃）"
+  ],
+  "escalation_on_block": [
+    "git log 指令失敗（非 git repo）→ 記錄後繼續，不阻塞",
+    "W4-PG-6 卡本體 JSON 損毀無法讀取 → chat admin [QUERY] 請求修復卡後繼續"
+  ],
+  "started_at": null,
+  "agent_session_id": null,
+  "completed_at": null,
+  "deliverables": [],
+  "execution_log": "",
+  "wiki_draft_path": null,
+  "archived_at": null,
+  "wiki_integrated_files": [],
+  "commit_sha": null
+}
