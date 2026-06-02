@@ -16,7 +16,7 @@ jobs:
     env:
       GCP_PROJECT_ID: eztcomm-prod-1780402352
       GCP_REGION: asia-east1
-      ARTIFACT_REPO: eztravel-images
+      ARTIFACT_REPO: eztcomm-repo
       IMAGE_NAME: eztravel-community
       SERVICE_NAME: eztravel-community
       CLOUD_SQL_CONNECTION_NAME: eztcomm-prod-1780402352:asia-east1:eztcomm-db
@@ -33,7 +33,7 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
 
       - name: Setup gcloud
         uses: google-github-actions/setup-gcloud@v2
@@ -79,8 +79,9 @@ jobs:
             --concurrency=80 \
             --port=8080 \
             --add-cloudsql-instances=${{ env.CLOUD_SQL_CONNECTION_NAME }} \
-            --set-env-vars=ASPNETCORE_ENVIRONMENT=Production,CLOUD_SQL_CONNECTION_NAME=${{ env.CLOUD_SQL_CONNECTION_NAME }} \
-            --set-secrets=DB_PASSWORD=DB_PASSWORD:latest \
+            --service-account=eztcomm-runner@${{ env.GCP_PROJECT_ID }}.iam.gserviceaccount.com \
+            --set-env-vars=ASPNETCORE_ENVIRONMENT=Production \
+            --set-secrets=ConnectionStrings__DefaultConnection=eztcomm-db-connection:latest \
             --quiet
 
       - name: Smoke test
