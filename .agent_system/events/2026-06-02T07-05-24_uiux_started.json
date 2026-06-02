@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T07:05:24.561115+00:00",
+  "task_id": "T-eztcomm-UIUX-SUB-LAYOUT",
+  "agent": "uiux",
+  "type": "started",
+  "summary": "[WISH] PLAN-PATCH-3 — Goal 2 補 UIUX 不足\n\n## 卡片紀律（§8 強制）\n進場讀 task_board 索引找 T-eztcomm-UIUX-SUB-LAYOUT → 讀 cards/ 卡本體 → 改 status=IN_PROGRESS + started_at。完工填 deliverables + execution_log + completed_at →",
+  "ref": {
+    "worker_id": "uiux-1",
+    "agent_session_id": ""
+  }
+}

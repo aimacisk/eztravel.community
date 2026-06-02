@@ -26,7 +26,10 @@
     "evidence_checks": [
       "每張 W3-UIUX 卡 figma_deliverables.nodeIds 非空且 get_metadata 驗真存在",
       "06_wiki/visual/w3/ 下有對應 {nodeId}.png 截圖",
-      "W3-UIUX-2 status=DONE（task_board DONE bucket 含此 ID）"
+      "W3-UIUX-2 status=DONE（task_board DONE bucket 含此 ID）",
+      "[補追紀律 PLAN-PATCH-3 COMPLEMENT] 後續審核：06_wiki/visual/reference/{對應頁面}.png 存在（或說明替代方案）（本卡 DONE 時紀律尚未生效）",
+      "[補追紀律 PLAN-PATCH-3 COMPLEMENT] 後續審核：figma_deliverables 含 reference_screenshot 欄位（本卡 DONE 時紀律尚未生效）",
+      "[補追紀律 PLAN-PATCH-3 COMPLEMENT] 後續審核：figma_deliverables 含 reference_alignment 數值 ≥ 70（本卡 DONE 時紀律尚未生效）"
     ]
   },
   "out_of_scope": [
@@ -44,7 +47,10 @@
     "W3-UIUX-1~3 全 3 張卡均已補 figma_deliverables（含 fileKey/nodeIds/page_url）",
     "每 nodeId 均有 get_screenshot 截圖存於 06_wiki/visual/w3/",
     "5 維度視覺自評全部通過",
-    "W3-UIUX-2 已標 DONE"
+    "W3-UIUX-2 已標 DONE",
+    "[補追紀律 PLAN-PATCH-3 COMPLEMENT] AC-P1: 本卡設計時若未執行 Playwright 前置截圖，後續審核需補 browser_navigate + browser_take_screenshot 存至 06_wiki/visual/reference/{page}.png（本卡 DONE 時紀律尚未生效，適用後續審核）",
+    "[補追紀律 PLAN-PATCH-3 COMPLEMENT] AC-P2: 本卡 figma frame 視覺結構應對齊 eztravel.com.tw 截圖（欄位配置/CTA 位置/佈局比例）；後續審核需補驗（本卡 DONE 時紀律尚未生效）",
+    "[補追紀律 PLAN-PATCH-3 COMPLEMENT] AC-P3: 本卡 figma_deliverables 若已有截圖，補填 reference_screenshot 欄位 + reference_alignment ≥ 70%（本卡 DONE 時紀律尚未生效）"
   ],
   "wiki_target": "06_wiki/02_design_tokens.md",
   "deliverables": [

@@ -1,0 +1,22 @@
+{
+  "ts": "2026-06-02T10:15:00+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-COMMUNITY",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "[W6 PG] Community ReviewController + AJAX 視覺重建 完成。11 個交付物已寫入 worktree feat/T-eztcomm-20260602-W6PG-COMMUNITY。靜態 AC 通過（AC-W6-03、防線7）；Playwright AC-W6-01/02/04 BLOCKED browser locked → admin 覆驗。commit_sha=PENDING_ADMIN_COMMIT",
+  "ref": {
+    "delivered_files": [
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_ReviewSection.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/Controllers/ReviewController.cs",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Review/Submit.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+      "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/js/site.js",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_CommunityModule.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_FilterBar.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_ReviewComposer.cshtml",
+      ".agent_system/cards/T-eztcomm-20260602-RA-W3U1/figma_deliverables.json"
+    ],
+    "task_board_status": "DONE"
+  }
+}

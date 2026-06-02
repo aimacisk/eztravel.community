@@ -1,0 +1,16 @@
+{
+  "ts": "2026-06-02T09:10:00+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-CAT-HOTEL",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "[W6 PG] 旅館分類頁視覺重建 DONE — Hotel.cshtml + _Section_DestinationGrid.cshtml + CategoryController Hotel action + site.css hotel CSS（全 CSS variables）。靜態 AC-W6-03 通過，動態 AC-W6-01/02/04 待 admin Playwright 驗證。",
+  "ref": {
+    "delivered_files": [
+      "04_src/eztravel.Community/eztravel.Community.Web/Controllers/CategoryController.cs",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Category/Hotel.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Section_DestinationGrid.cshtml",
+      "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css"
+    ],
+    "task_board_status": "DONE"
+  }
+}

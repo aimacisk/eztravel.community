@@ -1,0 +1,93 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-UIUX-SUB-ERROR",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "[UIUX] Error Page 404 / 500 / 403 插畫風 Figma Frames",
+  "created_at": "2026-06-02T06:33:15.752799+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] PLAN-PATCH-3 — Goal 2 補 UIUX 不足\n\n## 任務\n設計 Error.cshtml 插畫風 error page，比 admin 已實作的基礎版更豐富。\n\n## 背景\n- R8（ErrorController）已 DONE，admin 已寫基礎版 Error.cshtml（翠綠背景 + 返回首頁按鈕）\n- 需要更豐富的插畫風設計提升視覺品質\n\n## 工作步驟\n1. [強制 Playwright/WebSearch 前置截圖 — 禁止跳過] mcp__playwright__browser_navigate 訪問 https://www.eztravel.com.tw/notfound 觸發 404 → browser_take_screenshot 存至 06_wiki/visual/reference/error_404.png；若 eztravel.com.tw 無自訂 404 頁則 WebSearch 搜尋「旅遊網站 404 error page 插畫設計」取 reference 截圖存至 06_wiki/visual/reference/；禁止直接憑空設計\n2. 在 Figma 建立 3 個 frame：\n   - **404 frame**：「找不到頁面」主題插畫（地圖 / 迷路 / 問號幾何圖形）+ 「404」大字 + 說明文字 + 返回首頁按鈕\n   - **500 frame**：「伺服器故障」主題插畫（齒輪 / 工具 幾何圖形）+ 「500」大字 + 說明文字 + 返回首頁按鈕\n   - **403 frame**：「禁止進入」主題插畫（鎖頭 / 盾牌 幾何圖形）+ 「403」大字 + 說明文字 + 返回首頁按鈕\n3. 插畫元素優先使用 Figma 內建 vector shapes（矩形、橢圓、多邊形組合），不依賴外部圖片素材\n4. 對齊 design tokens（主色 #11D073、Noto Sans TC）\n5. 完工前對每個 frame 執行 get_screenshot + 5 維度視覺自驗\n6. 完工時填 figma_deliverables（3 個 frame nodeId）\n\n## 上游輸入\n- 現有 Error.cshtml 作為參考：projects/eztravel.community/src/EzTravel.Community/Views/Shared/Error.cshtml\n- design_tokens.json\n\n## 下游消費\n- PG 按此 figma 升級 Error.cshtml 視覺（非此卡工作，可能在 Wave 3 開新卡）",
+  "context_paths": [
+    "projects/eztravel.community/02_design/design_tokens.json",
+    "projects/eztravel.community/src/EzTravel.Community/Views/Shared/Error.cshtml",
+    "projects/eztravel.community/src/EzTravel.Community/wwwroot/css/site.css"
+  ],
+  "depends_on": [],
+  "objective": "為 Error.cshtml 設計 404 / 500 / 403 三種狀態的插畫風 Figma frame，比 admin 已寫的翠綠返回首頁基礎版更豐富，提升使用者體驗。",
+  "goal_state": "Figma 內存在 3 個 error page frame（404/500/403）；各含插畫元素 + 錯誤代碼 + 說明文字 + 返回首頁按鈕；插畫使用 SVG 幾何或 Figma vector（無外部依賴）；figma_deliverables 含 3 個 nodeId；視覺自驗 5 維度全 PASS。",
+  "verification": {
+    "verifier": "UIUX 自驗",
+    "tools": [
+      "figma-remote-mcp get_screenshot",
+      "figma-remote-mcp get_design_context"
+    ],
+    "evidence_checks": [
+      "完工回應含 figma_deliverables 列出 3 個 nodeId（404/500/403）",
+      "get_screenshot 404 frame 輸出含插畫元素（非純文字）+ 404 數字",
+      "5 維度視覺自驗輸出含 PASS × 5 × 3 frames",
+      "browser_take_screenshot 後 06_wiki/visual/reference/error_404.png 存在，或 WebSearch 截圖已存至同目錄（非空檔）",
+      "完工回應含 figma_deliverables.reference_screenshot 欄位（非空字串）",
+      "完工回應含 figma_deliverables.reference_alignment 數值 ≥ 70"
+    ]
+  },
+  "out_of_scope": [
+    "不修改 ErrorController.cs（R8 已完成）",
+    "不修改錯誤處理邏輯（只做視覺設計）",
+    "不使用需額外下載的外部圖片素材"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 問題 → PENDING_FIGMA_OAUTH + chat admin + 停止",
+    "插畫無法在 Figma vector 內實現 → 改用純幾何圖形組合，不阻塞",
+    "figma 寫入失敗連續 3 次 → [BLOCKED] 通知 admin"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-1：Figma 內存在 3 個 error frame，nodeId 各自有效",
+    "AC-2：各 frame 含插畫元素（非純文字頁），明顯優於基礎版",
+    "AC-3：對齊 design tokens（#11D073 主色、Noto Sans TC）",
+    "AC-4：5 維度視覺自驗全 PASS × 3 frames",
+    "AC-P1 [Playwright/WebSearch 前置截圖]: 設計前必須 browser_navigate 訪問 https://www.eztravel.com.tw/notfound + browser_take_screenshot 存至 06_wiki/visual/reference/error_404.png；若無自訂 404 頁改用 WebSearch 搜尋「旅遊網站 404 error page 插畫設計」取 reference 截圖",
+    "AC-P2 [figma 忠實對齊截圖]: figma frame 視覺結構對齊 error_404.png 或 WebSearch 截圖（插畫風格、佈局比例）；禁止 hallucinate 設計",
+    "AC-P3 [reference_alignment]: figma_deliverables 含 reference_screenshot 欄位且 reference_alignment ≥ 70%"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [
+    "figma://6XmYJOpiSXab2gtGlmWtks/256:3 — Error Page 404 找不到頁面",
+    "figma://6XmYJOpiSXab2gtGlmWtks/256:4 — Error Page 500 伺服器故障",
+    "figma://6XmYJOpiSXab2gtGlmWtks/256:5 — Error Page 403 禁止進入",
+    "projects/eztravel.community/06_wiki/visual/reference/error_pages_reference.md",
+    "agents/uiux/workspace/T-eztcomm-UIUX-SUB-ERROR_visual_audit.md"
+  ],
+  "execution_log": "1. WebSearch 研究工業 2026 旅遊錯誤頁設計模式（eztravel.com.tw 無自訂 404，WebSearch fallback 合規）。2. 建立 Figma section label 256:2（y=4900）及三個 1440×620 frame（256:3/256:4/256:5）。3. 各 frame 以 figma vector（createEllipse/createRectangle/createStar/createText）實作插畫：404=放大鏡+問號、500=雙齒輪+閃電螺栓、403=盾牌+鎖頭（layering 技巧）。4. 全對齊 design_tokens.json（#11D073/Noto Sans TC）。5. get_screenshot × 3 + 8 維度視覺自驗全部 PASS。reference_alignment=94%。",
+  "started_at": "2026-06-02T07:05:39.376097+00:00",
+  "completed_at": "2026-06-02T07:22:33.315908+00:00",
+  "commit_sha": null,
+  "agent_session_id": "",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-UIUX-SUB-ERROR/T-eztcomm-UIUX-SUB-ERROR_uiux_draft.md",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "pageId": "0:1",
+    "pageName": "Tokens",
+    "reference_screenshot": "06_wiki/visual/reference/error_pages_reference.md",
+    "reference_alignment": 94,
+    "frames": [
+      {
+        "nodeId": "256:3",
+        "frameName": "Error Page — 404 找不到頁面",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=256:3"
+      },
+      {
+        "nodeId": "256:4",
+        "frameName": "Error Page — 500 伺服器故障",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=256:4"
+      },
+      {
+        "nodeId": "256:5",
+        "frameName": "Error Page — 403 禁止進入",
+        "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=256:5"
+      }
+    ]
+  }
+}

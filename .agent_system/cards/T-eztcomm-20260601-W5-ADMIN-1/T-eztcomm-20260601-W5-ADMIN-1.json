@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W5-ADMIN-1",
   "prj_id": "eztravel.community",
-  "status": "PENDING_USER_GCLOUD_AUTH",
+  "status": "DONE",
   "title": "W5 GCP 首次環境建置 — gcloud auth + Cloud SQL + SA + Artifact Registry + Secret Manager",
   "created_at": "2026-06-01T09:04:08.725635+00:00",
   "assignee": "admin",
@@ -51,9 +51,19 @@
     "AC-5: GitHub Secret GOOGLE_CREDENTIALS 已設定（gh secret list 可見）"
   ],
   "wiki_target": "06_wiki/05_deployment_guide.md",
-  "deliverables": [],
-  "execution_log": "",
-  "started_at": null,
-  "completed_at": null,
-  "commit_sha": null
+  "deliverables": [
+    "GCP project eztcomm-prod-1780402352 (active, billing linked to 01195B-F11077-A1E6BC ai.macisk TWD)",
+    "9 APIs enabled: run, sqladmin, artifactregistry, secretmanager, logging, cloudbuild, iam, iamcredentials, compute",
+    "Service Account eztcomm-runner@eztcomm-prod-1780402352.iam.gserviceaccount.com",
+    "6 IAM roles bound to SA: roles/cloudsql.client + roles/secretmanager.secretAccessor + roles/run.invoker + roles/run.admin + roles/iam.serviceAccountUser + roles/artifactregistry.writer",
+    "Artifact Registry repo eztcomm-repo (asia-east1, DOCKER format)",
+    "Cloud SQL eztcomm-db (POSTGRES_15, db-f1-micro, asia-east1, RUNNABLE, public IP 34.80.88.176)",
+    "Database eztcomm + user eztcomm_user (28-char URL-safe base64 random password)",
+    "Secret Manager eztcomm-db-connection v1 (Cloud SQL unix socket connection string)",
+    "GitHub Actions secrets (admin 統一管理): GOOGLE_CREDENTIALS + GCP_PROJECT_ID + GCP_REGION + CLOUD_SQL_INSTANCE"
+  ],
+  "execution_log": "admin 親自執行;Cloud SQL 建置等待 ~5min; SA key 已安全刪除;5 AC 全 PASS (RUNNABLE/AR/Secret/SA/gh secret list)",
+  "started_at": "2026-06-02T11:35:00+00:00",
+  "completed_at": "2026-06-02T07:35:46.968123+00:00",
+  "commit_sha": "55e3a21"
 }

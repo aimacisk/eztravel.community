@@ -1,1 +1,0 @@
-{"task_id": "T-eztcomm-20260602-W6PG-CAT-FLIGHT", "agent": "pg", "worker_id": "pg-1", "pid": 144900, "acquired_at": "2026-06-02T05:53:10.646195+00:00", "ttl_seconds": 1800, "expires_at": "2026-06-02T06:23:10.646195+00:00", "msg_kind": "task", "msg_id": "m-430d8e5a731a"}

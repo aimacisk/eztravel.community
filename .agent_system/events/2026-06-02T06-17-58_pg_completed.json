@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T06:17:58.496388+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-CAT-GROUPTOUR",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "`/goal [W6 PG] 團體分類頁視覺重建 完工後 localhost:5150/Category/GroupTour 頁面外觀對齊 Figma 設計稿（品牌綠 #11D073 navbar、body bg #F1F7F8、字型 Noto Sans TC），AC-W6-01~03 全 PASS`\n\n進場第一動作——讀卡本體 + 確認授權範圍。\nfigma_deliverables.json 不存在，先找一下路徑，同時進場改卡 IN_PROGRESS，並讀取現有檔案。\nfigma_deliverables.json 不存在，先找 MISS-W2U5 目錄內容 + 現有 GroupTour.",
+  "ref": {
+    "worker_id": "pg-2",
+    "response_chars": 17217
+  }
+}

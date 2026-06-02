@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T07:01:26.504487+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-COMMUNITY",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[TASK task_id=T-eztcomm-20260602-W6PG-COMMUNITY]\n[WISH W4-REBUILD 防線 4+5+7] [W6 PG] Community ReviewController + AJAX 視覺重建\n\n**任務**：進場打 `/goal`；讀取 CSS Foundation（site.css）+ figma_deliverables（來自 RA-W3U",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

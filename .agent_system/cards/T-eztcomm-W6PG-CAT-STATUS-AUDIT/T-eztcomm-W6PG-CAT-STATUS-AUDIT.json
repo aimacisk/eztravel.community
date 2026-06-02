@@ -1,0 +1,58 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-W6PG-CAT-STATUS-AUDIT",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[QA] 5 CAT 頁 + HOTEL 6 卡稽核（worktree + figma 比對 + FALSE_DONE 偵測）",
+  "created_at": "2026-06-02T06:34:35.270249+00:00",
+  "assignee": "qa",
+  "phase": "QA",
+  "priority": "P1",
+  "instruction": "[WISH] PLAN-PATCH-3 — Goal 1 確保 CAT 頁完成\n\n## 任務\n稽核 6 張 CAT 頁卡的真實完工狀態，執行 7 道防線第 5 道 figma 比對。\n\n## 稽核對象（6 張卡）\n1. T-eztcomm-20260602-W6PG-CAT-FREETOUR\n2. T-eztcomm-20260602-W6PG-CAT-GROUPTOUR\n3. T-eztcomm-20260602-W6PG-CAT-TICKET\n4. T-eztcomm-20260602-W6PG-CAT-SPOT（或 ATTRACTION）\n5. T-eztcomm-20260602-W6PG-CAT-ATTRACTION\n6. T-eztcomm-20260602-W6PG-CAT-HOTEL（已知疑似 FALSE_DONE：commit_sha=PENDING_ADMIN_COMMIT）\n\n## 稽核步驟（每張卡）\n1. **worktree 稽核**：查 `.worktrees/{task_id}/` 是否存在 + 在 worktree 內跑 `git log --oneline -3` 確認有無 feat 分支 commit\n2. **deliverables 稽核**：讀卡本體 `cards/{task_id}/{task_id}.json` 的 `deliverables` 列表，對每個路徑確認檔案是否實際存在\n3. **commit_sha 稽核**：\n   - 若 commit_sha = PENDING_ADMIN_COMMIT → 標記 FALSE_DONE（commit 未落地）\n   - 若 commit_sha 為真實 SHA → 確認 `git show {sha} --stat` 是否在 main branch 上\n4. **figma 比對（第 5 道防線）**：\n   - 讀卡本體 deliverables / execution_log 取 figma nodeId\n   - 用 figma-remote-mcp get_screenshot 取 figma 截圖\n   - 用 Playwright browser_navigate + browser_take_screenshot 取實際頁面截圖\n   - 視覺比對差異：目測判斷是否與 figma 對齊（主色 / 元件 / 佈局）\n5. **W6PG-CAT-HOTEL 特別稽核**：\n   - commit_sha=PENDING_ADMIN_COMMIT → 直接標記 FALSE_DONE\n   - 確認 worktree 有沒有尚未 commit 的修改（`git status`）\n   - 建議行動：admin 需補 commit 或 PM 開 REWORK 卡\n\n## 輸出格式\n### wiki_draft\n| 卡 ID | worktree commit | deliverables 存在 | commit_sha 真實 | figma 比對 | 結論 |\n|--------|----------------|------------------|-----------------|-----------|------|\n| ... | PASS/FAIL | PASS/FAIL | PASS/FAIL | PASS/FAIL | PASS/FALSE_DONE |\n\n### FALSE_DONE 清單\n- {task_id}：{原因} → {建議行動}\n\n## 上游輸入\n- task_board.json：projects/eztravel.community/.agent_system/task_board.json\n- cards/ 目錄：projects/eztravel.community/.agent_system/cards/\n- .worktrees/ 目錄：projects/eztravel.community/.worktrees/\n\n## 下游消費\n- admin 依稽核結果決定是否對 FALSE_DONE 卡開 REWORK 或補 commit\n- T-eztcomm-R-PG-AUDIT-GATE（第 6 道防線）在本卡 PASS 後才執行",
+  "context_paths": [
+    "projects/eztravel.community/.agent_system/task_board.json",
+    "projects/eztravel.community/.agent_system/cards/",
+    "projects/eztravel.community/.worktrees/",
+    "projects/eztravel.community/src/EzTravel.Community/"
+  ],
+  "depends_on": [],
+  "objective": "稽核 5 個 CAT 頁卡（FREETOUR/GROUPTOUR/TICKET/SPOT/ATTRACTION）+ W6PG-CAT-HOTEL 共 6 張卡的真實完工狀態，執行 7 道防線第 5 道 figma 比對，偵測 FALSE_DONE 並提供修復建議。",
+  "goal_state": "wiki_draft 含 6 卡稽核結果表格（worktree commit / deliverables 存在 / commit_sha 真實 / figma 比對 各欄 PASS/FAIL）；W6PG-CAT-HOTEL 確認 FALSE_DONE（commit_sha=PENDING_ADMIN_COMMIT）；FALSE_DONE 卡清單含任務 ID + 原因 + 建議行動；稽核結果完工後標記 [TASK_DONE]。",
+  "verification": {
+    "verifier": "QA 自驗",
+    "tools": [
+      "figma-remote-mcp get_screenshot",
+      "mcp__playwright browser_take_screenshot",
+      "Bash git log"
+    ],
+    "evidence_checks": [
+      "完工回應含 6 卡稽核表格（6 列 × 5 欄）",
+      "FALSE_DONE 清單至少含 T-eztcomm-20260602-W6PG-CAT-HOTEL（commit_sha=PENDING_ADMIN_COMMIT）",
+      "wiki_draft 路徑填入 figma_deliverables 欄位"
+    ]
+  },
+  "out_of_scope": [
+    "不修復 PG 程式碼（REWORK 卡由 admin 決定派 PG）",
+    "不稽核 UIUX 卡（另有 REAUDIT-W2/W3 系列）",
+    "不稽核非 CAT 類型的頁面"
+  ],
+  "escalation_on_block": [
+    "worktree 目錄不存在 → 記錄 worktree=MISSING，繼續稽核其他卡",
+    "figma nodeId 無法從卡本體讀取 → 記錄 figma=UNKNOWN，不阻塞整體稽核",
+    "Playwright 無法啟動網站 → 記錄頁面截圖=SKIP，改用 deliverables 稽核替代",
+    "稽核結果發現 >3 張 FALSE_DONE → chat admin + [ESCALATION]"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-1：6 張卡各有完整稽核結果（4 維度 PASS/FAIL）",
+    "AC-2：W6PG-CAT-HOTEL 確認 FALSE_DONE 並列入修復建議",
+    "AC-3：figma 比對截圖或比對描述附於 wiki_draft",
+    "AC-4：FALSE_DONE 清單明確列出任務 ID + 原因 + 建議行動"
+  ],
+  "wiki_target": "06_wiki/05_qa_report.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

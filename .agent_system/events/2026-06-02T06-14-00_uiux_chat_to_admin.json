@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T06:14:00.771524+00:00",
+  "task_id": "T-eztcomm-20260602-GATE-UIUX",
+  "agent": "uiux",
+  "type": "chat_to_admin",
+  "summary": "[ESCALATION][T-eztcomm-20260602-GATE-UIUX] GATE-UIUX 驗收結果：18/18 張卡 FAIL，PG Wave 6 阻塞\n\n## 驗收摘要\n\n- gate_report.json：verdict=FAIL，pass=0，fail=18\n- 報告路徑：cards/T-eztcomm-20260602-GATE-UIUX/gate_report.json",
+  "ref": {
+    "inbox_path": "D:\\Projects\\ai.factory\\agents\\admin\\inbox\\2026-06-02T06-14-00-740841_uiux_m-1b8ce91f120f.json",
+    "msg_id": "m-1b8ce91f120f"
+  }
+}

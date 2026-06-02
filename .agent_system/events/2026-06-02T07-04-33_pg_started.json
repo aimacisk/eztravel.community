@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T07:04:33.988079+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-CAT-ATTRACTION",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[WISH W4-REBUILD 防線 4+5+7] [W6 PG] 景點分類頁視覺重建\n\n## 卡片紀律（§8 強制）\n進場讀 task_board 索引找 T-eztcomm-20260602-W6PG-CAT-ATTRACTION → 讀 cards/ 卡本體 → 改 status=IN_PROGRESS + started_at。完工填 deliverables + execution_l",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

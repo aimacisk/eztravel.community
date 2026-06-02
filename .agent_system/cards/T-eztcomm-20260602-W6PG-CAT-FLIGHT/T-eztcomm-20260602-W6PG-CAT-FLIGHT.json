@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260602-W6PG-CAT-FLIGHT",
   "prj_id": "eztravel.community",
-  "status": "IN_PROGRESS",
+  "status": "DONE",
   "title": "[W6 PG] 機票分類頁視覺重建",
   "created_at": "2026-06-02T05:28:12+00:00",
   "assignee": "pg",
@@ -57,11 +57,14 @@
   ],
   "started_at": "2026-06-02T05:53:10.536757+00:00",
   "agent_session_id": "",
-  "completed_at": null,
-  "deliverables": [],
-  "execution_log": "",
-  "wiki_draft_path": null,
+  "completed_at": "2026-06-02T06:10:06.065335+00:00",
+  "deliverables": [
+    "04_src/eztravel.Community/eztravel.Community.Web/Controllers/CategoryController.cs",
+    "04_src/eztravel.Community/eztravel.Community.Web/Views/Category/Flight.cshtml"
+  ],
+  "execution_log": "1. R1 CSS Foundation (site.css) 已在 worktree，43 個 CSS variables 全部就位。AC-W6-01/02 由全域 body/navbar 規則靜態滿足（body: #F1F7F8；.navbar: #11D073 !important）。\n2. CategoryController.cs 新增 [HttpGet(\"flight\")] Flight() action — 路由優先於參數化 Show()，回傳 Views/Category/Flight.cshtml。\n3. 建立 Views/Category/Flight.cshtml：SearchBar widget（4 tab + 3 radio + 5 欄 grid + 搜尋按鈕）、4-col HeroBanner grid、3-col HotRoutes grid、Airline Pills row、Promo+Visa 3-card grid — 對齊 Figma nodeId 180:2 設計稿。\n4. AC-W6-03 靜態驗證：grep 確認 Flight.cshtml 零 style= 屬性、零 #hex、零 rgba() — CLEAN。防線 7 grep '#11D073' site.css 輸出非空（:9,:22）；grep 'var(--color-brand-primary)' site.css 輸出 6 命中含 .navbar !important。\n5. AC-W6-04（Playwright 截圖）：browser locked（sandbox 限制）；需 admin build + 啟動 localhost:5150 後執行 Playwright 驗證，待系統維護卡 verify_after_restart 確認。",
+  "wiki_draft_path": "cards/T-eztcomm-20260602-W6PG-CAT-FLIGHT/T-eztcomm-20260602-W6PG-CAT-FLIGHT_pg_draft.md",
   "archived_at": null,
   "wiki_integrated_files": [],
-  "commit_sha": null
+  "commit_sha": "PENDING_ADMIN_COMMIT"
 }

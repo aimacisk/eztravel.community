@@ -55,10 +55,36 @@
     "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-11/w2_visual_audit_report.json",
     "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-11/T-eztcomm-20260601-W2-UIUX-11_uiux_draft.md"
   ],
-  "execution_log": "W2 全頁自驗完成。對 11 個 Figma nodes（Home + 6 分類頁 + PD×4 variant）執行 get_screenshot + 9 條 UIUX 紀律 + 5 維度視覺判斷。結果：10 PASS / 1 WARN / 0 FAIL（整體 PASS_WITH_WARN）。唯一 WARN：團體頁（130:2）frame 寬度 2148px 超過標準 1440px，視覺內容完整不影響交付，建議後續維護任務修正。ProductDetail 4 variant 差異化體現正確，Community_Area slot 全部正確預留給 W3-UIUX-2。",
+  "execution_log": "W2 全頁自驗完成。對 11 個 Figma nodes（Home + 6 分類頁 + PD×4 variant）執行 get_screenshot + 9 條 UIUX 紀律 + 5 維度視覺判斷。結果：11 PASS / 0 WARN / 0 FAIL（整體 PASS）。原 WARN（團體頁 130:2 寬度 2148px）已於 T-eztcomm-R-UIUX-REAUDIT-W2 中修正：正確主 frame 為 211:2（Category-團體），設 clipsContent=true 於 211:2 及 214:2，重取截圖 1440×2124px 驗通過。ProductDetail 4 variant 差異化體現正確，Community_Area slot 全部正確預留給 W3-UIUX-2。",
   "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-11/T-eztcomm-20260601-W2-UIUX-11_uiux_draft.md",
   "started_at": "2026-06-01T23:17:33.063902+00:00",
   "completed_at": "2026-06-01T23:26:54.755913+00:00",
   "commit_sha": null,
-  "agent_session_id": ""
+  "agent_session_id": "",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": ["153:2", "180:2", "119:2", "211:2", "127:2", "187:2", "186:2", "88:3", "88:123", "88:243", "88:355"],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "screenshots": [
+      "projects/eztravel.community/06_wiki/visual/w2/153_2.png",
+      "projects/eztravel.community/06_wiki/visual/w2/180_2.png",
+      "projects/eztravel.community/06_wiki/visual/w2/119_2.png",
+      "projects/eztravel.community/06_wiki/visual/w2/211_2.png",
+      "projects/eztravel.community/06_wiki/visual/w2/127_2.png",
+      "projects/eztravel.community/06_wiki/visual/w2/187_2.png",
+      "projects/eztravel.community/06_wiki/visual/w2/144_2.png",
+      "projects/eztravel.community/06_wiki/visual/w2/88_3.png",
+      "projects/eztravel.community/06_wiki/visual/w2/88_123.png",
+      "projects/eztravel.community/06_wiki/visual/w2/88_243.png",
+      "projects/eztravel.community/06_wiki/visual/w2/88_355.png"
+    ],
+    "razor_targets": [],
+    "self_audit": {
+      "layout": "PASS",
+      "spacing": "PASS",
+      "color": "PASS",
+      "typography": "PASS",
+      "component": "PASS"
+    }
+  }
 }

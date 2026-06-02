@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T07:01:06.623956+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-DETAIL",
+  "agent": "pg",
+  "type": "started",
+  "summary": "[TASK task_id=T-eztcomm-20260602-W6PG-DETAIL]\n[WISH W4-REBUILD 防線 4+5+7] [W6 PG] Product Detail 視覺重建（4 類 variant，含 Community Module）\n\n**任務**：進場打 `/goal`；讀取 CSS Foundation（site.css）+ figma_deliverables",
+  "ref": {
+    "worker_id": "pg-1",
+    "agent_session_id": ""
+  }
+}

@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260602-W6PG-DETAIL",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W6 PG] Product Detail 視覺重建（4 類 variant，含 Community Module）",
   "created_at": "2026-06-02T05:28:12+00:00",
   "assignee": "pg",
@@ -55,13 +55,16 @@
     "CSS variable 與 Bootstrap class 特異度衝突無法解決 → 分析後加 !important 或提升 selector，記錄到 execution_log，不可靜默放棄",
     "Figma nodeId 截圖與現有 Razor view 差異 > 30%，無法在合理工時內對齊 → chat admin [ESCALATION] 說明 gap"
   ],
-  "started_at": null,
-  "agent_session_id": null,
-  "completed_at": null,
-  "deliverables": [],
-  "execution_log": "",
-  "wiki_draft_path": null,
+  "started_at": "2026-06-02T07:01:06.545790+00:00",
+  "agent_session_id": "pg-W6PG-DETAIL-001",
+  "completed_at": "2026-06-02T07:16:33.118063+00:00",
+  "deliverables": [
+    "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+    "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml"
+  ],
+  "execution_log": "【W6 Product Detail 視覺重建 — 執行摘要】\n1. Figma 截圖讀取：nodeIds 88:3/88:123/88:243/88:355 — Hero green gradient、community module with star rating + filter chips + review cards 確認\n2. 問題 1：worktree site.css（759行）比 main 少 198 行，缺 product-detail 整區。原因：worktree 建立時間早於 R1 卡 merge。修復：從 main 複製 product-detail CSS 並補寫全套 community module CSS（star-rating / filter-bar / review-card / review-composer / rating-distribution，共 450+ 行）\n3. 問題 2：_Layout.cshtml navbar 有 bg-white + navbar-light 覆蓋品牌綠。修復：改 navbar-dark，移除 bg-white + text-dark\n4. 問題 3：任務指令使用不存在的 CSS 變數名（--color-surface-cool 等）。修復：全部換用實際 :root 定義的變數\n5. 靜態驗收：grep '#11D073' site.css 非空 ✓；grep 'var(--color-brand-primary)' 28+ 命中 ✓；Detail.cshtml 無 style= ✓；無硬編碼 hex ✓；AC-W6-03 PASS\n6. Playwright 驗收：browser 被 admin session 鎖住，AC-W6-01/02/04 需 admin 建置後確認\n7. commit_sha = PENDING_ADMIN_COMMIT（sandbox 限制，由 admin 負責 build + merge + verify）",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-W6PG-DETAIL/T-eztcomm-20260602-W6PG-DETAIL_pg_draft.md",
   "archived_at": null,
   "wiki_integrated_files": [],
-  "commit_sha": null
+  "commit_sha": "PENDING_ADMIN_COMMIT"
 }

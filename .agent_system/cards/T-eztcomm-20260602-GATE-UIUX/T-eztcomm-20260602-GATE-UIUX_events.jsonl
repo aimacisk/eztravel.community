@@ -1,1 +1,2 @@
 {"ts": "2026-06-02T05:28:12+00:00", "actor": "pm", "type": "card_created", "details": {"createdBy": "pm", "via": "eztcomm_rebuild_plan_cards.py", "wave": "Wave4-Gate"}}
+{"ts": "2026-06-02T06:13:39.741986+00:00", "actor": "uiux", "type": "completed", "details": {"deliverables": ["cards/T-eztcomm-20260602-GATE-UIUX/gate_report.json"], "summary": "GATE-UIUX 驗收完成（verdict=FAIL）：18/18 張 RA/MISS/SUPP 卡 TODO 未執行，figma_deliverables 全缺。已 escalation admin，PG Wave 6 阻塞。"}}

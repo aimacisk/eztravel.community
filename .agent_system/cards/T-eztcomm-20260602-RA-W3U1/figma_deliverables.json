@@ -1,0 +1,43 @@
+{
+  "schema_version": "figma_deliverables_v1",
+  "task_id": "T-eztcomm-20260602-RA-W3U1",
+  "created_by": "pg-fallback",
+  "note": "RA-W3U1 UIUX 卡未完工，由 PG 依 Figma MCP 直讀結果手動補建",
+  "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+  "page": "Community Module",
+  "frames": [
+    {
+      "nodeId": "87:2",
+      "name": "Community Full Module",
+      "description": "完整 community 模組，包含評分摘要、篩選列、評論卡片列表、撰寫評論表單",
+      "dimensions": { "width": 600, "height": 1570 },
+      "design_notes": {
+        "bg": "#F1F7F8",
+        "accent": "#11D073",
+        "font": "Noto Sans TC",
+        "card_radius": "8px",
+        "star_color": "#FFB800"
+      }
+    },
+    {
+      "nodeId": "91:14",
+      "name": "Star Rating Label",
+      "description": "星等評分小元件（文字標籤 + 星星圖示）",
+      "dimensions": { "width": 96, "height": 20 }
+    },
+    {
+      "nodeId": "92:2",
+      "name": "Review Card",
+      "description": "單張評論卡片：頭像、作者、日期、星等、評論文字",
+      "dimensions": { "width": 320, "height": 195 }
+    }
+  ],
+  "razor_targets": [
+    "Views/Shared/_ReviewSection.cshtml",
+    "Views/Shared/_StarRating.cshtml"
+  ],
+  "self_audit": {
+    "visual_verified": false,
+    "note": "nodeId 截圖由 PG 透過 figma-remote-mcp get_screenshot 取得並目測比對"
+  }
+}

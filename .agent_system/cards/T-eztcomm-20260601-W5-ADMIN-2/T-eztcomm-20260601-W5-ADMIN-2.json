@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260601-W5-ADMIN-2",
   "prj_id": "eztravel.community",
-  "status": "PENDING_USER_GH_AUTH",
+  "status": "DONE",
   "title": "[W5] ADMIN — PENDING_USER_GH_AUTH 首次 GitHub repo 建立",
   "created_at": "2026-06-01T08:36:43.439287+00:00",
   "assignee": "admin",
@@ -32,9 +32,16 @@
   "parent_wish_id": "W-eztcomm-20260601-REBUILD",
   "acceptance_criteria": [],
   "wiki_target": null,
-  "deliverables": [],
-  "execution_log": "",
-  "started_at": null,
-  "completed_at": null,
-  "commit_sha": null
+  "deliverables": [
+    "GitHub repo aimacisk/eztravel.community (public) created",
+    "Local main branch (commit fbd56f6 → 55e3a21) pushed to origin",
+    "git remote origin = https://github.com/aimacisk/eztravel.community.git",
+    "gh auth refresh with workflow scope (token scopes: gist, read:org, repo, workflow)",
+    "4 GHA secrets set: GOOGLE_CREDENTIALS (SA key JSON) + GCP_PROJECT_ID (eztcomm-prod-1780402352) + GCP_REGION (asia-east1) + CLOUD_SQL_INSTANCE",
+    "SA key file d:/tmp/eztcomm-sa-key.json securely deleted from local"
+  ],
+  "execution_log": "admin 親自執行;GitHub repo 改用 aimacisk owner (規格原寫 micchang, 因 gh auth 帳號為 aimacisk);初次 push 因缺 workflow scope 失敗, gh auth refresh + workflow scope 後成功;9 處 micchang → aimacisk 已 sonnet 替換 commit fbd56f6;48 處 eztravel-community-prod → eztcomm-prod-1780402352 已 sonnet 替換 commit f4eb513",
+  "started_at": "2026-06-02T14:00:00+00:00",
+  "completed_at": "2026-06-02T07:35:46.968123+00:00",
+  "commit_sha": "55e3a21"
 }

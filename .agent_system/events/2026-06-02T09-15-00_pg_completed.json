@@ -1,0 +1,14 @@
+{
+  "ts": "2026-06-02T09:15:00+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-CAT-TICKET",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "W4-REBUILD 票券分類頁視覺重建完工。新建 Ticket.cshtml（435行，7 section inline，零 hardcoded hex，全 CSS variables），CategoryController 新增 Ticket() route。AC-W6-03 本地 PASS，AC-W6-01/02/04 待 admin build+Playwright 覆驗。",
+  "ref": {
+    "delivered_files": [
+      "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-CAT-TICKET/04_src/eztravel.Community/eztravel.Community.Web/Views/Category/Ticket.cshtml",
+      "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-CAT-TICKET/04_src/eztravel.Community/eztravel.Community.Web/Controllers/CategoryController.cs"
+    ],
+    "task_board_status": "DONE"
+  }
+}

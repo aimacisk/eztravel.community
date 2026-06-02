@@ -1,0 +1,30 @@
+{
+  "gate": "UIUX",
+  "checked_at": "2026-06-02T06:13:19.359472+00:00",
+  "total": 18,
+  "pass": 0,
+  "fail": 18,
+  "fail_list": [
+    "T-eztcomm-20260602-RA-W2U1",
+    "T-eztcomm-20260602-RA-W2U2",
+    "T-eztcomm-20260602-RA-W2U3",
+    "T-eztcomm-20260602-RA-W2U4",
+    "T-eztcomm-20260602-RA-W2U7",
+    "T-eztcomm-20260602-RA-W2U8",
+    "T-eztcomm-20260602-RA-W2U9",
+    "T-eztcomm-20260602-RA-W2U10",
+    "T-eztcomm-20260602-RA-W2U11",
+    "T-eztcomm-20260602-RA-W3U1",
+    "T-eztcomm-20260602-RA-W3U3",
+    "T-eztcomm-20260602-MISS-W2U5",
+    "T-eztcomm-20260602-MISS-W2U6",
+    "T-eztcomm-20260602-MISS-W3U2",
+    "T-eztcomm-20260602-SUPP-LAYOUT",
+    "T-eztcomm-20260602-SUPP-ERROR",
+    "T-eztcomm-20260602-SUPP-AUTH",
+    "T-eztcomm-20260602-SUPP-STATIC"
+  ],
+  "verdict": "FAIL",
+  "fail_reason": "全部 18 張 RA/MISS/SUPP 卡狀態均為 TODO（從未執行），figma_deliverables.json 獨立檔案不存在。GATE 提前被派遣，前置條件未完成。",
+  "action_required": "admin 須先執行 18 張 RA/MISS/SUPP UIUX 卡，待全部 DONE 且 figma_deliverables.json 產出後，重新執行本 GATE 驗收"
+}

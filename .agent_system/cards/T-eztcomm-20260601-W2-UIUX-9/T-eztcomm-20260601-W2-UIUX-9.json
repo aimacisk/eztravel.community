@@ -61,5 +61,24 @@
   "completed_at": "2026-06-02T00:00:00.000000+00:00",
   "commit_sha": "dbc187a",
   "agent_session_id": "",
-  "admin_audit_at": "2026-06-02T04:26:00+00:00"
+  "admin_audit_at": "2026-06-02T04:26:00+00:00",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": ["88:3", "88:123", "88:243", "88:355", "88:471"],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "screenshots": [
+      "projects/eztravel.community/06_wiki/visual/w2/88_3.png",
+      "projects/eztravel.community/06_wiki/visual/w2/88_123.png",
+      "projects/eztravel.community/06_wiki/visual/w2/88_243.png",
+      "projects/eztravel.community/06_wiki/visual/w2/88_355.png"
+    ],
+    "razor_targets": ["Views/Product/Detail.cshtml"],
+    "self_audit": {
+      "layout": "PASS",
+      "spacing": "PASS",
+      "color": "PASS",
+      "typography": "PASS",
+      "component": "PASS"
+    }
+  }
 }

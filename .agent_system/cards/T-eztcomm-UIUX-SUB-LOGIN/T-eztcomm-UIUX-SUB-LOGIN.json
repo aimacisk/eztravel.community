@@ -1,0 +1,68 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-UIUX-SUB-LOGIN",
+  "prj_id": "eztravel.community",
+  "status": "DONE",
+  "title": "[UIUX] Login / Register / ForgotPassword / ConfirmEmail Figma Frames（R9 dep）",
+  "created_at": "2026-06-02T06:32:33.863262+00:00",
+  "assignee": "uiux",
+  "phase": "DESIGN",
+  "priority": "P1",
+  "instruction": "[WISH] PLAN-PATCH-3 — Goal 2 補 UIUX 不足\n\n## 任務\n補建 eztravel.community 登入相關頁面 Figma frame，供 R9 Identity Login Layout 實作依賴。\n\n## 工作步驟\n1. [強制 Playwright 前置截圖 — 禁止跳過] mcp__playwright__browser_navigate 訪問 https://member.eztravel.com.tw/login → browser_take_screenshot 截圖存至 06_wiki/visual/reference/login.png → browser_snapshot 取結構摘要（form 欄位數/CTA 位置/整體佈局）；禁止直接憑空設計（hallucinate 設計將觸發 REWORK）\n2. 在 Figma 建立 4 個 frame：\n   - **Login frame**：email/password input、登入按鈕、「忘記密碼」連結、社群登入選項\n   - **Register frame**：name/email/password/confirm input、同意條款 checkbox、註冊按鈕\n   - **ForgotPassword frame**：email input、發送重設連結按鈕、說明文字\n   - **ConfirmEmail frame**：確認成功訊息圖示 + 說明文字 + 返回登入連結\n3. 所有 frame 對齊 site.css design tokens（主色 #11D073、字體 Noto Sans TC）\n4. 完工前對每個 frame 執行 get_screenshot + 5 維度視覺自驗\n5. 完工時在 wiki_draft 填 figma_deliverables（fileKey + 4 nodeId + URL）\n\n## 上游輸入\n- design_tokens.json：projects/eztravel.community/02_design/design_tokens.json\n- site.css：projects/eztravel.community/src/EzTravel.Community/wwwroot/css/site.css\n\n## 下游消費\n- T-eztcomm-20260602-R9（Identity Login layout）需要 Login frame nodeId 實作 _LoginPartial.cshtml\n- 登入/註冊按鈕樣式需與 UIUX-SUB-LAYOUT navbar 右側按鈕保持一致\n\n## 平行介面\n- UIUX-SUB-LAYOUT（同 Wave 2）：navbar 右側登入/註冊連結的按鈕樣式需和本卡 Login frame 的主要 CTA 按鈕一致",
+  "context_paths": [
+    "projects/eztravel.community/02_design/design_tokens.json",
+    "projects/eztravel.community/src/EzTravel.Community/wwwroot/css/site.css",
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-R-UIUX-MISSING/"
+  ],
+  "depends_on": [],
+  "objective": "為 eztravel.community 補建 Login / Register / ForgotPassword / ConfirmEmail 4 個 Figma frame，對齊 eztravel.com.tw 真實登入頁設計，解除 R9 BLOCKED 狀態。",
+  "goal_state": "Figma 內存在 4 個完整且可截圖的 frame（Login / Register / ForgotPassword / ConfirmEmail）；每個 frame 含有效 nodeId；figma_deliverables 欄位列出 fileKey + 4 nodeId + URL；視覺自驗 5 維度全 PASS（高比寬、無溢出、無重疊、符合 #11D073 tokens）。",
+  "verification": {
+    "verifier": "UIUX 自驗",
+    "tools": [
+      "figma-remote-mcp get_screenshot",
+      "figma-remote-mcp get_design_context"
+    ],
+    "evidence_checks": [
+      "完工回應含 figma_deliverables 欄位列出 4 個 nodeId（Login/Register/ForgotPassword/ConfirmEmail）",
+      "對每個 frame 跑 get_screenshot 後 5 維度自驗輸出含 PASS × 5",
+      "Login frame 截圖含 email input + password input + 翠綠登入按鈕",
+      "browser_take_screenshot 後 06_wiki/visual/reference/login.png 存在（非空檔）",
+      "完工回應含 figma_deliverables.reference_screenshot 欄位（非空字串）",
+      "完工回應含 figma_deliverables.reference_alignment 數值 ≥ 70"
+    ]
+  },
+  "out_of_scope": [
+    "不實作 ASP.NET Identity 程式碼（歸 R9 PG 卡）",
+    "不設計商品相關頁面",
+    "不修改 site.css tokens 定義（只使用既有 tokens）"
+  ],
+  "escalation_on_block": [
+    "Figma OAuth 問題導致無法寫入 → 標記 PENDING_FIGMA_OAUTH + chat admin + 停止",
+    "eztravel.com.tw 無法訪問 → 改用 WebSearch 搜尋登入頁設計參考替代，不阻塞",
+    "figma nodeId 讀取失敗連續 3 次 → [BLOCKED] 通知 admin"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-1：Figma 內存在 4 個 frame，nodeId 各自有效（get_screenshot 不報 404）",
+    "AC-2：視覺對齊 eztravel.com.tw 登入頁風格（主色 #11D073、整體佈局一致）",
+    "AC-3：figma_deliverables 欄位完整（fileKey + 4 nodeId + URL）",
+    "AC-4：5 維度視覺自驗全 PASS（高比寬、無溢出、無重疊、無遮蔽、符合 tokens）",
+    "AC-P1 [Playwright 前置截圖]: 設計前必須 browser_navigate 訪問 https://member.eztravel.com.tw/login + browser_take_screenshot 截圖存至 06_wiki/visual/reference/login.png + browser_snapshot 取結構摘要（form 欄位數/CTA 位置/整體佈局）",
+    "AC-P2 [figma 忠實對齊截圖]: figma frame 視覺結構對齊 login.png 截圖（欄位配置、CTA 位置、佈局比例）；禁止 hallucinate 設計",
+    "AC-P3 [reference_alignment]: figma_deliverables 含 reference_screenshot 欄位且 reference_alignment ≥ 70%"
+  ],
+  "wiki_target": "06_wiki/02_design_tokens.md",
+  "deliverables": [
+    "projects/eztravel.community/.agent_system/cards/T-eztcomm-UIUX-SUB-LOGIN/T-eztcomm-UIUX-SUB-LOGIN_uiux_draft.md",
+    "projects/eztravel.community/06_wiki/visual/reference/login.png",
+    "projects/eztravel.community/06_wiki/visual/reference/register.png",
+    "projects/eztravel.community/06_wiki/visual/reference/forgot_password.png"
+  ],
+  "execution_log": "1. AC-P1：Playwright 訪問 member.eztravel.com.tw/login，截圖存至 06_wiki/visual/reference/login.png + register.png + forgot_password.png。2. 在 Figma (6XmYJOpiSXab2gtGlmWtks, page 0:1) 建立 4 個 frame (265:2/272:2/273:2/274:2)，位置 y=4860，間距 80px。3. 發現 input 高度 bug（auto-layout + resize 衝突），對所有 input frame 修正為 primaryAxisSizingMode=FIXED + resize(388,67)，父 frame toggle 觸發 reflow。4. 修正 ConfirmEmail 標題錯字「信筱」→「信箱」。5. 對所有 4 個 nodeId 執行 get_screenshot，8 維度視覺自驗全 PASS。最終尺寸：Login 460×462 / Register 460×530 / ForgotPassword 460×325 / ConfirmEmail 460×330。reference_alignment 估算 75%（tabs/inputs/CTA/顏色全對齊 login.png）。",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-UIUX-SUB-LOGIN/T-eztcomm-UIUX-SUB-LOGIN_uiux_draft.md",
+  "started_at": "2026-06-02T07:05:11.443525+00:00",
+  "completed_at": "2026-06-02T07:33:02.741051+00:00",
+  "commit_sha": null,
+  "agent_session_id": ""
+}

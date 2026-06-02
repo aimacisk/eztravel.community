@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260602-W6PG-CAT-TICKET",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W6 PG] 票券分類頁視覺重建",
   "created_at": "2026-06-02T05:28:12+00:00",
   "assignee": "pg",
@@ -55,13 +55,16 @@
     "CSS variable 與 Bootstrap class 特異度衝突無法解決 → 分析後加 !important 或提升 selector，記錄到 execution_log，不可靜默放棄",
     "Figma nodeId 截圖與現有 Razor view 差異 > 30%，無法在合理工時內對齊 → chat admin [ESCALATION] 說明 gap"
   ],
-  "started_at": null,
-  "agent_session_id": null,
-  "completed_at": null,
-  "deliverables": [],
-  "execution_log": "",
-  "wiki_draft_path": null,
+  "started_at": "2026-06-02T07:01:37.166190+00:00",
+  "agent_session_id": "pg-eztcomm-W6PG-CAT-TICKET",
+  "completed_at": "2026-06-02T07:17:01.966718+00:00",
+  "deliverables": [
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-CAT-TICKET/04_src/eztravel.Community/eztravel.Community.Web/Views/Category/Ticket.cshtml",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-CAT-TICKET/04_src/eztravel.Community/eztravel.Community.Web/Controllers/CategoryController.cs"
+  ],
+  "execution_log": "W4-REBUILD 票券分類頁視覺重建完工。\n\n【實作摘要】\n1. figma_deliverables.json 不存在（RA-W2U7 卡未完成），改直接讀 RA-W2U7 卡 JSON 取得 fileKey=6XmYJOpiSXab2gtGlmWtks，呼叫 get_screenshot 取得 nodeId 187:2/189:2/190:2/195:2 四幀截圖作為 Figma 設計參考。\n2. 讀 site.css 確認 16 個 CSS variables，修正假設名稱（--font-family-chinese→--font-family-primary、--shadow-sm→--shadow-card、--color-accent-orange→不存在）。\n3. 讀 PageDataViewModel.cs 確認 SectionItemViewModel 無 SubText 屬性，價格欄位為 Price。\n4. 讀 ticket.json（slug=ticket），確認 7 section 結構：search_bar/hero_banner/category_nav/featured_items/promo_section/theme_section/footer_links。\n5. 分析 shared partials：_Section_Banner 使用 RouteData.Values[\"slug\"] 為 null 於 explicit route。決策：所有含圖片 section 全部 inline 在 Ticket.cshtml，使用 Url.Content(\"~/data/票券/\") 自行解析 URL；footer_links 無圖片故安全使用 _Section_Footer partial。\n6. 新建 Views/Category/Ticket.cshtml（435 行）：兩塊 <style>（規避 Razor @media 衝突，改用 @@media）+ @foreach/@switch 7 cases dispatch。\n   - 自訂 CSS class：.ticket-search-section/.ticket-banner-tiles/.ticket-city-grid/.ticket-city-tile/.ticket-theme-grid/.ticket-product-grid — 全部 CSS variables，零 hardcoded hex。\n   - 複用 site.css 既有 .promo-tile 系列（hero banner），--dest-tile-N（城市熱銷 fallback 色彩循環）。\n7. CategoryController.cs 新增 Ticket() action，route=[Route(\"Category/Ticket\")] 對齊 GroupTour 模式。\n\n【本地驗證結果】\n- AC-W6-03 ✅ PASS：grep '#[0-9A-Fa-f]' Ticket.cshtml 零命中；grep 'style=' 零命中。\n- 防線 7 CSS 驗 ✅ PASS：site.css line 9 --color-brand-primary: #11D073；Ticket.cshtml line 21 var(--color-brand-primary)。\n- AC-W6-01/02/04（Playwright）⚠ PENDING：Playwright 瀏覽器被其他 session 佔用 + dotnet run BLOCKED，需 admin build + 啟動 server 後覆驗。\n\n【待 admin 操作】\n1. cd .worktrees/T-eztcomm-20260602-W6PG-CAT-TICKET && git fetch ../.. main && git rebase main\n2. git add -A && git commit -m \"T-eztcomm-20260602-W6PG-CAT-TICKET: feat(views): rebuild ticket category page with CSS variables\"\n3. dotnet run → 開 localhost:5150/Category/Ticket 驗 AC-W6-01~04\n4. dispatch merge → fast-forward 進 main",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-W6PG-CAT-TICKET/T-eztcomm-20260602-W6PG-CAT-TICKET_pg_draft.md",
   "archived_at": null,
   "wiki_integrated_files": [],
-  "commit_sha": null
+  "commit_sha": "PENDING_ADMIN_COMMIT"
 }

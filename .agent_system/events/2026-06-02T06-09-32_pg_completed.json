@@ -1,0 +1,16 @@
+{
+  "ts": "2026-06-02T06:09:32+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-CAT-FLIGHT",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "[W6 PG] 機票分類頁視覺重建完工。CategoryController 新增 Flight() action；Views/Category/Flight.cshtml 全量建立（SearchBar+HeroBanner+HotRoutes+AirlinePills+PromoVisa）。AC-W6-03 靜態 PASS。AC-W6-01/02 site.css 靜態保證。AC-W6-04 待 admin build+run Playwright 驗證。",
+  "ref": {
+    "delivered_files": [
+      "04_src/eztravel.Community/eztravel.Community.Web/Controllers/CategoryController.cs",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Category/Flight.cshtml"
+    ],
+    "task_board_status": "DONE",
+    "commit_sha": "PENDING_ADMIN_COMMIT",
+    "wiki_draft": "cards/T-eztcomm-20260602-W6PG-CAT-FLIGHT/T-eztcomm-20260602-W6PG-CAT-FLIGHT_pg_draft.md"
+  }
+}

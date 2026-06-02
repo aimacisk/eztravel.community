@@ -1,0 +1,58 @@
+{
+  "schema_version": "v0.53",
+  "task_id": "T-eztcomm-W6PG-DETAIL-PRIORITY",
+  "prj_id": "eztravel.community",
+  "status": "TODO",
+  "title": "[W6 PG 優先] ProductDetail 視覺實作（Figma 88:471 4 Variant，優先推進）",
+  "created_at": "2026-06-02T06:34:03.397509+00:00",
+  "assignee": "pg",
+  "phase": "IMPLEMENTATION",
+  "priority": "P1",
+  "instruction": "[WISH] PLAN-PATCH-3 — Goal 1 加速 ProductDetail 視覺\n\n## 任務\n優先實作 ProductDetail 視覺，不等其他 UIUX 卡完成，直接對齊既有 Figma 88:471 ComponentSet。\n\n## Figma 參照\n- ComponentSet: nodeId 88:471\n  - GroupTour variant: nodeId 88:3\n  - FreeTour variant: nodeId 88:123\n  - Hotel variant: nodeId 88:243\n  - Ticket variant: nodeId 88:355\n\n## worktree 紀律（強制）\n1. 在 `.worktrees/T-eztcomm-W6PG-DETAIL-PRIORITY/` worktree + `feat/T-eztcomm-W6PG-DETAIL-PRIORITY` branch 開發\n2. 完工 commit 前先 `git rebase main` 解衝突\n3. commit 後標記 [TASK_DONE]，填入真實 commit_sha（非 PENDING）\n\n## 工作步驟\n1. 用 figma-remote-mcp get_design_context 讀取 nodeId 88:471 確認 4 variant 佈局\n2. 在 worktree 內實作：\n   a. **Views/Products/Details.cshtml**：依 ProductType 選擇渲染 variant，含 community-slot 空容器\n   b. **site.css** 補充：\n      - `.product-detail-grouptour` / `.product-detail-freetour`\n      - `.product-detail-hotel` / `.product-detail-ticket`\n      - `.community-slot { min-height: 380px; }` 空白預留區\n3. 跑 `dotnet build` 確認無 error\n4. 對每個 variant 截圖比對 figma（7 道防線第 5 道），差異 &lt;10px\n5. git add + commit（在 worktree feat 分支）+ rebase main + 標記 [TASK_DONE]\n\n## 上游輸入\n- Figma 88:471 ComponentSet（先用 get_design_context 讀取 4 variant 細節）\n- ProductsController.cs：projects/eztravel.community/src/EzTravel.Community/Controllers/ProductsController.cs\n- site.css：projects/eztravel.community/src/EzTravel.Community/wwwroot/css/site.css\n\n## 下游消費\n- W6PG-COMMUNITY：需要 community-slot 容器存在（380px 空容器即可）\n- QA W6PG-CAT-STATUS-AUDIT 會稽核此頁 figma 比對結果\n\n## 重要限制\n- **不實作 Community 功能**（等 W6PG-COMMUNITY）\n- **不等其他 UIUX 補洞卡**（直接用 88:471 既有設計）\n- community-slot 只建空 div 容器即可",
+  "context_paths": [
+    "projects/eztravel.community/src/EzTravel.Community/Controllers/ProductsController.cs",
+    "projects/eztravel.community/src/EzTravel.Community/Views/Products/",
+    "projects/eztravel.community/src/EzTravel.Community/wwwroot/css/site.css",
+    "projects/eztravel.community/02_design/design_tokens.json"
+  ],
+  "depends_on": [],
+  "objective": "實作 ProductDetail 頁面視覺，使用既有 Figma 88:471 ComponentSet 4 variant（GroupTour/FreeTour/Hotel/Ticket），不等其他 UIUX 補洞卡，保留 Community 380px 空容器 slot。",
+  "goal_state": "/products/{id} 依商品類型渲染正確 variant CSS class；4 variant 各自可截圖且與 figma 88:471 對應 nodeId 視覺差異 &lt;10px；community-slot 容器存在（空白）；dotnet build 無 error；worktree feat 分支有 commit 且 commit_sha 非 PENDING。",
+  "verification": {
+    "verifier": "PG 自驗 + QA 覆驗",
+    "tools": [
+      "dotnet build",
+      "figma-remote-mcp get_design_context",
+      "mcp__playwright browser_take_screenshot"
+    ],
+    "evidence_checks": [
+      "跑 dotnet build 後輸出含 Build succeeded（0 Error）",
+      "訪問 /products/1~4 各頁可渲染，截圖含對應 variant CSS class（product-detail-grouptour/freetour/hotel/ticket）",
+      "截圖與 figma 88:3 / 88:123 / 88:243 / 88:355 比對差異 <10px",
+      "community-slot div 存在於 DOM（使用 Playwright browser_snapshot 驗）"
+    ]
+  },
+  "out_of_scope": [
+    "不實作 Community 功能（W6PG-COMMUNITY 的工作）",
+    "不等 UIUX-SUB-* 卡完成",
+    "不修改 ProductsController 商業邏輯（只改 View + CSS）"
+  ],
+  "escalation_on_block": [
+    "Figma 88:471 nodeId 無法讀取（get_design_context 報錯）→ chat admin + [QUERY] 等仲裁，停止",
+    "dotnet build error 且非 View/CSS 相關 → chat admin + [ERROR]",
+    "worktree merge 衝突無法自動解決 → 改 [BLOCKED] + chat admin 等 PM 仲裁"
+  ],
+  "parent_wish_id": null,
+  "acceptance_criteria": [
+    "AC-1：4 variant 頁面可正常渲染且 CSS class 正確（dotnet build 無 error）",
+    "AC-2：7 道防線第 5 道 figma 比對通過（差異 <10px）",
+    "AC-3：community-slot 空容器存在，min-height: 380px",
+    "AC-4：worktree feat 分支有真實 commit SHA（非 PENDING_ADMIN_COMMIT）"
+  ],
+  "wiki_target": "06_wiki/04_dev_guide.md",
+  "deliverables": [],
+  "execution_log": "",
+  "started_at": null,
+  "completed_at": null,
+  "commit_sha": null
+}

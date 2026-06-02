@@ -63,5 +63,19 @@
   "started_at": "2026-06-01T09:10:24.010481+00:00",
   "completed_at": "2026-06-02T06:30:00.000000+00:00",
   "commit_sha": null,
-  "agent_session_id": ""
+  "agent_session_id": "",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": ["187:2"],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "screenshots": ["projects/eztravel.community/06_wiki/visual/w2/187_2.png"],
+    "razor_targets": ["Views/Category/Ticket.cshtml"],
+    "self_audit": {
+      "layout": "PASS",
+      "spacing": "PASS",
+      "color": "PASS",
+      "typography": "PASS",
+      "component": "PASS"
+    }
+  }
 }

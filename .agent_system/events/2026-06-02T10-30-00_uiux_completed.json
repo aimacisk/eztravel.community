@@ -1,0 +1,16 @@
+{
+  "ts": "2026-06-02T10:30:00+0800",
+  "task_id": "T-eztcomm-UIUX-SUB-ERROR",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "Error Page 設計完成：404/500/403 三個插畫風 Figma frame（256:3/256:4/256:5）。reference_alignment=94%。視覺自驗 5/5 PASS × 3。",
+  "ref": {
+    "delivered_files": [
+      "figma://6XmYJOpiSXab2gtGlmWtks/256:3",
+      "figma://6XmYJOpiSXab2gtGlmWtks/256:4",
+      "figma://6XmYJOpiSXab2gtGlmWtks/256:5",
+      "projects/eztravel.community/06_wiki/visual/reference/error_pages_reference.md"
+    ],
+    "task_board_status": "DONE"
+  }
+}

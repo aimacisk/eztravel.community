@@ -66,5 +66,13 @@
   "completed_at": "2026-06-01T23:14:09.972122+00:00",
   "commit_sha": null,
   "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260601-W2-UIUX-10/T-eztcomm-20260601-W2-UIUX-10_uiux_draft.md",
-  "agent_session_id": "uiux-T-eztcomm-20260601-W2-UIUX-10"
+  "agent_session_id": "uiux-T-eztcomm-20260601-W2-UIUX-10",
+  "figma_deliverables": {
+    "fileKey": "6XmYJOpiSXab2gtGlmWtks",
+    "nodeIds": [],
+    "page_url": "https://www.figma.com/design/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "screenshots": [],
+    "razor_targets": [],
+    "self_audit": {}
+  }
 }

@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260602-W6PG-LAYOUT",
   "prj_id": "eztravel.community",
-  "status": "TODO",
+  "status": "DONE",
   "title": "[W6 PG] Navbar + Footer 共用 _Layout.cshtml 視覺重建",
   "created_at": "2026-06-02T05:28:12+00:00",
   "assignee": "pg",
@@ -55,13 +55,16 @@
     "CSS variable 與 Bootstrap class 特異度衝突無法解決 → 分析後加 !important 或提升 selector，記錄到 execution_log，不可靜默放棄",
     "Figma nodeId 截圖與現有 Razor view 差異 > 30%，無法在合理工時內對齊 → chat admin [ESCALATION] 說明 gap"
   ],
-  "started_at": null,
-  "agent_session_id": null,
-  "completed_at": null,
-  "deliverables": [],
-  "execution_log": "",
-  "wiki_draft_path": null,
+  "started_at": "2026-06-02T07:01:16.308734+00:00",
+  "agent_session_id": "",
+  "completed_at": "2026-06-02T07:14:18.181630+00:00",
+  "deliverables": [
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-LAYOUT/04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml",
+    "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-LAYOUT/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css"
+  ],
+  "execution_log": "【W6 PG Layout 視覺重建】修復迴圈 0 輪（直接綠燈）。\n(1) _Layout.cshtml：移除 navbar-light/bg-white/border-bottom/box-shadow；改用 navbar-dark；nav-link 去除 text-dark；footer 改為 4 欄 CSS Grid 結構（.footer__grid / .footer__brand-name / .footer__links / .footer__bottom）。\n(2) site.css：:root 新增 6 個 footer 深色主題 CSS variables（--color-footer-bg:#1A1A2E 等）；新增 .footer / .footer__inner / .footer__grid / .footer__brand-name / .footer__tagline / .footer__col-title / .footer__links / .footer__bottom / .footer__copyright 完整 CSS block（含響應式 @991px/@575px）。\n(3) Playwright 自驗：bodyBg=rgb(241,247,248) ✅ / navbarBg=rgb(17,208,115)=/#11D073 ✅ / footerBg=rgb(26,26,46)=#1A1A2E ✅。\n(4) grep '#11D073' site.css → 4 matches ✅；grep style=.*#hex _Layout.cshtml → 0 matches ✅（AC-W6-03 PASS）。\n(5) SUPP-LAYOUT Figma 設計尚未完成（UIUX 卡 TODO），依 CSS Foundation + 任務規格直接實作，視覺已對齊規格要求。\ncommit_sha=PENDING_ADMIN_COMMIT（sandbox 限制，admin 代 commit）。",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-W6PG-LAYOUT/T-eztcomm-20260602-W6PG-LAYOUT_pg_draft.md",
   "archived_at": null,
   "wiki_integrated_files": [],
-  "commit_sha": null
+  "commit_sha": "PENDING_ADMIN_COMMIT"
 }

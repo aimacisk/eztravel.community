@@ -44,27 +44,6 @@
   },
   "TODO": [
     {
-      "task_id": "T-eztcomm-20260601-W5-ADMIN-2",
-      "prj_id": "eztravel.community",
-      "status": "PENDING_USER_GH_AUTH",
-      "title": "[W5] ADMIN — PENDING_USER_GH_AUTH 首次 GitHub repo 建立",
-      "created_at": "2026-06-01T08:36:43.439287+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W5-ADMIN-1",
-      "prj_id": "eztravel.community",
-      "status": "PENDING_USER_GCLOUD_AUTH",
-      "title": "W5 GCP 首次環境建置 — gcloud auth + Cloud SQL + SA + Artifact Registry + Secret Manager",
-      "created_at": "2026-06-01T09:04:08.725635+00:00"
-    },
-    {
-      "task_id": "T-eztcomm-20260601-W5-ADMIN-3",
-      "prj_id": "eztravel.community",
-      "status": "TODO",
-      "title": "W5 首次 [release] commit + Cloud Run smoke test — AC-6 / AC-7 驗收",
-      "created_at": "2026-06-01T09:04:47.496708+00:00"
-    },
-    {
       "task_id": "T-eztcomm-20260602-R5",
       "prj_id": "eztravel.community",
       "status": "TODO",
@@ -269,86 +248,6 @@
       "phase": "DESIGN"
     },
     {
-      "task_id": "T-eztcomm-20260602-GATE-UIUX",
-      "title": "[GATE W4] UIUX 反向閘 — 驗收全部 figma_deliverables",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "uiux",
-      "prj_id": "eztravel.community",
-      "phase": "DESIGN"
-    },
-    {
-      "task_id": "T-eztcomm-20260602-W6PG-LAYOUT",
-      "title": "[W6 PG] Navbar + Footer 共用 _Layout.cshtml 視覺重建",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
-      "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
-    },
-    {
-      "task_id": "T-eztcomm-20260602-W6PG-DETAIL",
-      "title": "[W6 PG] Product Detail 視覺重建（4 類 variant，含 Community Module）",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
-      "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
-    },
-    {
-      "task_id": "T-eztcomm-20260602-W6PG-CAT-FREETOUR",
-      "title": "[W6 PG] 自由行分類頁視覺重建",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
-      "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
-    },
-    {
-      "task_id": "T-eztcomm-20260602-W6PG-CAT-GROUPTOUR",
-      "title": "[W6 PG] 團體分類頁視覺重建",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
-      "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
-    },
-    {
-      "task_id": "T-eztcomm-20260602-W6PG-CAT-TICKET",
-      "title": "[W6 PG] 票券分類頁視覺重建",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
-      "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
-    },
-    {
-      "task_id": "T-eztcomm-20260602-W6PG-CAT-ATTRACTION",
-      "title": "[W6 PG] 景點分類頁視覺重建",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
-      "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
-    },
-    {
-      "task_id": "T-eztcomm-20260602-W6PG-COMMUNITY",
-      "title": "[W6 PG] Community ReviewController + AJAX 視覺重建",
-      "status": "TODO",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
-      "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
-    },
-    {
       "task_id": "T-eztcomm-20260602-GATE-PG",
       "title": "[GATE W7] PG 反向閘 — 驗收全部頁面 CSS + Playwright",
       "status": "TODO",
@@ -386,11 +285,26 @@
       "created_at": "2026-06-02T05:28:16.503168+00:00"
     },
     {
-      "task_id": "T-eztcomm-20260602-R9",
+      "task_id": "T-eztcomm-20260602-R7",
       "prj_id": "eztravel.community",
       "status": "TODO",
-      "title": "Login / Register / Identity 頁面套 site.css",
-      "created_at": "2026-06-02T05:50:01.356539+00:00"
+      "title": "ProductDetail 導航 link 補齊 + figma 視覺對齊",
+      "created_at": "2026-06-02T05:48:57.055006+00:00",
+      "assignee": "pg"
+    },
+    {
+      "task_id": "T-eztcomm-W6PG-DETAIL-PRIORITY",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[W6 PG 優先] ProductDetail 視覺實作（Figma 88:471 4 Variant，優先推進）",
+      "created_at": "2026-06-02T06:34:03.397509+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-W6PG-CAT-STATUS-AUDIT",
+      "prj_id": "eztravel.community",
+      "status": "TODO",
+      "title": "[QA] 5 CAT 頁 + HOTEL 6 卡稽核（worktree + figma 比對 + FALSE_DONE 偵測）",
+      "created_at": "2026-06-02T06:34:35.270249+00:00"
     }
   ],
   "schema_version": "v0.53",
@@ -406,8 +320,8 @@
       "phase": "QA"
     },
     {
-      "task_id": "T-eztcomm-20260602-W6PG-CAT-FLIGHT",
-      "title": "[W6 PG] 機票分類頁視覺重建",
+      "task_id": "T-eztcomm-20260602-W6PG-CAT-ATTRACTION",
+      "title": "[W6 PG] 景點分類頁視覺重建",
       "status": "IN_PROGRESS",
       "created_at": "2026-06-02T05:28:12+00:00",
       "createdBy": "pm",
@@ -416,14 +330,18 @@
       "phase": "IMPLEMENTATION"
     },
     {
-      "task_id": "T-eztcomm-20260602-W6PG-CAT-HOTEL",
-      "title": "[W6 PG] 旅館分類頁視覺重建",
-      "status": "IN_PROGRESS",
-      "created_at": "2026-06-02T05:28:12+00:00",
-      "createdBy": "pm",
-      "assignee": "pg",
+      "task_id": "T-eztcomm-UIUX-SUB-LAYOUT",
       "prj_id": "eztravel.community",
-      "phase": "IMPLEMENTATION"
+      "status": "DONE",
+      "title": "[UIUX] Navbar + Footer 通用元件 Figma Frames（W6PG-LAYOUT dep）",
+      "created_at": "2026-06-02T06:32:53.230420+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-UIUX-SUB-PRIVACY",
+      "prj_id": "eztravel.community",
+      "status": "IN_PROGRESS",
+      "title": "[UIUX] Privacy.cshtml 隱私頁 Figma Frame（對齊 eztravel.com.tw）",
+      "created_at": "2026-06-02T06:33:31.324487+00:00"
     }
   ],
   "DONE": [
@@ -747,13 +665,6 @@
       "phase": "IMPLEMENTATION"
     },
     {
-      "task_id": "T-eztcomm-20260602-R7",
-      "prj_id": "eztravel.community",
-      "status": "DONE",
-      "title": "ProductDetail 路由修復 + seed data",
-      "created_at": "2026-06-02T05:48:57.055006+00:00"
-    },
-    {
       "task_id": "T-eztcomm-R-UIUX-MISSING",
       "prj_id": "eztravel.community",
       "status": "DONE",
@@ -774,11 +685,137 @@
       "phase": "QA"
     },
     {
-      "task_id": "T-eztcomm-20260602-R8",
+      "task_id": "T-eztcomm-20260602-W6PG-CAT-FLIGHT",
+      "title": "[W6 PG] 機票分類頁視覺重建",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-GATE-UIUX",
+      "title": "[GATE W4] UIUX 反向閘 — 驗收全部 figma_deliverables",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "uiux",
+      "prj_id": "eztravel.community",
+      "phase": "DESIGN"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-W6PG-CAT-GROUPTOUR",
+      "title": "[W6 PG] 團體分類頁視覺重建",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-W6PG-CAT-HOTEL",
+      "title": "[W6 PG] 旅館分類頁視覺重建",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-W6PG-CAT-FREETOUR",
+      "title": "[W6 PG] 自由行分類頁視覺重建",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-W6PG-LAYOUT",
+      "title": "[W6 PG] Navbar + Footer 共用 _Layout.cshtml 視覺重建",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-W6PG-DETAIL",
+      "title": "[W6 PG] Product Detail 視覺重建（4 類 variant，含 Community Module）",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-W6PG-CAT-TICKET",
+      "title": "[W6 PG] 票券分類頁視覺重建",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-W6PG-COMMUNITY",
+      "title": "[W6 PG] Community ReviewController + AJAX 視覺重建",
+      "status": "DONE",
+      "created_at": "2026-06-02T05:28:12+00:00",
+      "createdBy": "pm",
+      "assignee": "pg",
+      "prj_id": "eztravel.community",
+      "phase": "IMPLEMENTATION"
+    },
+    {
+      "task_id": "T-eztcomm-UIUX-SUB-ERROR",
       "prj_id": "eztravel.community",
       "status": "DONE",
-      "title": "Error.cshtml 套 site.css + StatusCodePages 對接",
-      "created_at": "2026-06-02T05:49:25.625197+00:00"
+      "title": "[UIUX] Error Page 404 / 500 / 403 插畫風 Figma Frames",
+      "created_at": "2026-06-02T06:33:15.752799+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-R9",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "Identity 頁面細部 figma 對齊（等 UIUX-MISSING）",
+      "created_at": "2026-06-02T05:50:01.356539+00:00",
+      "assignee": "pg"
+    },
+    {
+      "task_id": "T-eztcomm-UIUX-SUB-LOGIN",
+      "prj_id": "eztravel.community",
+      "status": "DONE",
+      "title": "[UIUX] Login / Register / ForgotPassword / ConfirmEmail Figma Frames（R9 dep）",
+      "created_at": "2026-06-02T06:32:33.863262+00:00"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-ADMIN-1",
+      "title": "W5 GCP 首次環境建置 — gcloud auth + Cloud SQL + SA + Artifact Registry + Secret Manager",
+      "assignee": "admin",
+      "status": "DONE",
+      "priority": "P1"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-ADMIN-2",
+      "title": "[W5] ADMIN — PENDING_USER_GH_AUTH 首次 GitHub repo 建立",
+      "assignee": "admin",
+      "status": "DONE",
+      "priority": "P2"
+    },
+    {
+      "task_id": "T-eztcomm-20260601-W5-ADMIN-3",
+      "title": "W5 首次 [release] commit + Cloud Run smoke test — AC-6 / AC-7 驗收",
+      "assignee": "admin",
+      "status": "DONE",
+      "priority": "P1"
     }
   ],
   "REWORK": [],
@@ -848,6 +885,17 @@
       "created_at": "2026-06-02T05:27:10.509343+00:00",
       "superseded_by": "T-eztcomm-20260602-W6PG-LAYOUT",
       "admin_notes": "SUPERSEDED_BY W6PG-LAYOUT (2026-06-02); W6PG-LAYOUT covers Layout.cshtml rebuild in W6 series with proper Figma ref and 7-line defense"
+    },
+    {
+      "task_id": "T-eztcomm-20260602-R8",
+      "prj_id": "eztravel.community",
+      "status": "SUPERSEDED",
+      "title": "Error.cshtml 套 site.css + StatusCodePages 對接",
+      "created_at": "2026-06-02T05:49:25.625197+00:00",
+      "superseded_by": [
+        "T-eztcomm-20260602-W6PG-LAYOUT"
+      ],
+      "superseded_at": "2026-06-02T06:00:00+00:00"
     }
   ]
 }

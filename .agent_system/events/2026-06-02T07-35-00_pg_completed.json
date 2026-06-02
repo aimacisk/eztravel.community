@@ -1,0 +1,19 @@
+{
+  "ts": "2026-06-02T07:35:00+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-LAYOUT",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "[W6] _Layout.cshtml 視覺重建完成：navbar-dark #11D073、body bg #F1F7F8、footer 4 欄深色 #1A1A2E；AC-W6-01/02/03 全 PASS；commit_sha=PENDING_ADMIN_COMMIT",
+  "ref": {
+    "delivered_files": [
+      "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-LAYOUT/04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml",
+      "projects/eztravel.community/.worktrees/T-eztcomm-20260602-W6PG-LAYOUT/04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css"
+    ],
+    "task_board_status": "DONE",
+    "playwright_evidence": {
+      "bodyBg": "rgb(241, 247, 248)",
+      "navbarBg": "rgb(17, 208, 115)",
+      "footerBg": "rgb(26, 26, 46)"
+    }
+  }
+}

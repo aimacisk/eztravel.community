@@ -1,1 +1,3 @@
 {"ts": "2026-06-02T05:28:12+00:00", "actor": "pm", "type": "card_created", "details": {"createdBy": "pm", "via": "eztcomm_rebuild_plan_cards.py", "wave": "Wave6-PG"}}
+{"ts": "2026-06-02T07:01:16+00:00", "actor": "pg", "type": "started", "details": {"summary": "進場 T-eztcomm-20260602-W6PG-LAYOUT，開始重建 _Layout.cshtml Navbar + Footer 視覺", "agent_session_id": ""}}
+{"ts": "2026-06-02T07:35:00+00:00", "actor": "pg", "type": "completed", "details": {"deliverables": ["Views/Shared/_Layout.cshtml", "wwwroot/css/site.css"], "summary": "Navbar navbar-dark + brand green #11D073；Footer 4 欄深色 #1A1A2E；body bg #F1F7F8；Playwright 三項 AC PASS；無硬編碼色值；commit_sha=PENDING_ADMIN_COMMIT"}}

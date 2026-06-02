@@ -1,0 +1,11 @@
+{
+  "ts": "2026-06-02T07:33:02.717494+00:00",
+  "task_id": "T-eztcomm-UIUX-SUB-LOGIN",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "**§8 卡片紀律：status 已改 IN_PROGRESS**。\n\n---\n\n## 步驟一：Playwright 強制前置截圖\n找到登入頁了！截圖並取結構摘要：\n截圖權限限制在 uiux 目錄，先存到 workspace 再複製：\n登入頁結構已清楚分析。截圖觀察：\n- **Modal dialog**：3個tab（登入/註冊/訪客訂單）\n- **Login form**：email/手機 input → 忘記密碼連結 → 翠綠「登入」大按鈕\n- **Social login**：Facebook / Google / LINE / Apple 圓形icon\n- **背景**：會員福利卡左側",
+  "ref": {
+    "worker_id": "uiux-eztcomm-1",
+    "response_chars": 49213
+  }
+}

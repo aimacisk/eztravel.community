@@ -2,7 +2,7 @@
   "schema_version": "v0.53",
   "task_id": "T-eztcomm-20260602-W6PG-CAT-HOTEL",
   "prj_id": "eztravel.community",
-  "status": "IN_PROGRESS",
+  "status": "DONE",
   "title": "[W6 PG] 旅館分類頁視覺重建",
   "created_at": "2026-06-02T05:28:12+00:00",
   "assignee": "pg",
@@ -57,11 +57,16 @@
   ],
   "started_at": "2026-06-02T05:53:21.681285+00:00",
   "agent_session_id": "pg-eztcomm-w6pg-cat-hotel-20260602",
-  "completed_at": null,
-  "deliverables": [],
-  "execution_log": "",
-  "wiki_draft_path": null,
+  "completed_at": "2026-06-02T06:18:04.428613+00:00",
+  "deliverables": [
+    "04_src/eztravel.Community/eztravel.Community.Web/Controllers/CategoryController.cs",
+    "04_src/eztravel.Community/eztravel.Community.Web/Views/Category/Hotel.cshtml",
+    "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Section_DestinationGrid.cshtml",
+    "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css"
+  ],
+  "execution_log": "【W6PG-CAT-HOTEL 實作記錄】\n\n修復迴圈 1/1：R1 CSS Foundation 已在 main（site.css 700+ 行，含 W6PG-HOME 元件 CSS）。figma_deliverables.json 不存在（T-eztcomm-20260602-RA-W2U4 未執行），改直接對照 UIUX-4 卡原始 nodeId 清單（119:2, 121:2, 121:55）。\n\n分析 data/旅館/旅館.json：6 個 section，新 section type：promo_section / theme_section / destination_grid。\n\n已完成變更（4 檔）：\n1. CategoryController.cs — 新增 [HttpGet(\"hotel\")] Hotel() action，呼叫 _loader.Load(\"hotel\") 回傳 PageDataViewModel。\n2. Views/Category/Hotel.cshtml（全新）— 7 種 section type 完整處理：search_bar（hotel-searchbar 元件）、promo_section（promo-tile bg-img overlay 無 style=）、theme_section（theme-chip pills）、featured_items/product_list（_Section_FeaturedGrid partial）、destination_grid（_Section_DestinationGrid partial）、footer_links（_Section_Footer partial）、default（_Section_Generic partial）。零硬編碼顏色值。\n3. Views/Shared/_Section_DestinationGrid.cshtml（全新）— destination-grid + destination-tile 元件，使用 CSS nth-child 循環 10 色，無 style= 屬性。\n4. wwwroot/css/site.css（追加）— 新增 Hotel 頁元件 CSS 共 80+ 行：\n   - :root 新增 --dest-tile-1..10（10 色 palette）\n   - .hotel-searchbar/__tabs/__tab/__input-row/__input/__btn\n   - .promo-tiles + .promo-tile/__bg/__overlay/__text（bg-img 純 CSS，無 inline style）\n   - .theme-chips + .theme-chip\n   - .destination-grid + .destination-tile/__text\n   - .destination-tile:nth-child(10n+N) 10 色循環 selectors\n   全部使用 CSS variables，無硬編碼色值。\n\nAC 靜態驗證：\n- AC-W6-01 ✅：site.css body { background-color: var(--color-bg-primary) } → #F1F7F8\n- AC-W6-02 ✅：site.css .navbar { background-color: var(--color-brand-primary) !important } → #11D073\n- AC-W6-03 ✅：Hotel.cshtml grep 無任何 style= 或硬編碼色值，僅用 CSS class\n- AC-W6-04 ⏳：需 admin 執行 dotnet build + dotnet run + Playwright 截圖比對 Figma nodeId 119:2\n- 防線 7 ✅：grep '#11D073' site.css 命中 :root + .navbar + .hotel-searchbar__btn 等多處\n\nSANDBOX 限制：git/dotnet 指令被封鎖，commit 由 admin 代行。\ncommit_sha=PENDING_ADMIN_COMMIT\n建議 commit message: T-eztcomm-20260602-W6PG-CAT-HOTEL: feat(hotel): rebuild Hotel category page with CSS vars, destination grid, promo tiles",
+  "wiki_draft_path": "projects/eztravel.community/.agent_system/cards/T-eztcomm-20260602-W6PG-CAT-HOTEL/T-eztcomm-20260602-W6PG-CAT-HOTEL_pg_draft.md",
   "archived_at": null,
   "wiki_integrated_files": [],
-  "commit_sha": null
+  "commit_sha": "PENDING_ADMIN_COMMIT"
 }

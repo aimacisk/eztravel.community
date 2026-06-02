@@ -1,0 +1,15 @@
+{
+  "ts": "2026-06-02T07:16:07+00:00",
+  "task_id": "T-eztcomm-20260602-W6PG-DETAIL",
+  "agent": "pg",
+  "type": "completed",
+  "summary": "W6 Product Detail 視覺重建完工：site.css +450行 product-detail+community module CSS；_Layout.cshtml navbar-dark fix；靜態 AC-W6-03 PASS；PENDING_ADMIN_COMMIT",
+  "ref": {
+    "delivered_files": [
+      "04_src/eztravel.Community/eztravel.Community.Web/wwwroot/css/site.css",
+      "04_src/eztravel.Community/eztravel.Community.Web/Views/Shared/_Layout.cshtml"
+    ],
+    "task_board_status": "DONE",
+    "commit_sha": "PENDING_ADMIN_COMMIT"
+  }
+}

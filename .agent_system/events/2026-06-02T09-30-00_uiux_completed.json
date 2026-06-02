@@ -1,0 +1,17 @@
+{
+  "ts": "2026-06-02T09:30:00+08:00",
+  "task_id": "T-eztcomm-UIUX-SUB-LAYOUT",
+  "agent": "uiux",
+  "type": "completed",
+  "summary": "Navbar Desktop (249:3) + Footer (250:2) + RWD Hamburger (268:2) 三 Figma frame 建立完成。5 維度視覺自驗全 PASS。reference_alignment ~75-80%（WebFetch 替代 Playwright）。figma_deliverables 清冊詳見 wiki_draft。",
+  "ref": {
+    "delivered_files": [
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/249:3 — Navbar/Desktop",
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/250:2 — Footer",
+      "figma://6XmYJOpiSXab2gtGlmWtks/node/268:2 — Navbar/Mobile-RWD",
+      "projects/eztravel.community/.agent_system/cards/T-eztcomm-UIUX-SUB-LAYOUT/T-eztcomm-UIUX-SUB-LAYOUT_uiux_draft.md",
+      "projects/eztravel.community/06_wiki/visual/reference/navbar_reference_notes.md"
+    ],
+    "task_board_status": "DONE"
+  }
+}
