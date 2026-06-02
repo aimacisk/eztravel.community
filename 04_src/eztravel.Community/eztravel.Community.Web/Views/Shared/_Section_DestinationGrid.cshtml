@@ -1,0 +1,11 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model SectionViewModel
+
+<div class="destination-grid">
+    @foreach (var item in Model.Items)
+    {
+        <a class="destination-tile" href="@(item.LinkUrl ?? "#")">
+            <span class="destination-tile__text">@item.Text</span>
+        </a>
+    }
+</div>

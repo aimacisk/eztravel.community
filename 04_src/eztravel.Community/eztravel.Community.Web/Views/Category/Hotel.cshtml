@@ -1,0 +1,97 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model PageDataViewModel
+
+@{
+    ViewData["Title"] = Model.DisplayName + " - EzTravel";
+    Layout = "_Layout";
+}
+
+<div class="container py-3">
+    @foreach (var sec in Model.Sections)
+    {
+        <div class="page-section page-section--@sec.Type" id="@sec.Id">
+            @if (sec.Type == "search_bar")
+            {
+                <div class="hotel-searchbar">
+                    <nav class="hotel-searchbar__tabs">
+                        @foreach (var tab in sec.Items)
+                        {
+                            <button class="hotel-searchbar__tab" type="button">@tab.Text</button>
+                        }
+                    </nav>
+                    <div class="hotel-searchbar__input-row">
+                        <input class="hotel-searchbar__input" type="text" placeholder="搜尋目的地、飯店名稱" />
+                        <button class="hotel-searchbar__btn" type="button">搜尋</button>
+                    </div>
+                </div>
+            }
+            else if (sec.Type == "promo_section")
+            {
+                if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <div class="page-section__header">
+                        <h2 class="page-section__title">@sec.Title</h2>
+                    </div>
+                }
+                <div class="promo-tiles">
+                    @foreach (var item in sec.Items)
+                    {
+                        <a class="promo-tile" href="@(item.LinkUrl ?? "#")">
+                            @if (!string.IsNullOrEmpty(item.ImageUrl))
+                            {
+                                <img class="promo-tile__bg" src="@item.ImageUrl" alt="@item.Text" loading="lazy" />
+                            }
+                            <span class="promo-tile__overlay"></span>
+                            <span class="promo-tile__text">@item.Text</span>
+                        </a>
+                    }
+                </div>
+            }
+            else if (sec.Type == "theme_section")
+            {
+                if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <h2 class="page-section__title">@sec.Title</h2>
+                }
+                <div class="theme-chips">
+                    @foreach (var item in sec.Items)
+                    {
+                        <a class="theme-chip" href="@(item.LinkUrl ?? "#")">@item.Text</a>
+                    }
+                </div>
+            }
+            else if (sec.Type == "featured_items" || sec.Type == "product_list")
+            {
+                if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <div class="page-section__header">
+                        <h2 class="page-section__title">@sec.Title</h2>
+                    </div>
+                }
+                @await Html.PartialAsync("_Section_FeaturedGrid", sec)
+            }
+            else if (sec.Type == "destination_grid")
+            {
+                if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <div class="page-section__header">
+                        <h2 class="page-section__title">@sec.Title</h2>
+                    </div>
+                }
+                @await Html.PartialAsync("_Section_DestinationGrid", sec)
+            }
+            else if (sec.Type == "footer_links")
+            {
+                @await Html.PartialAsync("_Section_Footer", sec)
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <h2 class="page-section__title">@sec.Title</h2>
+                }
+                @await Html.PartialAsync("_Section_Generic", sec)
+            }
+        </div>
+    }
+</div>

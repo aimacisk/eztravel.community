@@ -484,3 +484,275 @@ body {
   border-radius: var(--radius-sm);
   line-height: 1.6;
 }
+
+/* =============================================================
+   Hotel Category Page Components
+   T-eztcomm-20260602-W6PG-CAT-HOTEL
+   ============================================================= */
+
+/* Destination tile 10-color palette */
+:root {
+  --dest-tile-1:  #FF8B00;  /* warm orange   */
+  --dest-tile-2:  #11D073;  /* brand green   */
+  --dest-tile-3:  #26C281;  /* teal green    */
+  --dest-tile-4:  #1A8C82;  /* dark teal     */
+  --dest-tile-5:  #1A3C5A;  /* navy          */
+  --dest-tile-6:  #C0392B;  /* deep red      */
+  --dest-tile-7:  #8E44AD;  /* purple        */
+  --dest-tile-8:  #2980B9;  /* teal blue     */
+  --dest-tile-9:  #27AE60;  /* forest green  */
+  --dest-tile-10: #1565C0;  /* ocean blue    */
+}
+
+/* ─── Page Section Header (title + optional link row) ─── */
+
+.page-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-6);
+}
+
+.page-section__header .page-section__title {
+  margin-bottom: 0;
+}
+
+.page-section__link {
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.page-section__link:hover {
+  color: var(--color-brand-dark);
+  text-decoration: underline;
+}
+
+/* ─── Hotel Search Bar ─── */
+
+.hotel-searchbar {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-card);
+}
+
+.hotel-searchbar__tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: var(--spacing-4);
+  border-bottom: 2px solid var(--color-border-light);
+}
+
+.hotel-searchbar__tab {
+  padding: var(--spacing-3) var(--spacing-6);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-primary);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.hotel-searchbar__tab:first-child {
+  color: var(--color-brand-primary);
+  border-bottom-color: var(--color-brand-primary);
+}
+
+.hotel-searchbar__tab:hover {
+  color: var(--color-brand-primary);
+}
+
+.hotel-searchbar__input-row {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.hotel-searchbar__input {
+  flex: 1;
+  padding: var(--spacing-3) var(--spacing-4);
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-primary);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.hotel-searchbar__input:focus {
+  outline: none;
+  border-color: var(--color-brand-primary);
+}
+
+.hotel-searchbar__btn {
+  padding: var(--spacing-3) var(--spacing-8);
+  background-color: var(--color-brand-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.hotel-searchbar__btn:hover {
+  background-color: var(--color-brand-dark);
+}
+
+/* ─── Promo Tiles (促銷活動: bg-image + dark overlay) ─── */
+
+.promo-tiles {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-3);
+}
+
+@media (max-width: 991px) {
+  .promo-tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .promo-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.promo-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-text-muted);
+}
+
+.promo-tile__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.promo-tile:hover .promo-tile__bg {
+  transform: scale(1.06);
+}
+
+.promo-tile__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-bg-overlay) 0%, transparent 55%);
+}
+
+.promo-tile__text {
+  position: absolute;
+  bottom: var(--spacing-3);
+  left: var(--spacing-3);
+  right: var(--spacing-3);
+  color: #ffffff;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  z-index: 1;
+}
+
+/* ─── Theme Chips (大家都搜: pill tags) ─── */
+
+.theme-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.theme-chip {
+  display: inline-block;
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: background-color var(--transition-fast),
+              border-color    var(--transition-fast),
+              color           var(--transition-fast);
+}
+
+.theme-chip:hover {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ─── Destination Grid (熱門住宿目的地: 10×2 colored tiles) ─── */
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--spacing-2);
+}
+
+@media (max-width: 1199px) {
+  .destination-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .destination-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.destination-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: #ffffff;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  min-height: 56px;
+  transition: opacity var(--transition-fast);
+}
+
+.destination-tile:hover {
+  opacity: 0.85;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.destination-tile__text {
+  line-height: 1.3;
+}
+
+/* 10-color cycling palette */
+.destination-tile:nth-child(10n+1)  { background-color: var(--dest-tile-1); }
+.destination-tile:nth-child(10n+2)  { background-color: var(--dest-tile-2); }
+.destination-tile:nth-child(10n+3)  { background-color: var(--dest-tile-3); }
+.destination-tile:nth-child(10n+4)  { background-color: var(--dest-tile-4); }
+.destination-tile:nth-child(10n+5)  { background-color: var(--dest-tile-5); }
+.destination-tile:nth-child(10n+6)  { background-color: var(--dest-tile-6); }
+.destination-tile:nth-child(10n+7)  { background-color: var(--dest-tile-7); }
+.destination-tile:nth-child(10n+8)  { background-color: var(--dest-tile-8); }
+.destination-tile:nth-child(10n+9)  { background-color: var(--dest-tile-9); }
+.destination-tile:nth-child(10n+10) { background-color: var(--dest-tile-10); }

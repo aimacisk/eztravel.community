@@ -28,4 +28,12 @@ public class CategoryController : Controller
         if (model is null) return NotFound();
         return View(model);
     }
+
+    [HttpGet("hotel")]
+    public IActionResult Hotel()
+    {
+        var model = _loader.Load("hotel");
+        if (model is null) return NotFound();
+        return View(model);
+    }
 }
