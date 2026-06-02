@@ -47,4 +47,12 @@ public class CategoryController : Controller
         if (model is null) return NotFound();
         return View("GroupTour", model);
     }
+
+    [HttpGet("freetour")]
+    public IActionResult FreeTour()
+    {
+        var model = _loader.Load("freetour");
+        if (model is null) return NotFound();
+        return View(model);
+    }
 }

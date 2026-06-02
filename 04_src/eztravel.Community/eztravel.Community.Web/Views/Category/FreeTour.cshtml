@@ -1,0 +1,110 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@model PageDataViewModel
+@{
+    ViewData["Title"] = "自由行 — 機加酒自由行";
+}
+
+@functions {
+    /// <summary>
+    /// 解析相對圖片路徑到 ~/data/自由行/ 目錄。
+    /// 自由行分類頁有專屬 action，RouteData 不含 {slug}，
+    /// 因此不能依賴 _Section_Banner 的 slug 推導，改以硬碼資料夾 "自由行" 解析。
+    /// </summary>
+    string ResolveImage(string? img)
+    {
+        if (string.IsNullOrEmpty(img)) return string.Empty;
+        if (img.StartsWith("http", StringComparison.OrdinalIgnoreCase)) return img;
+        return Url.Content($"~/data/自由行/{img}");
+    }
+}
+
+@foreach (var sec in Model.Sections)
+{
+    if (sec.Type == "hero_banner")
+    {
+        <div id="@sec.Id" class="page-section page-section--hero_banner">
+            <div class="banner-grid">
+                @foreach (var item in sec.Items)
+                {
+                    <a class="banner-card" href="@item.LinkUrl">
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <img src="@ResolveImage(item.ImageUrl)" alt="@item.Text" loading="lazy" />
+                        }
+                        @if (!string.IsNullOrEmpty(item.Text))
+                        {
+                            <div class="banner-card__caption">@item.Text</div>
+                        }
+                    </a>
+                }
+            </div>
+        </div>
+    }
+    else if (sec.Type == "featured_items" || sec.Type == "product_list" || sec.Type == "featured_grid")
+    {
+        <div id="@sec.Id" class="page-section page-section--@sec.Type">
+            @if (!string.IsNullOrEmpty(sec.Title))
+            {
+                <h2 class="page-section__title">@sec.Title</h2>
+            }
+            <div class="featured-grid">
+                @foreach (var item in sec.Items)
+                {
+                    <a class="product-card" href="@item.LinkUrl">
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <div class="product-card__media">
+                                <img src="@ResolveImage(item.ImageUrl)" alt="@item.Text" loading="lazy" />
+                                @if (!string.IsNullOrEmpty(item.Badge))
+                                {
+                                    <span class="product-card__badge">@item.Badge</span>
+                                }
+                            </div>
+                        }
+                        <div class="product-card__body">
+                            @if (!string.IsNullOrEmpty(item.Text))
+                            {
+                                <h3 class="product-card__title">@item.Text</h3>
+                            }
+                            @if (!string.IsNullOrEmpty(item.Description))
+                            {
+                                <p class="product-card__desc">@item.Description</p>
+                            }
+                            @if (!string.IsNullOrEmpty(item.Price))
+                            {
+                                <div class="product-card__price">@item.Price</div>
+                            }
+                            <span class="btn-cta">立即預訂</span>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    }
+    else if (sec.Type == "quick_links")
+    {
+        <div id="@sec.Id" class="page-section page-section--quick_links">
+            @if (!string.IsNullOrEmpty(sec.Title))
+            {
+                <h2 class="page-section__title">@sec.Title</h2>
+            }
+            @await Html.PartialAsync("_Section_CategoryNav", sec)
+        </div>
+    }
+    else if (sec.Type == "search_bar" || sec.Type == "search_form")
+    {
+        <div id="@sec.Id" class="page-section page-section--search_bar">
+            @await Html.PartialAsync("_Section_SearchForm", sec)
+        </div>
+    }
+    else
+    {
+        <div id="@sec.Id" class="page-section page-section--@sec.Type">
+            @if (!string.IsNullOrEmpty(sec.Title))
+            {
+                <h2 class="page-section__title">@sec.Title</h2>
+            }
+            @await Html.PartialAsync("_Section_Generic", sec)
+        </div>
+    }
+}
