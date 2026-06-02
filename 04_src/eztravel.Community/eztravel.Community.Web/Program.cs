@@ -113,6 +113,9 @@ try
     else
         app.UseExceptionHandler("/Home/Error");
 
+    // 404/500 等 HTTP status code 走 Error 頁(套主 layout 含 site.css 翠綠)
+    app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
+
     app.UseStaticFiles();
     app.UseRouting();
     app.UseAuthentication();
