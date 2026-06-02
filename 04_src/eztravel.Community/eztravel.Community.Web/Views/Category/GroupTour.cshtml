@@ -66,20 +66,18 @@
 
 @* 頁首英雄區 (Figma 130:2: 品牌綠 navbar 下方的 hero banner) *@
 <div class="grouptour-hero">
-    <div class="grouptour-hero__title">@Model.DisplayName旅遊</div>
+    <div class="grouptour-hero__title">@Model.DisplayName 旅遊</div>
     <div class="grouptour-hero__subtitle">探索世界，共享美好時光</div>
 </div>
 
 @* 各 Section 迴圈 — 完全沿用 Show.cshtml 的 partial dispatch 機制 *@
 @foreach (var sec in Model.Sections)
 {
-    @{
         var isSearchSection = sec.Type == "search_bar" || sec.Type == "search_form";
         var isFeaturedSection = sec.Type is "featured_items" or "featured_grid" or "product_list";
         var extraCss = isSearchSection ? " grouptour-search"
                      : isFeaturedSection ? " grouptour-products"
                      : string.Empty;
-    }
 
     <div id="@sec.Id" class="page-section page-section--@sec.Type@extraCss">
         @if (!string.IsNullOrEmpty(sec.Title))
