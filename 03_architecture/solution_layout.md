@@ -493,7 +493,7 @@ MVP 不使用 Webpack / Vite，直接以 `<link>` / `<script>` 引用靜態 CSS/
 }
 ```
 
-**注意**：`{INSTANCE_CONNECTION_NAME}` 格式為 `{project}:{region}:{instance}`，例如 `eztravel-community-prod:asia-east1:eztcomm-db`。實際值由 GCP Secret Manager 注入至環境變數，不硬寫在 appsettings。
+**注意**：`{INSTANCE_CONNECTION_NAME}` 格式為 `{project}:{region}:{instance}`，例如 `eztcomm-prod-1780402352:asia-east1:eztcomm-db`。實際值由 GCP Secret Manager 注入至環境變數，不硬寫在 appsettings。
 
 ---
 

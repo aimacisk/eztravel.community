@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GCP_PROJECT_ID: eztravel-community-prod
+      GCP_PROJECT_ID: eztcomm-prod-1780402352
       GCP_REGION: asia-east1
       ARTIFACT_REPO: eztravel-images
       IMAGE_NAME: eztravel-community
       SERVICE_NAME: eztravel-community
-      CLOUD_SQL_CONNECTION_NAME: eztravel-community-prod:asia-east1:eztcomm-db
+      CLOUD_SQL_CONNECTION_NAME: eztcomm-prod-1780402352:asia-east1:eztcomm-db
 
     steps:
       - name: Checkout

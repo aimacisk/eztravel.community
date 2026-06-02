@@ -211,13 +211,13 @@ GitHub Actions Secrets (由 admin 負責初始化):
 
 ```yaml
 env:
-  GCP_PROJECT_ID: eztravel-community-prod
+  GCP_PROJECT_ID: eztcomm-prod-1780402352
   GCP_REGION: asia-east1
   ARTIFACT_REGISTRY_HOST: asia-east1-docker.pkg.dev
   ARTIFACT_REGISTRY_REPO: eztravel-community
   CLOUD_RUN_SERVICE: eztravel-community
-  CLOUD_SQL_INSTANCE: projects/eztravel-community-prod/instances/eztcomm-db
-  CLOUD_SQL_CONNECTION_NAME: eztravel-community-prod:asia-east1:eztcomm-db
+  CLOUD_SQL_INSTANCE: projects/eztcomm-prod-1780402352/instances/eztcomm-db
+  CLOUD_SQL_CONNECTION_NAME: eztcomm-prod-1780402352:asia-east1:eztcomm-db
 
 secrets:
   GCP_SA_KEY:                  # Service Account JSON 金鑰 (base64)
@@ -229,10 +229,10 @@ secrets:
 
 **Artifact Registry 設定**:
 - **Host**: `asia-east1-docker.pkg.dev`
-- **Project**: `eztravel-community-prod`
+- **Project**: `eztcomm-prod-1780402352`
 - **Repository**: `eztravel-community`
 - **Image Tag**: `{GITHUB_SHA:8}` (前 8 位 commit hash)
-- **完整 URI**: `asia-east1-docker.pkg.dev/eztravel-community-prod/eztravel-community/app:{hash}`
+- **完整 URI**: `asia-east1-docker.pkg.dev/eztcomm-prod-1780402352/eztravel-community/app:{hash}`
 
 **版本策略**: 
 - 每次 `[release]` commit 自動推送新 image
@@ -496,11 +496,11 @@ git push origin v0.1.0
 
 ```bash
 # 1. 建立 GCP Project
-gcloud projects create eztravel-community-prod \
+gcloud projects create eztcomm-prod-1780402352 \
   --name="Eztravel Community Production"
 
 # 2. 設定預設 project
-gcloud config set project eztravel-community-prod
+gcloud config set project eztcomm-prod-1780402352
 
 # 3. 啟用必要 API
 gcloud services enable \
@@ -540,7 +540,7 @@ gcloud sql users create postgres \
 # 4. 獲取 Connection Name (用於應用層)
 gcloud sql instances describe eztcomm-db \
   --format='value(connectionName)'
-# 輸出: eztravel-community-prod:asia-east1:eztcomm-db
+# 輸出: eztcomm-prod-1780402352:asia-east1:eztcomm-db
 ```
 
 ### §5.3 Artifact Registry 建立
@@ -564,21 +564,21 @@ gcloud iam service-accounts create github-actions-deployer \
   --display-name="GitHub Actions CI/CD Deployer"
 
 # 2. 授予必要角色
-gcloud projects add-iam-policy-binding eztravel-community-prod \
-  --member=serviceAccount:github-actions-deployer@eztravel-community-prod.iam.gserviceaccount.com \
+gcloud projects add-iam-policy-binding eztcomm-prod-1780402352 \
+  --member=serviceAccount:github-actions-deployer@eztcomm-prod-1780402352.iam.gserviceaccount.com \
   --role=roles/run.admin
 
-gcloud projects add-iam-policy-binding eztravel-community-prod \
-  --member=serviceAccount:github-actions-deployer@eztravel-community-prod.iam.gserviceaccount.com \
+gcloud projects add-iam-policy-binding eztcomm-prod-1780402352 \
+  --member=serviceAccount:github-actions-deployer@eztcomm-prod-1780402352.iam.gserviceaccount.com \
   --role=roles/artifactregistry.writer
 
-gcloud projects add-iam-policy-binding eztravel-community-prod \
-  --member=serviceAccount:github-actions-deployer@eztravel-community-prod.iam.gserviceaccount.com \
+gcloud projects add-iam-policy-binding eztcomm-prod-1780402352 \
+  --member=serviceAccount:github-actions-deployer@eztcomm-prod-1780402352.iam.gserviceaccount.com \
   --role=roles/cloudsql.client
 
 # 3. 生成 JSON 金鑰 (供 GitHub Actions 使用)
 gcloud iam service-accounts keys create gh-actions-key.json \
-  --iam-account=github-actions-deployer@eztravel-community-prod.iam.gserviceaccount.com
+  --iam-account=github-actions-deployer@eztcomm-prod-1780402352.iam.gserviceaccount.com
 
 # 4. 將金鑰 base64 編碼並存入 GitHub Secrets
 cat gh-actions-key.json | base64 -w 0 > gh-actions-key-b64.txt
@@ -600,11 +600,11 @@ echo -n "Production" | \
 
 # 3. 授予 Cloud Run service account 讀權限
 gcloud secrets add-iam-policy-binding db-password \
-  --member=serviceAccount:eztravel-community@eztravel-community-prod.iam.gserviceaccount.com \
+  --member=serviceAccount:eztravel-community@eztcomm-prod-1780402352.iam.gserviceaccount.com \
   --role=roles/secretmanager.secretAccessor
 
 gcloud secrets add-iam-policy-binding aspnetcore-environment \
-  --member=serviceAccount:eztravel-community@eztravel-community-prod.iam.gserviceaccount.com \
+  --member=serviceAccount:eztravel-community@eztcomm-prod-1780402352.iam.gserviceaccount.com \
   --role=roles/secretmanager.secretAccessor
 ```
 
@@ -617,7 +617,7 @@ gcloud secrets add-iam-policy-binding aspnetcore-environment \
 ```bash
 # 初次部署 (GitHub Actions 中自動執行)
 gcloud run deploy eztravel-community \
-  --image=asia-east1-docker.pkg.dev/eztravel-community-prod/eztravel-community/app:$(git rev-parse --short HEAD) \
+  --image=asia-east1-docker.pkg.dev/eztcomm-prod-1780402352/eztravel-community/app:$(git rev-parse --short HEAD) \
   --platform managed \
   --region asia-east1 \
   --memory 512Mi \
@@ -628,8 +628,8 @@ gcloud run deploy eztravel-community \
   --allow-unauthenticated \
   --set-env-vars=ASPNETCORE_ENVIRONMENT=Production,ASPNETCORE_FORWARDEDHEADERS_ENABLED=true \
   --set-secrets=DB_PASSWORD=db-password:latest \
-  --add-cloudsql-instances=eztravel-community-prod:asia-east1:eztcomm-db \
-  --service-account=eztravel-community@eztravel-community-prod.iam.gserviceaccount.com \
+  --add-cloudsql-instances=eztcomm-prod-1780402352:asia-east1:eztcomm-db \
+  --service-account=eztravel-community@eztcomm-prod-1780402352.iam.gserviceaccount.com \
   --no-gen2 \
   --port 8080
 ```
@@ -641,7 +641,7 @@ gcloud run deploy eztravel-community \
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=/cloudsql/eztravel-community-prod:asia-east1:eztcomm-db;Database=eztravel_community;User Id=postgres;Password=${DB_PASSWORD};"
+    "DefaultConnection": "Server=/cloudsql/eztcomm-prod-1780402352:asia-east1:eztcomm-db;Database=eztravel_community;User Id=postgres;Password=${DB_PASSWORD};"
   },
   "Logging": {
     "LogLevel": {
@@ -694,13 +694,13 @@ app.MapGet("/health", async (IApplicationDbContext db) =>
 ```bash
 # 未來升級用:建立 Workload Identity Pool
 gcloud iam workload-identity-pools create "gh-pool" \
-  --project=eztravel-community-prod \
+  --project=eztcomm-prod-1780402352 \
   --location=global \
   --display-name="GitHub Actions Pool"
 
 # 建立 Workload Provider
 gcloud iam workload-identity-pools providers create-oidc "gh-provider" \
-  --project=eztravel-community-prod \
+  --project=eztcomm-prod-1780402352 \
   --location=global \
   --workload-identity-pool=gh-pool \
   --display-name="GitHub Provider" \
@@ -709,8 +709,8 @@ gcloud iam workload-identity-pools providers create-oidc "gh-provider" \
 
 # 授予 GitHub Actions Service Account
 gcloud iam service-accounts add-iam-policy-binding \
-  github-actions-deployer@eztravel-community-prod.iam.gserviceaccount.com \
-  --project=eztravel-community-prod \
+  github-actions-deployer@eztcomm-prod-1780402352.iam.gserviceaccount.com \
+  --project=eztcomm-prod-1780402352 \
   --role=roles/iam.workloadIdentityUser \
   --member="principalSet://iam.googleapis.com/projects/{PROJECT_NUM}/locations/global/workloadIdentityPools/gh-pool/attribute.repository/aimacisk/eztravel.community"
 ```
@@ -820,8 +820,8 @@ jobs:
         run: |
           gcloud auth configure-docker asia-east1-docker.pkg.dev
           cd 04_src
-          docker build -t asia-east1-docker.pkg.dev/eztravel-community-prod/eztravel-community/app:${{ github.sha }} .
-          docker push asia-east1-docker.pkg.dev/eztravel-community-prod/eztravel-community/app:${{ github.sha }}
+          docker build -t asia-east1-docker.pkg.dev/eztcomm-prod-1780402352/eztravel-community/app:${{ github.sha }} .
+          docker push asia-east1-docker.pkg.dev/eztcomm-prod-1780402352/eztravel-community/app:${{ github.sha }}
       
       # 11. Cloud SQL Migration (EF Core)
       - name: Apply Database Migrations
@@ -837,7 +837,7 @@ jobs:
         if: steps.check_release.outputs.release_detected == 'true'
         run: |
           gcloud run deploy eztravel-community \
-            --image=asia-east1-docker.pkg.dev/eztravel-community-prod/eztravel-community/app:${{ github.sha }} \
+            --image=asia-east1-docker.pkg.dev/eztcomm-prod-1780402352/eztravel-community/app:${{ github.sha }} \
             --platform managed \
             --region asia-east1 \
             --memory 512Mi \
@@ -845,7 +845,7 @@ jobs:
             --timeout 60s \
             --allow-unauthenticated \
             --set-env-vars=ASPNETCORE_ENVIRONMENT=Production \
-            --add-cloudsql-instances=eztravel-community-prod:asia-east1:eztcomm-db \
+            --add-cloudsql-instances=eztcomm-prod-1780402352:asia-east1:eztcomm-db \
             --port 8080
       
       # 13. Smoke Test
@@ -965,8 +965,8 @@ docker run -v ${PWD}:/app -p 5000:5000 eztcomm-dev dotnet watch run
 
 # 生產環境 (最終 runtime image)
 docker build -t eztcomm-prod:latest .
-docker tag eztcomm-prod:latest asia-east1-docker.pkg.dev/eztravel-community-prod/eztravel-community/app:latest
-docker push asia-east1-docker.pkg.dev/eztravel-community-prod/eztravel-community/app:latest
+docker tag eztcomm-prod:latest asia-east1-docker.pkg.dev/eztcomm-prod-1780402352/eztravel-community/app:latest
+docker push asia-east1-docker.pkg.dev/eztcomm-prod-1780402352/eztravel-community/app:latest
 ```
 
 ---
