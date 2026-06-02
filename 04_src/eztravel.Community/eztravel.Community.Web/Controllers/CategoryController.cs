@@ -55,4 +55,15 @@ public class CategoryController : Controller
         if (model is null) return NotFound();
         return View(model);
     }
+
+    // T-eztcomm-20260602-W6PG-CAT-TICKET: 票券分類頁獨立 route (W4-REBUILD)
+    // 明確 route 對齊 GroupTour 模式：class-level [Route("category")] 覆蓋 conventional routing
+    [Route("Category/Ticket")]
+    [HttpGet]
+    public IActionResult Ticket()
+    {
+        var model = _loader.Load("ticket");
+        if (model is null) return NotFound();
+        return View("Ticket", model);
+    }
 }

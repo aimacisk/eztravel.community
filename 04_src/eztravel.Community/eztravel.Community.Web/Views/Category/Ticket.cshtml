@@ -1,0 +1,435 @@
+@* T-eztcomm-20260602-W6PG-CAT-TICKET: 票券分類頁 — W4-REBUILD 視覺重建
+   依 Figma nodeId 187:2 / 189:2 / 190:2 / 195:2 重建
+   CSS variables only — 所有品牌色彩引用 site.css :root CSS variables，禁止 hardcoded hex
+   Layout 由 _ViewStart.cshtml 自動套用 *@
+@using EzTravel.Community.Web.Models.ViewModels
+@model PageDataViewModel
+@{
+    ViewData["Title"] = (Model.DisplayName ?? "票券") + " - 易遊網";
+    // 票券頁資料資料夾，供 image URL 解析使用
+    const string DataFolder = "票券";
+}
+
+<style>
+    /* ══════════════════════════════════════════════════════════════
+       票券分類頁專屬 CSS  T-eztcomm-20260602-W6PG-CAT-TICKET
+       ✔ 全部使用 site.css :root CSS variables，無 hardcoded hex
+       ══════════════════════════════════════════════════════════════ */
+
+    /* ── 搜尋列：品牌綠背景 (Figma 187:2 頂部 search bar) ── */
+    .ticket-search-section {
+        background-color: var(--color-brand-primary);
+        padding: var(--spacing-4) var(--spacing-6);
+        margin-bottom: 0; /* flush with hero below */
+    }
+    .ticket-search-form {
+        display: flex;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+    .ticket-search-form__input {
+        flex: 1;
+        padding: var(--spacing-3) var(--spacing-4);
+        border: none;
+        border-radius: var(--radius-md) 0 0 var(--radius-md);
+        font-family: var(--font-family-primary);
+        font-size: var(--font-size-base);
+        color: var(--color-text-primary);
+        background-color: var(--color-bg-card);
+        outline: none;
+    }
+    .ticket-search-form__input::placeholder {
+        color: var(--color-text-muted);
+    }
+    .ticket-search-form__btn {
+        padding: var(--spacing-3) var(--spacing-6);
+        background-color: var(--color-brand-dark);
+        color: var(--color-bg-card);
+        border: none;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        font-family: var(--font-family-primary);
+        font-weight: var(--font-weight-medium);
+        font-size: var(--font-size-base);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background-color var(--transition-fast);
+    }
+    .ticket-search-form__btn:hover {
+        background-color: var(--color-brand-light);
+    }
+
+    /* ── 英雄 Banner：8 欄圖片磚 (Figma 189:2 — 2 rows × 8 cols) ── */
+    .ticket-banner-tiles {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 3px;
+        background-color: var(--color-brand-dark); /* gap 縫隙色 */
+    }
+
+    @* Inline at-rules must be inside a <style> tag; break using Razor comment wrapping *@
+</style>
+<style>
+    @@media (max-width: 991px) {
+        .ticket-banner-tiles { grid-template-columns: repeat(4, 1fr); }
+    }
+    @@media (max-width: 575px) {
+        .ticket-banner-tiles { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── 城市熱銷：4 欄圖片磚 + 文字 + 價格 (Figma 187:2 promo_section) ── */
+    .ticket-city-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-3);
+    }
+    @@media (max-width: 991px) {
+        .ticket-city-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @@media (max-width: 575px) {
+        .ticket-city-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .ticket-city-tile {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        aspect-ratio: 4 / 3;
+        min-height: 100px;
+        transition: opacity var(--transition-fast);
+    }
+    .ticket-city-tile:hover {
+        opacity: 0.88;
+        text-decoration: none;
+    }
+    .ticket-city-tile__img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform var(--transition-base);
+    }
+    .ticket-city-tile:hover .ticket-city-tile__img {
+        transform: scale(1.05);
+    }
+    .ticket-city-tile__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, var(--color-bg-overlay) 0%, transparent 60%);
+    }
+    .ticket-city-tile__body {
+        position: absolute;
+        bottom: var(--spacing-3);
+        left: var(--spacing-3);
+        right: var(--spacing-3);
+        z-index: 1;
+    }
+    .ticket-city-tile__name {
+        color: var(--color-bg-card);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        line-height: 1.3;
+        margin-bottom: var(--spacing-1);
+    }
+    .ticket-city-tile__price {
+        color: var(--color-bg-card);
+        font-size: var(--font-size-xs);
+        opacity: 0.92;
+    }
+    /* CSS variable 色彩循環（無圖片時的 fallback 背景色）—— 引用 hotel 已定義的 --dest-tile-N */
+    .ticket-city-tile:nth-child(10n+1)  { background-color: var(--dest-tile-1); }
+    .ticket-city-tile:nth-child(10n+2)  { background-color: var(--dest-tile-2); }
+    .ticket-city-tile:nth-child(10n+3)  { background-color: var(--dest-tile-3); }
+    .ticket-city-tile:nth-child(10n+4)  { background-color: var(--dest-tile-4); }
+    .ticket-city-tile:nth-child(10n+5)  { background-color: var(--dest-tile-5); }
+    .ticket-city-tile:nth-child(10n+6)  { background-color: var(--dest-tile-6); }
+    .ticket-city-tile:nth-child(10n+7)  { background-color: var(--dest-tile-7); }
+    .ticket-city-tile:nth-child(10n+8)  { background-color: var(--dest-tile-8); }
+    .ticket-city-tile:nth-child(10n+9)  { background-color: var(--dest-tile-9); }
+    .ticket-city-tile:nth-child(10n+10) { background-color: var(--dest-tile-10); }
+
+    /* ── 優惠專區：5 欄卡片 (Figma 195:2) ── */
+    .ticket-theme-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--spacing-3);
+    }
+    @@media (max-width: 991px) {
+        .ticket-theme-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @@media (max-width: 575px) {
+        .ticket-theme-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── 產品卡片（玩樂票券 / 優惠專區共用）── */
+    .ticket-product-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--spacing-4);
+    }
+    @@media (max-width: 1199px) {
+        .ticket-product-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @@media (max-width: 575px) {
+        .ticket-product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>
+
+@* ═══════════════════════════════════════════════════════════
+   Section 迴圈 — 依 type 分流渲染
+   全部 image URL 透過 Url.Content("~/data/票券/") 解析
+   ════════════════════════════════════════════════════════════ *@
+@foreach (var sec in Model.Sections)
+{
+    switch (sec.Type)
+    {
+        // ──────────────────────────────────────────────────────────
+        // 搜尋列
+        // ──────────────────────────────────────────────────────────
+        case "search_bar":
+        case "search_form":
+        {
+            var placeholder = sec.Items.FirstOrDefault()?.Text ?? "搜尋景點、票券、娛樂活動…";
+            <div id="@sec.Id" class="page-section ticket-search-section">
+                <div class="ticket-search-form">
+                    <input type="text"
+                           class="ticket-search-form__input"
+                           placeholder="@placeholder" />
+                    <button type="button" class="ticket-search-form__btn">搜尋</button>
+                </div>
+            </div>
+            break;
+        }
+
+        // ──────────────────────────────────────────────────────────
+        // 英雄 Banner（Figma 189:2：2 rows × 8 cols 圖片磚）
+        // 重用 site.css 的 .promo-tile / .promo-tile__bg / .promo-tile__text
+        // ──────────────────────────────────────────────────────────
+        case "hero_banner":
+        case "banner_carousel":
+        case "banner":
+        {
+            <div id="@sec.Id" class="page-section page-section--@sec.Type">
+                <div class="ticket-banner-tiles">
+                    @foreach (var item in sec.Items)
+                    {
+                        var imgSrc = string.IsNullOrEmpty(item.ImageUrl) ? null
+                            : item.ImageUrl.StartsWith("http", StringComparison.OrdinalIgnoreCase)
+                                ? item.ImageUrl
+                                : Url.Content($"~/data/{DataFolder}/{item.ImageUrl}");
+                        <a class="promo-tile" href="@(item.LinkUrl ?? "#")">
+                            @if (imgSrc != null)
+                            {
+                                <img class="promo-tile__bg" src="@imgSrc" alt="@item.Text" loading="lazy" />
+                            }
+                            <div class="promo-tile__overlay"></div>
+                            @if (!string.IsNullOrEmpty(item.Text))
+                            {
+                                <div class="promo-tile__text">@item.Text</div>
+                            }
+                        </a>
+                    }
+                </div>
+            </div>
+            break;
+        }
+
+        // ──────────────────────────────────────────────────────────
+        // 分類導覽（圖示 icon + 文字 chip）
+        // 圖片 URL 解析：~/data/票券/images/ticket_nav_icon_*.png
+        // ──────────────────────────────────────────────────────────
+        case "category_nav":
+        case "navigation":
+        {
+            <div id="@sec.Id" class="page-section page-section--@sec.Type">
+                <nav class="category-nav">
+                    @foreach (var item in sec.Items)
+                    {
+                        var iconSrc = string.IsNullOrEmpty(item.ImageUrl) ? null
+                            : item.ImageUrl.StartsWith("http", StringComparison.OrdinalIgnoreCase)
+                                ? item.ImageUrl
+                                : Url.Content($"~/data/{DataFolder}/{item.ImageUrl}");
+                        <a class="category-nav__item" href="@(item.LinkUrl ?? "#")">
+                            @if (iconSrc != null)
+                            {
+                                <img src="@iconSrc" alt="@item.Text" loading="lazy" />
+                            }
+                            <span>@item.Text</span>
+                        </a>
+                    }
+                </nav>
+            </div>
+            break;
+        }
+
+        // ──────────────────────────────────────────────────────────
+        // 玩樂票券（featured_items，Figma 190:2：5 欄 product card）
+        // ──────────────────────────────────────────────────────────
+        case "featured_items":
+        case "featured_grid":
+        case "product_list":
+        {
+            <div id="@sec.Id" class="page-section page-section--featured">
+                @if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <div class="page-section__header">
+                        <h2 class="page-section__title">@sec.Title</h2>
+                        <a class="page-section__link" href="#">查看全部</a>
+                    </div>
+                }
+                <div class="ticket-product-grid">
+                    @foreach (var item in sec.Items)
+                    {
+                        var imgSrc = string.IsNullOrEmpty(item.ImageUrl) ? null
+                            : item.ImageUrl.StartsWith("http", StringComparison.OrdinalIgnoreCase)
+                                ? item.ImageUrl
+                                : Url.Content($"~/data/{DataFolder}/{item.ImageUrl}");
+                        <a class="product-card" href="@(item.LinkUrl ?? "#")">
+                            @if (imgSrc != null)
+                            {
+                                <div class="product-card__media">
+                                    <img src="@imgSrc" alt="@item.Text" loading="lazy" />
+                                    @if (!string.IsNullOrEmpty(item.Badge))
+                                    {
+                                        <span class="product-card__badge">@item.Badge</span>
+                                    }
+                                </div>
+                            }
+                            <div class="product-card__body">
+                                <h3 class="product-card__title">@(item.Text ?? "票券商品")</h3>
+                                @if (!string.IsNullOrEmpty(item.Description))
+                                {
+                                    <p class="product-card__desc">@item.Description</p>
+                                }
+                                @if (!string.IsNullOrEmpty(item.Price))
+                                {
+                                    <div class="product-card__price">NT$ @item.Price</div>
+                                }
+                                <span class="btn-cta">立即預訂</span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            </div>
+            break;
+        }
+
+        // ──────────────────────────────────────────────────────────
+        // 城市熱銷（promo_section，Figma 187:2：4 欄磚 + 圖片 + 價格）
+        // ──────────────────────────────────────────────────────────
+        case "promo_section":
+        case "promo_card":
+        case "promo":
+        {
+            <div id="@sec.Id" class="page-section page-section--promo">
+                @if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <div class="page-section__header">
+                        <h2 class="page-section__title">@sec.Title</h2>
+                        <a class="page-section__link" href="#">查看全部</a>
+                    </div>
+                }
+                <div class="ticket-city-grid">
+                    @foreach (var item in sec.Items)
+                    {
+                        var imgSrc = string.IsNullOrEmpty(item.ImageUrl) ? null
+                            : item.ImageUrl.StartsWith("http", StringComparison.OrdinalIgnoreCase)
+                                ? item.ImageUrl
+                                : Url.Content($"~/data/{DataFolder}/{item.ImageUrl}");
+                        <a class="ticket-city-tile" href="@(item.LinkUrl ?? "#")">
+                            @if (imgSrc != null)
+                            {
+                                <img class="ticket-city-tile__img"
+                                     src="@imgSrc"
+                                     alt="@item.Text"
+                                     loading="lazy" />
+                                <div class="ticket-city-tile__overlay"></div>
+                            }
+                            <div class="ticket-city-tile__body">
+                                @if (!string.IsNullOrEmpty(item.Text))
+                                {
+                                    <div class="ticket-city-tile__name">@item.Text</div>
+                                }
+                                @if (!string.IsNullOrEmpty(item.Price))
+                                {
+                                    <div class="ticket-city-tile__price">NT$ @item.Price</div>
+                                }
+                            </div>
+                        </a>
+                    }
+                </div>
+            </div>
+            break;
+        }
+
+        // ──────────────────────────────────────────────────────────
+        // 優惠專區（theme_section，Figma 195:2：5 欄卡片）
+        // ──────────────────────────────────────────────────────────
+        case "theme_section":
+        case "theme":
+        {
+            <div id="@sec.Id" class="page-section page-section--theme">
+                @if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <div class="page-section__header">
+                        <h2 class="page-section__title">@sec.Title</h2>
+                        <a class="page-section__link" href="#">查看全部</a>
+                    </div>
+                }
+                <div class="ticket-theme-grid">
+                    @foreach (var item in sec.Items)
+                    {
+                        var imgSrc = string.IsNullOrEmpty(item.ImageUrl) ? null
+                            : item.ImageUrl.StartsWith("http", StringComparison.OrdinalIgnoreCase)
+                                ? item.ImageUrl
+                                : Url.Content($"~/data/{DataFolder}/{item.ImageUrl}");
+                        <a class="product-card" href="@(item.LinkUrl ?? "#")">
+                            @if (imgSrc != null)
+                            {
+                                <div class="product-card__media">
+                                    <img src="@imgSrc" alt="@item.Text" loading="lazy" />
+                                </div>
+                            }
+                            <div class="product-card__body">
+                                <h3 class="product-card__title">@(item.Text ?? "優惠票券")</h3>
+                                @if (!string.IsNullOrEmpty(item.Price))
+                                {
+                                    <div class="product-card__price">NT$ @item.Price</div>
+                                }
+                                <span class="btn-cta">查看優惠</span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            </div>
+            break;
+        }
+
+        // ──────────────────────────────────────────────────────────
+        // Footer 連結
+        // ──────────────────────────────────────────────────────────
+        case "footer":
+        case "footer_links":
+        {
+            <div id="@sec.Id" class="page-section page-section--footer">
+                @await Html.PartialAsync("_Section_Footer", sec)
+            </div>
+            break;
+        }
+
+        default:
+        {
+            <div id="@sec.Id" class="page-section page-section--@sec.Type">
+                @if (!string.IsNullOrEmpty(sec.Title))
+                {
+                    <h2 class="page-section__title">@sec.Title</h2>
+                }
+                @await Html.PartialAsync("_Section_Generic", sec)
+            </div>
+            break;
+        }
+    }
+}
