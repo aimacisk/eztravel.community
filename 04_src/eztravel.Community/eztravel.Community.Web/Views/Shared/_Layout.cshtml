@@ -24,10 +24,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
                 <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">eztravel.community</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-expanded="false">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-expanded="false" aria-label="切換導覽列">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse">
@@ -35,7 +35,7 @@
                         @foreach (var c in categories)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="/category/@c.Slug">@c.Name</a>
+                                <a class="nav-link" href="/category/@c.Slug">@c.Name</a>
                             </li>
                         }
                     </ul>
@@ -50,9 +50,55 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - eztravel.community - <a asp-controller="Home" asp-action="Privacy">隱私權</a>
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__grid">
+
+                <!-- 欄一：品牌介紹 -->
+                <div>
+                    <div class="footer__brand-name">eztravel.community</div>
+                    <p class="footer__tagline">旅遊社群平台，探索機票、旅館、團體旅遊、自由行、票券、景點，與旅人分享最美的旅程。</p>
+                </div>
+
+                <!-- 欄二：旅遊服務 -->
+                <div>
+                    <div class="footer__col-title">旅遊服務</div>
+                    <ul class="footer__links">
+                        @foreach (var c in categories)
+                        {
+                            <li><a href="/category/@c.Slug">@c.Name</a></li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- 欄三：公司資訊 -->
+                <div>
+                    <div class="footer__col-title">公司資訊</div>
+                    <ul class="footer__links">
+                        <li><a asp-controller="Home" asp-action="Privacy">隱私權政策</a></li>
+                        <li><a href="#">服務條款</a></li>
+                        <li><a href="#">關於我們</a></li>
+                        <li><a href="#">聯絡我們</a></li>
+                    </ul>
+                </div>
+
+                <!-- 欄四：追蹤我們 -->
+                <div>
+                    <div class="footer__col-title">追蹤我們</div>
+                    <ul class="footer__links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LINE</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    &copy; 2026 eztravel.community &mdash; <a asp-controller="Home" asp-action="Privacy">隱私權政策</a>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
