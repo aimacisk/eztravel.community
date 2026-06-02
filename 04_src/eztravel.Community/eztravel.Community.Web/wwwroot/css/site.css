@@ -216,6 +216,9 @@ body {
 
 .banner-grid {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-3);
 }
 
 .banner-card {
@@ -252,6 +255,58 @@ body {
 
 .page-section--hero_banner .banner-card img {
   max-height: 400px;
+}
+
+/* Banner card 無圖 fallback:白底 + 翠綠左邊條 + 深色文字(完全避免翠綠 leak)
+   .no-image 由 site.js 在 img onerror / naturalWidth=0 時加入 */
+.banner-card.no-image,
+.banner-card:not(:has(img)) {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-left: 4px solid var(--color-brand-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-fast);
+}
+
+.banner-card.no-image:hover,
+.banner-card:not(:has(img)):hover {
+  box-shadow: var(--shadow-floating);
+}
+
+.banner-card.no-image .banner-card__caption,
+.banner-card:not(:has(img)) .banner-card__caption {
+  position: static;
+  background: none;
+  padding: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 無圖 banner caption 內字色翠綠連結色,維持品牌但對比足 */
+.banner-card.no-image .banner-card__caption,
+.banner-card.no-image,
+.banner-card:not(:has(img)) .banner-card__caption,
+.banner-card:not(:has(img)) {
+  color: var(--color-text-primary) !important;
+}
+
+/* hero_banner 內無圖時不要套翠綠 gradient(只在有圖時翠綠包覆) */
+.page-section--hero_banner:has(.banner-card.no-image) {
+  background: transparent;
+}
+
+/* product-card / promo-card / generic-item 也適用 no-image 灰底 fallback */
+.product-card.no-image .product-card__media,
+.promo-card.no-image,
+.generic-item.no-image {
+  background: var(--color-border-light);
+  min-height: 120px;
 }
 
 /* =============================================================
@@ -756,3 +811,203 @@ body {
 .destination-tile:nth-child(10n+8)  { background-color: var(--dest-tile-8); }
 .destination-tile:nth-child(10n+9)  { background-color: var(--dest-tile-9); }
 .destination-tile:nth-child(10n+10) { background-color: var(--dest-tile-10); }
+
+/* =============================================================
+   Product Detail Page (admin-patch:對齊 figma 88:471)
+   ============================================================= */
+
+.product-detail {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: var(--spacing-6) 0;
+}
+
+.product-detail__hero {
+  background: linear-gradient(135deg,
+    var(--color-brand-primary) 0%,
+    var(--color-brand-dark) 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-12) var(--spacing-8);
+  margin-bottom: var(--spacing-6);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-detail__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.product-detail__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 320px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-6);
+  box-shadow: var(--shadow-floating);
+}
+
+.product-detail__title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin: 0 0 var(--spacing-4) 0;
+  color: #ffffff;
+  position: relative;
+}
+
+.product-detail__desc {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Variant section (GroupTour / FreeTour / Hotel / Ticket / Attraction) */
+.variant {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6) var(--spacing-8);
+  margin-bottom: var(--spacing-6);
+  box-shadow: var(--shadow-card);
+  border-left: 4px solid var(--color-brand-primary);
+}
+
+.variant h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+.variant__meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.variant__meta li {
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+}
+
+.variant__meta strong {
+  color: var(--color-brand-dark);
+  margin-right: var(--spacing-2);
+}
+
+/* Community module slot (380px reserved area) */
+.product-detail__community {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+  box-shadow: var(--shadow-card);
+  min-height: 380px;
+}
+
+/* =============================================================
+   Identity Login / Register (admin-patch:對齊 figma Login frame)
+   ============================================================= */
+
+/* 偵測 Login/Register 頁:body 含 form action="/Identity/Account/Login" 或 Areas/Identity 路徑 */
+/* Login 頁 form#account 無 action 屬性,補 form#account selector */
+main[role="main"]:has(form[action*="/Identity/Account/Login"]),
+main[role="main"]:has(form[action*="/Identity/Account/Register"]),
+main[role="main"]:has(form#account),
+main[role="main"]:has(form#registerForm) {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: var(--spacing-12);
+  padding-bottom: var(--spacing-12);
+}
+
+main[role="main"]:has(form[action*="/Identity/Account/Login"]) > div,
+main[role="main"]:has(form[action*="/Identity/Account/Register"]) > div,
+main[role="main"]:has(form#account) > div,
+main[role="main"]:has(form#registerForm) > div {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-12) var(--spacing-8);
+  box-shadow: var(--shadow-floating);
+  max-width: 920px;
+  width: 100%;
+  border-top: 4px solid var(--color-brand-primary);
+}
+
+main[role="main"]:has(form[action*="/Identity/Account/Login"]) h1,
+main[role="main"]:has(form[action*="/Identity/Account/Register"]) h1,
+main[role="main"]:has(form#account) h1,
+main[role="main"]:has(form#registerForm) h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+main[role="main"]:has(form[action*="/Identity/Account/Login"]) h2,
+main[role="main"]:has(form[action*="/Identity/Account/Register"]) h2,
+main[role="main"]:has(form#account) h2,
+main[role="main"]:has(form#registerForm) h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-6);
+}
+
+/* Login input styling */
+main:has(form[action*="/Identity"]) .form-floating > .form-control {
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  padding: var(--spacing-4) var(--spacing-3) var(--spacing-3);
+  transition: border-color var(--transition-fast);
+}
+
+main:has(form[action*="/Identity"]) .form-floating > .form-control:focus {
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0 0 0.2rem rgba(17, 208, 115, 0.15);
+}
+
+/* Login button (Bootstrap btn-primary override) */
+main:has(form[action*="/Identity"]) .btn-primary,
+main:has(form[action*="/Identity"]) button[type="submit"] {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-3) var(--spacing-6);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+main:has(form[action*="/Identity"]) .btn-primary:hover,
+main:has(form[action*="/Identity"]) button[type="submit"]:hover {
+  background-color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+}
+
+/* Login secondary links 翠綠 */
+main:has(form[action*="/Identity"]) a {
+  color: var(--color-brand-dark);
+  text-decoration: none;
+}
+
+main:has(form[action*="/Identity"]) a:hover {
+  text-decoration: underline;
+}
