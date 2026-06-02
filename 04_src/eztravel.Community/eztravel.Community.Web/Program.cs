@@ -100,10 +100,11 @@ try
             db.Products.AddRange(
                 new Product { Id = 1, Name = "日本東京自由行 5 天 4 夜", Category = ProductCategory.FreeTour, Description = "含來回機票、飯店住宿，自由探索東京精華景點", CreatedAt = DateTime.UtcNow },
                 new Product { Id = 2, Name = "泰國曼谷團體深度旅遊", Category = ProductCategory.GroupTour, Description = "含機票、飯店、全程專業導遊陪同", CreatedAt = DateTime.UtcNow },
-                new Product { Id = 3, Name = "沖繩海濱飯店 3 晚自由行", Category = ProductCategory.Hotel, Description = "太平洋視野套房，含早餐，近美麗海水族館", CreatedAt = DateTime.UtcNow }
+                new Product { Id = 3, Name = "沖繩海濱飯店 3 晚自由行", Category = ProductCategory.Hotel, Description = "太平洋視野套房，含早餐，近美麗海水族館", CreatedAt = DateTime.UtcNow },
+                new Product { Id = 4, Name = "環球影城一日票", Category = ProductCategory.Ticket, Description = "成人票，一日暢遊主題樂園", CreatedAt = DateTime.UtcNow }
             );
             await db.SaveChangesAsync();
-            Log.Information("Development 種子資料注入完成（3 筆 Product）");
+            Log.Information("Development 種子資料注入完成（4 筆 Product）");
         }
     }
 
