@@ -712,7 +712,7 @@ gcloud iam service-accounts add-iam-policy-binding \
   github-actions-deployer@eztravel-community-prod.iam.gserviceaccount.com \
   --project=eztravel-community-prod \
   --role=roles/iam.workloadIdentityUser \
-  --member="principalSet://iam.googleapis.com/projects/{PROJECT_NUM}/locations/global/workloadIdentityPools/gh-pool/attribute.repository/micchang/eztravel.community"
+  --member="principalSet://iam.googleapis.com/projects/{PROJECT_NUM}/locations/global/workloadIdentityPools/gh-pool/attribute.repository/aimacisk/eztravel.community"
 ```
 
 ---

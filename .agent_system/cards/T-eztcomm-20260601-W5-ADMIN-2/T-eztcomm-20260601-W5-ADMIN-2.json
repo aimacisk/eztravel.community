@@ -8,15 +8,15 @@
   "assignee": "admin",
   "phase": "DEPLOY",
   "priority": "P2",
-  "instruction": "首次 GitHub repo 建立流程。需使用者授權 GitHub CLI (`gh auth login`)。\n\n【admin 動作清單 (等使用者授權後執行)】\n1. 確認 gh CLI 已安裝:winget install GitHub.cli (若未裝)\n2. 使用者跑 gh auth login (admin 不可代跑,須使用者授權)\n3. admin 跑:gh repo create micchang/eztravel.community --public --description \"EZTravel Community — 旅遊社群網站 (rebuild 2026-06-01)\"\n4. 在 projects/eztravel.community/ 設 remote:git remote add origin https://github.com/micchang/eztravel.community.git\n5. push initial commit:git push -u origin main\n6. 設定 GitHub Actions secrets (W5-ADMIN-1 完成後一併):GCP_PROJECT_ID / GCP_SA_KEY / CLOUD_SQL_CONNECTION_NAME / DB_PASSWORD\n\n【完工 marker】所有 6 步完成 + 雲端 repo URL 可訪問\n\n【觸發】\n此卡為 PENDING_USER_GH_AUTH 狀態,等使用者下訊息「我已授權 gh / 我已 gh auth login」後 admin 接力跑 1~6 步。",
+  "instruction": "首次 GitHub repo 建立流程。需使用者授權 GitHub CLI (`gh auth login`)。\n\n【admin 動作清單 (等使用者授權後執行)】\n1. 確認 gh CLI 已安裝:winget install GitHub.cli (若未裝)\n2. 使用者跑 gh auth login (admin 不可代跑,須使用者授權)\n3. admin 跑:gh repo create aimacisk/eztravel.community --public --description \"EZTravel Community — 旅遊社群網站 (rebuild 2026-06-01)\"\n4. 在 projects/eztravel.community/ 設 remote:git remote add origin https://github.com/aimacisk/eztravel.community.git\n5. push initial commit:git push -u origin main\n6. 設定 GitHub Actions secrets (W5-ADMIN-1 完成後一併):GCP_PROJECT_ID / GCP_SA_KEY / CLOUD_SQL_CONNECTION_NAME / DB_PASSWORD\n\n【完工 marker】所有 6 步完成 + 雲端 repo URL 可訪問\n\n【觸發】\n此卡為 PENDING_USER_GH_AUTH 狀態,等使用者下訊息「我已授權 gh / 我已 gh auth login」後 admin 接力跑 1~6 步。",
   "context_paths": [],
   "depends_on": [],
   "objective": "在使用者授權 GitHub CLI 後,建立 eztravel.community 雲端 repo 並推 initial commit,為 W5 CI/CD 提供 deploy target。",
-  "goal_state": "https://github.com/micchang/eztravel.community 雲端可訪問 + local main 已 push + Actions secrets 設定 placeholder。",
+  "goal_state": "https://github.com/aimacisk/eztravel.community 雲端可訪問 + local main 已 push + Actions secrets 設定 placeholder。",
   "verification": {
     "checks": [
       "gh auth status 返 logged in",
-      "gh repo view micchang/eztravel.community 返 repo 存在",
+      "gh repo view aimacisk/eztravel.community 返 repo 存在",
       "cd projects/eztravel.community && git remote -v 返 origin URL",
       "git ls-remote origin main 返 commit hash"
     ]

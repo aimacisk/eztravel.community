@@ -31,3 +31,6 @@ data/_cache/
 
 # wwwroot uploads (W4 runtime)
 04_src/eztravel.Community/eztravel.Community.Web/wwwroot/uploads/
+
+# admin local GCP context (per-developer machine state)
+.gcp_project_id

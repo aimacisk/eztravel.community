@@ -1,0 +1,208 @@
+{
+  "_meta": {
+    "project": "eztravel.community",
+    "figma_file_key": "6XmYJOpiSXab2gtGlmWtks",
+    "figma_file_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design",
+    "generated_by": "UIUX agent T-eztcomm-20260601-W2-UIUX-10",
+    "generated_at": "2026-06-02",
+    "description": "W2 全頁面 nodeId 索引，供 PG (W4-PG-2/3/4) 快速定位 Razor 實作節點，W3-UIUX-1 定位 Community slot"
+  },
+  "file": {
+    "key": "6XmYJOpiSXab2gtGlmWtks",
+    "name": "eztravel.community design",
+    "url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/eztravel.community-design"
+  },
+  "pages": {
+    "tokens": {
+      "page_name": "Tokens",
+      "description": "Design Token 視覺化：色票 / Typography / Spacing",
+      "primary_node": "1:2",
+      "nodes": {
+        "1:2":   { "name": "Page Background",        "type": "FRAME",     "desc": "Tokens 頁容器" },
+        "1:6":   { "name": "Brand Primary",          "type": "RECTANGLE", "token": "color.brand.primary", "value": "#11D073" },
+        "1:12":  { "name": "Brand Dark",             "type": "RECTANGLE", "token": "color.brand.dark",    "value": "#0C9251" },
+        "1:18":  { "name": "Brand Light",            "type": "RECTANGLE", "token": "color.brand.light",   "value": "#E7FAF1" },
+        "1:24":  { "name": "Brand Mint",             "type": "RECTANGLE", "token": "color.brand.mint",    "value": "#CFF6E3" },
+        "1:33":  { "name": "Neutral 900",            "type": "RECTANGLE", "token": "color.neutral.900",   "value": "#222222" },
+        "1:42":  { "name": "Neutral 700",            "type": "RECTANGLE", "token": "color.neutral.700",   "value": "#444444" },
+        "1:51":  { "name": "Neutral 500",            "type": "RECTANGLE", "token": "color.neutral.500",   "value": "#666666" },
+        "1:57":  { "name": "Neutral 400",            "type": "RECTANGLE", "token": "color.neutral.400",   "value": "#999999" },
+        "1:63":  { "name": "Neutral 300",            "type": "RECTANGLE", "token": "color.neutral.300",   "value": "#CCCCCC" },
+        "1:69":  { "name": "Neutral 200",            "type": "RECTANGLE", "token": "color.neutral.200",   "value": "#E8E8E8" },
+        "1:75":  { "name": "Neutral 100",            "type": "RECTANGLE", "token": "color.neutral.100",   "value": "#FAFAFA" },
+        "1:84":  { "name": "Accent Orange",          "type": "RECTANGLE", "token": "color.accent.orange", "value": "#FF8B00" },
+        "1:93":  { "name": "Accent Yellow",          "type": "RECTANGLE", "token": "color.accent.yellow", "value": "#FAB617" },
+        "1:102": { "name": "Accent Red",             "type": "RECTANGLE", "token": "color.accent.red",    "value": "#FF7777" },
+        "1:111": { "name": "Typography Block",       "type": "FRAME",     "desc": "7 層字型 Display 40px → Caption 11px" },
+        "1:132": { "name": "Spacing Row 1",          "type": "FRAME",     "desc": "spacing.1~4 視覺化" },
+        "1:135": { "name": "Spacing Row 2",          "type": "FRAME",     "desc": "spacing.6~12 視覺化" }
+      }
+    },
+    "home": {
+      "page_node": "107:2",
+      "page_name": "Home",
+      "description": "首頁完整設計",
+      "primary_node": "153:2",
+      "size": "1440x4164",
+      "nodes": {
+        "153:2":  { "name": "Home Page Wrapper",      "type": "FRAME",     "desc": "整頁容器 1440×4164" },
+        "153:3":  { "name": "Hero Section",           "type": "FRAME",     "desc": "Hero + 搜尋框，翠綠漸層背景" },
+        "153:20": { "name": "Category Navigation",   "type": "FRAME",     "desc": "6 分類快速入口（機票/旅館/自由行/團體/票券/景點）" },
+        "153:40": { "name": "Hot Products",          "type": "FRAME",     "desc": "熱門商品卡片區" },
+        "153:60": { "name": "Promotion Banner",      "type": "FRAME",     "desc": "促銷橫幅" },
+        "160:72": { "name": "Footer",                "type": "FRAME",     "desc": "頁尾連結 + 版權" }
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=107:2"
+    },
+    "flight": {
+      "page_node": "100:2",
+      "page_name": "Category 機票",
+      "description": "機票分類列表頁（v7 rebuild）",
+      "primary_node": "180:2",
+      "size": "1440x1453",
+      "nodes": {
+        "180:2":  { "name": "Flight Listing Wrapper", "type": "FRAME", "desc": "整頁容器 1440×1453（v7 rebuild）" },
+        "180:3":  { "name": "Breadcrumb",             "type": "FRAME", "desc": "麵包屑導覽" },
+        "180:10": { "name": "Search Filter Bar",      "type": "FRAME", "desc": "航班搜尋：出發地 / 目的地 / 日期" },
+        "180:30": { "name": "Filter Chips",           "type": "FRAME", "desc": "航空公司 / 直飛 / 時段 chip filter" },
+        "180:50": { "name": "Flight Card List",       "type": "FRAME", "desc": "FlightCard 水平排列（航班資訊卡）" },
+        "185:10": { "name": "Pagination",             "type": "FRAME", "desc": "分頁器" },
+        "185:14": { "name": "Footer",                 "type": "FRAME", "desc": "頁尾" }
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=100:2"
+    },
+    "hotel": {
+      "page_node": "119:2",
+      "page_name": "Category 旅館",
+      "description": "旅館分類列表頁",
+      "primary_node": "119:2",
+      "nodes": {
+        "119:2":   { "name": "Hotel Listing Page",   "type": "FRAME", "desc": "整頁容器" },
+        "119:3":   { "name": "Header + Breadcrumb",  "type": "FRAME", "desc": "導覽區" },
+        "119:20":  { "name": "Filter Bar",           "type": "FRAME", "desc": "星級 / 設施 / 價格篩選" },
+        "120:5":   { "name": "Hotel Card Grid",      "type": "FRAME", "desc": "旅館卡片格線" },
+        "120:50":  { "name": "Map Toggle",           "type": "FRAME", "desc": "地圖 / 列表切換按鈕" },
+        "121:100": { "name": "Pagination",           "type": "FRAME", "desc": "分頁器" },
+        "121:150": { "name": "Footer",               "type": "FRAME", "desc": "頁尾" }
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=119:2"
+    },
+    "freetour": {
+      "page_node": "127:2",
+      "page_name": "Category 自由行",
+      "description": "自由行分類列表頁",
+      "primary_node": "127:2",
+      "nodes": {
+        "127:2":  { "name": "FreeTour Listing Page", "type": "FRAME", "desc": "整頁容器" },
+        "127:3":  { "name": "Header",               "type": "FRAME", "desc": "導覽 + 麵包屑" },
+        "127:20": { "name": "Filter Bar",           "type": "FRAME", "desc": "出發城市 / 天數 / 預算篩選" },
+        "128:10": { "name": "Package Card Grid",    "type": "FRAME", "desc": "自由行套裝卡片格線" },
+        "129:10": { "name": "Pagination",           "type": "FRAME", "desc": "分頁器" },
+        "129:33": { "name": "Footer",               "type": "FRAME", "desc": "頁尾" }
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=127:2"
+    },
+    "grouptour": {
+      "page_node": "130:2",
+      "page_name": "Category 團體",
+      "description": "團體旅遊分類列表頁",
+      "primary_node": "130:2",
+      "nodes": {
+        "130:2":   { "name": "GroupTour Listing Page", "type": "FRAME", "desc": "整頁容器" },
+        "130:3":   { "name": "Header + Date Picker",   "type": "FRAME", "desc": "月曆式出發日期" },
+        "130:50":  { "name": "TourCard List",          "type": "FRAME", "desc": "TourCard 垂直列表（共 8 個子項目）" },
+        "130:100": { "name": "TourCard Children",      "type": "FRAME", "desc": "TourCard 子元素區（8 卡）" },
+        "130:139": { "name": "Footer",                 "type": "FRAME", "desc": "頁尾" }
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=130:2"
+    },
+    "ticket": {
+      "page_node": "187:2",
+      "page_name": "Category 票券",
+      "description": "票券分類列表頁",
+      "primary_node": "187:3",
+      "size": "1440x1818",
+      "nodes": {
+        "187:3":  { "name": "Ticket Listing Wrapper", "type": "FRAME", "desc": "整頁容器 1440×1818" },
+        "187:4":  { "name": "Header + Breadcrumb",   "type": "FRAME", "desc": "導覽區" },
+        "187:20": { "name": "Region Filter Chips",   "type": "FRAME", "desc": "地區 chip 篩選列" },
+        "188:10": { "name": "Ticket Card Grid",      "type": "FRAME", "desc": "票券卡片格線（有效期 badge）" },
+        "194:10": { "name": "Promotion Section",     "type": "FRAME", "desc": "促銷票券 highlight" },
+        "195:10": { "name": "Pagination",            "type": "FRAME", "desc": "分頁器" },
+        "195:30": { "name": "Footer",                "type": "FRAME", "desc": "頁尾" }
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=187:2"
+    },
+    "attraction": {
+      "page_node": "144:2",
+      "page_name": "Category 景點",
+      "description": "景點分類列表頁",
+      "primary_node": "144:2",
+      "size": "1440x1352",
+      "nodes": {
+        "144:2":  { "name": "Attraction Page Wrapper", "type": "FRAME", "desc": "整頁容器 1440×1352" },
+        "144:3":  { "name": "Header + Type Chips",    "type": "FRAME", "desc": "景點類型 chip 篩選" },
+        "176:2":  { "name": "Attraction Card Grid",   "type": "FRAME", "desc": "景點卡片格線" },
+        "144:18": { "name": "Featured Section",       "type": "FRAME", "desc": "精選景點 banner" },
+        "144:74": { "name": "Footer",                 "type": "FRAME", "desc": "頁尾" }
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=144:2"
+    },
+    "product_detail": {
+      "page_node": "88:2",
+      "page_name": "Product Detail",
+      "description": "商品詳細頁主版（4 類型 variant + Community slot）",
+      "primary_node": "88:471",
+      "notes": "4 variant 以 ComponentSet 組織（2×2 grid）；每 variant 含 Community_Area slot（380px）供 W3 instance",
+      "nodes": {
+        "88:471": { "name": "Product Detail ComponentSet", "type": "COMPONENT_SET", "size": "3000x3280", "desc": "4 variant 主版容器" },
+        "88:3":   { "name": "Category=GroupTour",          "type": "COMPONENT",     "size": "1440x1600", "desc": "團體旅遊詳情；差異區：天數 / 行程 / 出發日" },
+        "88:123": { "name": "Category=FreeTour",           "type": "COMPONENT",     "size": "1440x1600", "desc": "自由行詳情；差異區：自選行程 / 住宿等級" },
+        "88:243": { "name": "Category=Hotel",              "type": "COMPONENT",     "size": "1440x1600", "desc": "旅館詳情；差異區：星級 / 房型 / 設施" },
+        "88:355": { "name": "Category=Ticket",             "type": "COMPONENT",     "size": "1440x1600", "desc": "票券詳情；差異區：有效期 / 使用規則" },
+        "156:138":{ "name": "Product Detail Mobile ComponentSet", "type": "COMPONENT_SET", "size": "800x900 ×4", "desc": "行動版 4 variant 容器" },
+        "156:2":  { "name": "Mobile GroupTour",            "type": "COMPONENT",     "size": "800x900", "desc": "行動版團體" },
+        "156:36": { "name": "Mobile FreeTour",             "type": "COMPONENT",     "size": "800x900", "desc": "行動版自由行" },
+        "156:70": { "name": "Mobile Hotel",                "type": "COMPONENT",     "size": "800x900", "desc": "行動版旅館" },
+        "156:104":{ "name": "Mobile Ticket",               "type": "COMPONENT",     "size": "800x900", "desc": "行動版票券" }
+      },
+      "community_slot": {
+        "location": "每 variant 下半段 Community_Area 區塊",
+        "height": "380px",
+        "note": "W3-UIUX-2 依此 slot 位置 instance Community Module；W4-PG-3 在 ProductDetail Razor view 保留此空白區"
+      },
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:2"
+    }
+  },
+  "quick_reference": {
+    "pg_w4_pg2_home": {
+      "task": "W4-PG-2 Home Razor 實作",
+      "primary_nodes": ["153:2", "153:3", "153:20", "153:40"],
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=107:2"
+    },
+    "pg_w4_pg3_product_detail": {
+      "task": "W4-PG-3 ProductDetail Razor 實作",
+      "primary_nodes": ["88:471", "88:3", "88:123", "88:243", "88:355"],
+      "community_slot_note": "Community_Area 380px 保留空白，不實作 Community 功能（W3 scope）",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:2"
+    },
+    "pg_w4_pg4_category_listings": {
+      "task": "W4-PG-4 Category Listing Razor 實作（6 頁）",
+      "pages": {
+        "flight":     { "page_node": "100:2", "primary": "180:2" },
+        "hotel":      { "page_node": "119:2", "primary": "119:2" },
+        "freetour":   { "page_node": "127:2", "primary": "127:2" },
+        "grouptour":  { "page_node": "130:2", "primary": "130:2" },
+        "ticket":     { "page_node": "187:2", "primary": "187:3" },
+        "attraction": { "page_node": "144:2", "primary": "144:2" }
+      }
+    },
+    "w3_uiux1_community_slot": {
+      "task": "W3-UIUX-1 Community Module 視覺語言設計",
+      "community_slot_node": "88:471（內每 variant 的 Community_Area 子區塊）",
+      "slot_height": "380px",
+      "slot_position": "ProductDetail 頁面下半段（Hero + MainContent + Community_Area + Recommendation + Footer）",
+      "figma_url": "https://www.figma.com/file/6XmYJOpiSXab2gtGlmWtks/?node-id=88:2"
+    }
+  }
+}

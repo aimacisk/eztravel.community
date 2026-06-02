@@ -63,7 +63,7 @@
       "status": "TODO",
       "title": "W5 首次 [release] commit + Cloud Run smoke test — AC-6 / AC-7 驗收",
       "created_at": "2026-06-01T09:04:47.496708+00:00"
-    },
+    }
   ],
   "schema_version": "v0.53",
   "IN_PROGRESS": [],
