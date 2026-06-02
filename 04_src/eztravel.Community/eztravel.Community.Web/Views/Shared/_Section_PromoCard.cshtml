@@ -5,6 +5,10 @@
     @foreach (var item in Model.Items)
     {
         <a class="promo-card" href="@item.LinkUrl">
+            @if (!string.IsNullOrEmpty(item.Badge))
+            {
+                <span class="promo-card__badge">@item.Badge</span>
+            }
             @if (!string.IsNullOrEmpty(item.ImageUrl))
             {
                 <img src="@item.ImageUrl" alt="@item.Text" loading="lazy" />

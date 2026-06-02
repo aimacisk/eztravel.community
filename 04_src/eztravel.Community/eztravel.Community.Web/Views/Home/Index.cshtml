@@ -19,12 +19,14 @@ else
             }
             @switch (sec.Type)
             {
+                case "hero_banner":
                 case "banner":
                 case "banner_carousel":
                     @await Html.PartialAsync("_Section_Banner", sec)
                     break;
                 case "category_nav":
                 case "navigation":
+                case "quick_links":
                     @await Html.PartialAsync("_Section_CategoryNav", sec)
                     break;
                 case "featured_items":
@@ -34,6 +36,7 @@ else
                     break;
                 case "promo_card":
                 case "promo":
+                case "promo_section":
                     @await Html.PartialAsync("_Section_PromoCard", sec)
                     break;
                 case "search_bar":
