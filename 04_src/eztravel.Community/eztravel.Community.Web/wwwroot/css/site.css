@@ -1,5 +1,78 @@
+/* =============================================================
+   eztravel.community — CSS Foundation
+   T-eztcomm-20260602-R1: tokens.json → CSS Custom Properties
+   Source: skills/styling/tokens.json (W3C Design Token v1.0.0)
+   ============================================================= */
+
+:root {
+  /* ─── Color tokens（16 個）─── */
+  --color-brand-primary:  #11D073;
+  --color-brand-dark:     #0DA862;
+  --color-brand-light:    #6FEBA9;
+  --color-accent-coral:   #FF6B6B;
+  --color-accent-sky:     #4ECDC4;
+  --color-bg-primary:     #F1F7F8;
+  --color-bg-card:        #FFFFFF;
+  --color-bg-overlay:     rgba(0, 0, 0, 0.5);
+  --color-text-primary:   #1A2B3C;
+  --color-text-secondary: #5A7184;
+  --color-text-muted:     #9BABB8;
+  --color-border-light:   #E8F0F3;
+  --color-border-medium:  #C5D5DC;
+  --color-status-success: #11D073;
+  --color-status-warning: #FFB800;
+  --color-status-error:   #FF4757;
+
+  /* ─── Font Family（2 個）─── */
+  --font-family-primary: 'Noto Sans TC', 'Inter', sans-serif;
+  --font-family-display: 'Noto Sans TC', serif;
+
+  /* ─── Font Size（7 個：xs → 4xl）─── */
+  --font-size-xs:   11px;   /* caption  */
+  --font-size-sm:   12px;   /* small    */
+  --font-size-base: 14px;   /* body     */
+  --font-size-lg:   18px;   /* h4       */
+  --font-size-xl:   22px;   /* h3       */
+  --font-size-2xl:  28px;   /* h2       */
+  --font-size-4xl:  40px;   /* display  */
+
+  /* ─── Font Weight（3 個）─── */
+  --font-weight-regular: 400;
+  --font-weight-medium:  500;
+  --font-weight-bold:    700;
+
+  /* ─── Spacing（7 個）─── */
+  --spacing-1:  4px;
+  --spacing-2:  8px;
+  --spacing-3:  12px;
+  --spacing-4:  16px;
+  --spacing-6:  24px;
+  --spacing-8:  32px;
+  --spacing-12: 48px;
+
+  /* ─── Border Radius（4 個）─── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-full: 9999px;
+
+  /* ─── Shadow（2 個）─── */
+  --shadow-card:     0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  /* ─── Transition（2 個）─── */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+}
+
+/* =============================================================
+   Base HTML
+   ============================================================= */
+
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,15 +81,103 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
+/* =============================================================
+   Body — 全域背景 + 字型
+   ============================================================= */
 
 body {
+  background-color: var(--color-bg-primary); /* #F1F7F8 */
+  font-family: var(--font-family-primary);
+  color: var(--color-text-primary);
   margin-bottom: 60px;
+}
+
+/* =============================================================
+   Navbar — 品牌綠 #11D073
+   ============================================================= */
+
+.navbar {
+  background-color: var(--color-brand-primary) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+/* =============================================================
+   Buttons
+   ============================================================= */
+
+.btn-primary {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: #ffffff;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+  color: #ffffff;
+}
+
+/* Focus ring（覆寫 Bootstrap 預設藍 #258cfb）*/
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white,
+              0 0 0 0.25rem var(--color-brand-primary);
+}
+
+/* =============================================================
+   Cards
+   ============================================================= */
+
+.card {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  background-color: var(--color-bg-card);
+  border-color: var(--color-border-light);
+  transition: box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-floating);
+}
+
+/* =============================================================
+   Price / CTA
+   ============================================================= */
+
+.price {
+  color: var(--color-brand-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* =============================================================
+   Typography Helpers
+   ============================================================= */
+
+.text-brand    { color: var(--color-brand-primary) !important; }
+.text-muted    { color: var(--color-text-muted) !important; }
+
+/* =============================================================
+   Footer
+   ============================================================= */
+
+.footer {
+  background-color: var(--color-bg-card);
+  color: var(--color-text-muted);
 }
