@@ -1,0 +1,435 @@
+@using EzTravel.Community.Web.Models.ViewModels
+@using System.Linq
+@model PageDataViewModel
+
+@{
+    ViewData["Title"] = "景點";
+    var searchSec   = Model.Sections.FirstOrDefault(s => s.Type == "search_bar");
+    var heroSec     = Model.Sections.FirstOrDefault(s => s.Type == "hero_banner");
+    var catNavSec   = Model.Sections.FirstOrDefault(s => s.Type == "category_nav");
+    var featuredSec = Model.Sections.FirstOrDefault(s => s.Type == "featured_items");
+    var destSec     = Model.Sections.FirstOrDefault(s => s.Type == "destination_grid");
+    var themeSec    = Model.Sections.FirstOrDefault(s => s.Type == "theme_section");
+}
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   景點分類頁 — Attraction.cshtml
+   T-eztcomm-20260602-W6PG-CAT-ATTRACTION
+   All colors via CSS variables — no hardcoded hex
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Search Bar ── */
+.attr-search {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+    box-shadow: var(--shadow-card);
+}
+.attr-search__tabs {
+    display: flex;
+    gap: var(--spacing-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-3);
+}
+.attr-search__tab {
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-full);
+    background-color: transparent;
+    border: 1px solid var(--color-border-medium);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+.attr-search__tab:hover,
+.attr-search__tab.active {
+    background-color: var(--color-brand-primary);
+    border-color: var(--color-brand-primary);
+    color: var(--color-bg-card);
+    text-decoration: none;
+}
+.attr-search__input-row {
+    display: flex;
+    gap: var(--spacing-2);
+    flex-wrap: wrap;
+    align-items: center;
+}
+.attr-search__input {
+    flex: 1;
+    min-width: 130px;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-primary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition-fast);
+}
+.attr-search__input:focus {
+    outline: none;
+    border-color: var(--color-brand-primary);
+}
+.attr-search__btn {
+    padding: var(--spacing-2) var(--spacing-6);
+    background-color: var(--color-brand-primary);
+    color: var(--color-bg-card);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--transition-fast);
+}
+.attr-search__btn:hover { background-color: var(--color-brand-dark); }
+
+/* ── Section Title ── */
+.attr-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+    margin-top: var(--spacing-8);
+}
+
+/* ── Hero Banner Grid ── */
+.attr-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-6);
+}
+@@media (max-width: 991px) {
+    .attr-hero-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@@media (max-width: 575px) {
+    .attr-hero-grid { grid-template-columns: 1fr; }
+}
+.attr-hero-card {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-border-light);
+    text-decoration: none;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.attr-hero-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-floating);
+    text-decoration: none;
+}
+.attr-hero-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.attr-hero-card__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-2) var(--spacing-3);
+    background: linear-gradient(transparent, var(--color-bg-overlay));
+    color: var(--color-bg-card);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.4;
+}
+.attr-hero-card--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* ── Filter Pills (Category Nav) ── */
+.attr-pills {
+    display: flex;
+    gap: var(--spacing-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-6);
+}
+.attr-pill {
+    padding: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--radius-full);
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-brand-primary);
+    color: var(--color-brand-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+.attr-pill:hover {
+    background-color: var(--color-brand-primary);
+    color: var(--color-bg-card);
+    text-decoration: none;
+}
+
+/* ── Product Card Grid (主題企劃 / 高雄出發) ── */
+.attr-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+}
+@@media (max-width: 991px) {
+    .attr-product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@@media (max-width: 575px) {
+    .attr-product-grid { grid-template-columns: 1fr; }
+}
+.attr-product-card {
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-light);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+.attr-product-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-2px);
+}
+.attr-product-card__img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background-color: var(--color-bg-primary);
+}
+.attr-product-card__placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+.attr-product-card__body {
+    padding: var(--spacing-3) var(--spacing-4) var(--spacing-4);
+}
+.attr-product-card__title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+    min-height: 2.1em;
+}
+.attr-product-card__price {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent-orange);
+    margin-bottom: var(--spacing-3);
+}
+.attr-product-card__cta {
+    display: inline-block;
+    padding: var(--spacing-1) var(--spacing-4);
+    background-color: var(--color-brand-primary);
+    color: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+    line-height: 1.8;
+}
+.attr-product-card__cta:hover {
+    background-color: var(--color-brand-dark);
+    color: var(--color-bg-card);
+    text-decoration: none;
+}
+
+/* ── Destination Grid (台中出發 — no images) ── */
+.attr-dest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-8);
+}
+@@media (max-width: 767px) {
+    .attr-dest-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@@media (max-width: 575px) {
+    .attr-dest-grid { grid-template-columns: 1fr; }
+}
+.attr-dest-card {
+    display: block;
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border-light);
+    border-left: 3px solid var(--color-brand-primary);
+    padding: var(--spacing-4);
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+.attr-dest-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+.attr-dest-card__title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-1);
+    line-height: 1.4;
+}
+.attr-dest-card__price {
+    font-size: var(--font-size-sm);
+    color: var(--color-accent-orange);
+    font-weight: var(--font-weight-medium);
+}
+</style>
+
+<div class="container py-4">
+
+    @* ── Search Bar ── *@
+    @if (searchSec != null && searchSec.Items.Any())
+    {
+        <div class="attr-search">
+            <div class="attr-search__tabs">
+                @foreach (var tab in searchSec.Items.Take(4))
+                {
+                    <a href="@tab.LinkUrl" class="attr-search__tab @(tab == searchSec.Items.First() ? "active" : "")">@tab.Text</a>
+                }
+            </div>
+            <div class="attr-search__input-row">
+                @foreach (var field in searchSec.Items.Skip(4).Take(3))
+                {
+                    <input type="text" class="attr-search__input" placeholder="@field.Text" />
+                }
+                <button class="attr-search__btn">搜尋</button>
+            </div>
+        </div>
+    }
+
+    @* ── Hero Banner Grid (熱搜活動) ── *@
+    @if (heroSec != null && heroSec.Items.Any())
+    {
+        <h2 class="attr-title">熱搜活動</h2>
+        <div class="attr-hero-grid">
+            @foreach (var item in heroSec.Items.Take(8))
+            {
+                <a href="@item.LinkUrl" class="attr-hero-card">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="/data/景點/@item.ImageUrl" alt="@item.Text" loading="lazy" />
+                    }
+                    else
+                    {
+                        <div class="attr-hero-card attr-hero-card--placeholder">@item.Text</div>
+                    }
+                    <div class="attr-hero-card__label">@item.Text</div>
+                </a>
+            }
+        </div>
+    }
+
+    @* ── Filter Pills (category_nav) ── *@
+    @if (catNavSec != null && catNavSec.Items.Any())
+    {
+        <div class="attr-pills">
+            @foreach (var pill in catNavSec.Items)
+            {
+                <a href="@pill.LinkUrl" class="attr-pill">@pill.Text</a>
+            }
+        </div>
+    }
+
+    @* ── Featured Items (主題企劃) ── *@
+    @if (featuredSec != null && featuredSec.Items.Any())
+    {
+        <h2 class="attr-title">@featuredSec.Title</h2>
+        <div class="attr-product-grid">
+            @foreach (var item in featuredSec.Items.Take(6))
+            {
+                <div class="attr-product-card">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="/data/景點/@item.ImageUrl" alt="@item.Text" class="attr-product-card__img" loading="lazy" />
+                    }
+                    else
+                    {
+                        <div class="attr-product-card__placeholder">@item.Text</div>
+                    }
+                    <div class="attr-product-card__body">
+                        <div class="attr-product-card__title">@item.Text</div>
+                        @if (!string.IsNullOrEmpty(item.Price))
+                        {
+                            <div class="attr-product-card__price">NT$ @item.Price</div>
+                        }
+                        <a href="@item.LinkUrl" class="attr-product-card__cta">立即預訂</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    @* ── Destination Grid (台中出發 — no images) ── *@
+    @if (destSec != null && destSec.Items.Any())
+    {
+        <h2 class="attr-title">@destSec.Title</h2>
+        <div class="attr-dest-grid">
+            @foreach (var item in destSec.Items)
+            {
+                <a href="@item.LinkUrl" class="attr-dest-card">
+                    <div class="attr-dest-card__title">@item.Text</div>
+                    @if (!string.IsNullOrEmpty(item.Price))
+                    {
+                        <div class="attr-dest-card__price">NT$ @item.Price</div>
+                    }
+                </a>
+            }
+        </div>
+    }
+
+    @* ── Theme Section (高雄出發 — with images) ── *@
+    @if (themeSec != null && themeSec.Items.Any())
+    {
+        <h2 class="attr-title">@themeSec.Title</h2>
+        <div class="attr-product-grid">
+            @foreach (var item in themeSec.Items)
+            {
+                <div class="attr-product-card">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="/data/景點/@item.ImageUrl" alt="@item.Text" class="attr-product-card__img" loading="lazy" />
+                    }
+                    else
+                    {
+                        <div class="attr-product-card__placeholder">@item.Text</div>
+                    }
+                    <div class="attr-product-card__body">
+                        <div class="attr-product-card__title">@item.Text</div>
+                        @if (!string.IsNullOrEmpty(item.Price))
+                        {
+                            <div class="attr-product-card__price">NT$ @item.Price</div>
+                        }
+                        <a href="@item.LinkUrl" class="attr-product-card__cta">查看詳情</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+</div>
